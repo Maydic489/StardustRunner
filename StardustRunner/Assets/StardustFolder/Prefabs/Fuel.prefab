@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 2559022946715029906}
   - component: {fileID: 6367454555158857308}
   - component: {fileID: 4276901116730561887}
+  - component: {fileID: 1373574358}
   m_Layer: 0
   m_Name: Fuel
   m_TagString: Untagged
@@ -165,8 +166,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4a6617bb2a239047a2242ac9b1cc531, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Speed: 5
+  Speed: 10
   Acceleration: 0
   Direction: {x: 0, y: 0, z: -1}
   DirectionCanBeChangedBySpawner: 1
   MovementSpace: 0
+--- !u!114 &1373574358
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8305195348323541262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4899604c2c9d6fc409d5b761bf52e6a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PickEffect: {fileID: 4916588861702059318, guid: 9fbf312eeab104c4c818f473dc785fda,
+    type: 3}
+  PickSoundFx: {fileID: 0}
+  fuelToAdd: 50

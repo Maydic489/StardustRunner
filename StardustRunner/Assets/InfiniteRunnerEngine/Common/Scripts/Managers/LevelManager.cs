@@ -33,6 +33,7 @@ namespace MoreMountains.InfiniteRunnerEngine
 		public float RunningTime { get; protected set; }
 	    /// the amount of points a player gets per second
 	    public float PointsPerSecond = 20;
+		public float FuelPerSecond = -1f;
 	    /// the text that will be shown (if not empty) at the start of the level
 		[Multiline]
 	    public String InstructionsText;
@@ -109,6 +110,7 @@ namespace MoreMountains.InfiniteRunnerEngine
 			_started = DateTime.UtcNow;
 	        GameManager.Instance.SetStatus(GameManager.GameStatus.BeforeGameStart);
 	        GameManager.Instance.SetPointsPerSecond(PointsPerSecond);
+			GameManager.Instance.SetFuelPerSecond(FuelPerSecond);
 
 	        if (GUIManager.Instance != null) 
 	        { 
@@ -177,6 +179,7 @@ namespace MoreMountains.InfiniteRunnerEngine
 	    {
 	        GameManager.Instance.SetStatus(GameManager.GameStatus.GameInProgress);
 			GameManager.Instance.AutoIncrementScore(true);
+			GameManager.Instance.AutoDecrementFuel(true);
 			MMEventManager.TriggerEvent(new MMGameEvent("GameStart"));
 	    }
 

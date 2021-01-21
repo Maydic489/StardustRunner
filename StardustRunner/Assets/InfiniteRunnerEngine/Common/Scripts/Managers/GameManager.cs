@@ -17,6 +17,8 @@ namespace MoreMountains.InfiniteRunnerEngine
 	    public int CurrentLives { get; protected set;  }
 		/// the current number of game points
 		public float Points { get; protected set; }
+		/// game fuel point
+		public float FuelPoints { get; protected set; }
 		/// the current time scale
 		public float TimeScale = 1;
 	    /// the various states the game can be in
@@ -32,8 +34,10 @@ namespace MoreMountains.InfiniteRunnerEngine
 	    protected float _savedTimeScale;
 	    protected IEnumerator _scoreCoroutine;
 	    protected float _pointsPerSecond;
+		protected float _fuelPerSecond;
 	    protected GameStatus _statusBeforePause;
 		protected Coroutine _autoIncrementCoroutine;
+		protected Coroutine _autoDecrementCoroutine;
 
 		/// <summary>
 		/// Initialization
@@ -42,6 +46,7 @@ namespace MoreMountains.InfiniteRunnerEngine
 		{
 			Application.targetFrameRate = 300;
 	        CurrentLives = TotalLives;
+			FuelPoints = 50;
 	        _savedTimeScale = TimeScale;
 	        Time.timeScale = TimeScale;
 	        if (GUIManager.Instance!=null)
@@ -54,7 +59,12 @@ namespace MoreMountains.InfiniteRunnerEngine
 	    {
 	        _pointsPerSecond = newPointsPerSecond;
 	    }
-		
+
+		public virtual void SetFuelPerSecond(float newFuelPerSecond)
+		{
+			_fuelPerSecond = newFuelPerSecond;
+		}
+
 		/// <summary>
 		/// Sets the status. Status can be accessed by other classes to check if the game is paused, starting, etc
 		/// </summary>
@@ -71,10 +81,12 @@ namespace MoreMountains.InfiniteRunnerEngine
 		public virtual void Reset()
 		{
 			Points = 0;
+			FuelPoints = 50;
 			TimeScale = 1f;
 			GameManager.Instance.SetStatus(GameStatus.GameInProgress);
 			MMEventManager.TriggerEvent(new MMGameEvent("GameStart"));
 			GUIManager.Instance.RefreshPoints (); //TODO move to GUImanager
+			GUIManager.Instance.RefreshFuel();
 		}
 
 		/// <summary>
@@ -93,11 +105,23 @@ namespace MoreMountains.InfiniteRunnerEngine
 	        }
 	    }
 
+		public virtual void AutoDecrementFuel(bool status)
+		{
+			if (status)
+			{
+				_autoDecrementCoroutine = StartCoroutine(DecrementFuel());
+			}
+			else
+			{
+				StopCoroutine(_autoDecrementCoroutine);
+			}
+		}
+
 		/// <summary>
 		/// Each 0.01 second, increments the score by 1/100th of the number of points it's supposed to increase each second
 		/// </summary>
 		/// <returns>The score.</returns>
-	    protected virtual IEnumerator IncrementScore()
+		protected virtual IEnumerator IncrementScore()
 		{
 	        while (true)
 	        {
@@ -108,8 +132,19 @@ namespace MoreMountains.InfiniteRunnerEngine
 	            yield return new WaitForSeconds(0.01f);
 	        }
 	    }
-		
-		
+
+		protected virtual IEnumerator DecrementFuel()
+		{
+			while (true)
+			{
+				if ((GameManager.Instance.Status == GameStatus.GameInProgress) && (_fuelPerSecond != 0))
+				{
+					AddFuel(_fuelPerSecond / 50);
+				}
+				yield return new WaitForSeconds(0.01f);
+			}
+		}
+
 		/// <summary>
 		/// Adds the points in parameters to the current game points.
 		/// </summary>
@@ -122,7 +157,20 @@ namespace MoreMountains.InfiniteRunnerEngine
 				GUIManager.Instance.RefreshPoints ();
 			}
 		}
-		
+		/// <summary>
+		/// adds fuel
+		/// </summary>
+		/// <param name="fuelToAdd"></param>
+		public virtual void AddFuel(float fuelToAdd)
+		{
+			FuelPoints += fuelToAdd;
+			if (GUIManager.Instance != null)
+			{
+				Debug.Log("refresh");
+				GUIManager.Instance.RefreshFuel();
+			}
+		}
+
 		/// <summary>
 		/// use this to set the current points to the one you pass as a parameter
 		/// </summary>
@@ -136,11 +184,20 @@ namespace MoreMountains.InfiniteRunnerEngine
 			}
 		}
 
+		public virtual void SetFuel(float thisFuel)
+		{
+			FuelPoints = thisFuel;
+			if (GUIManager.Instance != null)
+			{
+				GUIManager.Instance.RefreshFuel();
+			}
+		}
+
 		/// <summary>
 		/// use this to set the number of lives currently available
 		/// </summary>
 		/// <param name="lives">the new number of lives.</param>
-	    public virtual void SetLives(int lives)
+		public virtual void SetLives(int lives)
 	    {
 			CurrentLives = lives;
 			if (GUIManager.Instance!=null)

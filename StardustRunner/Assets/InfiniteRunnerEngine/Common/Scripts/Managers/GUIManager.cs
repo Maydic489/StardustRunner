@@ -19,6 +19,8 @@ namespace MoreMountains.InfiniteRunnerEngine
 	    public GameObject HeartsContainer;
 	    /// the points counter
 	    public Text PointsText;
+		/// the fuel counter
+		public Text FuelText;
 		/// the level display
 		public Text LevelText;
 		/// the countdown at the start of a level
@@ -32,6 +34,7 @@ namespace MoreMountains.InfiniteRunnerEngine
 		public virtual void Initialize()
 		{
 			RefreshPoints();
+			RefreshFuel();
 	        InitializeLives();
 
 			if (CountdownText != null && CountdownText.text == null)
@@ -138,9 +141,17 @@ namespace MoreMountains.InfiniteRunnerEngine
 			if (PointsText==null)
 				return;
 
-			PointsText.text=GameManager.Instance.Points.ToString("000 000 000");	
+			PointsText.text=GameManager.Instance.Points.ToString("000");	
 		}
-		
+
+		public virtual void RefreshFuel()
+		{
+			if (FuelText == null)
+				return;
+
+			FuelText.text = GameManager.Instance.FuelPoints.ToString("000");
+		}
+
 		/// <summary>
 		/// Sets the level name in the HUD
 		/// </summary>
