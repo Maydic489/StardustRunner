@@ -201,80 +201,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1300665083}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &481729900
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 366334884738421005, guid: 0b781aae1f0e1964598f09e264ff2001,
-        type: 3}
-      propertyPath: m_Name
-      value: Fuel Bottle
-      objectReference: {fileID: 0}
-    - target: {fileID: 369039725295772809, guid: 0b781aae1f0e1964598f09e264ff2001,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 369039725295772809, guid: 0b781aae1f0e1964598f09e264ff2001,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 369039725295772809, guid: 0b781aae1f0e1964598f09e264ff2001,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 369039725295772809, guid: 0b781aae1f0e1964598f09e264ff2001,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 369039725295772809, guid: 0b781aae1f0e1964598f09e264ff2001,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.9521494
-      objectReference: {fileID: 0}
-    - target: {fileID: 369039725295772809, guid: 0b781aae1f0e1964598f09e264ff2001,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 369039725295772809, guid: 0b781aae1f0e1964598f09e264ff2001,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 369039725295772809, guid: 0b781aae1f0e1964598f09e264ff2001,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0.30563304
-      objectReference: {fileID: 0}
-    - target: {fileID: 369039725295772809, guid: 0b781aae1f0e1964598f09e264ff2001,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 369039725295772809, guid: 0b781aae1f0e1964598f09e264ff2001,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 369039725295772809, guid: 0b781aae1f0e1964598f09e264ff2001,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: -35.593002
-      objectReference: {fileID: 0}
-    - target: {fileID: 379975578418937479, guid: 0b781aae1f0e1964598f09e264ff2001,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 31f05e6777314cb458f03758e9491f1e, type: 2}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 0b781aae1f0e1964598f09e264ff2001, type: 3}
 --- !u!1 &517138329
 GameObject:
   m_ObjectHideFlags: 0
@@ -630,7 +556,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1219828697
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -652,8 +578,8 @@ MonoBehaviour:
   OnlySpawnWhileGameInProgress: 1
   InitialDelay: 0
   GapOrigin: 0
-  MinimumGap: {x: 1, y: 1, z: 1}
-  MaximumGap: {x: 1, y: 1, z: 1}
+  MinimumGap: {x: 10, y: 10, z: 10}
+  MaximumGap: {x: 10, y: 10, z: 10}
   MinimumYClamp: 0
   MaximumYClamp: 0
   MinimumZClamp: 0
@@ -673,7 +599,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MutualizeWaitingPools: 0
   NestWaitingPool: 1
-  GameObjectToPool: {fileID: 0}
+  GameObjectToPool: {fileID: 8305195348323541262, guid: ba2d4ee1722ce724a99d4494b62f852a,
+    type: 3}
   PoolSize: 10
   PoolCanExpand: 1
 --- !u!4 &1219828699
@@ -683,13 +610,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1219828696}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 30}
+  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: -1.5, y: 0, z: 30}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 7
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!1001 &1300665083
 PrefabInstance:
   m_ObjectHideFlags: 0
