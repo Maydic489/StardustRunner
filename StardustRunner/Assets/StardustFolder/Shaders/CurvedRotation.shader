@@ -38,7 +38,7 @@ Shader "Unlit/CurvedRotation"
 
 		sampler2D _MainTex;
 		float4 _MainTex_ST;
-		float _CurveStrength;
+		float _CurveStrengthY;
 
 
 		v2f vert(appdata v)
@@ -56,7 +56,7 @@ Shader "Unlit/CurvedRotation"
 
 			float dist = UNITY_Z_0_FAR_FROM_CLIPSPACE(o.vertex.z);
 
-			o.vertex.y -= _CurveStrength * dist * dist * _ProjectionParams.x;
+			o.vertex.y -= _CurveStrengthY * dist * dist * _ProjectionParams.x;
 			//o.vertex.x -= _CurveStrength * dist * dist * _ProjectionParams.x;
 
 			o.uv = TRANSFORM_TEX(v.uv, _MainTex);
