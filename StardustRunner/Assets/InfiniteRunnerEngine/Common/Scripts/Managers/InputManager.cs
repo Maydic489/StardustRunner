@@ -172,7 +172,7 @@ namespace MoreMountains.InfiniteRunnerEngine
 			for (int i = 0; i < LevelManager.Instance.CurrentPlayableCharacters.Count; ++i)
 	        {
 				LevelManager.Instance.CurrentPlayableCharacters[i].RightStart();
-	        }
+			}
 	    }
 
 		/// <summary>

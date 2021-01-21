@@ -11,6 +11,7 @@ namespace MoreMountains.InfiniteRunnerEngine
 	{
 		public float MoveSpeed = 5f;
 		public GameObject mainCamera;
+		public static Vector3 playerPositoin;
 		private float slideDirection;
 		private char whatLane;
 
@@ -47,6 +48,8 @@ namespace MoreMountains.InfiniteRunnerEngine
 			if(transform.position.x != slideDirection)
 			transform.position = Vector3.MoveTowards(transform.position, new Vector3(slideDirection, transform.position.y, transform.position.z), MoveSpeed * Time.deltaTime);
 			mainCamera.transform.position = Vector3.MoveTowards(mainCamera.transform.position, new Vector3(slideDirection*0.8f, mainCamera.transform.position.y, mainCamera.transform.position.z), (MoveSpeed*0.8f) * Time.deltaTime);
+
+			playerPositoin = transform.position;
 		}
 
 		public override void LeftStart()

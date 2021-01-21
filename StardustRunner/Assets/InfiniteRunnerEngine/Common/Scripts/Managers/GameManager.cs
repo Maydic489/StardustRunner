@@ -167,7 +167,6 @@ namespace MoreMountains.InfiniteRunnerEngine
 			if(FuelPoints > 200) { FuelPoints = 200; }
 			if (GUIManager.Instance != null)
 			{
-				Debug.Log("refresh");
 				GUIManager.Instance.RefreshFuel();
 			}
 		}
