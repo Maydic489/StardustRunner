@@ -46,7 +46,7 @@ namespace MoreMountains.InfiniteRunnerEngine
 		{
 			Application.targetFrameRate = 300;
 	        CurrentLives = TotalLives;
-			FuelPoints = 50;
+			FuelPoints = 10;
 	        _savedTimeScale = TimeScale;
 	        Time.timeScale = TimeScale;
 	        if (GUIManager.Instance!=null)
@@ -139,7 +139,7 @@ namespace MoreMountains.InfiniteRunnerEngine
 			{
 				if ((GameManager.Instance.Status == GameStatus.GameInProgress) && (_fuelPerSecond != 0))
 				{
-					AddFuel(_fuelPerSecond / 50);
+					AddFuel(_fuelPerSecond / 20);
 				}
 				yield return new WaitForSeconds(0.01f);
 			}

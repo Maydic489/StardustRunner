@@ -141,7 +141,7 @@ namespace MoreMountains.InfiniteRunnerEngine
 			if (PointsText==null)
 				return;
 
-			PointsText.text=GameManager.Instance.Points.ToString("000");	
+			PointsText.text=GameManager.Instance.Points.ToString("0");	
 		}
 
 		public virtual void RefreshFuel()
@@ -149,7 +149,7 @@ namespace MoreMountains.InfiniteRunnerEngine
 			if (FuelText == null)
 				return;
 
-			FuelText.text = GameManager.Instance.FuelPoints.ToString("000");
+			FuelText.text = GameManager.Instance.FuelPoints.ToString("0");
 		}
 
 		/// <summary>

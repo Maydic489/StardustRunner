@@ -74,5 +74,13 @@ namespace MoreMountains.InfiniteRunnerEngine
 				slideDirection = 1.5f;
 			}
 		}
+
+		protected virtual void CheckDeathConditions()
+		{
+			if (LevelManager.Instance.CheckDeathCondition(GetPlayableCharacterBounds()) || GameManager.Instance.FuelPoints <= 0)
+			{
+				LevelManager.Instance.KillCharacter(this);
+			}
+		}
 	}
 }
