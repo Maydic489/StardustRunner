@@ -77,7 +77,7 @@ namespace MoreMountains.InfiniteRunnerEngine
 
 		protected override void CheckDeathConditions()
 		{
-			if (LevelManager.Instance.CheckDeathCondition(GetPlayableCharacterBounds()) || GameManager.Instance.FuelPoints <= 0)
+			if (LevelManager.Instance.CheckDeathCondition(GetPlayableCharacterBounds()) || GameManager.Instance.FuelPoints <= 0f)
 			{
 				LevelManager.Instance.KillCharacter(this);
 			}
