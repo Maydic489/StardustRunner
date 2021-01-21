@@ -75,7 +75,7 @@ namespace MoreMountains.InfiniteRunnerEngine
 			}
 		}
 
-		protected virtual void CheckDeathConditions()
+		protected override void CheckDeathConditions()
 		{
 			if (LevelManager.Instance.CheckDeathCondition(GetPlayableCharacterBounds()) || GameManager.Instance.FuelPoints <= 0)
 			{

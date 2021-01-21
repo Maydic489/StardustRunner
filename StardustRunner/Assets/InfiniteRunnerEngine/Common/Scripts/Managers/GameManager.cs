@@ -164,6 +164,7 @@ namespace MoreMountains.InfiniteRunnerEngine
 		public virtual void AddFuel(float fuelToAdd)
 		{
 			FuelPoints += fuelToAdd;
+			if(FuelPoints > 200) { FuelPoints = 200; }
 			if (GUIManager.Instance != null)
 			{
 				Debug.Log("refresh");
