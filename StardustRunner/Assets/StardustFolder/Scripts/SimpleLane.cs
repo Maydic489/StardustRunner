@@ -9,6 +9,8 @@ namespace MoreMountains.InfiniteRunnerEngine
 	/// </summary>
 	public class SimpleLane : PlayableCharacter
 	{
+		public GameObject riderModel;
+		public GameObject bikeModel;
 		public float MoveSpeed = 5f;
 		public GameObject mainCamera;
 		public static Vector3 playerPositoin;
@@ -84,6 +86,17 @@ namespace MoreMountains.InfiniteRunnerEngine
 			{
 				LevelManager.Instance.KillCharacter(this);
 			}
+		}
+
+		public override void Die()
+		{
+			Destroy(bikeModel);
+			riderModel.GetComponent<RagdollDeathScript>().ToggleRagdoll(true);
+
+			foreach(Rigidbody rb in riderModel.GetComponent<RagdollDeathScript>().ragdollBodies)
+            {
+				rb.AddExplosionForce(3f, new Vector3(transform.position.x, 0, -1f), 3f, 2f,ForceMode.Impulse);
+            }
 		}
 	}
 }
