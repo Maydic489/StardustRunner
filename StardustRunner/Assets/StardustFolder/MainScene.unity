@@ -251,7 +251,7 @@ MonoBehaviour:
   StartCountdown: 0
   StartText: 
   ControlScheme: 0
-  LifeLostExplosion: {fileID: 0}
+  LifeLostExplosion: {fileID: 184460, guid: 2bfa6f1578b3ec0408e74b5cbbca104d, type: 3}
 --- !u!4 &517138331
 Transform:
   m_ObjectHideFlags: 0
@@ -418,7 +418,7 @@ MonoBehaviour:
   MinimumRotation: {x: 0, y: 90, z: 0}
   MaximumRotation: {x: 0, y: 90, z: 0}
   Spawning: 1
-  OnlySpawnWhileGameInProgress: 0
+  OnlySpawnWhileGameInProgress: 1
   InitialDelay: 0
   GapOrigin: 0
   MinimumGap: {x: 0, y: 0, z: 0}
@@ -1347,6 +1347,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: TT_demo_police
+      objectReference: {fileID: 0}
+    - target: {fileID: 5271117226363678301, guid: d9f0c7c19ed44b94186b7eafbe84c084,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5271117226364039741, guid: d9f0c7c19ed44b94186b7eafbe84c084,
         type: 3}

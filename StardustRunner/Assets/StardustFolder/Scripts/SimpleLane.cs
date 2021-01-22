@@ -11,11 +11,13 @@ namespace MoreMountains.InfiniteRunnerEngine
 	{
 		public GameObject riderModel;
 		public GameObject bikeModel;
+		public GameObject shadow;
 		public float MoveSpeed = 5f;
 		public GameObject mainCamera;
 		public static Vector3 playerPositoin;
 		private float slideDirection;
 		private char whatLane;
+		public static bool isDead;
 
         protected override void Start()
         {
@@ -82,21 +84,29 @@ namespace MoreMountains.InfiniteRunnerEngine
 
 		protected override void CheckDeathConditions()
 		{
-			if (LevelManager.Instance.CheckDeathCondition(GetPlayableCharacterBounds()) || GameManager.Instance.FuelPoints <= 0f)
+			if ((LevelManager.Instance.CheckDeathCondition(GetPlayableCharacterBounds()) || GameManager.Instance.FuelPoints <= 0f) && !isDead)
 			{
+				isDead = true;
 				LevelManager.Instance.KillCharacter(this);
 			}
 		}
 
 		public override void Die()
 		{
-			Destroy(bikeModel);
+			//Destroy(bikeModel);
+			Destroy(shadow);
+			this.GetComponent<Rigidbody>().isKinematic = true;
+			this.GetComponent<Collider>().enabled = false;
 			riderModel.GetComponent<RagdollDeathScript>().ToggleRagdoll(true);
+			bikeModel.GetComponent<RagdollDeathScript>().ToggleRagdoll(true);
 
-			foreach(Rigidbody rb in riderModel.GetComponent<RagdollDeathScript>().ragdollBodies)
+            foreach (Rigidbody rb in riderModel.GetComponent<RagdollDeathScript>().ragdollBodies)
             {
-				rb.AddExplosionForce(3f, new Vector3(transform.position.x, 0, -1f), 3f, 2f,ForceMode.Impulse);
+                rb.AddExplosionForce(30f, new Vector3(transform.position.x, 0, -1f), 3f, 2f, ForceMode.Impulse);
             }
+
+            Rigidbody bikeRb = bikeModel.GetComponent<Rigidbody>();
+			bikeRb.AddExplosionForce(40f, new Vector3(transform.position.x + 0.5f, 0, -1f), 3f, 2f, ForceMode.Impulse);
 		}
 	}
 }

@@ -46,8 +46,9 @@ namespace MoreMountains.InfiniteRunnerEngine
 		
 		// On update(), we move the object based on the level's speed and the object's speed, and apply acceleration
 		protected virtual void Update ()
-		{
-	    	Move();
+		{	
+			if(!SimpleLane.isDead)
+	    		Move();
 			//MMDebug.DebugLogTime (this.name+"movement : " + _movement);
 	    }
 

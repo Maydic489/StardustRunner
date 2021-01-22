@@ -468,7 +468,7 @@ namespace MoreMountains.InfiniteRunnerEngine
 	        if (LifeLostExplosion != null)
 	        {
 	            GameObject explosion = Instantiate(LifeLostExplosion);
-	            explosion.transform.position = new Vector3(Camera.main.transform.position.x, Camera.main.transform.position.y,0) ;
+	            explosion.transform.position = new Vector3(Camera.main.transform.position.x,0.3f,0) ;
 	        }
 
 	        // we've just lost a life
