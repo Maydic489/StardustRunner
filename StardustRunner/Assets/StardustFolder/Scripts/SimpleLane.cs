@@ -26,6 +26,7 @@ namespace MoreMountains.InfiniteRunnerEngine
         {
 			mainCamera = GameObject.Find("Main Camera");
 			s_BlinkingValueHash = Shader.PropertyToID("_BlinkingValue");
+			Shader.SetGlobalFloat(s_BlinkingValueHash, 0.0f);
 			isDead = false;
 			isInvul = false;
         }
@@ -136,8 +137,10 @@ namespace MoreMountains.InfiniteRunnerEngine
 
 		public override void Die()
 		{
+			Debug.Log("die");
 			//Destroy(bikeModel);
 			isDead = true;
+			GameManager.Instance.SlowMotion();
 			Destroy(shadow);
 			this.GetComponent<Rigidbody>().isKinematic = true;
 			this.GetComponent<Collider>().enabled = false;
@@ -146,11 +149,15 @@ namespace MoreMountains.InfiniteRunnerEngine
 
             foreach (Rigidbody rb in riderModel.GetComponent<RagdollDeathScript>().ragdollBodies)
             {
-                rb.AddExplosionForce(30f, new Vector3(transform.position.x, 0, -1f), 3f, 2f, ForceMode.Impulse);
+                rb.AddExplosionForce(30f, new Vector3(transform.position.x + Random.Range(-0.7f, 0.7f), 0, -1f), 5f, 3f, ForceMode.Impulse);
             }
 
             Rigidbody bikeRb = bikeModel.GetComponent<Rigidbody>();
-			bikeRb.AddExplosionForce(40f, new Vector3(transform.position.x + 0.5f, 0, -1f), 3f, 2f, ForceMode.Impulse);
+			bikeRb.AddExplosionForce(25f, new Vector3(transform.position.x + Random.Range(-0.7f,0.7f), -0.5f, -1f), 5f, 1f, ForceMode.Impulse);
+			foreach (Collider collider in riderModel.GetComponent<RagdollDeathScript>().ragdollColliders)
+			{
+				Physics.IgnoreCollision(bikeModel.GetComponent<Collider>(),collider,true);
+			}
 		}
 	}
 }

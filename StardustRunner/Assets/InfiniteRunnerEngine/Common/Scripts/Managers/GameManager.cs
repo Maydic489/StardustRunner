@@ -235,6 +235,14 @@ namespace MoreMountains.InfiniteRunnerEngine
 		public virtual void ResetTimeScale()
 		{
 			Time.timeScale = _savedTimeScale;
+			Time.fixedDeltaTime = 0.02F;
+		}
+
+		public virtual void SlowMotion()
+        {
+			Time.timeScale = 0.2f;
+			Time.fixedDeltaTime = 0.02f * Time.timeScale;
+
 		}
 		
 		/// <summary>
