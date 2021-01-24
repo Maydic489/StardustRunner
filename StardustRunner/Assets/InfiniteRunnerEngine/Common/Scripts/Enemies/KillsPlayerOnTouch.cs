@@ -41,7 +41,8 @@ namespace MoreMountains.InfiniteRunnerEngine
 			if (player==null) { return; }	
 
 			// we ask the LevelManager to kill the character
-			LevelManager.Instance.KillCharacter(player);
+			if(!SimpleLane.isInvul)
+				LevelManager.Instance.KillCharacter(player);
 		}
 	}
 }

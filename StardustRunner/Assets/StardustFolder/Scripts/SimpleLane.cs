@@ -18,16 +18,19 @@ namespace MoreMountains.InfiniteRunnerEngine
 		private float slideDirection;
 		private char whatLane;
 		public static bool isDead;
+		public static bool isInvul;
+		public bool invulStatus;
 
         protected override void Start()
         {
 			mainCamera = GameObject.Find("Main Camera");
 			isDead = false;
+			isInvul = false;
         }
 
         protected override void Update()
 		{
-
+			invulStatus = isInvul;
 			// we determine the distance between the ground and the Jumper
 			ComputeDistanceToTheGround();
 			// we send our various states to the animator.      
@@ -81,6 +84,19 @@ namespace MoreMountains.InfiniteRunnerEngine
 			{
 				slideDirection = 1.5f;
 			}
+		}
+
+		public void PreActivateInvul(float duration)
+        {
+			StopAllCoroutines();
+			StartCoroutine(ActivateInvul(duration));
+		}
+		public IEnumerator ActivateInvul(float duration)
+		{
+			Debug.Log("call in smpl");
+			isInvul = true;
+			yield return new WaitForSeconds(duration);
+			isInvul = false;
 		}
 
 		protected override void CheckDeathConditions()

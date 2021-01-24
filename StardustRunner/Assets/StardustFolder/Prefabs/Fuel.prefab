@@ -246,7 +246,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4a6617bb2a239047a2242ac9b1cc531, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Speed: 10
+  Speed: 5
   Acceleration: 0
   Direction: {x: 0, y: 0, z: -1}
   DirectionCanBeChangedBySpawner: 1

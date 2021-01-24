@@ -458,6 +458,12 @@ namespace MoreMountains.InfiniteRunnerEngine
 			}
 					
 		}
+
+		public virtual void ActivateInvul(float duration)
+        {
+			Debug.Log("call in lvlmng");
+			CurrentPlayableCharacters[0].GetComponent<SimpleLane>().PreActivateInvul(duration);
+        }
 		
 		/// <summary>
 		/// What happens when all characters are dead (or when the character is dead if you only have one)
