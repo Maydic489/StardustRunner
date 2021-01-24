@@ -256,7 +256,7 @@ MonoBehaviour:
   OutroFadeDuration: 1
   StartCountdown: 0
   StartText: 
-  ControlScheme: 0
+  ControlScheme: 1
   LifeLostExplosion: {fileID: 184460, guid: 2bfa6f1578b3ec0408e74b5cbbca104d, type: 3}
 --- !u!4 &517138331
 Transform:

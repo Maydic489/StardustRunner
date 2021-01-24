@@ -8,11 +8,11 @@ PlayerSettings:
   AndroidProfiler: 0
   AndroidFilterTouchesWhenObscured: 0
   AndroidEnableSustainedPerformanceMode: 0
-  defaultScreenOrientation: 3
+  defaultScreenOrientation: 0
   targetDevice: 2
   useOnDemandResources: 0
   accelerometerFrequency: 60
-  companyName: DefaultCompany
+  companyName: Stardust Enterprise
   productName: StardustRunner
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
@@ -261,13 +261,13 @@ PlayerSettings:
   AndroidTVCompatibility: 1
   AndroidIsGame: 1
   AndroidEnableTango: 0
-  androidEnableBanner: 1
+  androidEnableBanner: 0
   androidUseLowAccuracyLocation: 0
-  androidUseCustomKeystore: 1
+  androidUseCustomKeystore: 0
   m_AndroidBanners:
   - width: 320
     height: 180
-    banner: {fileID: 2800000, guid: 1036e25fdc671f047817835b2bb795b0, type: 3}
+    banner: {fileID: 0}
   androidGamepadSupportLevel: 0
   AndroidValidateAppBundleSize: 1
   AndroidAppBundleSizeToValidate: 150
@@ -275,7 +275,7 @@ PlayerSettings:
   - m_BuildTarget: 
     m_Icons:
     - serializedVersion: 2
-      m_Icon: {fileID: 2800000, guid: 8e8dd049a7844d146818f8ce3d218fcf, type: 3}
+      m_Icon: {fileID: 2800000, guid: a6018caa42a598f4491585c46ea59507, type: 3}
       m_Width: 128
       m_Height: 128
       m_Kind: 0
@@ -344,68 +344,74 @@ PlayerSettings:
       m_Height: 81
       m_Kind: 2
       m_SubKind: 
-    - m_Textures: []
+    - m_Textures:
+      - {fileID: 0}
       m_Width: 192
       m_Height: 192
       m_Kind: 1
       m_SubKind: 
-    - m_Textures: []
+    - m_Textures:
+      - {fileID: 0}
       m_Width: 144
       m_Height: 144
       m_Kind: 1
       m_SubKind: 
-    - m_Textures: []
+    - m_Textures:
+      - {fileID: 0}
       m_Width: 96
       m_Height: 96
       m_Kind: 1
       m_SubKind: 
-    - m_Textures: []
+    - m_Textures:
+      - {fileID: 0}
       m_Width: 72
       m_Height: 72
       m_Kind: 1
       m_SubKind: 
-    - m_Textures: []
+    - m_Textures:
+      - {fileID: 0}
       m_Width: 48
       m_Height: 48
       m_Kind: 1
       m_SubKind: 
-    - m_Textures: []
+    - m_Textures:
+      - {fileID: 0}
       m_Width: 36
       m_Height: 36
       m_Kind: 1
       m_SubKind: 
     - m_Textures:
-      - {fileID: 2800000, guid: 8e8dd049a7844d146818f8ce3d218fcf, type: 3}
+      - {fileID: 2800000, guid: ded884b9a819fd34b82b259714bb9753, type: 3}
       m_Width: 192
       m_Height: 192
       m_Kind: 0
       m_SubKind: 
     - m_Textures:
-      - {fileID: 2800000, guid: 2a1ef951a685f9647a52617b20a1e972, type: 3}
+      - {fileID: 2800000, guid: caa4bb4482a527e4098062a6c6e48859, type: 3}
       m_Width: 144
       m_Height: 144
       m_Kind: 0
       m_SubKind: 
     - m_Textures:
-      - {fileID: 2800000, guid: 013ec6e891b9294459bc58fec86d3681, type: 3}
+      - {fileID: 2800000, guid: 8f5ca0e0f08baf44dbd0273f5e9c60e6, type: 3}
       m_Width: 96
       m_Height: 96
       m_Kind: 0
       m_SubKind: 
     - m_Textures:
-      - {fileID: 2800000, guid: 5d1e6f17319600043903416b6de18c0c, type: 3}
+      - {fileID: 2800000, guid: 777caf8fd175d3b4b9dbfe78409a62b1, type: 3}
       m_Width: 72
       m_Height: 72
       m_Kind: 0
       m_SubKind: 
     - m_Textures:
-      - {fileID: 2800000, guid: df49d3ffc0e28cd4c9d1f6a96e76f451, type: 3}
+      - {fileID: 2800000, guid: c17317b220ec8c147b5e5d2c676260f5, type: 3}
       m_Width: 48
       m_Height: 48
       m_Kind: 0
       m_SubKind: 
     - m_Textures:
-      - {fileID: 2800000, guid: 7640d6cf9b8c534479d6d659996f3d44, type: 3}
+      - {fileID: 2800000, guid: a8c8b96258719b744aac597942d2e2d1, type: 3}
       m_Width: 36
       m_Height: 36
       m_Kind: 0
