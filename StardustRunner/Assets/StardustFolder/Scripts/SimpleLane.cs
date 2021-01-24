@@ -10,6 +10,7 @@ namespace MoreMountains.InfiniteRunnerEngine
 	public class SimpleLane : PlayableCharacter
 	{
 		public GameObject riderModel;
+		//public GameObject riderCollider;
 		public GameObject bikeModel;
 		public GameObject shadow;
 		public float MoveSpeed = 5f;
@@ -43,24 +44,33 @@ namespace MoreMountains.InfiniteRunnerEngine
 			// we check if the player is out of the death bounds or not
 			CheckDeathConditions();
 
-			if(transform.position.x > -1f && transform.position.x < 1f)
-            {
-				whatLane = 'm';
-            }
-			else if(transform.position.x < 0)
-            {
-				whatLane = 'l';
-            }
-			else if(transform.position.x > 0)
-            {
-				whatLane = 'r';
-            }
+			ChooseLane();
 
 			if(transform.position.x != slideDirection)
 			transform.position = Vector3.MoveTowards(transform.position, new Vector3(slideDirection, transform.position.y, transform.position.z), MoveSpeed * Time.deltaTime);
-			mainCamera.transform.position = Vector3.MoveTowards(mainCamera.transform.position, new Vector3(slideDirection*0.8f, mainCamera.transform.position.y, mainCamera.transform.position.z), (MoveSpeed*0.8f) * Time.deltaTime);
+
+			if(!isDead)
+				mainCamera.transform.position = Vector3.MoveTowards(mainCamera.transform.position, new Vector3(slideDirection*0.8f, mainCamera.transform.position.y, mainCamera.transform.position.z), (MoveSpeed*0.8f) * Time.deltaTime);
+			//else
+				//mainCamera.transform.position = Vector3.MoveTowards(mainCamera.transform.position, riderModel.GetComponent<Collider>().transform.position, (MoveSpeed * 0.8f) * Time.deltaTime);
 
 			playerPositoin = transform.position;
+		}
+
+		public void ChooseLane()
+        {
+			if (transform.position.x > -1f && transform.position.x < 1f)
+			{
+				whatLane = 'm';
+			}
+			else if (transform.position.x < 0)
+			{
+				whatLane = 'l';
+			}
+			else if (transform.position.x > 0)
+			{
+				whatLane = 'r';
+			}
 		}
 
 		public override void LeftStart()
