@@ -20,8 +20,14 @@ namespace MoreMountains.InfiniteRunnerEngine
 			transform.position = Vector3.MoveTowards(transform.position, new Vector3(SimpleLane.playerPositoin.x, SimpleLane.playerPositoin.y,
 				SimpleLane.playerPositoin.z - 1f - (GameManager.Instance.FuelPoints/10)), MoveSpeed * Time.deltaTime);
 
-            if (transform.position.z == -0.9912834f)
+            if (transform.position.z >= -1.2f && !anim.GetBool("isThere"))
                 anim.SetBool("isThere", true);
+            
+            if(SimpleLane.isDead)
+            {
+                anim.SetBool("isHit", true);
+                anim.SetBool("isThere", false);
+            }
 		}
 	}
 }

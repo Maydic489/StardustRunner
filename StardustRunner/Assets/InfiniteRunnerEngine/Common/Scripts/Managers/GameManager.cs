@@ -18,7 +18,7 @@ namespace MoreMountains.InfiniteRunnerEngine
 		/// the current number of game points
 		public float Points { get; protected set; }
 		/// game fuel point
-		public float FuelPoints { get; protected set; }
+		public float FuelPoints { get; set; }
 		/// the current time scale
 		public float TimeScale = 1;
 	    /// the various states the game can be in
@@ -46,7 +46,7 @@ namespace MoreMountains.InfiniteRunnerEngine
 		{
 			Application.targetFrameRate = 300;
 	        CurrentLives = TotalLives;
-			FuelPoints = 20;
+			FuelPoints = 30;
 	        _savedTimeScale = TimeScale;
 	        Time.timeScale = TimeScale;
 	        if (GUIManager.Instance!=null)
