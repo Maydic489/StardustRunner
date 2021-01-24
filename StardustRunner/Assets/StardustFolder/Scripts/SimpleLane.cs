@@ -20,10 +20,12 @@ namespace MoreMountains.InfiniteRunnerEngine
 		public static bool isDead;
 		public static bool isInvul;
 		public bool invulStatus;
+		static int s_BlinkingValueHash;
 
-        protected override void Start()
+		protected override void Start()
         {
 			mainCamera = GameObject.Find("Main Camera");
+			s_BlinkingValueHash = Shader.PropertyToID("_BlinkingValue");
 			isDead = false;
 			isInvul = false;
         }
@@ -93,9 +95,34 @@ namespace MoreMountains.InfiniteRunnerEngine
 		}
 		public IEnumerator ActivateInvul(float duration)
 		{
-			Debug.Log("call in smpl");
 			isInvul = true;
-			yield return new WaitForSeconds(duration);
+
+			float time = 0;
+			float currentBlink = 1.0f;
+			float lastBlink = 0.0f;
+			const float blinkPeriod = 0.1f;
+
+			while (time < duration && isInvul)
+			{
+				Shader.SetGlobalFloat(s_BlinkingValueHash, currentBlink);
+
+				// We do the check every frame instead of waiting for a full blink period as if the game slow down too much
+				// we are sure to at least blink every frame.
+				// If blink turns on and off in the span of one frame, we "miss" the blink, resulting in appearing not to blink.
+				yield return null;
+				time += Time.deltaTime;
+				lastBlink += Time.deltaTime;
+
+				if (blinkPeriod < lastBlink)
+				{
+					lastBlink = 0;
+					currentBlink = 1.0f - currentBlink;
+				}
+			}
+
+			Shader.SetGlobalFloat(s_BlinkingValueHash, 0.0f);
+
+			//yield return new WaitForSeconds(duration);
 			isInvul = false;
 		}
 
