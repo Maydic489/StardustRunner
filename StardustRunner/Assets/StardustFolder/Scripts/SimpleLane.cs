@@ -22,6 +22,7 @@ namespace MoreMountains.InfiniteRunnerEngine
         protected override void Start()
         {
 			mainCamera = GameObject.Find("Main Camera");
+			isDead = false;
         }
 
         protected override void Update()
@@ -86,7 +87,6 @@ namespace MoreMountains.InfiniteRunnerEngine
 		{
 			if ((LevelManager.Instance.CheckDeathCondition(GetPlayableCharacterBounds()) || GameManager.Instance.FuelPoints <= 0f) && !isDead)
 			{
-				isDead = true;
 				LevelManager.Instance.KillCharacter(this);
 			}
 		}
@@ -94,6 +94,7 @@ namespace MoreMountains.InfiniteRunnerEngine
 		public override void Die()
 		{
 			//Destroy(bikeModel);
+			isDead = true;
 			Destroy(shadow);
 			this.GetComponent<Rigidbody>().isKinematic = true;
 			this.GetComponent<Collider>().enabled = false;

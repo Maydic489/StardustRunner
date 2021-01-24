@@ -22,8 +22,10 @@ namespace MoreMountains.InfiniteRunnerEngine
 
             if (transform.position.z >= -1.2f && !anim.GetBool("isThere"))
                 anim.SetBool("isThere", true);
-            
-            if(SimpleLane.isDead)
+            else
+                anim.SetBool("isThere", false);
+
+            if (SimpleLane.isDead)
             {
                 anim.SetBool("isHit", true);
                 anim.SetBool("isThere", false);
