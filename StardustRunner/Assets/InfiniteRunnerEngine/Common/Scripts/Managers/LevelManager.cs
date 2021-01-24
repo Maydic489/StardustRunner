@@ -461,7 +461,6 @@ namespace MoreMountains.InfiniteRunnerEngine
 
 		public virtual void ActivateInvul(float duration)
         {
-			Debug.Log("call in lvlmng");
 			CurrentPlayableCharacters[0].GetComponent<SimpleLane>().PreActivateInvul(duration);
         }
 		

@@ -573,6 +573,7 @@ MonoBehaviour:
   shadow: {fileID: 7364602782532447870}
   MoveSpeed: 5
   mainCamera: {fileID: 0}
+  invulStatus: 0
 --- !u!1 &8835811587508954741
 GameObject:
   m_ObjectHideFlags: 0
@@ -827,6 +828,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7120340227412854098}
     m_Modifications:
+    - target: {fileID: 8538727039263997585, guid: dc264b94fdffe224e89391092fb58c61,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 785872039712b5a4ba20dbbfada52dec, type: 2}
     - target: {fileID: 8538727039267172967, guid: dc264b94fdffe224e89391092fb58c61,
         type: 3}
       propertyPath: m_Name
@@ -1447,6 +1453,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 33.938
       objectReference: {fileID: 0}
+    - target: {fileID: 8538727039269104767, guid: dc264b94fdffe224e89391092fb58c61,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 785872039712b5a4ba20dbbfada52dec, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dc264b94fdffe224e89391092fb58c61, type: 3}
 --- !u!1 &265734308 stripped
