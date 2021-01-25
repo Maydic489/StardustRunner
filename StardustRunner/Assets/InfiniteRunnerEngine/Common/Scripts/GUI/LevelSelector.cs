@@ -25,7 +25,8 @@ namespace MoreMountains.InfiniteRunnerEngine
 		/// </summary>
 	    public virtual void RestartLevel()
 	    {
-	      	//GameManager.Instance.UnPause();
+			//GameManager.Instance.UnPause();
+			GameManager.Instance.ResetTimeScale();
 			LevelManager.Instance.GotoLevel(SceneManager.GetActiveScene().name);
 	    }
 
