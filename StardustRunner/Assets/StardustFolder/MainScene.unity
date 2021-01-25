@@ -238,7 +238,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   StartingPosition: {fileID: 1838074642}
   PlayableCharacters:
-  - {fileID: 8971762340511350929, guid: da181f48967410442a78e009cd612efa, type: 3}
+  - {fileID: 8068637796655847470, guid: 45f45280afc0df048a36f6450c7d9f48, type: 3}
   DistanceBetweenCharacters: 1
   PointsPerSecond: 20
   FuelPerSecond: -1
@@ -289,7 +289,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &564098966
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -302,11 +302,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6733ca52c3fdb5843abc7ba0ed3608c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MinimumSize: {x: 1.6, y: 1.6, z: 1.6}
-  MaximumSize: {x: 1.6, y: 1.6, z: 1.6}
+  MinimumSize: {x: 0.7, y: 0.7, z: 0.7}
+  MaximumSize: {x: 0.7, y: 0.7, z: 0.7}
   PreserveRatio: 0
-  MinimumRotation: {x: 0, y: -90, z: 0}
-  MaximumRotation: {x: 0, y: -90, z: 0}
+  MinimumRotation: {x: 0, y: 0, z: 0}
+  MaximumRotation: {x: 0, y: 0, z: 0}
   Spawning: 1
   OnlySpawnWhileGameInProgress: 1
   InitialDelay: 0
@@ -1194,6 +1194,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: StartingPosition
       objectReference: {fileID: 0}
+    - target: {fileID: 168562, guid: 70f25d04382fe47a095b00bae126ce18, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 433572, guid: 70f25d04382fe47a095b00bae126ce18, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -1283,7 +1287,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0.016943287, g: 0.0072089736, b: 0.05660379, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
