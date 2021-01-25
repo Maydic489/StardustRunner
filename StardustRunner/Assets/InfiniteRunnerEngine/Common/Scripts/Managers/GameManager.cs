@@ -137,7 +137,7 @@ namespace MoreMountains.InfiniteRunnerEngine
 		{
 			while (true)
 			{
-				if ((GameManager.Instance.Status == GameStatus.GameInProgress) && (_fuelPerSecond != 0) && FuelPoints > 0)
+				if ((GameManager.Instance.Status == GameStatus.GameInProgress) && (_fuelPerSecond != 0) && FuelPoints > 0 && !SimpleLane.isInvul)
 				{
 					AddFuel(_fuelPerSecond / (10-(FuelPoints/70)));
 				}
