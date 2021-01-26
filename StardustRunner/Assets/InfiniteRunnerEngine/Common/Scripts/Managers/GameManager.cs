@@ -46,7 +46,7 @@ namespace MoreMountains.InfiniteRunnerEngine
 		{
 			Application.targetFrameRate = 300;
 	        CurrentLives = TotalLives;
-			FuelPoints = 30;
+			FuelPoints = 100;
 	        _savedTimeScale = TimeScale;
 	        Time.timeScale = TimeScale;
 	        if (GUIManager.Instance!=null)
