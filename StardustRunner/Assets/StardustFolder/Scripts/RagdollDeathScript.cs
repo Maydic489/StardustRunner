@@ -18,6 +18,7 @@ public class RagdollDeathScript : MonoBehaviour
         foreach(Rigidbody rb in ragdollBodies)
         {
             rb.isKinematic = !state;
+            rb.detectCollisions = state;
         }
 
         foreach(Collider collider in ragdollColliders)

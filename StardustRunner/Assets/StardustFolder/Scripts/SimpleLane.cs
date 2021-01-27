@@ -30,7 +30,7 @@ namespace MoreMountains.InfiniteRunnerEngine
 			Shader.SetGlobalFloat(s_BlinkingValueHash, 0.0f);
 			isDead = false;
 			isInvul = false;
-        }
+		}
 
         protected override void Update()
 		{
@@ -50,11 +50,17 @@ namespace MoreMountains.InfiniteRunnerEngine
 			transform.position = Vector3.MoveTowards(transform.position, new Vector3(slideDirection, transform.position.y, transform.position.z), MoveSpeed * Time.deltaTime);
 
 			if(!isDead)
-				mainCamera.transform.position = Vector3.MoveTowards(mainCamera.transform.position, new Vector3(slideDirection*0.8f, mainCamera.transform.position.y, mainCamera.transform.position.z), (MoveSpeed*0.8f) * Time.deltaTime);
+				mainCamera.transform.position = Vector3.MoveTowards(mainCamera.transform.position, new Vector3(GetComponent<Rigidbody>().position.x*0.8f, mainCamera.transform.position.y, mainCamera.transform.position.z), (MoveSpeed*0.8f) * Time.deltaTime);
 			//else
 				//mainCamera.transform.position = Vector3.MoveTowards(mainCamera.transform.position, riderModel.GetComponent<Collider>().transform.position, (MoveSpeed * 0.8f) * Time.deltaTime);
 
 			playerPositoin = transform.position;
+		}
+
+        private void FixedUpdate()
+        {
+			//if(transform.position.x != slideDirection)
+			//GetComponent<Rigidbody>().MovePosition(Vector3.MoveTowards(transform.position, new Vector3(slideDirection, transform.position.y, transform.position.z), MoveSpeed * Time.fixedDeltaTime));
 		}
 
 		public void ChooseLane()
