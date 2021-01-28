@@ -20,7 +20,7 @@ namespace MoreMountains.InfiniteRunnerEngine
 		private char whatLane;
 		public static bool isDead;
 		public static bool isInvul;
-		public bool invulStatus;
+		public static bool isSpeed {get; set;}
 		static int s_BlinkingValueHash;
 
 		protected override void Start()
@@ -30,11 +30,11 @@ namespace MoreMountains.InfiniteRunnerEngine
 			Shader.SetGlobalFloat(s_BlinkingValueHash, 0.0f);
 			isDead = false;
 			isInvul = false;
+			isSpeed = false;
 		}
 
         protected override void Update()
 		{
-			invulStatus = isInvul;
 			// we determine the distance between the ground and the Jumper
 			ComputeDistanceToTheGround();
 			// we send our various states to the animator.      
@@ -50,8 +50,8 @@ namespace MoreMountains.InfiniteRunnerEngine
 			//if(transform.position.x != slideDirection)
 			//transform.position = Vector3.MoveTowards(transform.position, new Vector3(slideDirection, transform.position.y, transform.position.z), MoveSpeed * Time.deltaTime);
 
-			if(!isDead)
-				mainCamera.transform.position = Vector3.MoveTowards(mainCamera.transform.position, new Vector3(GetComponent<Rigidbody>().position.x*0.8f, mainCamera.transform.position.y, mainCamera.transform.position.z), (MoveSpeed*0.8f) * Time.deltaTime);
+			//if(!isDead)
+			//	mainCamera.transform.position = Vector3.MoveTowards(mainCamera.transform.position, new Vector3(GetComponent<Rigidbody>().position.x*0.8f, mainCamera.transform.position.y, mainCamera.transform.position.z), (MoveSpeed*0.8f) * Time.deltaTime);
 			//else
 				//mainCamera.transform.position = Vector3.MoveTowards(mainCamera.transform.position, riderModel.GetComponent<Collider>().transform.position, (MoveSpeed * 0.8f) * Time.deltaTime);
 

@@ -319,6 +319,7 @@ namespace MoreMountains.InfiniteRunnerEngine
 		/// <param name="duration">The duration of the speed change, in seconds.</param>
 		public virtual void TemporarilyMultiplySpeed(float factor, float duration)
 		{
+			SimpleLane.isSpeed = true;
 			_temporarySpeedFactor = factor;
 			_temporarySpeedFactorRemainingTime = duration;
 
@@ -340,6 +341,7 @@ namespace MoreMountains.InfiniteRunnerEngine
 			{
 				if (_temporarySpeedFactorRemainingTime <= 0)
 				{
+					SimpleLane.isSpeed = false;
 					_temporarySpeedFactorActive = false;
 					Speed = _temporarySavedSpeed;
 				}
