@@ -328,7 +328,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   StartingPosition: {fileID: 1838074642}
   PlayableCharacters:
-  - {fileID: 8068637796655847470, guid: 45f45280afc0df048a36f6450c7d9f48, type: 3}
+  - {fileID: 0}
   DistanceBetweenCharacters: 1
   PointsPerSecond: 20
   FuelPerSecond: -1
@@ -1475,7 +1475,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1388265705
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1815,7 +1815,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 433572, guid: 70f25d04382fe47a095b00bae126ce18, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.01
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 433572, guid: 70f25d04382fe47a095b00bae126ce18, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1885,7 +1885,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!81 &1981774988
 AudioListener:
   m_ObjectHideFlags: 0

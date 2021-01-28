@@ -46,8 +46,9 @@ namespace MoreMountains.InfiniteRunnerEngine
 
 			ChooseLane();
 
-			if(transform.position.x != slideDirection)
-			transform.position = Vector3.MoveTowards(transform.position, new Vector3(slideDirection, transform.position.y, transform.position.z), MoveSpeed * Time.deltaTime);
+			//old way to move, not good for rigidbody
+			//if(transform.position.x != slideDirection)
+			//transform.position = Vector3.MoveTowards(transform.position, new Vector3(slideDirection, transform.position.y, transform.position.z), MoveSpeed * Time.deltaTime);
 
 			if(!isDead)
 				mainCamera.transform.position = Vector3.MoveTowards(mainCamera.transform.position, new Vector3(GetComponent<Rigidbody>().position.x*0.8f, mainCamera.transform.position.y, mainCamera.transform.position.z), (MoveSpeed*0.8f) * Time.deltaTime);
@@ -59,13 +60,14 @@ namespace MoreMountains.InfiniteRunnerEngine
 
         private void FixedUpdate()
         {
-			//if(transform.position.x != slideDirection)
-			//GetComponent<Rigidbody>().MovePosition(Vector3.MoveTowards(transform.position, new Vector3(slideDirection, transform.position.y, transform.position.z), MoveSpeed * Time.fixedDeltaTime));
+			//tips: use physic to move game obj with rigidbody
+			if(transform.position.x != slideDirection)
+			GetComponent<Rigidbody>().MovePosition(Vector3.MoveTowards(transform.position, new Vector3(slideDirection, transform.position.y, transform.position.z), MoveSpeed * Time.fixedDeltaTime));
 		}
 
 		public void ChooseLane()
         {
-			if (transform.position.x > -1f && transform.position.x < 1f)
+			if (transform.position.x > -0.1f && transform.position.x < 0.1f)
 			{
 				whatLane = 'm';
 			}
@@ -88,7 +90,7 @@ namespace MoreMountains.InfiniteRunnerEngine
 			}
 			else
             {
-				slideDirection = -1.5f;
+				slideDirection = -1.6f;
             }
 		}
 
@@ -101,7 +103,7 @@ namespace MoreMountains.InfiniteRunnerEngine
 			}
 			else
 			{
-				slideDirection = 1.5f;
+				slideDirection = 1.6f;
 			}
 		}
 

@@ -98,6 +98,8 @@ namespace MoreMountains.InfiniteRunnerEngine
 		/// </summary>
 		protected virtual void Start()
 		{
+			PlayableCharacters[0] = Resources.Load<GameObject>("Player Character").GetComponent<PlayableCharacter>();
+
 	        Speed = InitialSpeed;
 	        DistanceTraveled = 0;
 
@@ -213,19 +215,20 @@ namespace MoreMountains.InfiniteRunnerEngine
 				return;
 			}
 
-	        // for each character in the PlayableCharacters list
-	        for (int i = 0; i < PlayableCharacters.Count; i++)
-	        {
-	        	// we instantiate the corresponding prefab
-	            PlayableCharacter instance = (PlayableCharacter)Instantiate(PlayableCharacters[i]);            
-	            // we position it based on the StartingPosition point
-				instance.transform.position = new Vector3(StartingPosition.transform.position.x + i * DistanceBetweenCharacters, StartingPosition.transform.position.y, StartingPosition.transform.position.z);
-				// we set manually its initial position
-				instance.SetInitialPosition(instance.transform.position);
-				// we feed it to the game manager
-	            CurrentPlayableCharacters.Add(instance);
-	        }
-			MMEventManager.TriggerEvent(new MMGameEvent("PlayableCharactersInstantiated"));
+            // for each character in the PlayableCharacters list
+            for (int i = 0; i < PlayableCharacters.Count; i++)
+            {
+                // we instantiate the corresponding prefab
+                PlayableCharacter instance = (PlayableCharacter)Instantiate(PlayableCharacters[i]);
+                // we position it based on the StartingPosition point
+                instance.transform.position = new Vector3(StartingPosition.transform.position.x + i * DistanceBetweenCharacters, StartingPosition.transform.position.y, StartingPosition.transform.position.z);
+                // we set manually its initial position
+                instance.SetInitialPosition(instance.transform.position);
+                // we feed it to the game manager
+                CurrentPlayableCharacters.Add(instance);
+            }
+
+            MMEventManager.TriggerEvent(new MMGameEvent("PlayableCharactersInstantiated"));
 	    }
 
 		/// <summary>
