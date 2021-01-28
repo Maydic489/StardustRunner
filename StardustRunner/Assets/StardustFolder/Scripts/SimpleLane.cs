@@ -10,10 +10,11 @@ namespace MoreMountains.InfiniteRunnerEngine
 	public class SimpleLane : PlayableCharacter
 	{
 		public GameObject riderModel;
-		//public GameObject riderCollider;
 		public GameObject bikeModel;
 		public GameObject shadow;
+		public GameObject groundPivot;
 		public float MoveSpeed = 5f;
+		private float slowSpeed = 0.1f;
 		public GameObject mainCamera;
 		public static Vector3 playerPositoin;
 		private float slideDirection;
@@ -46,23 +47,36 @@ namespace MoreMountains.InfiniteRunnerEngine
 
 			ChooseLane();
 
-			//old way to move, not good for rigidbody
-			//if(transform.position.x != slideDirection)
-			//transform.position = Vector3.MoveTowards(transform.position, new Vector3(slideDirection, transform.position.y, transform.position.z), MoveSpeed * Time.deltaTime);
+            //old way to move, not good for rigidbody
+            //if(transform.position.x != slideDirection)
+            //transform.position = Vector3.MoveTowards(transform.position, new Vector3(slideDirection, transform.position.y, transform.position.z), MoveSpeed * Time.deltaTime);
 
-			//if(!isDead)
-			//	mainCamera.transform.position = Vector3.MoveTowards(mainCamera.transform.position, new Vector3(GetComponent<Rigidbody>().position.x*0.8f, mainCamera.transform.position.y, mainCamera.transform.position.z), (MoveSpeed*0.8f) * Time.deltaTime);
-			//else
-				//mainCamera.transform.position = Vector3.MoveTowards(mainCamera.transform.position, riderModel.GetComponent<Collider>().transform.position, (MoveSpeed * 0.8f) * Time.deltaTime);
+            //if (groundPivot.GetComponent<Rigidbody>().transform.rotation.z != (slideDirection * 10))
+            //{
+            //    groundPivot.GetComponent<Rigidbody>().transform.Rotate(new Vector3(0, 0, (-100 * slideDirection) * Time.deltaTime));
+            //}
 
-			playerPositoin = transform.position;
+            playerPositoin = transform.position;
 		}
 
         private void FixedUpdate()
         {
+			if (transform.position.x != slideDirection)
+			{
+				if(slowSpeed < MoveSpeed)
+                {
+					slowSpeed += slowSpeed * (0.05f+slowSpeed);
+                }
+				transform.position = Vector3.MoveTowards(transform.position, new Vector3(slideDirection, transform.position.y, transform.position.z), slowSpeed * Time.deltaTime);
+			}
+			else
+            {
+				slowSpeed = 0.25f;
+            }
+
 			//tips: use physic to move game obj with rigidbody
-			if(transform.position.x != slideDirection)
-			GetComponent<Rigidbody>().MovePosition(Vector3.MoveTowards(transform.position, new Vector3(slideDirection, transform.position.y, transform.position.z), MoveSpeed * Time.fixedDeltaTime));
+			//if (GetComponent<Rigidbody>().transform.position.x != slideDirection)
+			//GetComponent<Rigidbody>().MovePosition(Vector3.MoveTowards(transform.position, new Vector3(slideDirection, transform.position.y, transform.position.z), MoveSpeed * Time.fixedDeltaTime));
 		}
 
 		public void ChooseLane()
@@ -87,10 +101,12 @@ namespace MoreMountains.InfiniteRunnerEngine
 			if (whatLane == 'r')
 			{
 				slideDirection = 0f;
+				groundPivot.GetComponent<Animation>().Play("Anim_RotateLeft");
 			}
 			else
             {
 				slideDirection = -1.6f;
+				groundPivot.GetComponent<Animation>().Play("Anim_RotateLeft");
             }
 		}
 
@@ -100,10 +116,12 @@ namespace MoreMountains.InfiniteRunnerEngine
 			if (whatLane == 'l')
 			{
 				slideDirection = 0f;
+				groundPivot.GetComponent<Animation>().Play("Anim_RotateRight");
 			}
 			else
 			{
 				slideDirection = 1.6f;
+				groundPivot.GetComponent<Animation>().Play("Anim_RotateRight");
 			}
 		}
 
