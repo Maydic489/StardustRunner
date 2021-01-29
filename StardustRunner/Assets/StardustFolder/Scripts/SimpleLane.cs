@@ -14,6 +14,7 @@ namespace MoreMountains.InfiniteRunnerEngine
 		public GameObject bikeModel;
 		public GameObject shadow;
 		public GameObject groundPivot;
+		public GameObject helmetModel;
 		public float MoveSpeed = 5f;
 		private float slowSpeed = 0.1f;
 		public GameObject mainCamera;
@@ -22,6 +23,7 @@ namespace MoreMountains.InfiniteRunnerEngine
 		private char whatLane;
 		public static bool isDead;
 		public static bool isInvul;
+		public static bool isProtect;
 		public static bool isSpeed {get; set;}
 		static int s_BlinkingValueHash;
 
@@ -33,6 +35,7 @@ namespace MoreMountains.InfiniteRunnerEngine
 			isDead = false;
 			isInvul = false;
 			isSpeed = false;
+			isProtect = false;
 		}
 
         protected override void Update()
@@ -164,6 +167,12 @@ namespace MoreMountains.InfiniteRunnerEngine
 			//yield return new WaitForSeconds(duration);
 			isInvul = false;
 		}
+
+		public void ToggleProtect(bool state)
+        {
+			helmetModel.SetActive(state);
+			isProtect = state;
+        }
 
 		protected override void CheckDeathConditions()
 		{

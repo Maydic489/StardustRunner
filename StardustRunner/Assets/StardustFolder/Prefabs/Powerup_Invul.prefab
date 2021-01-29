@@ -265,6 +265,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PickEffect: {fileID: 0}
   PickSoundFx: {fileID: 0}
-  invulDuration: 5
+  invulDuration: 6
   SpeedFactor: 2
   EffectDuration: 5

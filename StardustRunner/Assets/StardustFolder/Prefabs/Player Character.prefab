@@ -234,7 +234,7 @@ Animator:
   m_GameObject: {fileID: 3481363774766235749}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 2b5875d124d06b94aa9ebe64aa0fea86, type: 2}
+  m_Controller: {fileID: 0}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -885,6 +885,7 @@ MonoBehaviour:
   ShouldResetPosition: 1
   ResetPositionSpeed: 0.5
   GroundDistanceTolerance: 0.05
+  gameSpeed: 0
   riderModel: {fileID: 8538727040808146384}
   bikeModel: {fileID: 8329345656683553081}
   shadow: {fileID: 8453192960646674113}
@@ -1583,7 +1584,8 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 785872039712b5a4ba20dbbfada52dec, type: 2}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6696614395067091592, guid: dc264b94fdffe224e89391092fb58c61, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: dc264b94fdffe224e89391092fb58c61, type: 3}
 --- !u!4 &8538727040808110512 stripped
 Transform:

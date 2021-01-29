@@ -38,11 +38,17 @@ namespace MoreMountains.InfiniteRunnerEngine
 			if (collidingObject.tag!="Player") { return; }	
 
 			PlayableCharacter player = collidingObject.GetComponent<PlayableCharacter>();
-			if (player==null) { return; }	
+			if (player==null) { return; }
 
 			// we ask the LevelManager to kill the character
-			if(!SimpleLane.isInvul)
-				LevelManager.Instance.KillCharacter(player);
+			if (!SimpleLane.isInvul)
+			{
+				if (!SimpleLane.isProtect)
+					LevelManager.Instance.KillCharacter(player);
+				else
+					LevelManager.Instance.CurrentPlayableCharacters[0].GetComponent<SimpleLane>().ToggleProtect(false);
+
+			}
 		}
 	}
 }
