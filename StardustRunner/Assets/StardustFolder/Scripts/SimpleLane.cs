@@ -9,6 +9,7 @@ namespace MoreMountains.InfiniteRunnerEngine
 	/// </summary>
 	public class SimpleLane : PlayableCharacter
 	{
+		public float gameSpeed;
 		public GameObject riderModel;
 		public GameObject bikeModel;
 		public GameObject shadow;
@@ -57,6 +58,7 @@ namespace MoreMountains.InfiniteRunnerEngine
             //}
 
             playerPositoin = transform.position;
+			gameSpeed = LevelManager.Instance.Speed;
 		}
 
         private void FixedUpdate()

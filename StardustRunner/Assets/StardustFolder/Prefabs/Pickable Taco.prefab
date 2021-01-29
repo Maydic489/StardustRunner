@@ -185,6 +185,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4038c69f3ecb34a3ab2a6dc680ff2114, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PickEffect: {fileID: 0}
+  PickEffect: {fileID: 100000, guid: 246a7780ed1858142b83dae1c54f80ed, type: 3}
   PickSoundFx: {fileID: 0}
   PointsToAdd: 100
