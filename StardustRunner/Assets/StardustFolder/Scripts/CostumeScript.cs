@@ -2,15 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CostumeScript : MonoBehaviour
+namespace MoreMountains.InfiniteRunnerEngine
 {
-    public GameObject PickEffect;
-    public void OnDisable()
+    public class CostumeScript : MonoBehaviour
     {
-        if (PickEffect != null)
+        public GameObject PickEffect;
+        public void OnDisable()
         {
-            Instantiate(PickEffect, transform.parent.position, transform.rotation);
+            if (PickEffect != null && !SimpleLane.isDead)
+            {
+                Instantiate(PickEffect, transform.parent.position, transform.rotation);
+                LevelManager.Instance.ActivateInvul(2f);
+            }
         }
     }
 }
-
