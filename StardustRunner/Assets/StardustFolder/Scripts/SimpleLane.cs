@@ -24,6 +24,7 @@ namespace MoreMountains.InfiniteRunnerEngine
 		public static bool isDead;
 		public static bool isInvul;
 		public static bool isProtect;
+		private bool isSlide;
 		public static bool isSpeed {get; set;}
 		static int s_BlinkingValueHash;
 
@@ -51,14 +52,20 @@ namespace MoreMountains.InfiniteRunnerEngine
 
 			ChooseLane();
 
-            //old way to move, not good for rigidbody
-            //if(transform.position.x != slideDirection)
-            //transform.position = Vector3.MoveTowards(transform.position, new Vector3(slideDirection, transform.position.y, transform.position.z), MoveSpeed * Time.deltaTime);
+			//old way to move, not good for rigidbody
+			//if(transform.position.x != slideDirection)
+			//transform.position = Vector3.MoveTowards(transform.position, new Vector3(slideDirection, transform.position.y, transform.position.z), MoveSpeed * Time.deltaTime);
 
-            //if (groundPivot.GetComponent<Rigidbody>().transform.rotation.z != (slideDirection * 10))
-            //{
-            //    groundPivot.GetComponent<Rigidbody>().transform.Rotate(new Vector3(0, 0, (-100 * slideDirection) * Time.deltaTime));
-            //}
+			//if (groundPivot.GetComponent<Rigidbody>().transform.rotation.z != (slideDirection * 10))
+			//{
+			//    groundPivot.GetComponent<Rigidbody>().transform.Rotate(new Vector3(0, 0, (-100 * slideDirection) * Time.deltaTime));
+			//}
+
+			if (!groundPivot.GetComponent<Animation>().IsPlaying("Anim_Slide") && isSlide)
+            {
+				isSlide = false;
+				GetComponent<CapsuleCollider>().enabled = true;
+			}
 
             playerPositoin = transform.position;
 			gameSpeed = LevelManager.Instance.Speed;
@@ -106,12 +113,14 @@ namespace MoreMountains.InfiniteRunnerEngine
 			if (whatLane == 'r')
 			{
 				slideDirection = 0f;
-				groundPivot.GetComponent<Animation>().Play("Anim_RotateLeft");
+				if (!isSlide)
+					groundPivot.GetComponent<Animation>().Play("Anim_RotateLeft");
 			}
 			else
             {
 				slideDirection = -1.6f;
-				groundPivot.GetComponent<Animation>().Play("Anim_RotateLeft");
+				if (!isSlide)
+					groundPivot.GetComponent<Animation>().Play("Anim_RotateLeft");
             }
 		}
 
@@ -121,16 +130,25 @@ namespace MoreMountains.InfiniteRunnerEngine
 			if (whatLane == 'l')
 			{
 				slideDirection = 0f;
-				groundPivot.GetComponent<Animation>().Play("Anim_RotateRight");
+				if (!isSlide)
+					groundPivot.GetComponent<Animation>().Play("Anim_RotateRight");
 			}
 			else
 			{
 				slideDirection = 1.6f;
-				groundPivot.GetComponent<Animation>().Play("Anim_RotateRight");
+				if (!isSlide)
+					groundPivot.GetComponent<Animation>().Play("Anim_RotateRight");
 			}
 		}
 
-		public void PreActivateInvul(float duration)
+        public override void DownStart()
+        {
+			isSlide = true;
+			GetComponent<CapsuleCollider>().enabled = false;
+			groundPivot.GetComponent<Animation>().Play("Anim_Slide");
+		}
+
+        public void PreActivateInvul(float duration)
         {
 			StopAllCoroutines();
 			StartCoroutine(ActivateInvul(duration));
