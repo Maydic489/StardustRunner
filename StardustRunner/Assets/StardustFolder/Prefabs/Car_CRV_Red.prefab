@@ -97,7 +97,7 @@ GameObject:
   - component: {fileID: 3186836684542673164}
   - component: {fileID: 3068229298841604908}
   - component: {fileID: 8118994731864641516}
-  - component: {fileID: 5192427613287634368}
+  - component: {fileID: 3956584032207851957}
   m_Layer: 0
   m_Name: Car_CRV_Red
   m_TagString: Untagged
@@ -265,7 +265,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0bce0a8dd118a14bb804c28e9b44bd5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &5192427613287634368
+--- !u!114 &3956584032207851957
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -274,12 +274,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 3097210269081167432}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e3366dd4f91c6c642910435006ba8cbb, type: 3}
+  m_Script: {fileID: 11500000, guid: f4a6617bb2a239047a2242ac9b1cc531, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Speed: 2.5
   Acceleration: 0
   Direction: {x: 0, y: 0, z: -1}
+  StopWhenOver: 0
+  IsMovingCar: 1
   DirectionCanBeChangedBySpawner: 1
   MovementSpace: 0
 --- !u!1 &3097260541272070918

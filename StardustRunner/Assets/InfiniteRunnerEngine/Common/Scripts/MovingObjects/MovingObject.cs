@@ -17,7 +17,9 @@ namespace MoreMountains.InfiniteRunnerEngine
 	    /// the current direction of the object
 	    public Vector3 Direction = Vector3.left;
 
-        [Header("Behaviour")]
+		[Header("Behaviour")]
+		public bool StopWhenOver = true;
+		public bool IsMovingCar = false;
         /// if set to true, the spawner can change the direction of the object. If not the one set in its inspector will be used.
 	    public bool DirectionCanBeChangedBySpawner = true;
         /// the space this object moves into, either world or local
@@ -46,9 +48,27 @@ namespace MoreMountains.InfiniteRunnerEngine
 		
 		// On update(), we move the object based on the level's speed and the object's speed, and apply acceleration
 		protected virtual void Update ()
-		{	
-			if(!SimpleLane.isDead)
-	    		Move();
+		{	if (StopWhenOver)
+			{
+				if (!SimpleLane.isDead)
+					Move();
+			}
+			else if(IsMovingCar)
+            {
+				if (!SimpleLane.isDead)
+					Move();
+				else
+				{
+					Debug.Log("moving forward");
+					SetDirection(transform.rotation * Vector3.forward);
+					Move();
+				}
+				
+			}
+			else
+            {
+				Move();
+			}
 			//MMDebug.DebugLogTime (this.name+"movement : " + _movement);
 	    }
 
