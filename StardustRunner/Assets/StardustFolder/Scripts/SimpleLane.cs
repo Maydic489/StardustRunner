@@ -25,6 +25,7 @@ namespace MoreMountains.InfiniteRunnerEngine
 		public static bool isInvul;
 		public static bool isProtect;
 		private bool isSlide;
+		private bool lookBack;
 		public static bool isSpeed {get; set;}
 		static int s_BlinkingValueHash;
 
@@ -67,17 +68,20 @@ namespace MoreMountains.InfiniteRunnerEngine
 				GetComponent<CapsuleCollider>().enabled = true;
 			}
 
-			//suppose to fix bike tilt for no reason
+			//go back to normal pose after changing lane
 			if ((IsBetween(transform.position.x,slideDirection-0.2f,slideDirection+0.2f)) && (groundPivot.GetComponent<Animation>().IsPlaying("Anim_RotateLeft") || groundPivot.GetComponent<Animation>().IsPlaying("Anim_RotateRight")) && !groundPivot.GetComponent<Animation>().IsPlaying("Anim_Slide"))
 			{
-				if (groundPivot.GetComponent<Animation>().IsPlaying("Anim_RotateLeft"))
-                {
-					groundPivot.GetComponent<Animation>().Play("Anim_LeftToCenter");
-				}
-				else if(groundPivot.GetComponent<Animation>().IsPlaying("Anim_RotateRight"))
-                {
-					groundPivot.GetComponent<Animation>().Play("Anim_RightToCenter");
-				}
+				CenterPose();
+            }
+
+			if(GameManager.Instance.FuelPoints < 40 && !groundPivot.GetComponent<Animation>().isPlaying && !lookBack)
+            {
+				groundPivot.GetComponent<Animation>().Play("Anim_LookBack");
+				lookBack = true;
+            }
+			else if(GameManager.Instance.FuelPoints > 40)
+            {
+				lookBack = false;
             }
 
 			playerPositoin = transform.position;
@@ -170,6 +174,18 @@ namespace MoreMountains.InfiniteRunnerEngine
         {
 			StopAllCoroutines();
 			StartCoroutine(ActivateInvul(duration));
+		}
+
+		private void CenterPose()
+        {
+			if (groundPivot.GetComponent<Animation>().IsPlaying("Anim_RotateLeft"))
+			{
+				groundPivot.GetComponent<Animation>().Play("Anim_LeftToCenter");
+			}
+			else if (groundPivot.GetComponent<Animation>().IsPlaying("Anim_RotateRight"))
+			{
+				groundPivot.GetComponent<Animation>().Play("Anim_RightToCenter");
+			}
 		}
 		public IEnumerator ActivateInvul(float duration)
 		{
