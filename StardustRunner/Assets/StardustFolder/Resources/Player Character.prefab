@@ -1062,7 +1062,6 @@ GameObject:
   - component: {fileID: 1403879552896945596}
   - component: {fileID: 7284560472650660950}
   - component: {fileID: 8068637796655847470}
-  - component: {fileID: 696229214}
   m_Layer: 0
   m_Name: Player Character
   m_TagString: Player
@@ -1168,22 +1167,6 @@ MonoBehaviour:
   mainCamera: {fileID: 0}
   slideDirection: 0
   whatLane: 0
---- !u!111 &696229214
-Animation:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8854290281616377687}
-  m_Enabled: 0
-  serializedVersion: 3
-  m_Animation: {fileID: 0}
-  m_Animations:
-  - {fileID: 7400000, guid: cc8c6fede68b93b42b2857cb2b9a329f, type: 2}
-  m_WrapMode: 0
-  m_PlayAutomatically: 0
-  m_AnimatePhysics: 0
-  m_CullingType: 0
 --- !u!1001 &1827579831
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1914,9 +1897,9 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 6696614395067091592, guid: dc264b94fdffe224e89391092fb58c61, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: dc264b94fdffe224e89391092fb58c61, type: 3}
---- !u!1 &2817844771199432072 stripped
+--- !u!1 &8538727040808146384 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 2817844770593182271, guid: dc264b94fdffe224e89391092fb58c61,
+  m_CorrespondingSourceObject: {fileID: 8538727039267172967, guid: dc264b94fdffe224e89391092fb58c61,
     type: 3}
   m_PrefabInstance: {fileID: 1827579831}
   m_PrefabAsset: {fileID: 0}
@@ -1926,9 +1909,9 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1827579831}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &8538727040808146384 stripped
+--- !u!1 &2817844771199432072 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 8538727039267172967, guid: dc264b94fdffe224e89391092fb58c61,
+  m_CorrespondingSourceObject: {fileID: 2817844770593182271, guid: dc264b94fdffe224e89391092fb58c61,
     type: 3}
   m_PrefabInstance: {fileID: 1827579831}
   m_PrefabAsset: {fileID: 0}

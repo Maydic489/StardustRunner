@@ -231,18 +231,18 @@ namespace MoreMountains.Tools
                 return;
             }
 
-            if (Mode == Modes.Microphone)
-            {
-#if !UNITY_WEBGL
-                GameObject audioSourceGo = new GameObject("Microphone");
-                audioSourceGo.transform.SetParent(this.gameObject.transform);
-                TargetAudioSource = audioSourceGo.AddComponent<AudioSource>();                
-                string _microphone = Microphone.devices[MicrophoneID].ToString();
-                TargetAudioSource.clip = Microphone.Start(_microphone, true, _microphoneDuration, (int)_microphoneFrequency);
-                TargetAudioSource.Play();
-                _microphoneStartedAt = Time.time;
-#endif
-            }
+//            if (Mode == Modes.Microphone)
+//            {
+//#if !UNITY_WEBGL
+//                GameObject audioSourceGo = new GameObject("Microphone");
+//                audioSourceGo.transform.SetParent(this.gameObject.transform);
+//                TargetAudioSource = audioSourceGo.AddComponent<AudioSource>();                
+//                string _microphone = Microphone.devices[MicrophoneID].ToString();
+//                TargetAudioSource.clip = Microphone.Start(_microphone, true, _microphoneDuration, (int)_microphoneFrequency);
+//                TargetAudioSource.Play();
+//                _microphoneStartedAt = Time.time;
+//#endif
+//            }
 
             Active = true;
             _sampleIntervalWaitForSeconds = new WaitForSeconds(SampleInterval);
@@ -268,20 +268,20 @@ namespace MoreMountains.Tools
                     case Modes.Global:
                         AudioListener.GetSpectrumData(RawSpectrum, 0, Window);
                         break;
-                    case Modes.Microphone:
-#if !UNITY_WEBGL
-                        int microphoneSamples = Microphone.GetPosition(_microphone);
-                        if (microphoneSamples / _microphoneFrequency > _microphoneDelay)
-                        {
-                            if (!TargetAudioSource.isPlaying)
-                            {
-                                TargetAudioSource.timeSamples = (int)(microphoneSamples - (_microphoneDelay * _microphoneFrequency));
-                                TargetAudioSource.Play();
-                            }
-                            _microphoneStartedAt = Time.time;
-                        }
-                        AudioListener.GetSpectrumData(RawSpectrum, 0, Window);
-#endif
+//                    case Modes.Microphone:
+//#if !UNITY_WEBGL
+//                        int microphoneSamples = Microphone.GetPosition(_microphone);
+//                        if (microphoneSamples / _microphoneFrequency > _microphoneDelay)
+//                        {
+//                            if (!TargetAudioSource.isPlaying)
+//                            {
+//                                TargetAudioSource.timeSamples = (int)(microphoneSamples - (_microphoneDelay * _microphoneFrequency));
+//                                TargetAudioSource.Play();
+//                            }
+//                            _microphoneStartedAt = Time.time;
+//                        }
+//                        AudioListener.GetSpectrumData(RawSpectrum, 0, Window);
+//#endif
                         break;
                 }
 

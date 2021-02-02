@@ -76,7 +76,10 @@ namespace MoreMountains.InfiniteRunnerEngine
 
 			if(GameManager.Instance.FuelPoints < 40 && !groundPivot.GetComponent<Animation>().isPlaying && !lookBack)
             {
+				//groundPivot.GetComponent<Animation>().Play("Anim_LookBack");
+				groundPivot.GetComponent<Animation>()["Anim_LookBack"].layer = 1;
 				groundPivot.GetComponent<Animation>().Play("Anim_LookBack");
+				groundPivot.GetComponent<Animation>()["Anim_LookBack"].weight = 0.4f;
 				lookBack = true;
             }
 			else if(GameManager.Instance.FuelPoints > 40)
@@ -243,6 +246,7 @@ namespace MoreMountains.InfiniteRunnerEngine
 			Destroy(shadow);
 			this.GetComponent<Rigidbody>().isKinematic = true;
 			this.GetComponent<Collider>().enabled = false;
+			GetComponent<CapsuleCollider>().enabled = false;
 			riderModel.GetComponent<RagdollDeathScript>().ToggleRagdoll(true);
 			bikeModel.GetComponent<RagdollDeathScript>().ToggleRagdoll(true);
 
