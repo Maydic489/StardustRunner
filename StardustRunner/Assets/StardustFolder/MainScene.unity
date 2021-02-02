@@ -4149,6 +4149,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: FireTruck_01 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 2531319445341487216, guid: ada34ddfa56c2c24db53a1c5eadcb835,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2534702470703328508, guid: ada34ddfa56c2c24db53a1c5eadcb835,
         type: 3}
       propertyPath: m_RootOrder
@@ -4582,6 +4587,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: FireTruck_01 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 2531319445341487216, guid: ada34ddfa56c2c24db53a1c5eadcb835,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2534702470703328508, guid: ada34ddfa56c2c24db53a1c5eadcb835,
         type: 3}
       propertyPath: m_RootOrder
@@ -4761,6 +4771,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 546002442, guid: 58a3477b38262f74082aa2853b6bb798, type: 3}
+      propertyPath: m_Animations.Array.data[4]
+      value: 
+      objectReference: {fileID: 7400000, guid: 29f477f5cdcf62645bc86ccc4a5d83b8, type: 2}
     - target: {fileID: 8190660919244643821, guid: 58a3477b38262f74082aa2853b6bb798,
         type: 3}
       propertyPath: m_RootOrder
@@ -5039,6 +5053,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: FireTruck_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 2531319445341487216, guid: ada34ddfa56c2c24db53a1c5eadcb835,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2534702470703328508, guid: ada34ddfa56c2c24db53a1c5eadcb835,
         type: 3}

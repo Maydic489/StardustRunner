@@ -19,8 +19,8 @@ namespace MoreMountains.InfiniteRunnerEngine
 		private float slowSpeed = 0.1f;
 		public GameObject mainCamera;
 		public static Vector3 playerPositoin;
-		private float slideDirection;
-		private char whatLane;
+		public float slideDirection;
+		public char whatLane;
 		public static bool isDead;
 		public static bool isInvul;
 		public static bool isProtect;
@@ -67,13 +67,26 @@ namespace MoreMountains.InfiniteRunnerEngine
 				GetComponent<CapsuleCollider>().enabled = true;
 			}
 
-            playerPositoin = transform.position;
+			//suppose to fix bike tilt for no reason
+			if ((IsBetween(transform.position.x,slideDirection-0.2f,slideDirection+0.2f)) && (groundPivot.GetComponent<Animation>().IsPlaying("Anim_RotateLeft") || groundPivot.GetComponent<Animation>().IsPlaying("Anim_RotateRight")) && !groundPivot.GetComponent<Animation>().IsPlaying("Anim_Slide"))
+			{
+				if (groundPivot.GetComponent<Animation>().IsPlaying("Anim_RotateLeft"))
+                {
+					groundPivot.GetComponent<Animation>().Play("Anim_LeftToCenter");
+				}
+				else if(groundPivot.GetComponent<Animation>().IsPlaying("Anim_RotateRight"))
+                {
+					groundPivot.GetComponent<Animation>().Play("Anim_RightToCenter");
+				}
+            }
+
+			playerPositoin = transform.position;
 			gameSpeed = LevelManager.Instance.Speed;
 		}
 
-        private void FixedUpdate()
-        {
-			if (transform.position.x != slideDirection)
+		private void FixedUpdate()
+		{
+			if (!IsBetween(transform.position.x, slideDirection - 0.05f, slideDirection + 0.05f))
 			{
 				if(slowSpeed < MoveSpeed)
                 {
@@ -93,41 +106,46 @@ namespace MoreMountains.InfiniteRunnerEngine
 
 		public void ChooseLane()
         {
-			if (transform.position.x > -0.1f && transform.position.x < 0.1f)
-			{
-				whatLane = 'm';
-			}
-			else if (transform.position.x < 0)
-			{
-				whatLane = 'l';
-			}
-			else if (transform.position.x > 0)
-			{
-				whatLane = 'r';
-			}
+            if (transform.position.x > -0.1f && transform.position.x < 0.1f)
+            {
+                whatLane = 'm';
+            }
+            else if (transform.position.x < -0.1f)
+            {
+                whatLane = 'l';
+            }
+            else if (transform.position.x > 0.1f)
+            {
+                whatLane = 'r';
+            }
+            else
+            {
+				return;
+            }
 		}
 
 		public override void LeftStart()
 		{
-			//_rigidbodyInterface.AddForce(Vector3.left * MoveSpeed * Time.deltaTime);
-			if (whatLane == 'r')
-			{
-				slideDirection = 0f;
-				if (!isSlide)
-					groundPivot.GetComponent<Animation>().Play("Anim_RotateLeft");
-			}
-			else
+            //_rigidbodyInterface.AddForce(Vector3.left * MoveSpeed * Time.deltaTime);
+            if (whatLane == 'r' && slideDirection != 0f)
             {
-				slideDirection = -1.6f;
-				if (!isSlide)
-					groundPivot.GetComponent<Animation>().Play("Anim_RotateLeft");
+				Debug.Log("Go mid");
+                slideDirection = 0f;
+                if (!isSlide)
+                    groundPivot.GetComponent<Animation>().Play("Anim_RotateLeft");
+            }
+            else
+            {
+                slideDirection = -1.6f;
+                if (!isSlide)
+                    groundPivot.GetComponent<Animation>().Play("Anim_RotateLeft");
             }
 		}
 
 		public override void RightStart()
 		{
 			//_rigidbodyInterface.AddForce(Vector3.right * MoveSpeed * Time.deltaTime);
-			if (whatLane == 'l')
+			if (whatLane == 'l' && slideDirection != 0f)
 			{
 				slideDirection = 0f;
 				if (!isSlide)
@@ -188,8 +206,8 @@ namespace MoreMountains.InfiniteRunnerEngine
 
 		public void ToggleProtect(bool state)
         {
-			helmetModel.SetActive(state);
 			isProtect = state;
+			helmetModel.SetActive(state);
         }
 
 		protected override void CheckDeathConditions()
@@ -202,9 +220,9 @@ namespace MoreMountains.InfiniteRunnerEngine
 
 		public override void Die()
 		{
-			Debug.Log("die");
 			//Destroy(bikeModel);
 			isDead = true;
+			groundPivot.GetComponent<Animation>().Stop();
 			GameManager.Instance.SlowMotion();
 			Destroy(shadow);
 			this.GetComponent<Rigidbody>().isKinematic = true;
@@ -223,6 +241,18 @@ namespace MoreMountains.InfiniteRunnerEngine
 			{
 				Physics.IgnoreCollision(bikeModel.GetComponent<Collider>(),collider,true);
 			}
+		}
+
+		public bool IsBetween(float testValue, float min, float max)
+		{	
+			if(testValue > min && testValue < max)
+            {
+				return (true);
+            }
+			else
+            {
+				return (false);
+            }
 		}
 	}
 }

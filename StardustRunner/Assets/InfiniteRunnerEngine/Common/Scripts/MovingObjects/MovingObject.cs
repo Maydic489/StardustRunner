@@ -59,7 +59,6 @@ namespace MoreMountains.InfiniteRunnerEngine
 					Move();
 				else
 				{
-					Debug.Log("moving forward");
 					SetDirection(transform.rotation * Vector3.forward);
 					Move();
 				}
