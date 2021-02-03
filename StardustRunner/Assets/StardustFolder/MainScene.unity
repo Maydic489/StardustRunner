@@ -1933,7 +1933,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 6430099591911781487, guid: ada34ddfa56c2c24db53a1c5eadcb835,
+        type: 3}
+      propertyPath: whatLane
+      value: 109
+      objectReference: {fileID: 0}
+    - target: {fileID: 6430099591911781487, guid: ada34ddfa56c2c24db53a1c5eadcb835,
+        type: 3}
+      propertyPath: AutoCheckLane
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 8541951905572346373, guid: ada34ddfa56c2c24db53a1c5eadcb835, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: ada34ddfa56c2c24db53a1c5eadcb835, type: 3}
 --- !u!4 &907857539 stripped
 Transform:
@@ -3775,7 +3786,7 @@ MonoBehaviour:
   MutualizeWaitingPools: 0
   NestWaitingPool: 1
   Pool:
-  - GameObjectToPool: {fileID: 3728757460195167148, guid: 60c1bc16aa94e4d4895baaa62c564274,
+  - GameObjectToPool: {fileID: 6634715899501544287, guid: c883f750fc8af1645953949267326fd3,
       type: 3}
     PoolSize: 20
     PoolCanExpand: 0
@@ -5435,3 +5446,77 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7db38af2cf7802f408023e2118766fcf, type: 3}
+--- !u!1001 &7485506108509903172
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 8190660919244643821, guid: 7da21b89bec702f4fa2eb5d53b668b52,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 8190660919244643821, guid: 7da21b89bec702f4fa2eb5d53b668b52,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8190660919244643821, guid: 7da21b89bec702f4fa2eb5d53b668b52,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8190660919244643821, guid: 7da21b89bec702f4fa2eb5d53b668b52,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8190660919244643821, guid: 7da21b89bec702f4fa2eb5d53b668b52,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8190660919244643821, guid: 7da21b89bec702f4fa2eb5d53b668b52,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8190660919244643821, guid: 7da21b89bec702f4fa2eb5d53b668b52,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8190660919244643821, guid: 7da21b89bec702f4fa2eb5d53b668b52,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8190660919244643821, guid: 7da21b89bec702f4fa2eb5d53b668b52,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8190660919244643821, guid: 7da21b89bec702f4fa2eb5d53b668b52,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8190660919244643821, guid: 7da21b89bec702f4fa2eb5d53b668b52,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8854290281616377687, guid: 7da21b89bec702f4fa2eb5d53b668b52,
+        type: 3}
+      propertyPath: m_Name
+      value: Player Character
+      objectReference: {fileID: 0}
+    - target: {fileID: 8854290281616377687, guid: 7da21b89bec702f4fa2eb5d53b668b52,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 7da21b89bec702f4fa2eb5d53b668b52, type: 3}

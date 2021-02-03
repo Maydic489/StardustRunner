@@ -20,7 +20,8 @@ namespace MoreMountains.InfiniteRunnerEngine
 		public GameObject mainCamera;
 		public static Vector3 playerPositoin;
 		public float slideDirection;
-		public char whatLane;
+		private float oldDirection;
+		public static char whatLane;
 		public static bool isDead;
 		public static bool isInvul;
 		public static bool isProtect;
@@ -142,6 +143,7 @@ namespace MoreMountains.InfiniteRunnerEngine
 
 		public override void LeftStart()
 		{
+			oldDirection = slideDirection;
             //_rigidbodyInterface.AddForce(Vector3.left * MoveSpeed * Time.deltaTime);
             if (whatLane == 'r' && slideDirection != 0f)
             {
@@ -160,6 +162,7 @@ namespace MoreMountains.InfiniteRunnerEngine
 
 		public override void RightStart()
 		{
+			oldDirection = slideDirection;
 			//_rigidbodyInterface.AddForce(Vector3.right * MoveSpeed * Time.deltaTime);
 			if (whatLane == 'l' && slideDirection != 0f)
 			{
@@ -240,6 +243,7 @@ namespace MoreMountains.InfiniteRunnerEngine
 			if(!state)
             {
 				LevelManager.Instance.ActivateInvul(2f);
+				Camera.main.GetComponent<CameraShake>().isShake = true;
 			}
         }
 
@@ -266,6 +270,7 @@ namespace MoreMountains.InfiniteRunnerEngine
 		public override void Die()
 		{
 			//Destroy(bikeModel);
+			Camera.main.GetComponent<CameraShake>().isShake = true;
 			isDead = true;
 			groundPivot.GetComponent<Animation>().Stop();
 			GameManager.Instance.SlowMotion();
@@ -287,6 +292,18 @@ namespace MoreMountains.InfiniteRunnerEngine
 			{
 				Physics.IgnoreCollision(bikeModel.GetComponent<Collider>(),collider,true);
 			}
+		}
+
+		public void HurtPlayer()
+		{
+			GameManager.Instance.AddFuel(-50f);
+			if (GameManager.Instance.FuelPoints > 0.00f) { LevelManager.Instance.ActivateInvul(1f); }
+			Camera.main.GetComponent<CameraShake>().isShake = true;
+
+			if (transform.position.x <= oldDirection)
+				RightStart();
+			else
+				LeftStart();
 		}
 
 		public bool IsBetween(float testValue, float min, float max)

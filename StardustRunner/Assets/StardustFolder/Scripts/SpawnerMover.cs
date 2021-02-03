@@ -20,7 +20,7 @@ public class SpawnerMover : MonoBehaviour
             counting = 0;
         }
 
-        transform.position = Vector3.MoveTowards(transform.position, new Vector3(slideDirection, transform.position.y, transform.position.z), moveSpeed * Time.deltaTime);
+        transform.position = new Vector3(slideDirection, transform.position.y, transform.position.z);
     }
 
     private void GetSlideDirection()

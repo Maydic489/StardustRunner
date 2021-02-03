@@ -46,6 +46,7 @@ GameObject:
   - component: {fileID: 7486584673609961037}
   - component: {fileID: 7591214051029753228}
   - component: {fileID: 6283104595984690010}
+  - component: {fileID: 1692500750}
   m_Layer: 0
   m_Name: Main Camera (2)
   m_TagString: MainCamera
@@ -151,6 +152,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 5
   zoomBoost: 75
+--- !u!114 &1692500750
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1416881012249775539}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92c8dc5f9d5e21e41b984469b8af29d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  camTransform: {fileID: 8633505499659744764}
+  shakeDurationSet: 0.5
+  shakeAmount: 0.005
+  decreaseFactor: 1
 --- !u!1 &1592040924049562487
 GameObject:
   m_ObjectHideFlags: 0
@@ -1166,7 +1183,6 @@ MonoBehaviour:
   MoveSpeed: 5
   mainCamera: {fileID: 0}
   slideDirection: 0
-  whatLane: 0
 --- !u!1001 &1827579831
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1903,15 +1919,15 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1827579831}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &8538727040808110512 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 8538727039267335687, guid: dc264b94fdffe224e89391092fb58c61,
-    type: 3}
-  m_PrefabInstance: {fileID: 1827579831}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2817844771199432072 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2817844770593182271, guid: dc264b94fdffe224e89391092fb58c61,
+    type: 3}
+  m_PrefabInstance: {fileID: 1827579831}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &8538727040808110512 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8538727039267335687, guid: dc264b94fdffe224e89391092fb58c61,
     type: 3}
   m_PrefabInstance: {fileID: 1827579831}
   m_PrefabAsset: {fileID: 0}

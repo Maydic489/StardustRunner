@@ -96,8 +96,8 @@ GameObject:
   - component: {fileID: 8126024364424791440}
   - component: {fileID: 3186836684542673164}
   - component: {fileID: 3068229298841604908}
-  - component: {fileID: 8118994731864641516}
   - component: {fileID: -4484439158930743198}
+  - component: {fileID: -2693973974410332658}
   m_Layer: 0
   m_Name: Car_CRV_Blue
   m_TagString: Untagged
@@ -253,18 +253,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DestroyDistanceBehindBounds: 0
---- !u!114 &8118994731864641516
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3097210269081167432}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e0bce0a8dd118a14bb804c28e9b44bd5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &-4484439158930743198
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -284,6 +272,19 @@ MonoBehaviour:
   IsMovingCar: 1
   DirectionCanBeChangedBySpawner: 1
   MovementSpace: 0
+--- !u!114 &-2693973974410332658
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3097210269081167432}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74e432cda2fd0b9438ec571658ba4a32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  whatLane: 0
 --- !u!1 &3097260541272070918
 GameObject:
   m_ObjectHideFlags: 0
