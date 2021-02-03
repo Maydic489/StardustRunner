@@ -245,8 +245,8 @@ namespace MoreMountains.InfiniteRunnerEngine
 			GameManager.Instance.SlowMotion();
 			Destroy(shadow);
 			this.GetComponent<Rigidbody>().isKinematic = true;
-			this.GetComponent<Collider>().enabled = false;
-			GetComponent<CapsuleCollider>().enabled = false;
+			this.GetComponent<BoxCollider>().enabled = false;
+			this.GetComponent<CapsuleCollider>().enabled = false;
 			riderModel.GetComponent<RagdollDeathScript>().ToggleRagdoll(true);
 			bikeModel.GetComponent<RagdollDeathScript>().ToggleRagdoll(true);
 

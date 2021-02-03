@@ -282,7 +282,7 @@ namespace MoreMountains.Tools
 //                        }
 //                        AudioListener.GetSpectrumData(RawSpectrum, 0, Window);
 //#endif
-                        break;
+                        //break;
                 }
 
                 ComputeBandLevels();
