@@ -582,7 +582,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &289940328
 Transform:
   m_ObjectHideFlags: 0
@@ -603,7 +603,6 @@ Transform:
   - {fileID: 560410646}
   - {fileID: 1701246760}
   - {fileID: 912011932}
-  - {fileID: 975139708}
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1099,7 +1098,7 @@ MonoBehaviour:
   OutroFadeDuration: 1
   StartCountdown: 0
   StartText: 
-  ControlScheme: 2
+  ControlScheme: 0
   LifeLostExplosion: {fileID: 184460, guid: 2bfa6f1578b3ec0408e74b5cbbca104d, type: 3}
 --- !u!4 &517138331
 Transform:
@@ -1142,10 +1141,20 @@ PrefabInstance:
       propertyPath: m_Name
       value: Spike Obj (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 5365819594514678189, guid: 1fe89a5cb749e214899c57957847cd05,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5767665895493094772, guid: 1fe89a5cb749e214899c57957847cd05,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6267982156990236026, guid: 1fe89a5cb749e214899c57957847cd05,
         type: 3}
       propertyPath: m_RootOrder
-      value: 12
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 6267982156990236026, guid: 1fe89a5cb749e214899c57957847cd05,
         type: 3}
@@ -1195,6 +1204,11 @@ PrefabInstance:
     - target: {fileID: 6267982156990236026, guid: 1fe89a5cb749e214899c57957847cd05,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6658449773942576641, guid: 1fe89a5cb749e214899c57957847cd05,
+        type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7794157941975697418, guid: 1fe89a5cb749e214899c57957847cd05,
@@ -2226,8 +2240,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 60}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 289940328}
-  m_RootOrder: 9
+  m_Father: {fileID: 0}
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!43 &979337429
 Mesh:
@@ -3437,10 +3451,15 @@ PrefabInstance:
       propertyPath: m_Name
       value: Spike Obj (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 5365819594514678189, guid: 1fe89a5cb749e214899c57957847cd05,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6267982156990236026, guid: 1fe89a5cb749e214899c57957847cd05,
         type: 3}
       propertyPath: m_RootOrder
-      value: 13
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 6267982156990236026, guid: 1fe89a5cb749e214899c57957847cd05,
         type: 3}
@@ -3998,6 +4017,50 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1406565439}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1654152028
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1654152030}
+  - component: {fileID: 1654152029}
+  m_Layer: 0
+  m_Name: TouchManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1654152029
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1654152028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 567edfaaa60bcb748afd7ebbefbf688a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  touchDown: 0
+--- !u!4 &1654152030
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1654152028}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 20, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 15
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1662624862 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5365819594514678189, guid: 1fe89a5cb749e214899c57957847cd05,
@@ -5208,6 +5271,11 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4297919041491145918, guid: 96b3df0c65775554093f8fb0bc4f5e94,
+        type: 3}
+      propertyPath: MinimalSwipeLength
+      value: 20
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 96b3df0c65775554093f8fb0bc4f5e94, type: 3}
 --- !u!1001 &5271117227265318474
@@ -6129,10 +6197,20 @@ PrefabInstance:
       propertyPath: m_Name
       value: Spike Obj
       objectReference: {fileID: 0}
+    - target: {fileID: 5365819594514678189, guid: 1fe89a5cb749e214899c57957847cd05,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5767665895493094772, guid: 1fe89a5cb749e214899c57957847cd05,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6267982156990236026, guid: 1fe89a5cb749e214899c57957847cd05,
         type: 3}
       propertyPath: m_RootOrder
-      value: 11
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 6267982156990236026, guid: 1fe89a5cb749e214899c57957847cd05,
         type: 3}
@@ -6184,6 +6262,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6658449773942576641, guid: 1fe89a5cb749e214899c57957847cd05,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7794157941975697418, guid: 1fe89a5cb749e214899c57957847cd05,
         type: 3}
       propertyPath: isGround
@@ -6201,7 +6284,7 @@ PrefabInstance:
     - target: {fileID: 8190660919244643821, guid: 7da21b89bec702f4fa2eb5d53b668b52,
         type: 3}
       propertyPath: m_RootOrder
-      value: 10
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 8190660919244643821, guid: 7da21b89bec702f4fa2eb5d53b668b52,
         type: 3}
