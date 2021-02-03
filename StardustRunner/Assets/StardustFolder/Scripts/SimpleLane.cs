@@ -142,11 +142,11 @@ namespace MoreMountains.InfiniteRunnerEngine
 
 		public override void LeftStart()
 		{
+			Debug.Log("Swipe left");
 			oldDirection = slideDirection;
             //_rigidbodyInterface.AddForce(Vector3.left * MoveSpeed * Time.deltaTime);
             if (whatLane == 'r' && slideDirection != 0f)
             {
-				Debug.Log("Go mid");
                 slideDirection = 0f;
                 if (!isSlide)
                     groundPivot.GetComponent<Animation>().Play("Anim_RotateLeft");
@@ -161,6 +161,7 @@ namespace MoreMountains.InfiniteRunnerEngine
 
 		public override void RightStart()
 		{
+			Debug.Log("Swipe Right");
 			oldDirection = slideDirection;
 			//_rigidbodyInterface.AddForce(Vector3.right * MoveSpeed * Time.deltaTime);
 			if (whatLane == 'l' && slideDirection != 0f)
