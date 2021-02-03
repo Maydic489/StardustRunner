@@ -78,7 +78,6 @@ namespace MoreMountains.InfiniteRunnerEngine
 					CenterPose();
 				else
 				{
-					Debug.Log("play idle");
 					groundPivot.GetComponent<Animation>().IsPlaying("Anim_Idle");
 				}
 
@@ -294,16 +293,19 @@ namespace MoreMountains.InfiniteRunnerEngine
 			}
 		}
 
-		public void HurtPlayer()
+		public void HurtPlayer(bool pushing)
 		{
 			GameManager.Instance.AddFuel(-50f);
 			if (GameManager.Instance.FuelPoints > 0.00f) { LevelManager.Instance.ActivateInvul(1f); }
 			Camera.main.GetComponent<CameraShake>().isShake = true;
 
-			if (transform.position.x <= oldDirection)
-				RightStart();
-			else
-				LeftStart();
+			if (pushing)
+			{
+				if (transform.position.x <= oldDirection)
+					RightStart();
+				else
+					LeftStart();
+			}
 		}
 
 		public bool IsBetween(float testValue, float min, float max)

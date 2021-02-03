@@ -7,6 +7,7 @@ namespace MoreMountains.InfiniteRunnerEngine
 	public class HurtPlayerOnTouch : KillsPlayerOnTouch
 	{
 		public bool DontAutoCheckLane;
+		public bool isGround;
 		public char whatLane;
 
 		private void Start()
@@ -29,7 +30,7 @@ namespace MoreMountains.InfiniteRunnerEngine
 				{
 					if((SimpleLane.whatLane != this.whatLane) || this.whatLane == 'n')
 					{
-						LevelManager.Instance.CurrentPlayableCharacters[0].GetComponent<SimpleLane>().HurtPlayer();				}
+						LevelManager.Instance.CurrentPlayableCharacters[0].GetComponent<SimpleLane>().HurtPlayer(!isGround);				}
 					else
 						LevelManager.Instance.KillCharacter(player);
 				}
