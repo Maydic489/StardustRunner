@@ -71,10 +71,17 @@ namespace MoreMountains.InfiniteRunnerEngine
 			}
 
 			//go back to normal pose after changing lane
-			if ((IsBetween(transform.position.x,slideDirection-0.2f,slideDirection+0.2f)) && (groundPivot.GetComponent<Animation>().IsPlaying("Anim_RotateLeft") || groundPivot.GetComponent<Animation>().IsPlaying("Anim_RotateRight")) && !groundPivot.GetComponent<Animation>().IsPlaying("Anim_Slide"))
+			if ((IsBetween(transform.position.x,slideDirection-0.2f,slideDirection+0.2f)) && !groundPivot.GetComponent<Animation>().IsPlaying("Anim_Slide"))
 			{
-				CenterPose();
-            }
+				if ((groundPivot.GetComponent<Animation>().IsPlaying("Anim_RotateLeft") || groundPivot.GetComponent<Animation>().IsPlaying("Anim_RotateRight")))
+					CenterPose();
+				else
+				{
+					Debug.Log("play idle");
+					groundPivot.GetComponent<Animation>().IsPlaying("Anim_Idle");
+				}
+
+			}
 
 			if(GameManager.Instance.FuelPoints < 40 && !groundPivot.GetComponent<Animation>().isPlaying && !lookBack)
             {

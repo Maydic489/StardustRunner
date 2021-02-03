@@ -446,7 +446,7 @@ Transform:
   - {fileID: 8538727040808110512}
   m_Father: {fileID: 8190660919244643821}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 20}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!111 &546002442
 Animation:
   m_ObjectHideFlags: 0
@@ -495,7 +495,7 @@ BoxCollider:
   m_GameObject: {fileID: 3481363774766235749}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -940,7 +940,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 1
   m_Interpolate: 1
-  m_Constraints: 0
+  m_Constraints: 112
   m_CollisionDetection: 3
 --- !u!65 &5573703262689908003
 BoxCollider:

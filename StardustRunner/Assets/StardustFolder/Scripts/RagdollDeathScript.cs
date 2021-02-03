@@ -19,6 +19,7 @@ public class RagdollDeathScript : MonoBehaviour
         {
             rb.isKinematic = !state;
             rb.detectCollisions = state;
+            rb.freezeRotation = !state;
         }
 
         foreach(Collider collider in ragdollColliders)
