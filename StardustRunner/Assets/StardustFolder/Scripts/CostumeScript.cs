@@ -13,7 +13,6 @@ namespace MoreMountains.InfiniteRunnerEngine
             {
                 Debug.Log("active invul");
                 Instantiate(PickEffect, transform.parent.position, transform.rotation);
-                LevelManager.Instance.ActivateInvul(2f);
             }
         }
     }

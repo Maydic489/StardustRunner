@@ -51,6 +51,8 @@ namespace MoreMountains.InfiniteRunnerEngine
 			// we check if the player is out of the death bounds or not
 			CheckDeathConditions();
 
+			IsOutofFuel();
+
 			ChooseLane();
 
 			//old way to move, not good for rigidbody
@@ -227,11 +229,28 @@ namespace MoreMountains.InfiniteRunnerEngine
         {
 			isProtect = state;
 			helmetModel.SetActive(state);
+
+			if(!state)
+            {
+				LevelManager.Instance.ActivateInvul(2f);
+			}
+        }
+
+		public void IsOutofFuel()
+        {
+			if(GameManager.Instance.FuelPoints <= 0f && !isDead)
+            {
+				if (!isInvul)
+					if(!isProtect)
+						LevelManager.Instance.KillCharacter(this);
+					else
+						LevelManager.Instance.CurrentPlayableCharacters[0].GetComponent<SimpleLane>().ToggleProtect(false);
+			}
         }
 
 		protected override void CheckDeathConditions()
 		{
-			if ((LevelManager.Instance.CheckDeathCondition(GetPlayableCharacterBounds()) || GameManager.Instance.FuelPoints <= 0f) && !isDead)
+			if (LevelManager.Instance.CheckDeathCondition(GetPlayableCharacterBounds()) && !isDead)
 			{
 				LevelManager.Instance.KillCharacter(this);
 			}
