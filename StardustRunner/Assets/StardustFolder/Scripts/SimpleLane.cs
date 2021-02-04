@@ -82,6 +82,8 @@ namespace MoreMountains.InfiniteRunnerEngine
 				else
 				{
 					groundPivot.GetComponent<Animation>().IsPlaying("Anim_Idle");
+					bikeModel.transform.rotation = bikeDefault;
+					riderModel.transform.rotation = bikeDefault;
 				}
 
 			}
