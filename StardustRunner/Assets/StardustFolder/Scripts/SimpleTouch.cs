@@ -10,7 +10,8 @@ namespace MoreMountains.InfiniteRunnerEngine
         Vector2 firstPressPos;
         Vector2 secondPressPos;
         Vector2 currentSwipe;
-        public bool touchDown;
+        private bool touchDown;
+        private bool triggerInput;
 
         void Update()
         {
@@ -117,45 +118,42 @@ namespace MoreMountains.InfiniteRunnerEngine
                 currentSwipe.Normalize();
 
 
-                if (Vector2.Distance(firstPressPos, secondPressPos) > 30)
+                if (Vector2.Distance(firstPressPos, secondPressPos) > 30 && !triggerInput)
                 {
                     //swipe upwards
                     if (currentSwipe.y > 0 && currentSwipe.x > -0.5f && currentSwipe.x < 0.5f)
                     {
                         Debug.Log("up swipe");
                         InputManager.Instance.UpButtonDown();
-                        firstPressPos = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
-                        secondPressPos = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
+                        triggerInput = true;
                     }
                     //swipe down
                     if (currentSwipe.y < 0 && currentSwipe.x > -0.5f && currentSwipe.x < 0.5f)
                     {
                         Debug.Log("down swipe");
                         InputManager.Instance.DownButtonDown();
-                        firstPressPos = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
-                        secondPressPos = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
+                        triggerInput = true;
                     }
                     //swipe left
                     if (currentSwipe.x < 0 && currentSwipe.y > -0.5f && currentSwipe.y < 0.5f)
                     {
                         Debug.Log("left swipe");
                         InputManager.Instance.LeftButtonDown();
-                        firstPressPos = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
-                        secondPressPos = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
+                        triggerInput = true;
                     }
                     //swipe right
                     if (currentSwipe.x > 0 && currentSwipe.y > -0.5f && currentSwipe.y < 0.5f)
                     {
                         Debug.Log("right swipe");
                         InputManager.Instance.RightButtonDown();
-                        firstPressPos = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
-                        secondPressPos = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
+                        triggerInput = true;
                     }
                 }
             }
             if (Input.GetMouseButtonUp(0))
             {
                 touchDown = false;
+                triggerInput = false;
             //    //save ended touch 2d point
             //    secondPressPos = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
 
