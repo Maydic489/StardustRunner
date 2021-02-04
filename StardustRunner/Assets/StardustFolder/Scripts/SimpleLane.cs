@@ -27,7 +27,7 @@ namespace MoreMountains.InfiniteRunnerEngine
 		public static bool isProtect;
 		private bool isSlide;
 		private bool lookBack;
-		private Transform bikeDefault;
+		public Quaternion bikeDefault;
 		public static bool isSpeed {get; set;}
 		static int s_BlinkingValueHash;
 
@@ -41,7 +41,7 @@ namespace MoreMountains.InfiniteRunnerEngine
 			isSpeed = false;
 			isProtect = false;
 
-			bikeDefault = bikeModel.transform;
+			bikeDefault = bikeModel.transform.rotation;
 		}
 
         protected override void Update()
@@ -204,8 +204,6 @@ namespace MoreMountains.InfiniteRunnerEngine
 			{
 				groundPivot.GetComponent<Animation>().Play("Anim_RightToCenter");
 			}
-
-			bikeModel.transform.rotation = bikeDefault.rotation;
 		}
 		public IEnumerator ActivateInvul(float duration)
 		{
