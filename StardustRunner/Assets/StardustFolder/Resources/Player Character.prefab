@@ -1146,6 +1146,7 @@ MonoBehaviour:
   gameSpeed: 0
   riderModel: {fileID: 8538727040808146384}
   bikeModel: {fileID: 8329345656683553081}
+  pelvisObj: {fileID: 8538727040808145966}
   shadow: {fileID: 8453192960646674113}
   groundPivot: {fileID: 3481363774766235749}
   helmetModel: {fileID: 2817844771199432072}
@@ -1882,9 +1883,9 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 6696614395067091592, guid: dc264b94fdffe224e89391092fb58c61, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: dc264b94fdffe224e89391092fb58c61, type: 3}
---- !u!1 &2817844771199432072 stripped
+--- !u!1 &8538727040808146384 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 2817844770593182271, guid: dc264b94fdffe224e89391092fb58c61,
+  m_CorrespondingSourceObject: {fileID: 8538727039267172967, guid: dc264b94fdffe224e89391092fb58c61,
     type: 3}
   m_PrefabInstance: {fileID: 1827579831}
   m_PrefabAsset: {fileID: 0}
@@ -1894,9 +1895,15 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1827579831}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &8538727040808146384 stripped
+--- !u!1 &2817844771199432072 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 8538727039267172967, guid: dc264b94fdffe224e89391092fb58c61,
+  m_CorrespondingSourceObject: {fileID: 2817844770593182271, guid: dc264b94fdffe224e89391092fb58c61,
+    type: 3}
+  m_PrefabInstance: {fileID: 1827579831}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &8538727040808145966 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8538727039267173273, guid: dc264b94fdffe224e89391092fb58c61,
     type: 3}
   m_PrefabInstance: {fileID: 1827579831}
   m_PrefabAsset: {fileID: 0}

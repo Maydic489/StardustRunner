@@ -12,6 +12,7 @@ namespace MoreMountains.InfiniteRunnerEngine
 		public float gameSpeed;
 		public GameObject riderModel;
 		public GameObject bikeModel;
+		public GameObject pelvisObj;
 		public GameObject shadow;
 		public GameObject groundPivot;
 		public GameObject helmetModel;
@@ -27,7 +28,6 @@ namespace MoreMountains.InfiniteRunnerEngine
 		public static bool isProtect;
 		private bool isSlide;
 		private bool lookBack;
-		public Quaternion bikeDefault;
 		public static bool isSpeed {get; set;}
 		static int s_BlinkingValueHash;
 
@@ -40,8 +40,6 @@ namespace MoreMountains.InfiniteRunnerEngine
 			isInvul = false;
 			isSpeed = false;
 			isProtect = false;
-
-			bikeDefault = bikeModel.transform.rotation;
 		}
 
         protected override void Update()
@@ -75,15 +73,13 @@ namespace MoreMountains.InfiniteRunnerEngine
 			}
 
 			//go back to normal pose after changing lane
-			if ((IsBetween(transform.position.x,slideDirection-0.2f,slideDirection+0.2f)) && !groundPivot.GetComponent<Animation>().IsPlaying("Anim_Slide"))
+			if ((IsBetween(transform.position.x,slideDirection-0.2f,slideDirection+0.2f)) && !groundPivot.GetComponent<Animation>().IsPlaying("Anim_Slide") && !isDead)
 			{
-				if ((groundPivot.GetComponent<Animation>().IsPlaying("Anim_RotateLeft") || groundPivot.GetComponent<Animation>().IsPlaying("Anim_RotateRight")))
+				if (groundPivot.GetComponent<Animation>().IsPlaying("Anim_RotateLeft") || groundPivot.GetComponent<Animation>().IsPlaying("Anim_RotateRight"))
 					CenterPose();
-				else
+				else if(!groundPivot.GetComponent<Animation>().IsPlaying("Anim_LeftToCenter") && !groundPivot.GetComponent<Animation>().IsPlaying("Anim_RightToCenter"))
 				{
 					groundPivot.GetComponent<Animation>().IsPlaying("Anim_Idle");
-					bikeModel.transform.rotation = bikeDefault;
-					riderModel.transform.rotation = bikeDefault;
 				}
 
 			}
