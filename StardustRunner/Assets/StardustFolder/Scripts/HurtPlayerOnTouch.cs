@@ -10,10 +10,10 @@ namespace MoreMountains.InfiniteRunnerEngine
 		public bool isGround;
 		public char whatLane;
 
-		private void Start()
+		private void OnEnable()
 		{
-			if(!DontAutoCheckLane)
-			Invoke("CheckLane", 1);
+			if (!DontAutoCheckLane)
+				Invoke("CheckLane", 3);
 		}
 		protected override void TriggerEnter(GameObject collidingObject)
 		{

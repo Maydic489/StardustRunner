@@ -27,6 +27,7 @@ namespace MoreMountains.InfiniteRunnerEngine
 		public static bool isProtect;
 		private bool isSlide;
 		private bool lookBack;
+		private Transform bikeDefault;
 		public static bool isSpeed {get; set;}
 		static int s_BlinkingValueHash;
 
@@ -39,6 +40,8 @@ namespace MoreMountains.InfiniteRunnerEngine
 			isInvul = false;
 			isSpeed = false;
 			isProtect = false;
+
+			bikeDefault = bikeModel.transform;
 		}
 
         protected override void Update()
@@ -122,7 +125,7 @@ namespace MoreMountains.InfiniteRunnerEngine
 
 		public void ChooseLane()
         {
-            if (transform.position.x > -0.1f && transform.position.x < 0.1f)
+            if (transform.position.x > -0.3f && transform.position.x < 0.3f)
             {
                 whatLane = 'm';
             }
@@ -201,6 +204,8 @@ namespace MoreMountains.InfiniteRunnerEngine
 			{
 				groundPivot.GetComponent<Animation>().Play("Anim_RightToCenter");
 			}
+
+			bikeModel.transform.rotation = bikeDefault.rotation;
 		}
 		public IEnumerator ActivateInvul(float duration)
 		{

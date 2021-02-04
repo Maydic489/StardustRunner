@@ -20,8 +20,11 @@ public class RagdollDeathScript : MonoBehaviour
             rb.isKinematic = !state;
             rb.detectCollisions = state;
             rb.freezeRotation = !state;
-            if(!state)
+            if (!state)
+            {
+                rb.Sleep();
                 rb.constraints = RigidbodyConstraints.FreezeAll;
+            }
             else
                 rb.constraints = RigidbodyConstraints.None;
         }
