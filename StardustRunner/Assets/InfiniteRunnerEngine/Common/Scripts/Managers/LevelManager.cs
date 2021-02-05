@@ -277,6 +277,9 @@ namespace MoreMountains.InfiniteRunnerEngine
 	    /// </summary>
 	    public virtual void Update()
 		{
+			//make sure physic is smooth
+			Time.fixedDeltaTime = Time.deltaTime;
+
 			_savedPoints = GameManager.Instance.Points;
 			_started = DateTime.UtcNow;
 

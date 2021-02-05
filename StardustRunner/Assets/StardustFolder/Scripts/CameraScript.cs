@@ -12,10 +12,7 @@ namespace MoreMountains.InfiniteRunnerEngine
         // Update is called once per frame
         void Update()
         {
-            //if (!SimpleLane.isDead)
-                //transform.position = new Vector3(SimpleLane.playerPositoin.x, transform.position.y, transform.position.z);
-        
-            if(SimpleLane.isSpeed && GetComponent<Camera>().fieldOfView < zoomBoost)
+            if (SimpleLane.isSpeed && GetComponent<Camera>().fieldOfView < zoomBoost)
             {
                     GetComponent<Camera>().fieldOfView++;
             }

@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 2546532362030997724}
   - component: {fileID: 2553791126515849950}
   - component: {fileID: 7320901646907676100}
-  - component: {fileID: 8541951905572346373}
   - component: {fileID: 1270665752568284928}
   - component: {fileID: 2617490092427676579}
   - component: {fileID: 8727465121716652333}
@@ -105,18 +104,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.9285378, y: 0.7554119, z: 1.8931212}
   m_Center: {x: 0.00000023841864, y: 0.47298542, z: -0.00000074505823}
---- !u!114 &8541951905572346373
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2531319445341487216}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e0bce0a8dd118a14bb804c28e9b44bd5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1270665752568284928
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -203,6 +190,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74e432cda2fd0b9438ec571658ba4a32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DontAutoCheckLane: 1
+  isGround: 0
   whatLane: 0
 --- !u!1 &2531401569381215256
 GameObject:

@@ -15,7 +15,8 @@ public class RagdollDeathScript : MonoBehaviour
 
     public void ToggleRagdoll(bool state)
     {
-        foreach(Rigidbody rb in ragdollBodies)
+        ragdollBodies = GetComponentsInChildren<Rigidbody>();
+        foreach (Rigidbody rb in ragdollBodies)
         {
             rb.isKinematic = !state;
             rb.detectCollisions = state;
