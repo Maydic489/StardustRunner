@@ -12,7 +12,9 @@ namespace MoreMountains.InfiniteRunnerEngine
 		public float gameSpeed;
 		public GameObject riderModel;
 		public GameObject bikeModel;
-		public GameObject pelvisObj;
+		public GameObject riderRagdoll;
+		public GameObject bikeRagdoll;
+		public GameObject ragdollObj;
 		public GameObject shadow;
 		public GameObject groundPivot;
 		private Animation pivotAnim;
@@ -129,7 +131,6 @@ namespace MoreMountains.InfiniteRunnerEngine
 				else if (!pivotAnim.IsPlaying("Anim_LeftToCenter") && !pivotAnim.IsPlaying("Anim_RightToCenter"))
 				{
 					//pivotAnim.IsPlaying("Anim_Idle");
-					GetComponentInChildren<ResetTransform>().DoReset();
 				}
 			}
 		}
@@ -312,19 +313,22 @@ namespace MoreMountains.InfiniteRunnerEngine
             this.GetComponent<Rigidbody>().isKinematic = true;
             this.GetComponent<BoxCollider>().enabled = false;
             this.GetComponent<CapsuleCollider>().enabled = false;
-            riderModel.GetComponent<RagdollDeathScript>().ToggleRagdoll(true);
-            bikeModel.GetComponent<RagdollDeathScript>().ToggleRagdoll(true);
+			riderModel.SetActive(false);
+			bikeModel.SetActive(false);
+			ragdollObj.SetActive(true);
+            riderRagdoll.GetComponent<RagdollDeathScript>().ToggleRagdoll(true);
+            bikeRagdoll.GetComponent<RagdollDeathScript>().ToggleRagdoll(true);
 
-            foreach (Rigidbody rb in riderModel.GetComponent<RagdollDeathScript>().ragdollBodies)
+			foreach (Rigidbody rb in riderRagdoll.GetComponent<RagdollDeathScript>().ragdollBodies)
             {
                 rb.AddExplosionForce(30f, new Vector3(transform.position.x + Random.Range(-0.7f, 0.7f), 0, -1f), 5f, 3f, ForceMode.Impulse);
             }
 
-            Rigidbody bikeRb = bikeModel.GetComponent<Rigidbody>();
+            Rigidbody bikeRb = bikeRagdoll.GetComponent<Rigidbody>();
             bikeRb.AddExplosionForce(25f, new Vector3(transform.position.x + Random.Range(-0.7f, 0.7f), -0.5f, -1f), 5f, 1f, ForceMode.Impulse);
-            foreach (Collider collider in riderModel.GetComponent<RagdollDeathScript>().ragdollColliders)
+            foreach (Collider collider in bikeRagdoll.GetComponent<RagdollDeathScript>().ragdollColliders)
             {
-                Physics.IgnoreCollision(bikeModel.GetComponent<Collider>(), collider, true);
+                Physics.IgnoreCollision(bikeRagdoll.GetComponent<Collider>(), collider, true);
             }
         }
 

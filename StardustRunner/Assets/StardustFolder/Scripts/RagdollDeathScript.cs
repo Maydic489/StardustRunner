@@ -5,7 +5,7 @@ public class RagdollDeathScript : MonoBehaviour
     public Rigidbody[] ragdollBodies;
     public Collider[] ragdollColliders;
 
-    private void Start()
+    private void Awake()
     {
         ragdollBodies = GetComponentsInChildren<Rigidbody>();
         ragdollColliders = GetComponentsInChildren<Collider>();
