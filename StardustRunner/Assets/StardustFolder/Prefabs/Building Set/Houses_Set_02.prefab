@@ -88,6 +88,8 @@ MonoBehaviour:
   Speed: 5
   Acceleration: 0
   Direction: {x: 0, y: 0, z: -1}
+  StopWhenOver: 1
+  IsMovingCar: 0
   DirectionCanBeChangedBySpawner: 1
   MovementSpace: 0
 --- !u!114 &2643731370669910674
@@ -116,7 +118,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89a8cfe26a3a99741ab5f196acf474a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DestroyDistanceBehindBounds: 5
+  DestroyDistanceBehindBounds: 0
 --- !u!114 &5380220175528612162
 MonoBehaviour:
   m_ObjectHideFlags: 0
