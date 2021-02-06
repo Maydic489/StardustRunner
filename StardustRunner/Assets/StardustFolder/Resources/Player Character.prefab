@@ -477,7 +477,7 @@ Animation:
   - {fileID: 7400000, guid: 1408be30dda974343bdae2bd50a64158, type: 2}
   - {fileID: 7400000, guid: dc3ff9bd49ac9a646908a1d1b37e5019, type: 2}
   - {fileID: 7400000, guid: cc8c6fede68b93b42b2857cb2b9a329f, type: 2}
-  - {fileID: 0}
+  - {fileID: 7400000, guid: 519dd53ac6903c144be881caa9e0cb38, type: 2}
   - {fileID: 7400000, guid: b26fa561899cc5742a46439ed2bdf19c, type: 2}
   - {fileID: 7400000, guid: efda09838cfc147469bfe20d84c642f5, type: 2}
   - {fileID: 7400000, guid: f8566708fda9a704298c07b2f55e35af, type: 2}

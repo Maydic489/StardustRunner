@@ -15,6 +15,7 @@ namespace MoreMountains.InfiniteRunnerEngine
 		public GameObject pelvisObj;
 		public GameObject shadow;
 		public GameObject groundPivot;
+		private Animation pivotAnim;
 		public GameObject helmetModel;
 		public float MoveSpeed = 5f;
 		private float slowSpeed = 0.1f;
@@ -29,12 +30,14 @@ namespace MoreMountains.InfiniteRunnerEngine
 		private bool isSlide;
 		private bool lookBack;
 		public static bool isSpeed {get; set;}
+		private bool isSuperman;
 		static int s_BlinkingValueHash;
 
 		protected override void Start()
         {
 			mainCamera = GameObject.Find("Main Camera");
 			s_BlinkingValueHash = Shader.PropertyToID("_BlinkingValue");
+			pivotAnim = groundPivot.GetComponent<Animation>();
 			Shader.SetGlobalFloat(s_BlinkingValueHash, 0.0f);
 			isDead = false;
 			isInvul = false;
@@ -57,6 +60,9 @@ namespace MoreMountains.InfiniteRunnerEngine
 
 			ChooseLane();
 
+			if(isSpeed && !isSuperman) { PlaySupermanAnim(isSpeed); }
+			else if(!isSpeed && isSuperman) { PlaySupermanAnim(isSpeed); }
+
 			//old way to move, not good for rigidbody
 			//if(transform.position.x != slideDirection)
 			//transform.position = Vector3.MoveTowards(transform.position, new Vector3(slideDirection, transform.position.y, transform.position.z), MoveSpeed * Time.deltaTime);
@@ -66,18 +72,18 @@ namespace MoreMountains.InfiniteRunnerEngine
 			//    groundPivot.GetComponent<Rigidbody>().transform.Rotate(new Vector3(0, 0, (-100 * slideDirection) * Time.deltaTime));
 			//}
 
-			if (!groundPivot.GetComponent<Animation>().IsPlaying("Anim_Slide") && isSlide)
+			if (!pivotAnim.IsPlaying("Anim_Slide") && isSlide)
             {
 				isSlide = false;
 				GetComponent<CapsuleCollider>().enabled = true;
 			}
 
-			if(GameManager.Instance.FuelPoints < 40 && !groundPivot.GetComponent<Animation>().isPlaying && !lookBack)
+			if(GameManager.Instance.FuelPoints < 40 && !pivotAnim.isPlaying && !lookBack && !isSuperman)
             {
-				//groundPivot.GetComponent<Animation>().Play("Anim_LookBack");
-				groundPivot.GetComponent<Animation>()["Anim_LookBack"].layer = 1;
-				groundPivot.GetComponent<Animation>().Play("Anim_LookBack");
-				groundPivot.GetComponent<Animation>()["Anim_LookBack"].weight = 0.4f;
+				//pivotAnim.Play("Anim_LookBack");
+				pivotAnim["Anim_LookBack"].layer = 1;
+				pivotAnim.Play("Anim_LookBack");
+				pivotAnim["Anim_LookBack"].weight = 0.4f;
 				lookBack = true;
             }
 			else if(GameManager.Instance.FuelPoints > 40)
@@ -105,24 +111,24 @@ namespace MoreMountains.InfiniteRunnerEngine
             }
 
 			//go back to normal pose after changing lane
-			if ((IsBetween(transform.position.x,slideDirection-0.2f,slideDirection+0.2f)) && !groundPivot.GetComponent<Animation>().IsPlaying("Anim_Slide") && !isDead)
+			if ((IsBetween(transform.position.x,slideDirection-0.2f,slideDirection+0.2f)) && !pivotAnim.IsPlaying("Anim_Slide") && !isDead)
 			{
-				if (groundPivot.GetComponent<Animation>().IsPlaying("Anim_RotateLeft") || groundPivot.GetComponent<Animation>().IsPlaying("Anim_RotateRight"))
+				if (pivotAnim.IsPlaying("Anim_RotateLeft") || pivotAnim.IsPlaying("Anim_RotateRight"))
 					CenterPose();
-				else if(!groundPivot.GetComponent<Animation>().IsPlaying("Anim_LeftToCenter") && !groundPivot.GetComponent<Animation>().IsPlaying("Anim_RightToCenter"))
+				else if(!pivotAnim.IsPlaying("Anim_LeftToCenter") && !pivotAnim.IsPlaying("Anim_RightToCenter"))
 				{
-					//groundPivot.GetComponent<Animation>().IsPlaying("Anim_Idle");
+					//pivotAnim.IsPlaying("Anim_Idle");
 				}
 			}
 
 			//go back to normal pose after changing lane
-			if ((IsBetween(transform.position.x, slideDirection - 0.2f, slideDirection + 0.2f)) && !groundPivot.GetComponent<Animation>().IsPlaying("Anim_Slide") && !isDead)
+			if ((IsBetween(transform.position.x, slideDirection - 0.2f, slideDirection + 0.2f)) && !pivotAnim.IsPlaying("Anim_Slide") && !isDead)
 			{
-				if (groundPivot.GetComponent<Animation>().IsPlaying("Anim_RotateLeft") || groundPivot.GetComponent<Animation>().IsPlaying("Anim_RotateRight"))
+				if (pivotAnim.IsPlaying("Anim_RotateLeft") || pivotAnim.IsPlaying("Anim_RotateRight"))
 					CenterPose();
-				else if (!groundPivot.GetComponent<Animation>().IsPlaying("Anim_LeftToCenter") && !groundPivot.GetComponent<Animation>().IsPlaying("Anim_RightToCenter"))
+				else if (!pivotAnim.IsPlaying("Anim_LeftToCenter") && !pivotAnim.IsPlaying("Anim_RightToCenter"))
 				{
-					//groundPivot.GetComponent<Animation>().IsPlaying("Anim_Idle");
+					//pivotAnim.IsPlaying("Anim_Idle");
 					GetComponentInChildren<ResetTransform>().DoReset();
 				}
 			}
@@ -156,13 +162,13 @@ namespace MoreMountains.InfiniteRunnerEngine
             {
                 slideDirection = 0f;
                 if (!isSlide)
-                    groundPivot.GetComponent<Animation>().Play("Anim_RotateLeft");
+                    pivotAnim.Play("Anim_RotateLeft");
             }
             else
             {
                 slideDirection = -1.6f;
                 if (!isSlide && whatLane != 'l')
-                    groundPivot.GetComponent<Animation>().Play("Anim_RotateLeft");
+                    pivotAnim.Play("Anim_RotateLeft");
             }
 		}
 
@@ -174,21 +180,44 @@ namespace MoreMountains.InfiniteRunnerEngine
 			{
 				slideDirection = 0f;
 				if (!isSlide)
-					groundPivot.GetComponent<Animation>().Play("Anim_RotateRight");
+					pivotAnim.Play("Anim_RotateRight");
 			}
 			else
 			{
 				slideDirection = 1.6f;
 				if (!isSlide && whatLane != 'r')
-					groundPivot.GetComponent<Animation>().Play("Anim_RotateRight");
+					pivotAnim.Play("Anim_RotateRight");
 			}
 		}
 
         public override void DownStart()
         {
-			isSlide = true;
-			GetComponent<CapsuleCollider>().enabled = false;
-			groundPivot.GetComponent<Animation>().Play("Anim_Slide");
+			if (!isSuperman)
+			{
+				isSlide = true;
+				GetComponent<CapsuleCollider>().enabled = false;
+				pivotAnim.Play("Anim_Slide");
+			}
+		}
+
+		public void PlaySupermanAnim(bool state)
+        {
+			if (state)
+			{
+				isSuperman = true;
+				pivotAnim["Anim_Superman"].layer = 1;
+				pivotAnim.Play("Anim_Superman");
+				pivotAnim["Anim_Superman"].weight = 0.4f;
+			}
+			else
+            {
+				isSuperman = false;
+				pivotAnim["Anim_Superman"].layer = 1;
+				pivotAnim["Anim_Superman"].speed = -1;
+				pivotAnim["Anim_Superman"].time = pivotAnim["Anim_Superman"].length;
+				pivotAnim.Play("Anim_Superman");
+				pivotAnim["Anim_Superman"].weight = 0.4f;
+			}
 		}
 
         public void PreActivateInvul(float duration)
@@ -199,13 +228,13 @@ namespace MoreMountains.InfiniteRunnerEngine
 
 		private void CenterPose()
         {
-			if (groundPivot.GetComponent<Animation>().IsPlaying("Anim_RotateLeft"))
+			if (pivotAnim.IsPlaying("Anim_RotateLeft"))
 			{
-				groundPivot.GetComponent<Animation>().Play("Anim_LeftToCenter");
+				pivotAnim.Play("Anim_LeftToCenter");
 			}
-			else if (groundPivot.GetComponent<Animation>().IsPlaying("Anim_RotateRight"))
+			else if (pivotAnim.IsPlaying("Anim_RotateRight"))
 			{
-				groundPivot.GetComponent<Animation>().Play("Anim_RightToCenter");
+				pivotAnim.Play("Anim_RightToCenter");
 			}
 		}
 		public IEnumerator ActivateInvul(float duration)
@@ -277,7 +306,7 @@ namespace MoreMountains.InfiniteRunnerEngine
 		{
 			Camera.main.GetComponent<CameraShake>().isShake = true;
 			isDead = true;
-			groundPivot.GetComponent<Animation>().Stop();
+			pivotAnim.Stop();
 			GameManager.Instance.SlowMotion();
 			Destroy(shadow);
             this.GetComponent<Rigidbody>().isKinematic = true;
