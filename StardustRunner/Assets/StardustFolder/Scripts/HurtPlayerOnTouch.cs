@@ -13,7 +13,7 @@ namespace MoreMountains.InfiniteRunnerEngine
 		private void OnEnable()
 		{
 			if (!DontAutoCheckLane)
-				Invoke("CheckLane", 3);
+				Invoke("CheckLane", 1);
 		}
 		protected override void TriggerEnter(GameObject collidingObject)
 		{

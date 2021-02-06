@@ -26,6 +26,7 @@ namespace MoreMountains.InfiniteRunnerEngine
 		public float slideDirection;
 		private float oldDirection;
 		public static char whatLane;
+		public char inLane;
 		public static bool isDead;
 		public static bool isInvul;
 		public static bool isProtect;
@@ -62,6 +63,9 @@ namespace MoreMountains.InfiniteRunnerEngine
 
 			ChooseLane();
 
+			inLane = whatLane;
+
+			//play animation when get speed boost
 			if(isSpeed && !isSuperman) { PlaySupermanAnim(isSpeed); }
 			else if(!isSpeed && isSuperman) { PlaySupermanAnim(isSpeed); }
 
