@@ -141,7 +141,7 @@ namespace MoreMountains.InfiniteRunnerEngine
 
 		public void ChooseLane()
         {
-            if (transform.position.x > -0.3f && transform.position.x < 0.3f)
+            if (transform.position.x > -0.7f && transform.position.x < 0.7f)
             {
                 whatLane = 'm';
             }
@@ -330,10 +330,11 @@ namespace MoreMountains.InfiniteRunnerEngine
 
             Rigidbody bikeRb = bikeRagdoll.GetComponent<Rigidbody>();
             bikeRb.AddExplosionForce(25f, new Vector3(transform.position.x + Random.Range(-0.7f, 0.7f), -0.5f, -1f), 5f, 1f, ForceMode.Impulse);
-            foreach (Collider collider in bikeRagdoll.GetComponent<RagdollDeathScript>().ragdollColliders)
+            foreach (Collider collider in riderRagdoll.GetComponent<RagdollDeathScript>().ragdollColliders)
             {
-                Physics.IgnoreCollision(bikeRagdoll.GetComponent<Collider>(), collider, true);
-            }
+                Physics.IgnoreCollision(bikeRagdoll.GetComponent<BoxCollider>(), collider, true);
+				Physics.IgnoreCollision(bikeRagdoll.GetComponent<CapsuleCollider>(), collider, true);
+			}
         }
 
 		public void HurtPlayer(bool pushing)

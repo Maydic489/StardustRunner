@@ -203,6 +203,7 @@ GameObject:
   - component: {fileID: 1869715602398059121}
   - component: {fileID: 1678841700885707525}
   - component: {fileID: 6404630025362774475}
+  - component: {fileID: 9048794150408974102}
   m_Layer: 0
   m_Name: World_Ctrl
   m_TagString: Untagged
@@ -268,6 +269,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ragdollBodies: []
   ragdollColliders: []
+--- !u!136 &9048794150408974102
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2991080137080311583}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.01
+  m_Height: 0.06
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.02, z: 0}
 --- !u!1 &3742837529287119084
 GameObject:
   m_ObjectHideFlags: 0
@@ -754,6 +769,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5806498689465053698, guid: 3a0bf0f8691aa3946bff2910e02c1fdc,
+        type: 3}
+      propertyPath: m_ConnectedAnchor.x
+      value: 0.00000022064934
+      objectReference: {fileID: 0}
+    - target: {fileID: 5806498689465053698, guid: 3a0bf0f8691aa3946bff2910e02c1fdc,
+        type: 3}
+      propertyPath: m_ConnectedAnchor.y
+      value: 0.0000002384186
+      objectReference: {fileID: 0}
+    - target: {fileID: 5806498689465053698, guid: 3a0bf0f8691aa3946bff2910e02c1fdc,
+        type: 3}
+      propertyPath: m_ConnectedAnchor.z
+      value: 0.17689885
       objectReference: {fileID: 0}
     - target: {fileID: 8538727039263997585, guid: 3a0bf0f8691aa3946bff2910e02c1fdc,
         type: 3}
