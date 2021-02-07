@@ -11,11 +11,15 @@ public class SpawnerMover : MonoBehaviour
     private float ranNum;
     private float slideDirection;
 
+    private void OnEnable()
+    {
+        counting = stayDuration;
+    }
     // Update is called once per frame
     void Update()
     {
         counting++;
-        if(counting == stayDuration)
+        if(counting >= stayDuration)
         {
             GetSlideDirection();
             counting = 0;

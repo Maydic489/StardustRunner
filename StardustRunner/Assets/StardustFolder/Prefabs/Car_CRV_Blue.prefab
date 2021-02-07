@@ -100,7 +100,7 @@ GameObject:
   - component: {fileID: -2693973974410332658}
   m_Layer: 0
   m_Name: Car_CRV_Blue
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -284,6 +284,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74e432cda2fd0b9438ec571658ba4a32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DontAutoCheckLane: 0
+  isGround: 0
   whatLane: 0
 --- !u!1 &3097260541272070918
 GameObject:
