@@ -8,15 +8,15 @@ public class SpawnerMover : MonoBehaviour
     public float moveSpeed;
     public bool SmoothTurn;
     private int counting;
-    private float ranNum;
-    private float slideDirection;
+    protected float ranNum;
+    protected float slideDirection;
 
     private void OnEnable()
     {
         counting = stayDuration;
     }
     // Update is called once per frame
-    void Update()
+    public virtual void Update()
     {
         counting++;
         if(counting >= stayDuration)
@@ -31,7 +31,7 @@ public class SpawnerMover : MonoBehaviour
             transform.position = Vector3.MoveTowards(transform.position, new Vector3(slideDirection, transform.position.y, transform.position.z), moveSpeed * Time.deltaTime);
     }
 
-    private void GetSlideDirection()
+    public virtual void GetSlideDirection()
     {
         ranNum = Random.Range(0, 4);
         if (ranNum <= 1)
