@@ -9,14 +9,16 @@ namespace MoreMountains.InfiniteRunnerEngine
         public char whatLane;
         public char safeLane;
         public bool firstTurn;
-        private bool secondTurn;
+        //private bool secondTurn;
         public bool isReset;
         private Coroutine resetCo;
         private Coroutine confirmCo;
+        public BoxCollider colliderComp;
 
         private void Start()
         {
             safeLane = 'm';
+            colliderComp = GetComponent<BoxCollider>();
         }
 
         private void Update()
@@ -30,13 +32,13 @@ namespace MoreMountains.InfiniteRunnerEngine
         }
         private void OnTriggerStay(Collider other)
         {
-            if (other.tag != "Obstacle") { return; }
+            if (other.gameObject.tag != "Obstacle") { return; }
 
             if (whatLane == 'm' && !firstTurn)
             {
                 transform.position = new Vector3(-1.6f, transform.position.y, transform.position.z);
-                GetComponent<BoxCollider>().center = new Vector3(0, 0, 0f);
-                GetComponent<BoxCollider>().size = new Vector3(1, 1, 5f);
+                colliderComp.center = new Vector3(0, 0, 2f);
+                colliderComp.size = new Vector3(1, 1, 6.5f);
                 firstTurn = true;
 
                 if (confirmCo != null)
@@ -46,12 +48,12 @@ namespace MoreMountains.InfiniteRunnerEngine
             else if (whatLane == 'r' && !firstTurn)
             {
                 transform.position = new Vector3(1.6f, transform.position.y, transform.position.z);
+                ResetCollider();
             }
 
-            if (whatLane == 'l' && firstTurn)
+            if (whatLane == 'l' && firstTurn && safeLane != 'l')
             {
-                GetComponent<BoxCollider>().center = new Vector3(0, 0, 0);
-                GetComponent<BoxCollider>().size = new Vector3(1, 1, 1.5f);
+                ResetCollider();
                 transform.position = new Vector3(1.6f, transform.position.y, transform.position.z);
 
                 if (confirmCo != null)
@@ -63,8 +65,11 @@ namespace MoreMountains.InfiniteRunnerEngine
         public IEnumerator DelayReset()
         {
             yield return new WaitForSeconds(3/LevelManager.Instance.Speed);
+            ResetCollider();
             transform.position = new Vector3(0, transform.position.y, transform.position.z);
             isReset = false;
+            firstTurn = false;
+            Debug.Log("back to center");
             if (confirmCo != null)
                 StopCoroutine(confirmCo);
             confirmCo = StartCoroutine(Confirm());
@@ -73,11 +78,10 @@ namespace MoreMountains.InfiniteRunnerEngine
         public IEnumerator Confirm()
         {
             yield return new WaitForSeconds(3/LevelManager.Instance.Speed);
-            GetComponent<BoxCollider>().center = new Vector3(0, 0, 0);
-            GetComponent<BoxCollider>().size = new Vector3(1, 1, 1.5f);
+            ResetCollider();
             safeLane = whatLane;
             firstTurn = false;
-            secondTurn = false;
+            //secondTurn = false;
         }
 
         public void ChooseLane()
@@ -98,6 +102,12 @@ namespace MoreMountains.InfiniteRunnerEngine
             {
                 return;
             }
+        }
+
+        private void ResetCollider()
+        {
+            colliderComp.center = new Vector3(0, 0, 0);
+            colliderComp.size = new Vector3(1, 1, 2.5f);
         }
     }
 }

@@ -103,18 +103,18 @@ namespace MoreMountains.InfiniteRunnerEngine
 
 		private void FixedUpdate()
 		{
-			if (!IsBetween(transform.position.x, slideDirection - 0.05f, slideDirection + 0.05f))
-			{
-				if(slowSpeed < MoveSpeed)
-                {
-					slowSpeed += slowSpeed * (0.05f+slowSpeed);
-                }
-				transform.position = Vector3.MoveTowards(transform.position, new Vector3(slideDirection, transform.position.y, transform.position.z), slowSpeed * Time.deltaTime);
-			}
-			else
-            {
-				slowSpeed = 0.25f;
-            }
+			//if (!IsBetween(transform.position.x, slideDirection - 0.05f, slideDirection + 0.05f))
+			//{
+			//	if(slowSpeed < MoveSpeed)
+   //             {
+			//		slowSpeed += slowSpeed * (0.05f+slowSpeed);
+   //             }
+			//	transform.position = Vector3.MoveTowards(transform.position, new Vector3(slideDirection, transform.position.y, transform.position.z), slowSpeed * Time.deltaTime);
+			//}
+			//else
+   //         {
+			//	slowSpeed = 0.25f;
+   //         }
 
 			//go back to normal pose after changing lane
 			if ((IsBetween(transform.position.x,slideDirection-0.2f,slideDirection+0.2f)) && !pivotAnim.IsPlaying("Anim_Slide") && !isDead)
