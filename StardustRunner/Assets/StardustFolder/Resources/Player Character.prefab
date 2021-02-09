@@ -1145,10 +1145,12 @@ MonoBehaviour:
   shadow: {fileID: 8453192960646674113}
   groundPivot: {fileID: 3481363774766235749}
   helmetModel: {fileID: 2817844771199432072}
+  headContainer: {fileID: 8538727040808146388}
   MoveSpeed: 5
   mainCamera: {fileID: 0}
   slideDirection: 0
   inLane: 0
+  protectLayer: 0
 --- !u!114 &285786949
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1896,6 +1898,18 @@ PrefabInstance:
     - {fileID: 6696614395067091592, guid: dc264b94fdffe224e89391092fb58c61, type: 3}
     - {fileID: 620447332, guid: dc264b94fdffe224e89391092fb58c61, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: dc264b94fdffe224e89391092fb58c61, type: 3}
+--- !u!1 &8538727040808146388 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8538727039267172963, guid: dc264b94fdffe224e89391092fb58c61,
+    type: 3}
+  m_PrefabInstance: {fileID: 1827579831}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2817844771199432072 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2817844770593182271, guid: dc264b94fdffe224e89391092fb58c61,
+    type: 3}
+  m_PrefabInstance: {fileID: 1827579831}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &8538727040808146384 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8538727039267172967, guid: dc264b94fdffe224e89391092fb58c61,
@@ -1905,12 +1919,6 @@ GameObject:
 --- !u!4 &8538727040808110512 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8538727039267335687, guid: dc264b94fdffe224e89391092fb58c61,
-    type: 3}
-  m_PrefabInstance: {fileID: 1827579831}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &2817844771199432072 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2817844770593182271, guid: dc264b94fdffe224e89391092fb58c61,
     type: 3}
   m_PrefabInstance: {fileID: 1827579831}
   m_PrefabAsset: {fileID: 0}

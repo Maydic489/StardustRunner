@@ -19,6 +19,7 @@ namespace MoreMountains.InfiniteRunnerEngine
 		public GameObject groundPivot;
 		private Animation pivotAnim;
 		public GameObject helmetModel;
+		public GameObject headContainer;
 		public float MoveSpeed = 5f;
 		private float slowSpeed = 0.1f;
 		public GameObject mainCamera;
@@ -30,6 +31,7 @@ namespace MoreMountains.InfiniteRunnerEngine
 		public static bool isDead;
 		public static bool isInvul;
 		public static bool isProtect;
+		public int protectLayer;
 		private bool isSlide;
 		private bool lookBack;
 		public static bool isSpeed {get; set;}
@@ -103,21 +105,21 @@ namespace MoreMountains.InfiniteRunnerEngine
 
 		private void FixedUpdate()
 		{
-			//if (!IsBetween(transform.position.x, slideDirection - 0.05f, slideDirection + 0.05f))
-			//{
-			//	if(slowSpeed < MoveSpeed)
-   //             {
-			//		slowSpeed += slowSpeed * (0.05f+slowSpeed);
-   //             }
-			//	transform.position = Vector3.MoveTowards(transform.position, new Vector3(slideDirection, transform.position.y, transform.position.z), slowSpeed * Time.deltaTime);
-			//}
-			//else
-   //         {
-			//	slowSpeed = 0.25f;
-   //         }
+            if (!IsBetween(transform.position.x, slideDirection - 0.05f, slideDirection + 0.05f))
+            {
+                if (slowSpeed < MoveSpeed)
+                {
+                    slowSpeed += slowSpeed * (0.05f + slowSpeed);
+                }
+                transform.position = Vector3.MoveTowards(transform.position, new Vector3(slideDirection, transform.position.y, transform.position.z), slowSpeed * Time.deltaTime);
+            }
+            else
+            {
+                slowSpeed = 0.25f;
+            }
 
-			//go back to normal pose after changing lane
-			if ((IsBetween(transform.position.x,slideDirection-0.2f,slideDirection+0.2f)) && !pivotAnim.IsPlaying("Anim_Slide") && !isDead)
+            //go back to normal pose after changing lane
+            if ((IsBetween(transform.position.x,slideDirection-0.2f,slideDirection+0.2f)) && !pivotAnim.IsPlaying("Anim_Slide") && !isDead)
 			{
 				if (pivotAnim.IsPlaying("Anim_RotateLeft") || pivotAnim.IsPlaying("Anim_RotateRight"))
 					CenterPose();
@@ -276,16 +278,49 @@ namespace MoreMountains.InfiniteRunnerEngine
 		}
 
 		public void ToggleProtect(bool state)
-        {
-			isProtect = state;
-			helmetModel.SetActive(state);
-
-			if(!state)
-            {
+		{
+			if (!state)
+			{
 				LevelManager.Instance.ActivateInvul(2f);
 				Camera.main.GetComponent<CameraShake>().isShake = true;
+				protectLayer--;
+				if (protectLayer < 0) { protectLayer = 0; }
+				if (protectLayer < 1)
+				{
+					isProtect = state;
+					helmetModel.SetActive(state);
+				}
 			}
-        }
+			else
+			{
+
+				protectLayer++;
+				if (protectLayer > 3) { protectLayer = 3; }
+				if (protectLayer > 0)
+				{
+					isProtect = state;
+					helmetModel.SetActive(state);
+				}
+			}
+
+			switch (protectLayer)
+			{
+				case 3:
+					LevelManager.Instance.TemporarilyMultiplySpeed(2, 5);
+					LevelManager.Instance.ActivateInvul(6);
+					protectLayer = 2;
+					break;
+				case 2:
+					headContainer.transform.localScale = Vector3.one * 1.5f;
+					break;
+				case 1:
+					headContainer.transform.localScale = Vector3.one;
+					break;
+				default:
+					print("Out of Helmet");
+					break;
+			}
+		}
 
 		public void IsOutofFuel()
         {
