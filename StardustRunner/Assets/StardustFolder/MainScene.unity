@@ -1759,6 +1759,7 @@ GameObject:
   - component: {fileID: 564098966}
   - component: {fileID: 564098970}
   - component: {fileID: 564098969}
+  - component: {fileID: 564098971}
   m_Layer: 0
   m_Name: Spawner_Invul
   m_TagString: Untagged
@@ -1857,7 +1858,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 564098965}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 59f5c1ac090b84f4c87ce1565190206e, type: 3}
   m_Name: 
@@ -1865,6 +1866,22 @@ MonoBehaviour:
   stayDuration: 2
   moveSpeed: 100
   SmoothTurn: 0
+--- !u!114 &564098971
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 564098965}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5065939a67bb5b240b21badaf83af639, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stayDuration: 0
+  moveSpeed: 5
+  SmoothTurn: 0
+  navigator: {fileID: 1682509548}
 --- !u!1001 &565273615
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4920,7 +4937,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 2.5}
+  m_Size: {x: 1, y: 1, z: 2.7}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!4 &1682509551
 Transform:

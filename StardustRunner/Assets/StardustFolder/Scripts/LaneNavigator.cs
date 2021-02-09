@@ -38,7 +38,7 @@ namespace MoreMountains.InfiniteRunnerEngine
             {
                 transform.position = new Vector3(-1.6f, transform.position.y, transform.position.z);
                 colliderComp.center = new Vector3(0, 0, 2f);
-                colliderComp.size = new Vector3(1, 1, 6.5f);
+                colliderComp.size = new Vector3(1, 1, 6.8f);
                 firstTurn = true;
 
                 if (confirmCo != null)
@@ -107,7 +107,7 @@ namespace MoreMountains.InfiniteRunnerEngine
         private void ResetCollider()
         {
             colliderComp.center = new Vector3(0, 0, 0);
-            colliderComp.size = new Vector3(1, 1, 2.5f);
+            colliderComp.size = new Vector3(1, 1, 2.7f);
         }
     }
 }
