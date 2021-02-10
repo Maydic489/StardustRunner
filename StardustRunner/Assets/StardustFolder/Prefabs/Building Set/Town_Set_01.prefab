@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 6612826381863769941}
   - component: {fileID: 5049183874122763877}
   - component: {fileID: 2798669647525760071}
-  - component: {fileID: 4384580961127701567}
   m_Layer: 0
   m_Name: Town_Set_01
   m_TagString: Untagged
@@ -104,20 +103,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DestroyDistanceBehindBounds: 0
   DestroyMode: 0
---- !u!114 &4384580961127701567
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4572816695479169647}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 72de0b0360096ea41a18d17864ecb963, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  BoundsBasedOn: 0
-  LifeTime: 0
 --- !u!1001 &274740413111719761
 PrefabInstance:
   m_ObjectHideFlags: 0

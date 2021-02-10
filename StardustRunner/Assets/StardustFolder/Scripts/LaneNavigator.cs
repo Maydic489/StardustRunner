@@ -69,7 +69,6 @@ namespace MoreMountains.InfiniteRunnerEngine
             transform.position = new Vector3(0, transform.position.y, transform.position.z);
             isReset = false;
             firstTurn = false;
-            Debug.Log("back to center");
             if (confirmCo != null)
                 StopCoroutine(confirmCo);
             confirmCo = StartCoroutine(Confirm());

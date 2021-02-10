@@ -103,6 +103,7 @@ namespace MoreMountains.InfiniteRunnerEngine
 		protected virtual void DistanceSpawn(Vector3 spawnPosition)
 		{
 			// we spawn a gameobject at the location we've determined previously
+			if(this.GetComponent<MMMultipleObjectPooler>() != null) { Debug.Log("spawn " + this.gameObject.name); }
 			GameObject spawnedObject = Spawn(spawnPosition,false);
 
 			// if the spawned object is null, we're gonna start again with a fresh spawn next time we get fresh objects.
