@@ -12,8 +12,13 @@ namespace MoreMountains.InfiniteRunnerEngine
             if (PickEffect != null && !SimpleLane.isDead && !SimpleLane.isProtect)
             {
                 Debug.Log("active invul");
-                Instantiate(PickEffect, transform.parent.position, transform.rotation);
+                
             }
+        }
+
+        public void  PlayEffect()
+        {
+            Instantiate(PickEffect, transform.parent.position, transform.rotation);
         }
     }
 }

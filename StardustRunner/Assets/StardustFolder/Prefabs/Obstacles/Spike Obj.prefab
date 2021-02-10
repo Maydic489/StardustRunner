@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 1185210622170481431}
   - component: {fileID: 8399458037518695583}
   - component: {fileID: 4420504733326098533}
+  - component: {fileID: 78753777}
   m_Layer: 0
   m_Name: Spike Obj
   m_TagString: Untagged
@@ -132,6 +133,18 @@ Animation:
   m_PlayAutomatically: 0
   m_AnimatePhysics: 0
   m_CullingType: 0
+--- !u!114 &78753777
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5365819594514678189}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ea3235fe4a0cbe4d932d0914fcaca6b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &3516259923063785109
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -142,6 +155,10 @@ PrefabInstance:
     - target: {fileID: 9570790514477866, guid: c8659a6751e332c4da182d62a27c7c07, type: 3}
       propertyPath: m_RootOrder
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9570790514477866, guid: c8659a6751e332c4da182d62a27c7c07, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.13
       objectReference: {fileID: 0}
     - target: {fileID: 9570790514477866, guid: c8659a6751e332c4da182d62a27c7c07, type: 3}
       propertyPath: m_LocalPosition.x
@@ -187,6 +204,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Mesh
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6694084760583048863, guid: c8659a6751e332c4da182d62a27c7c07,
+        type: 3}
+      propertyPath: isGround
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6694084760583048863, guid: c8659a6751e332c4da182d62a27c7c07,
         type: 3}

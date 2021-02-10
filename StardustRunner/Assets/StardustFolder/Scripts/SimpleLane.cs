@@ -284,6 +284,7 @@ namespace MoreMountains.InfiniteRunnerEngine
 				LevelManager.Instance.ActivateInvul(2f);
 				Camera.main.GetComponent<CameraShake>().isShake = true;
 				protectLayer--;
+				helmetModel.GetComponent<CostumeScript>().PlayEffect();
 				if (protectLayer < 0) { protectLayer = 0; }
 				if (protectLayer < 1)
 				{

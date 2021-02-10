@@ -33,7 +33,10 @@ namespace MoreMountains.InfiniteRunnerEngine
 
 			ObjectPicked();
 			// we desactivate the gameobject
-			gameObject.SetActive(false);
+			if (!DestroyMode)
+				gameObject.SetActive(false);
+			else
+				Destroy(this.gameObject);
 		}
 	}
 }

@@ -11,6 +11,7 @@ namespace MoreMountains.InfiniteRunnerEngine
 	public class OutOfBoundsRecycle : MonoBehaviour 
 	{
 		public float DestroyDistanceBehindBounds=5f;
+		public bool DestroyMode;
 
 	    /// <summary>
 	    /// On update, if the object meets the level's recycling conditions, we recycle it
@@ -19,7 +20,10 @@ namespace MoreMountains.InfiniteRunnerEngine
 		{
 			if (LevelManager.Instance.CheckRecycleCondition(GetComponent<MMPoolableObject>().GetBounds(),DestroyDistanceBehindBounds))
 			{
-				GetComponent<MMPoolableObject>().Destroy();
+				if (!DestroyMode)
+					GetComponent<MMPoolableObject>().Destroy();
+				else
+					Destroy(this.gameObject);
 			}
 		}
 	}

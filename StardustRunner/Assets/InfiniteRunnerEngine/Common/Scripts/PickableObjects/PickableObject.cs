@@ -13,6 +13,7 @@ namespace MoreMountains.InfiniteRunnerEngine
 		public GameObject PickEffect;
 		/// The sound effect to play when the coin is hit
 		public AudioClip PickSoundFx;
+		public bool DestroyMode;
 
 		/// <summary>
 		/// Handles the collision if we're in 2D mode
@@ -57,7 +58,10 @@ namespace MoreMountains.InfiniteRunnerEngine
 
 			ObjectPicked();
 			// we desactivate the gameobject
-			gameObject.SetActive(false);
+			if (!DestroyMode)
+				gameObject.SetActive(false);
+			else
+				Destroy(this.gameObject);
 		}
 
 		/// <summary>
