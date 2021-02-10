@@ -761,6 +761,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6246735623472119825, guid: 26881105d19e76d4488f37602797e9e1,
         type: 3}
+      propertyPath: DestroyMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6246735623472119825, guid: 26881105d19e76d4488f37602797e9e1,
+        type: 3}
       propertyPath: DestroyDistanceBehindBounds
       value: 0
       objectReference: {fileID: 0}
@@ -1145,6 +1150,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6246735623472119825, guid: 26881105d19e76d4488f37602797e9e1,
         type: 3}
+      propertyPath: DestroyMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6246735623472119825, guid: 26881105d19e76d4488f37602797e9e1,
+        type: 3}
       propertyPath: DestroyDistanceBehindBounds
       value: 0
       objectReference: {fileID: 0}
@@ -1296,6 +1306,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Houses_Set_02 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1620487742905288771, guid: 7db38af2cf7802f408023e2118766fcf,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4989754690631192177, guid: 7db38af2cf7802f408023e2118766fcf,
+        type: 3}
+      propertyPath: DestroyMode
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7988351587267613420, guid: 7db38af2cf7802f408023e2118766fcf,
         type: 3}
       propertyPath: m_RootOrder
@@ -1324,7 +1344,7 @@ PrefabInstance:
     - target: {fileID: 7988351587267613420, guid: 7db38af2cf7802f408023e2118766fcf,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 48.12
+      value: 47.5
       objectReference: {fileID: 0}
     - target: {fileID: 7988351587267613420, guid: 7db38af2cf7802f408023e2118766fcf,
         type: 3}
@@ -1373,6 +1393,10 @@ PrefabInstance:
     - target: {fileID: 1618180381433160, guid: 373e61c5dc17ea8468e3d483cb0c92b1, type: 3}
       propertyPath: m_Name
       value: SM_Tile_Cube_Concrete_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 1618180381433160, guid: 373e61c5dc17ea8468e3d483cb0c92b1, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4799013342426568, guid: 373e61c5dc17ea8468e3d483cb0c92b1, type: 3}
       propertyPath: m_RootOrder
@@ -2203,6 +2227,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6246735623472119825, guid: 26881105d19e76d4488f37602797e9e1,
         type: 3}
+      propertyPath: DestroyMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6246735623472119825, guid: 26881105d19e76d4488f37602797e9e1,
+        type: 3}
       propertyPath: DestroyDistanceBehindBounds
       value: 0
       objectReference: {fileID: 0}
@@ -2764,6 +2793,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6246735623472119825, guid: 26881105d19e76d4488f37602797e9e1,
         type: 3}
+      propertyPath: DestroyMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6246735623472119825, guid: 26881105d19e76d4488f37602797e9e1,
+        type: 3}
       propertyPath: DestroyDistanceBehindBounds
       value: 0
       objectReference: {fileID: 0}
@@ -3286,8 +3320,8 @@ MonoBehaviour:
   OnlySpawnWhileGameInProgress: 1
   InitialDelay: 0
   GapOrigin: 0
-  MinimumGap: {x: 1, y: 1, z: 1}
-  MaximumGap: {x: 1, y: 1, z: 1}
+  MinimumGap: {x: 0, y: 0, z: 0}
+  MaximumGap: {x: 0, y: 0, z: 0}
   MinimumYClamp: 0
   MaximumYClamp: 0
   MinimumZClamp: 0
@@ -3301,7 +3335,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 912011929}
   m_LocalRotation: {x: -0, y: -0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: 80}
+  m_LocalPosition: {x: 0, y: 0, z: 86.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 289940328}
@@ -3484,16 +3518,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 713776771847892031, guid: 12e7c7ca77ea83b47bf79028cf646be3,
         type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 713776771847892031, guid: 12e7c7ca77ea83b47bf79028cf646be3,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 713776771847892031, guid: 12e7c7ca77ea83b47bf79028cf646be3,
-        type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -3505,7 +3529,7 @@ PrefabInstance:
     - target: {fileID: 713776771847892031, guid: 12e7c7ca77ea83b47bf79028cf646be3,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 27.6
+      value: 27.5
       objectReference: {fileID: 0}
     - target: {fileID: 713776771847892031, guid: 12e7c7ca77ea83b47bf79028cf646be3,
         type: 3}
@@ -3542,10 +3566,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2451260245373218978, guid: 12e7c7ca77ea83b47bf79028cf646be3,
+        type: 3}
+      propertyPath: DestroyMode
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8162398587118302864, guid: 12e7c7ca77ea83b47bf79028cf646be3,
         type: 3}
       propertyPath: m_Name
       value: Houses_Set_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 8162398587118302864, guid: 12e7c7ca77ea83b47bf79028cf646be3,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 12e7c7ca77ea83b47bf79028cf646be3, type: 3}
@@ -3765,6 +3799,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Houses_Set_02 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 1620487742905288771, guid: 7db38af2cf7802f408023e2118766fcf,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4989754690631192177, guid: 7db38af2cf7802f408023e2118766fcf,
+        type: 3}
+      propertyPath: DestroyMode
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7988351587267613420, guid: 7db38af2cf7802f408023e2118766fcf,
         type: 3}
       propertyPath: m_RootOrder
@@ -3793,7 +3837,7 @@ PrefabInstance:
     - target: {fileID: 7988351587267613420, guid: 7db38af2cf7802f408023e2118766fcf,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 68.3
+      value: 67.5
       objectReference: {fileID: 0}
     - target: {fileID: 7988351587267613420, guid: 7db38af2cf7802f408023e2118766fcf,
         type: 3}
@@ -3845,6 +3889,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 575796734}
     m_Modifications:
+    - target: {fileID: 6246735623472119825, guid: 26881105d19e76d4488f37602797e9e1,
+        type: 3}
+      propertyPath: DestroyMode
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6246735623472119825, guid: 26881105d19e76d4488f37602797e9e1,
         type: 3}
       propertyPath: DestroyDistanceBehindBounds
@@ -3926,6 +3975,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6246735623472119825, guid: 26881105d19e76d4488f37602797e9e1,
         type: 3}
+      propertyPath: DestroyMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6246735623472119825, guid: 26881105d19e76d4488f37602797e9e1,
+        type: 3}
       propertyPath: DestroyDistanceBehindBounds
       value: 0
       objectReference: {fileID: 0}
@@ -4003,6 +4057,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 575796734}
     m_Modifications:
+    - target: {fileID: 6246735623472119825, guid: 26881105d19e76d4488f37602797e9e1,
+        type: 3}
+      propertyPath: DestroyMode
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6246735623472119825, guid: 26881105d19e76d4488f37602797e9e1,
         type: 3}
       propertyPath: DestroyDistanceBehindBounds
@@ -4399,6 +4458,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6246735623472119825, guid: 26881105d19e76d4488f37602797e9e1,
         type: 3}
+      propertyPath: DestroyMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6246735623472119825, guid: 26881105d19e76d4488f37602797e9e1,
+        type: 3}
       propertyPath: DestroyDistanceBehindBounds
       value: 0
       objectReference: {fileID: 0}
@@ -4758,6 +4822,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6246735623472119825, guid: 26881105d19e76d4488f37602797e9e1,
         type: 3}
+      propertyPath: DestroyMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6246735623472119825, guid: 26881105d19e76d4488f37602797e9e1,
+        type: 3}
       propertyPath: DestroyDistanceBehindBounds
       value: 0
       objectReference: {fileID: 0}
@@ -4910,6 +4979,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 575796734}
     m_Modifications:
+    - target: {fileID: 6246735623472119825, guid: 26881105d19e76d4488f37602797e9e1,
+        type: 3}
+      propertyPath: DestroyMode
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7764764967498922748, guid: 26881105d19e76d4488f37602797e9e1,
         type: 3}
       propertyPath: m_Name
@@ -5957,6 +6031,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Tile_Cube_Concrete_01 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1618180381433160, guid: 373e61c5dc17ea8468e3d483cb0c92b1, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4799013342426568, guid: 373e61c5dc17ea8468e3d483cb0c92b1, type: 3}
       propertyPath: m_RootOrder
       value: 17
@@ -6718,6 +6796,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6246735623472119825, guid: 26881105d19e76d4488f37602797e9e1,
         type: 3}
+      propertyPath: DestroyMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6246735623472119825, guid: 26881105d19e76d4488f37602797e9e1,
+        type: 3}
       propertyPath: DestroyDistanceBehindBounds
       value: 0
       objectReference: {fileID: 0}
@@ -6826,6 +6909,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 575796734}
     m_Modifications:
+    - target: {fileID: 6246735623472119825, guid: 26881105d19e76d4488f37602797e9e1,
+        type: 3}
+      propertyPath: DestroyMode
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6246735623472119825, guid: 26881105d19e76d4488f37602797e9e1,
         type: 3}
       propertyPath: DestroyDistanceBehindBounds
@@ -7823,20 +7911,20 @@ PrefabInstance:
       propertyPath: m_Name
       value: Houses_Set_02
       objectReference: {fileID: 0}
+    - target: {fileID: 1620487742905288771, guid: 7db38af2cf7802f408023e2118766fcf,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4989754690631192177, guid: 7db38af2cf7802f408023e2118766fcf,
+        type: 3}
+      propertyPath: DestroyMode
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7988351587267613420, guid: 7db38af2cf7802f408023e2118766fcf,
         type: 3}
       propertyPath: m_RootOrder
       value: 13
-      objectReference: {fileID: 0}
-    - target: {fileID: 7988351587267613420, guid: 7db38af2cf7802f408023e2118766fcf,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7988351587267613420, guid: 7db38af2cf7802f408023e2118766fcf,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7988351587267613420, guid: 7db38af2cf7802f408023e2118766fcf,
         type: 3}
