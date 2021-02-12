@@ -110,16 +110,17 @@ namespace MoreMountains.InfiniteRunnerEngine
 
 				if (item.ScenarioEventType==ScenarioEvent.ScenarioEventTypes.ScoreBased)
 				{
+					Debug.Log("check point score " + item.StartScore);
 					// if it's score based, we check if we've reached the trigger score, and if the event hasn't been fired yet, we fire it.
 					if (item.StartScore<=currentScore && item.Status==true)
 					{					
 						item.ScenarioEventAction();
-						item.Status=false;
-						if (item.MMEventName!="" && UseEventManager)
-						{
-							MMEventManager.TriggerEvent(new MMGameEvent(item.MMEventName));
-						}
-					}
+                        item.Status=false;
+                        if (item.MMEventName != "" && UseEventManager)
+                        {
+                            MMEventManager.TriggerEvent(new MMGameEvent(item.MMEventName));
+                        }
+                    }
 				}
 			}
 		}

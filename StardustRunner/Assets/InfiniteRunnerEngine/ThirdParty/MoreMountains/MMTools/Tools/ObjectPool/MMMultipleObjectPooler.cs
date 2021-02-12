@@ -219,7 +219,9 @@ namespace MoreMountains.Tools
 			MMMultipleObjectPoolerObject searchedObject = GetPoolObject(_pooledGameObjects[_currentIndex].gameObject);
 
 			if (_currentIndex >= _pooledGameObjects.Count) { return null; }
-			if (!searchedObject.Enabled) { _currentIndex++; return null; }
+			//if (!searchedObject.Enabled) { _currentIndex++; return null;}
+			//change the code above to not return null
+			if (!searchedObject.Enabled) { _currentIndex++; searchedObject = GetPoolObject(_pooledGameObjects[_currentIndex].gameObject); }
 
 			// if the object is already active, we need to find another one
 			if (_pooledGameObjects[_currentIndex].gameObject.activeInHierarchy)
@@ -337,7 +339,7 @@ namespace MoreMountains.Tools
 				randomIndex = UnityEngine.Random.Range(0, Pool.Count);
 				overflowCounter++;
 			}
-			int originalRandomIndex = randomIndex+1;
+			int originalRandomIndex = randomIndex-1;
 
 			bool objectFound=false;
 
@@ -355,8 +357,9 @@ namespace MoreMountains.Tools
 
 				if (!Pool[randomIndex].Enabled)
 				{
-					randomIndex++;
-					overflowCounter++;
+					//randomIndex++;
+					randomIndex = UnityEngine.Random.Range(0, Pool.Count);
+					//overflowCounter++;
 					continue;
 				}
 
