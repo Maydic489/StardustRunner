@@ -45,7 +45,7 @@ namespace MoreMountains.InfiniteRunnerEngine
 			pivotAnim = groundPivot.GetComponent<Animation>();
 			Shader.SetGlobalFloat(s_BlinkingValueHash, 0.0f);
 			isDead = false;
-			isInvul = false;
+			isInvul = true;
 			isSpeed = false;
 			isProtect = false;
 		}
