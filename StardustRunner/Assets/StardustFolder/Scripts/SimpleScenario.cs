@@ -9,6 +9,7 @@ namespace MoreMountains.InfiniteRunnerEngine
 {
     public class SimpleScenario : ScenarioManager
     {
+        public LaneManager _laneManager;
         public MMMultipleObjectPooler buildingSpawner;
         public List<DistanceSpawner> Set1;
         public List<DistanceSpawner> Set2;
@@ -86,6 +87,9 @@ namespace MoreMountains.InfiniteRunnerEngine
                 print("change obstacle");
                 onBreak = false;
                 _scenario[1].StartScore += 1000;
+                if (swap1) _laneManager.maxInLane = 2;
+                else _laneManager.maxInLane = 1;
+
                 swap2 = !swap2;
                 foreach (DistanceSpawner obs in Set1)
                 {
@@ -100,7 +104,7 @@ namespace MoreMountains.InfiniteRunnerEngine
 
         IEnumerator OnABreak()
         {
-            if(!swap2) yield return new WaitForSeconds(2);
+            if(!swap2) yield return new WaitForSeconds(3);
             else yield return new WaitForSeconds(0);
 
             _scenario[1].Status = true;

@@ -9,6 +9,7 @@ namespace MoreMountains.InfiniteRunnerEngine
 
         protected override void ObjectPicked()
         {
+			print("add fuel");
 			GameManager.Instance.AddFuel(fuelToAdd);
 		}
 

@@ -6,11 +6,12 @@ using MoreMountains.Tools;
 
 public class LaneManager : MonoBehaviour
 {
-    public int randomNum;
+    private int randomNum;
     [SerializeField]
-    public int oldCount;
+    private int oldCount;
     [SerializeField]
     private List<GameObject> obstaclesList;
+    public int maxInLane = 2;
     public bool PushMode;
     
 
@@ -34,9 +35,9 @@ public class LaneManager : MonoBehaviour
 
         obstaclesList.Add(collidingObject);
 
-        if (obstaclesList.Count > 2 && (obstaclesList.Count - oldCount) >= 3)
+        if (obstaclesList.Count > maxInLane && (obstaclesList.Count - oldCount) >= maxInLane+1)
             RandomCreateSpace();
-        else if(obstaclesList.Count > 2)
+        else if(obstaclesList.Count > maxInLane)
             CreateSpace(collidingObject);
     }
     private void TriggerExit(GameObject collidingObject)

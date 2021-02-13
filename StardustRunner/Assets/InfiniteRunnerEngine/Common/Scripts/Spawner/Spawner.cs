@@ -16,6 +16,7 @@ namespace MoreMountains.InfiniteRunnerEngine
 		public Vector3 MaximumSize=new Vector3(1,1,1) ;	
 		/// if set to true, the random size will preserve the original's aspect ratio
 		public bool PreserveRatio=false;
+		public bool UseObjectOriginalScale;
 		[Space(10)]	
 		[Header("Rotation")]
 		/// the minimum size of a spawned object
@@ -79,7 +80,7 @@ namespace MoreMountains.InfiniteRunnerEngine
 			{
 				newScale = Vector3.one * UnityEngine.Random.Range (MinimumSize.x, MaximumSize.x);
 			}
-			nextGameObject.transform.localScale = newScale;		
+			if(!UseObjectOriginalScale) nextGameObject.transform.localScale = newScale;		
 			
 			// we adjust the object's position based on its renderer's size
 			if (nextGameObject.GetComponent<MMPoolableObject>()==null)

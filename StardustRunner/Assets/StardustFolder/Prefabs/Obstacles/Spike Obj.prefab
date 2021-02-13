@@ -13,10 +13,11 @@ GameObject:
   - component: {fileID: 8451949196057810623}
   - component: {fileID: 4416336677649146225}
   - component: {fileID: 1185210622170481431}
-  - component: {fileID: 8399458037518695583}
-  - component: {fileID: 4420504733326098533}
   - component: {fileID: 78753777}
   - component: {fileID: 651199201663510007}
+  - component: {fileID: 994435079}
+  - component: {fileID: 5662128058243206020}
+  - component: {fileID: 6969894510843898829}
   m_Layer: 0
   m_Name: Spike Obj
   m_TagString: Obstacle
@@ -98,43 +99,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.52, y: 1, z: 1.03}
-  m_Center: {x: -1, y: 0.5, z: 0}
---- !u!95 &8399458037518695583
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5365819594514678189}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 4a89180adbd19e040a76e28fa8f63d39, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
---- !u!111 &4420504733326098533
-Animation:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5365819594514678189}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Animation: {fileID: 0}
-  m_Animations:
-  - {fileID: 7400000, guid: 124ad5051466d774e9bd986d4422a9a0, type: 2}
-  m_WrapMode: 0
-  m_PlayAutomatically: 0
-  m_AnimatePhysics: 0
-  m_CullingType: 0
+  m_Size: {x: 3.4229405, y: 1, z: 1.03}
+  m_Center: {x: 1.51, y: 0.5, z: 0}
 --- !u!114 &78753777
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -159,6 +125,54 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2722819bb64326141b1074149b50ce98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!111 &994435079
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5365819594514678189}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 0}
+  m_Animations:
+  - {fileID: 7400000, guid: 124ad5051466d774e9bd986d4422a9a0, type: 2}
+  - {fileID: 7400000, guid: f2e6023bf2b0e824b95ef1aea0d87ec5, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 0
+  m_AnimatePhysics: 0
+  m_CullingType: 0
+--- !u!114 &5662128058243206020
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5365819594514678189}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74e432cda2fd0b9438ec571658ba4a32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DontAutoCheckLane: 1
+  isGround: 1
+  whatLane: 110
+--- !u!54 &6969894510843898829
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5365819594514678189}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1001 &3516259923063785109
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -176,7 +190,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9570790514477866, guid: c8659a6751e332c4da182d62a27c7c07, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.784
+      value: 0.17900008
       objectReference: {fileID: 0}
     - target: {fileID: 9570790514477866, guid: c8659a6751e332c4da182d62a27c7c07, type: 3}
       propertyPath: m_LocalPosition.y
@@ -226,6 +240,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6694084760583048863, guid: c8659a6751e332c4da182d62a27c7c07,
         type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6694084760583048863, guid: c8659a6751e332c4da182d62a27c7c07,
+        type: 3}
       propertyPath: DontAutoCheckLane
       value: 1
       objectReference: {fileID: 0}
@@ -239,11 +258,17 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Obstacle
       objectReference: {fileID: 0}
+    - target: {fileID: 8101766188704226767, guid: c8659a6751e332c4da182d62a27c7c07,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8374376864067455327, guid: c8659a6751e332c4da182d62a27c7c07,
         type: 3}
       propertyPath: m_Mesh
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 9188603553798411242, guid: b58b802699514ba4a861408d7f1f9fcc,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c8659a6751e332c4da182d62a27c7c07, type: 3}
 --- !u!4 &3525829571116862911 stripped
@@ -632,7 +657,7 @@ PrefabInstance:
     - target: {fileID: 3597696253316866447, guid: 0d67a56b7e4a1d34f865999e520140ec,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.983
+      value: -0.02
       objectReference: {fileID: 0}
     - target: {fileID: 3597696253316866447, guid: 0d67a56b7e4a1d34f865999e520140ec,
         type: 3}
