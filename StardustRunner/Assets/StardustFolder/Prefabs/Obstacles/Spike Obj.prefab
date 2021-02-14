@@ -16,7 +16,6 @@ GameObject:
   - component: {fileID: 78753777}
   - component: {fileID: 651199201663510007}
   - component: {fileID: 994435079}
-  - component: {fileID: 5662128058243206020}
   - component: {fileID: 6969894510843898829}
   m_Layer: 0
   m_Name: Spike Obj
@@ -142,21 +141,6 @@ Animation:
   m_PlayAutomatically: 0
   m_AnimatePhysics: 0
   m_CullingType: 0
---- !u!114 &5662128058243206020
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5365819594514678189}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 74e432cda2fd0b9438ec571658ba4a32, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  DontAutoCheckLane: 1
-  isGround: 1
-  whatLane: 110
 --- !u!54 &6969894510843898829
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -241,7 +225,7 @@ PrefabInstance:
     - target: {fileID: 6694084760583048863, guid: c8659a6751e332c4da182d62a27c7c07,
         type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6694084760583048863, guid: c8659a6751e332c4da182d62a27c7c07,
         type: 3}
@@ -261,7 +245,7 @@ PrefabInstance:
     - target: {fileID: 8101766188704226767, guid: c8659a6751e332c4da182d62a27c7c07,
         type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8374376864067455327, guid: c8659a6751e332c4da182d62a27c7c07,
         type: 3}
