@@ -33,6 +33,7 @@ namespace MoreMountains.InfiniteRunnerEngine
 		public static bool isProtect;
 		public int protectLayer;
 		private bool isSlide;
+		private bool isWheelie;
 		private bool lookBack;
 		public static bool isSpeed {get; set;}
 		private bool isSuperman;
@@ -64,11 +65,13 @@ namespace MoreMountains.InfiniteRunnerEngine
 			IsOutofFuel();
 
 			ChooseLane();
+			
+			CheckAnimation();
 
 			inLane = whatLane;
 
 			//play animation when get speed boost
-			if(isSpeed && !isSuperman) { PlaySupermanAnim(isSpeed); }
+			if(isSpeed && !isSuperman && !isWheelie) { PlaySupermanAnim(isSpeed); }
 			else if(!isSpeed && isSuperman) { PlaySupermanAnim(isSpeed); }
 
 			//old way to move, not good for rigidbody
@@ -80,11 +83,7 @@ namespace MoreMountains.InfiniteRunnerEngine
 			//    groundPivot.GetComponent<Rigidbody>().transform.Rotate(new Vector3(0, 0, (-100 * slideDirection) * Time.deltaTime));
 			//}
 
-			if (!pivotAnim.IsPlaying("Anim_Slide") && isSlide)
-            {
-				isSlide = false;
-				GetComponent<CapsuleCollider>().enabled = true;
-			}
+			
 
 			if(GameManager.Instance.FuelPoints < 40 && !pivotAnim.isPlaying && !lookBack && !isSuperman)
             {
@@ -168,14 +167,14 @@ namespace MoreMountains.InfiniteRunnerEngine
             if (whatLane == 'r' && slideDirection != 0f)
             {
                 slideDirection = 0f;
-                if (!isSlide)
-                    pivotAnim.Play("Anim_RotateLeft");
+				if (!isSlide && !isWheelie)
+					PlayTurnAnim("Left");
             }
             else
             {
                 slideDirection = -1.6f;
-                if (!isSlide && whatLane != 'l')
-                    pivotAnim.Play("Anim_RotateLeft");
+				if (!isSlide && !isWheelie && whatLane != 'l')
+					PlayTurnAnim("Left");
             }
 		}
 
@@ -186,20 +185,20 @@ namespace MoreMountains.InfiniteRunnerEngine
 			if (whatLane == 'l' && slideDirection != 0f)
 			{
 				slideDirection = 0f;
-				if (!isSlide)
-					pivotAnim.Play("Anim_RotateRight");
+				if (!isSlide && !isWheelie)
+					PlayTurnAnim("Right");
 			}
 			else
 			{
 				slideDirection = 1.6f;
-				if (!isSlide && whatLane != 'r')
-					pivotAnim.Play("Anim_RotateRight");
+				if (!isSlide && !isWheelie && whatLane != 'r')
+					PlayTurnAnim("Right");
 			}
 		}
 
         public override void DownStart()
         {
-			if (!isSuperman)
+			if (!isSuperman && !isWheelie && !isSlide)
 			{
 				isSlide = true;
 				GetComponent<CapsuleCollider>().enabled = false;
@@ -207,7 +206,19 @@ namespace MoreMountains.InfiniteRunnerEngine
 			}
 		}
 
-		public void PlaySupermanAnim(bool state)
+        public override void UpStart()
+        {
+			if (!isSuperman && !isSlide && !isWheelie)
+			{
+				isWheelie = true;
+                pivotAnim["Bike_Wheelie"].layer = 1;
+                pivotAnim.Play("Bike_Wheelie");
+                pivotAnim["Bike_Wheelie"].weight = 1f;
+				LevelManager.Instance.TemporarilyMultiplySpeed(2, 0.5f);
+			}
+		}
+
+        public void PlaySupermanAnim(bool state)
         {
 			if (state)
 			{
@@ -226,6 +237,13 @@ namespace MoreMountains.InfiniteRunnerEngine
 				pivotAnim["Anim_Superman"].weight = 0.4f;
 			}
 		}
+
+		private void PlayTurnAnim(string direction)
+        {
+			//pivotAnim["Anim_Rotate"+direction].layer = 1;
+			pivotAnim.Play("Anim_Rotate" + direction);
+			//pivotAnim["Anim_Rotate" + direction].weight = 0.4f;
+		}			
 
         public void PreActivateInvul(float duration)
         {
@@ -398,6 +416,21 @@ namespace MoreMountains.InfiniteRunnerEngine
             {
 				return (false);
             }
+		}
+
+		private void CheckAnimation()
+        {
+			if (!pivotAnim.IsPlaying("Anim_Slide") && isSlide)
+			{
+				isSlide = false;
+				GetComponent<CapsuleCollider>().enabled = true;
+			}
+
+			if(!pivotAnim.IsPlaying("Bike_Wheelie") && isWheelie)
+            {
+				isWheelie = false;
+				isSpeed = false;
+			}
 		}
 	}
 }
