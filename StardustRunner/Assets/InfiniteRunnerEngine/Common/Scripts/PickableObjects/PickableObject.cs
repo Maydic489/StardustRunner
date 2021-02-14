@@ -29,8 +29,13 @@ namespace MoreMountains.InfiniteRunnerEngine
 		/// </summary>
 		/// <param name="other">the Collider that collides with our object</param>
 	    protected virtual void OnTriggerEnter (Collider other)
-		{		
-			TriggerEnter (other.gameObject);
+		{
+			if (other.gameObject.tag != "Player") return;
+			if (other.GetType() == typeof(BoxCollider)) print("box "+this.name);
+			if (other.GetType() == typeof(CapsuleCollider)) print("capsule "+this.name);
+
+			if (other.GetType() == typeof(BoxCollider))
+				TriggerEnter (other.gameObject);
 		}	
 		
 		/// <summary>
@@ -56,12 +61,16 @@ namespace MoreMountains.InfiniteRunnerEngine
 				SoundManager.Instance.PlaySound(PickSoundFx,transform.position);	
 			}
 
+			print(collidingObject.name);
 			ObjectPicked();
 			// we desactivate the gameobject
 			if (!DestroyMode)
 				gameObject.SetActive(false);
 			else
+			{
+				gameObject.SetActive(false);
 				Destroy(this.gameObject);
+			}
 		}
 
 		/// <summary>
