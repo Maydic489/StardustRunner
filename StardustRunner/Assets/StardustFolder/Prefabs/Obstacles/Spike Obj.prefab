@@ -240,7 +240,7 @@ PrefabInstance:
     - target: {fileID: 6973435173558324193, guid: c8659a6751e332c4da182d62a27c7c07,
         type: 3}
       propertyPath: m_TagString
-      value: Obstacle
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 8101766188704226767, guid: c8659a6751e332c4da182d62a27c7c07,
         type: 3}

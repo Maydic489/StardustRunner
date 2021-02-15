@@ -46,7 +46,7 @@ namespace MoreMountains.InfiniteRunnerEngine
 			pivotAnim = groundPivot.GetComponent<Animation>();
 			Shader.SetGlobalFloat(s_BlinkingValueHash, 0.0f);
 			isDead = false;
-			isInvul = false;
+			isInvul = true;
 			isSpeed = false;
 			isProtect = false;
 		}
@@ -214,7 +214,7 @@ namespace MoreMountains.InfiniteRunnerEngine
                 pivotAnim["Bike_Wheelie"].layer = 1;
                 pivotAnim.Play("Bike_Wheelie");
                 pivotAnim["Bike_Wheelie"].weight = 1f;
-				LevelManager.Instance.TemporarilyMultiplySpeed(2, 0.5f);
+				LevelManager.Instance.TemporarilyMultiplySpeed(2f, 0.5f);
 			}
 		}
 

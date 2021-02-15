@@ -100,7 +100,9 @@ namespace MoreMountains.InfiniteRunnerEngine
 		{
 			PlayableCharacters[0] = Resources.Load<GameObject>("Player Character").GetComponent<PlayableCharacter>();
 
-	        Speed = InitialSpeed;
+			//Speed = InitialSpeed;
+			Speed = 0;
+			SpeedAcceleration = 0;
 	        DistanceTraveled = 0;
 
 	        InstantiateCharacters();
@@ -179,6 +181,8 @@ namespace MoreMountains.InfiniteRunnerEngine
 		/// </summary>
 	    public virtual void LevelStart()
 	    {
+			Speed = InitialSpeed;
+			SpeedAcceleration = 1;
 	        GameManager.Instance.SetStatus(GameManager.GameStatus.GameInProgress);
 			GameManager.Instance.AutoIncrementScore(true);
 			GameManager.Instance.AutoDecrementFuel(true);

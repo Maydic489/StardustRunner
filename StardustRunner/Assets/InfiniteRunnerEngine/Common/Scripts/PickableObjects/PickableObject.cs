@@ -31,9 +31,7 @@ namespace MoreMountains.InfiniteRunnerEngine
 	    protected virtual void OnTriggerEnter (Collider other)
 		{
 			if (other.gameObject.tag != "Player") return;
-			if (other.GetType() == typeof(BoxCollider)) print("box "+this.name);
-			if (other.GetType() == typeof(CapsuleCollider)) print("capsule "+this.name);
-
+			//only check boxcollider because player character has two colliders
 			if (other.GetType() == typeof(BoxCollider))
 				TriggerEnter (other.gameObject);
 		}	
