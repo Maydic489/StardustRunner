@@ -46,7 +46,7 @@ namespace MoreMountains.InfiniteRunnerEngine
 			pivotAnim = groundPivot.GetComponent<Animation>();
 			Shader.SetGlobalFloat(s_BlinkingValueHash, 0.0f);
 			isDead = false;
-			isInvul = true;
+			isInvul = false;
 			isSpeed = false;
 			isProtect = false;
 		}
@@ -82,20 +82,7 @@ namespace MoreMountains.InfiniteRunnerEngine
 			//    groundPivot.GetComponent<Rigidbody>().transform.Rotate(new Vector3(0, 0, (-100 * slideDirection) * Time.deltaTime));
 			//}
 
-			
-
-			if(GameManager.Instance.FuelPoints < 40 && !pivotAnim.isPlaying && !lookBack && !isSuperman)
-            {
-				//pivotAnim.Play("Anim_LookBack");
-				pivotAnim["Anim_LookBack"].layer = 2;
-				pivotAnim.Play("Anim_LookBack");
-				pivotAnim["Anim_LookBack"].weight = 0.4f;
-				lookBack = true;
-            }
-			else if(GameManager.Instance.FuelPoints > 40)
-            {
-				lookBack = false;
-            }
+			LookBackCheck();
 
 			playerPositoin = transform.position;
 			gameSpeed = LevelManager.Instance.Speed;
@@ -213,13 +200,13 @@ namespace MoreMountains.InfiniteRunnerEngine
                 pivotAnim["Bike_Wheelie"].layer = 1;
                 pivotAnim.Play("Bike_Wheelie");
                 pivotAnim["Bike_Wheelie"].weight = 0.4f;
-				LevelManager.Instance.TemporarilyMultiplySpeed(2f, 0.5f);
+				LevelManager.Instance.TemporarilyMultiplySpeed(1.5f, 0.5f);
 			}
 		}
 
 		public void CheckSpeedBoost()
         {
-			if (isSpeed && !isSuperman && !isWheelie) { PlaySupermanAnim(isSpeed); }
+			if (isSpeed && !isSuperman && isInvul) { PlaySupermanAnim(isSpeed); }
 			else if (!isSpeed && isSuperman) { PlaySupermanAnim(isSpeed); }
 		}
 
@@ -343,6 +330,22 @@ namespace MoreMountains.InfiniteRunnerEngine
 				default:
 					print("Out of Helmet");
 					break;
+			}
+		}
+
+		private void LookBackCheck()
+        {
+			if (GameManager.Instance.FuelPoints < 40 && !pivotAnim.isPlaying && !lookBack && !isSuperman)
+			{
+				//pivotAnim.Play("Anim_LookBack");
+				pivotAnim["Anim_LookBack"].layer = 2;
+				pivotAnim.Play("Anim_LookBack");
+				pivotAnim["Anim_LookBack"].weight = 0.4f;
+				lookBack = true;
+			}
+			else if (GameManager.Instance.FuelPoints > 40)
+			{
+				lookBack = false;
 			}
 		}
 

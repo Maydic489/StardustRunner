@@ -2,21 +2,24 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpikeScript : MonoBehaviour
+namespace MoreMountains.InfiniteRunnerEngine
 {
-    private bool isDone;
-    void Update()
+    public class SpikeScript : MonoBehaviour
     {
-        if(transform.position.z <= 4 && !isDone)
+        private bool isDone;
+        void Update()
         {
-            GetComponent<Animation>().Play("Spike");
-            isDone = true;
+            if (this.transform.position.z <= (LevelManager.Instance.Speed)/6.5f && !isDone)
+            {
+                GetComponent<Animation>().Play("Spike");
+                isDone = true;
+            }
         }
-    }
 
-    private void OnEnable()
-    {
-        GetComponent<Animation>().Play("Spike_idle");
-        isDone = false;
+        private void OnEnable()
+        {
+            GetComponent<Animation>().Play("Spike_idle");
+            isDone = false;
+        }
     }
 }
