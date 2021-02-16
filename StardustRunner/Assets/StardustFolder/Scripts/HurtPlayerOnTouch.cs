@@ -8,7 +8,13 @@ namespace MoreMountains.InfiniteRunnerEngine
 	{
 		public bool DontAutoCheckLane;
 		public bool isGround;
+		public bool isBreakable;
+		public bool isWeak;
 		public char whatLane;
+		private bool isBreak;
+		public GameObject showModel;
+		public GameObject breakablePart;
+		public GameObject crashEffect;
 
 		private void OnEnable()
 		{
@@ -24,7 +30,7 @@ namespace MoreMountains.InfiniteRunnerEngine
 			if (player == null) { return; }
 
 			// we ask the LevelManager to kill the character
-			if (!SimpleLane.isInvul)
+			if (!SimpleLane.isInvul && !isWeak)
 			{
 				if (!SimpleLane.isProtect)
 				{
@@ -37,6 +43,39 @@ namespace MoreMountains.InfiniteRunnerEngine
 				else
 					LevelManager.Instance.CurrentPlayableCharacters[0].GetComponent<SimpleLane>().ToggleProtect(false);
 
+			}
+
+			if(isWeak)
+            {
+				if(SimpleLane.isWheelie)
+                {
+					if (isBreakable && !isBreak)
+					{
+						showModel.SetActive(false);
+						breakablePart.SetActive(true);
+						breakablePart.GetComponent<RagdollDeathScript>().ToggleRagdoll(true);
+
+						foreach (Rigidbody rb in breakablePart.GetComponent<RagdollDeathScript>().ragdollBodies)
+						{
+							rb.AddExplosionForce(20f, new Vector3(transform.position.x, 0, 0), 5f, 3f, ForceMode.Impulse);
+						}
+						foreach (Collider collider in breakablePart.GetComponent<RagdollDeathScript>().ragdollColliders)
+						{
+							Physics.IgnoreCollision(LevelManager.Instance.CurrentPlayableCharacters[0].GetComponent<BoxCollider>(), collider, true);
+							Physics.IgnoreCollision(LevelManager.Instance.CurrentPlayableCharacters[0].GetComponent<CapsuleCollider>(), collider, true);
+						}
+
+						// adds an instance of the effect at the coin's position
+						if (crashEffect != null)
+						{
+							Instantiate(crashEffect, this.transform.position+(Vector3.forward*0.5f), crashEffect.transform.rotation);
+						}
+
+						isBreak = true;
+					}
+				}
+				else
+					LevelManager.Instance.KillCharacter(player);
 			}
 		}
 
@@ -59,5 +98,6 @@ namespace MoreMountains.InfiniteRunnerEngine
 				whatLane = 'n';
 			}
 		}
+
 	}
 }

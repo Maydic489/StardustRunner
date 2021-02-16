@@ -33,7 +33,7 @@ namespace MoreMountains.InfiniteRunnerEngine
 		public static bool isProtect;
 		public int protectLayer;
 		private bool isSlide;
-		private bool isWheelie;
+		public static bool isWheelie;
 		private bool lookBack;
 		public static bool isSpeed {get; set;}
 		private bool isSuperman;
@@ -49,6 +49,7 @@ namespace MoreMountains.InfiniteRunnerEngine
 			isInvul = false;
 			isSpeed = false;
 			isProtect = false;
+			isWheelie = false;
 		}
 
         protected override void Update()
