@@ -71,8 +71,7 @@ namespace MoreMountains.InfiniteRunnerEngine
 			inLane = whatLane;
 
 			//play animation when get speed boost
-			if(isSpeed && !isSuperman && !isWheelie) { PlaySupermanAnim(isSpeed); }
-			else if(!isSpeed && isSuperman) { PlaySupermanAnim(isSpeed); }
+			CheckSpeedBoost();
 
 			//old way to move, not good for rigidbody
 			//if(transform.position.x != slideDirection)
@@ -88,7 +87,7 @@ namespace MoreMountains.InfiniteRunnerEngine
 			if(GameManager.Instance.FuelPoints < 40 && !pivotAnim.isPlaying && !lookBack && !isSuperman)
             {
 				//pivotAnim.Play("Anim_LookBack");
-				pivotAnim["Anim_LookBack"].layer = 1;
+				pivotAnim["Anim_LookBack"].layer = 2;
 				pivotAnim.Play("Anim_LookBack");
 				pivotAnim["Anim_LookBack"].weight = 0.4f;
 				lookBack = true;
@@ -118,27 +117,27 @@ namespace MoreMountains.InfiniteRunnerEngine
             }
 
             //go back to normal pose after changing lane
-            if ((IsBetween(transform.position.x,slideDirection-0.2f,slideDirection+0.2f)) && !pivotAnim.IsPlaying("Anim_Slide") && !isDead)
-			{
-				if (pivotAnim.IsPlaying("Anim_RotateLeft") || pivotAnim.IsPlaying("Anim_RotateRight"))
-					CenterPose();
-				else if(!pivotAnim.IsPlaying("Anim_LeftToCenter") && !pivotAnim.IsPlaying("Anim_RightToCenter"))
-				{
-					//pivotAnim.IsPlaying("Anim_Idle");
-				}
-			}
+            if ((IsBetween(transform.position.x, slideDirection - 0.2f, slideDirection + 0.2f)) && !pivotAnim.IsPlaying("Anim_Slide") && !isDead)
+            {
+                if (pivotAnim.IsPlaying("Anim_RotateLeft") || pivotAnim.IsPlaying("Anim_RotateRight"))
+                    CenterPose();
+                else if (!pivotAnim.IsPlaying("Anim_LeftToCenter") && !pivotAnim.IsPlaying("Anim_RightToCenter"))
+                {
+                    //pivotAnim.IsPlaying("Anim_Idle");
+                }
+            }
 
-			//go back to normal pose after changing lane
-			if ((IsBetween(transform.position.x, slideDirection - 0.2f, slideDirection + 0.2f)) && !pivotAnim.IsPlaying("Anim_Slide") && !isDead)
-			{
-				if (pivotAnim.IsPlaying("Anim_RotateLeft") || pivotAnim.IsPlaying("Anim_RotateRight"))
-					CenterPose();
-				else if (!pivotAnim.IsPlaying("Anim_LeftToCenter") && !pivotAnim.IsPlaying("Anim_RightToCenter"))
-				{
-					//pivotAnim.IsPlaying("Anim_Idle");
-				}
-			}
-		}
+            //go back to normal pose after changing lane
+            if ((IsBetween(transform.position.x, slideDirection - 0.2f, slideDirection + 0.2f)) && !pivotAnim.IsPlaying("Anim_Slide") && !isDead)
+            {
+                if (pivotAnim.IsPlaying("Anim_RotateLeft") || pivotAnim.IsPlaying("Anim_RotateRight"))
+                    CenterPose();
+                else if (!pivotAnim.IsPlaying("Anim_LeftToCenter") && !pivotAnim.IsPlaying("Anim_RightToCenter"))
+                {
+                    //pivotAnim.IsPlaying("Anim_Idle");
+                }
+            }
+        }
 
 		public void ChooseLane()
         {
@@ -213,9 +212,15 @@ namespace MoreMountains.InfiniteRunnerEngine
 				isWheelie = true;
                 pivotAnim["Bike_Wheelie"].layer = 1;
                 pivotAnim.Play("Bike_Wheelie");
-                pivotAnim["Bike_Wheelie"].weight = 1f;
+                pivotAnim["Bike_Wheelie"].weight = 0.4f;
 				LevelManager.Instance.TemporarilyMultiplySpeed(2f, 0.5f);
 			}
+		}
+
+		public void CheckSpeedBoost()
+        {
+			if (isSpeed && !isSuperman && !isWheelie) { PlaySupermanAnim(isSpeed); }
+			else if (!isSpeed && isSuperman) { PlaySupermanAnim(isSpeed); }
 		}
 
         public void PlaySupermanAnim(bool state)

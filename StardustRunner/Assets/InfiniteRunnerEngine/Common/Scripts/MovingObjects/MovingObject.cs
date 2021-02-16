@@ -48,30 +48,55 @@ namespace MoreMountains.InfiniteRunnerEngine
 		
 		// On update(), we move the object based on the level's speed and the object's speed, and apply acceleration
 		protected virtual void Update ()
-		{	if (StopWhenOver)
-			{
-				if (!SimpleLane.isDead)
-					Move();
-			}
-			else if(IsMovingCar)
-            {
-				if (!SimpleLane.isDead)
-					Move();
-				else
-				{
-					SetDirection(transform.rotation * Vector3.forward);
-					Move();
-				}
-				
-			}
-			else
-            {
-				Move();
-			}
-			//MMDebug.DebugLogTime (this.name+"movement : " + _movement);
-	    }
+		{   //move everything to fixed update because speedboost mess with it for some reason
+            //if (StopWhenOver)
+            //{
+            //    if (!SimpleLane.isDead)
+            //        Move();
+            //}
+            //else if (IsMovingCar)
+            //{
+            //    if (!SimpleLane.isDead)
+            //        Move();
+            //    else
+            //    {
+            //        SetDirection(transform.rotation * Vector3.forward);
+            //        Move();
+            //    }
 
-	    public virtual void Move()
+            //}
+            //else
+            //{
+            //    Move();
+            //}
+            //MMDebug.DebugLogTime (this.name+"movement : " + _movement);
+        }
+
+        private void FixedUpdate()
+        {
+            if (StopWhenOver)
+            {
+                if (!SimpleLane.isDead)
+                    Move();
+            }
+            else if (IsMovingCar)
+            {
+                if (!SimpleLane.isDead)
+                    Move();
+                else
+                {
+                    SetDirection(transform.rotation * Vector3.forward);
+                    Move();
+                }
+
+            }
+            else
+            {
+                Move();
+            }
+        }
+
+		public virtual void Move()
 	    {
 			if (LevelManager.Instance==null)
 			{

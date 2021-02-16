@@ -87,7 +87,7 @@ namespace MoreMountains.InfiniteRunnerEngine
                 print("change obstacle");
                 onBreak = false;
                 _scenario[1].StartScore += 1000;
-                if (swap1) _laneManager.maxInLane = 2;
+                if (swap2) _laneManager.maxInLane = 2;
                 else _laneManager.maxInLane = 1;
 
                 swap2 = !swap2;
