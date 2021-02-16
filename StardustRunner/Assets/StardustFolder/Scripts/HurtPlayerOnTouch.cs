@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using MoreMountains.Tools;
 
@@ -12,14 +13,26 @@ namespace MoreMountains.InfiniteRunnerEngine
 		public bool isWeak;
 		public char whatLane;
 		private bool isBreak;
-		public GameObject showModel;
+		public List<GameObject> showModel;
 		public GameObject breakablePart;
+		public GameObject breakableCopy;
 		public GameObject crashEffect;
 
 		private void OnEnable()
 		{
 			if (!DontAutoCheckLane)
 				Invoke("CheckLane", 1);
+
+			foreach (GameObject obj in showModel)
+			{
+				obj.SetActive(true);
+			}
+
+			if (isBreakable)
+			{
+				breakableCopy = Instantiate(breakablePart, this.transform.position, this.transform.rotation, this.transform);
+				isBreak = false;
+			}
 		}
 		protected override void TriggerEnter(GameObject collidingObject)
 		{
@@ -51,15 +64,19 @@ namespace MoreMountains.InfiniteRunnerEngine
                 {
 					if (isBreakable && !isBreak)
 					{
-						showModel.SetActive(false);
-						breakablePart.SetActive(true);
-						breakablePart.GetComponent<RagdollDeathScript>().ToggleRagdoll(true);
+						foreach(GameObject obj in showModel)
+                        {
+							obj.SetActive(false);
+						}
 
-						foreach (Rigidbody rb in breakablePart.GetComponent<RagdollDeathScript>().ragdollBodies)
+						breakableCopy.SetActive(true);
+						breakableCopy.GetComponent<RagdollDeathScript>().ToggleRagdoll(true);
+
+						foreach (Rigidbody rb in breakableCopy.GetComponent<RagdollDeathScript>().ragdollBodies)
 						{
 							rb.AddExplosionForce(20f, new Vector3(transform.position.x, 0, 0), 5f, 3f, ForceMode.Impulse);
 						}
-						foreach (Collider collider in breakablePart.GetComponent<RagdollDeathScript>().ragdollColliders)
+						foreach (Collider collider in breakableCopy.GetComponent<RagdollDeathScript>().ragdollColliders)
 						{
 							Physics.IgnoreCollision(LevelManager.Instance.CurrentPlayableCharacters[0].GetComponent<BoxCollider>(), collider, true);
 							Physics.IgnoreCollision(LevelManager.Instance.CurrentPlayableCharacters[0].GetComponent<CapsuleCollider>(), collider, true);
@@ -71,6 +88,7 @@ namespace MoreMountains.InfiniteRunnerEngine
 							Instantiate(crashEffect, this.transform.position+(Vector3.forward*0.5f), crashEffect.transform.rotation);
 						}
 
+						Destroy(breakableCopy, 2);
 						isBreak = true;
 					}
 				}
