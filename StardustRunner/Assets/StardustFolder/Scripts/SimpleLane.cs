@@ -336,7 +336,7 @@ namespace MoreMountains.InfiniteRunnerEngine
 
 		private void LookBackCheck()
         {
-			if (GameManager.Instance.FuelPoints < 40 && !pivotAnim.isPlaying && !lookBack && !isSuperman)
+			if (GameManager.Instance.FuelPoints < 20 && !pivotAnim.isPlaying && !lookBack && !isSuperman)
 			{
 				//pivotAnim.Play("Anim_LookBack");
 				pivotAnim["Anim_LookBack"].layer = 2;
@@ -344,7 +344,7 @@ namespace MoreMountains.InfiniteRunnerEngine
 				pivotAnim["Anim_LookBack"].weight = 0.4f;
 				lookBack = true;
 			}
-			else if (GameManager.Instance.FuelPoints > 40)
+			else if (GameManager.Instance.FuelPoints > 20)
 			{
 				lookBack = false;
 			}

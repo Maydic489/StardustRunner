@@ -17,7 +17,7 @@ namespace MoreMountains.InfiniteRunnerEngine
         // Update is called once per frame
         void Update()
         {
-            if (GameManager.Instance.FuelPoints > 50 || GameManager.Instance.FuelPoints < 5)
+            if (GameManager.Instance.FuelPoints > 25 || GameManager.Instance.FuelPoints < 5)
             {
                 transform.position = Vector3.MoveTowards(transform.position, new Vector3(SimpleLane.playerPositoin.x, SimpleLane.playerPositoin.y,
                     SimpleLane.playerPositoin.z - 1f - (GameManager.Instance.FuelPoints / 10)), MoveSpeed * Time.deltaTime);
