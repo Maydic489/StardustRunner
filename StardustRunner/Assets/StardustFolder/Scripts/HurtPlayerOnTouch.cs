@@ -120,7 +120,7 @@ namespace MoreMountains.InfiniteRunnerEngine
 
 			foreach (Rigidbody rb in breakableCopy.GetComponent<RagdollDeathScript>().ragdollBodies)
 			{
-				rb.AddExplosionForce(20f, new Vector3(transform.position.x, 0, 0), 5f, 3f, ForceMode.Impulse);
+				rb.AddExplosionForce(20f, new Vector3(transform.position.x, 0, transform.position.z-2), 10f, 3f, ForceMode.Impulse);
 			}
 			foreach (Collider collider in breakableCopy.GetComponent<RagdollDeathScript>().ragdollColliders)
 			{

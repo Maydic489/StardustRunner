@@ -21,7 +21,7 @@ namespace MoreMountains.InfiniteRunnerEngine
 			// adds an instance of the effect at the coin's position
 			if (PickEffect != null)
 			{
-				Instantiate(PickEffect, transform.position,  PickEffect.transform.rotation);
+				Instantiate(PickEffect, transform.position,  PickEffect.transform.rotation,collidingObject.transform);
 			}
 
 			// if we have a sound manager and if we've specified a song to play when this object is picked
