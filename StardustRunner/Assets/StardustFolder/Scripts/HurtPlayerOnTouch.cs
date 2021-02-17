@@ -28,11 +28,17 @@ namespace MoreMountains.InfiniteRunnerEngine
 				obj.SetActive(true);
 			}
 
-			if (isBreakable)
+			if (isBreakable && breakableCopy == null)
 			{
 				breakableCopy = Instantiate(breakablePart, this.transform.position, this.transform.rotation, this.transform);
 				isBreak = false;
 			}
+		}
+
+		protected override void OnTriggerEnter(Collider other)
+		{
+			if (other.GetType() == typeof(BoxCollider))
+				TriggerEnter(other.gameObject);
 		}
 		protected override void TriggerEnter(GameObject collidingObject)
 		{
@@ -42,58 +48,36 @@ namespace MoreMountains.InfiniteRunnerEngine
 			PlayableCharacter player = collidingObject.GetComponent<PlayableCharacter>();
 			if (player == null) { return; }
 
+			Debug.Log("crash");
+
 			// we ask the LevelManager to kill the character
-			if (!SimpleLane.isInvul && !isWeak)
+			if (!SimpleLane.isInvul)
 			{
 				if (!SimpleLane.isProtect)
 				{
-					if((SimpleLane.whatLane != this.whatLane) || this.whatLane == 'n')
+					//check if do small damage instead of instant kill
+					if ((SimpleLane.whatLane != this.whatLane) || this.whatLane == 'n')
 					{
-						LevelManager.Instance.CurrentPlayableCharacters[0].GetComponent<SimpleLane>().HurtPlayer(!isGround);				}
+						LevelManager.Instance.CurrentPlayableCharacters[0].GetComponent<SimpleLane>().HurtPlayer(!isGround);
+					}
+					else if(SimpleLane.isWheelie && isBreakable && !isBreak)
+					{ BreakingDown(); }
 					else
 						LevelManager.Instance.KillCharacter(player);
 				}
 				else
+				{
 					LevelManager.Instance.CurrentPlayableCharacters[0].GetComponent<SimpleLane>().ToggleProtect(false);
+					if (isBreakable && !isBreak) { BreakingDown(); }
+				}
 
 			}
-
-			if(isWeak)
+			else
             {
-				if(SimpleLane.isWheelie)
-                {
-					if (isBreakable && !isBreak)
-					{
-						foreach(GameObject obj in showModel)
-                        {
-							obj.SetActive(false);
-						}
-
-						breakableCopy.SetActive(true);
-						breakableCopy.GetComponent<RagdollDeathScript>().ToggleRagdoll(true);
-
-						foreach (Rigidbody rb in breakableCopy.GetComponent<RagdollDeathScript>().ragdollBodies)
-						{
-							rb.AddExplosionForce(20f, new Vector3(transform.position.x, 0, 0), 5f, 3f, ForceMode.Impulse);
-						}
-						foreach (Collider collider in breakableCopy.GetComponent<RagdollDeathScript>().ragdollColliders)
-						{
-							Physics.IgnoreCollision(LevelManager.Instance.CurrentPlayableCharacters[0].GetComponent<BoxCollider>(), collider, true);
-							Physics.IgnoreCollision(LevelManager.Instance.CurrentPlayableCharacters[0].GetComponent<CapsuleCollider>(), collider, true);
-						}
-
-						// adds an instance of the effect at the coin's position
-						if (crashEffect != null)
-						{
-							Instantiate(crashEffect, this.transform.position+(Vector3.forward*0.5f), crashEffect.transform.rotation);
-						}
-
-						Destroy(breakableCopy, 2);
-						isBreak = true;
-					}
+				if (isBreakable && !isBreak)
+				{
+					BreakingDown();
 				}
-				else
-					LevelManager.Instance.KillCharacter(player);
 			}
 		}
 
@@ -117,5 +101,48 @@ namespace MoreMountains.InfiniteRunnerEngine
 			}
 		}
 
-	}
+		private void BreakingDown()
+        {
+			foreach (GameObject obj in showModel)
+			{
+				obj.SetActive(false);
+			}
+
+			breakableCopy.SetActive(true);
+			breakableCopy.GetComponent<RagdollDeathScript>().ToggleRagdoll(true);
+
+			foreach (Rigidbody rb in breakableCopy.GetComponent<RagdollDeathScript>().ragdollBodies)
+			{
+				rb.AddExplosionForce(20f, new Vector3(transform.position.x, 0, 0), 5f, 3f, ForceMode.Impulse);
+			}
+			foreach (Collider collider in breakableCopy.GetComponent<RagdollDeathScript>().ragdollColliders)
+			{
+				Physics.IgnoreCollision(LevelManager.Instance.CurrentPlayableCharacters[0].GetComponent<BoxCollider>(), collider, true);
+				Physics.IgnoreCollision(LevelManager.Instance.CurrentPlayableCharacters[0].GetComponent<CapsuleCollider>(), collider, true);
+			}
+
+			if (crashEffect != null)
+			{
+				Instantiate(crashEffect, this.transform.position + (Vector3.forward * 0.5f), crashEffect.transform.rotation);
+			}
+
+			Invoke("CountDownDestroy", 5);
+			isBreak = true;
+		}
+
+		private void CountDownDestroy()
+        {
+			Destroy(breakableCopy);
+		}
+
+        private void OnDisable()
+        {
+			if (isBreak)
+			{
+				CancelInvoke("CountDownDestroy");
+				Destroy(breakableCopy);
+			}
+        }
+
+    }
 }

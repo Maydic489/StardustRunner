@@ -188,7 +188,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74e432cda2fd0b9438ec571658ba4a32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DontAutoCheckLane: 1
+  DontAutoCheckLane: 0
   isGround: 0
   isBreakable: 1
   isWeak: 1
