@@ -67,8 +67,13 @@ namespace MoreMountains.InfiniteRunnerEngine
 				}
 				else
 				{
-					LevelManager.Instance.CurrentPlayableCharacters[0].GetComponent<SimpleLane>().ToggleProtect(false);
-					if (isBreakable && !isBreak) { BreakingDown(); }
+					if (SimpleLane.isWheelie && isBreakable && !isBreak)
+					{ BreakingDown(); }
+					else if(SimpleLane.isProtect)
+						{
+						LevelManager.Instance.CurrentPlayableCharacters[0].GetComponent<SimpleLane>().ToggleProtect(false);
+						if (isBreakable && !isBreak) { BreakingDown(); }
+						}
 				}
 
 			}

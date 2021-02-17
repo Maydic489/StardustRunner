@@ -30,6 +30,7 @@ namespace MoreMountains.InfiniteRunnerEngine
 		public char inLane;
 		public static bool isDead;
 		public static bool isInvul;
+		public static bool isBoost;
 		public static bool isProtect;
 		public int protectLayer;
 		private bool isSlide;
@@ -45,11 +46,7 @@ namespace MoreMountains.InfiniteRunnerEngine
 			s_BlinkingValueHash = Shader.PropertyToID("_BlinkingValue");
 			pivotAnim = groundPivot.GetComponent<Animation>();
 			Shader.SetGlobalFloat(s_BlinkingValueHash, 0.0f);
-			isDead = false;
-			isInvul = false;
-			isSpeed = false;
-			isProtect = false;
-			isWheelie = false;
+			ResetStaticBool();
 		}
 
         protected override void Update()
@@ -435,11 +432,21 @@ namespace MoreMountains.InfiniteRunnerEngine
 				GetComponent<CapsuleCollider>().enabled = true;
 			}
 
-			if(!pivotAnim.IsPlaying("Bike_Wheelie") && isWheelie)
+			if(!pivotAnim.IsPlaying("Bike_Wheelie") && isWheelie && !isSuperman)
             {
 				isWheelie = false;
 				isSpeed = false;
 			}
+		}
+
+		private void ResetStaticBool()
+        {
+			isDead = false;
+			isInvul = false;
+			isBoost = false;
+			isSpeed = false;
+			isProtect = false;
+			isWheelie = false;
 		}
 	}
 }

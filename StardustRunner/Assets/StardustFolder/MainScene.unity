@@ -413,12 +413,12 @@ PrefabInstance:
     - target: {fileID: 6704630247815358126, guid: 64312c4f7c0de464da395476c485bdc8,
         type: 3}
       propertyPath: m_RootOrder
-      value: 19
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 6704630247815358126, guid: 64312c4f7c0de464da395476c485bdc8,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.6
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6704630247815358126, guid: 64312c4f7c0de464da395476c485bdc8,
         type: 3}
@@ -1367,7 +1367,7 @@ PrefabInstance:
     - target: {fileID: 6098466390292055630, guid: 53a27d185b3754f4f9d67748b8bfc2b2,
         type: 3}
       propertyPath: m_RootOrder
-      value: 22
+      value: 19
       objectReference: {fileID: 0}
     - target: {fileID: 6098466390292055630, guid: 53a27d185b3754f4f9d67748b8bfc2b2,
         type: 3}
@@ -2637,7 +2637,7 @@ PrefabInstance:
     - target: {fileID: 8190660919244643821, guid: ed6b45418a2f9764dbc8aefdb8299012,
         type: 3}
       propertyPath: m_RootOrder
-      value: 20
+      value: 21
       objectReference: {fileID: 0}
     - target: {fileID: 8190660919244643821, guid: ed6b45418a2f9764dbc8aefdb8299012,
         type: 3}
@@ -4544,10 +4544,15 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wire_obstacle
       objectReference: {fileID: 0}
+    - target: {fileID: 5517872922993406898, guid: e661c2ec09d0d7d4eb5b6008e53b6145,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5517872922993406904, guid: e661c2ec09d0d7d4eb5b6008e53b6145,
         type: 3}
       propertyPath: m_RootOrder
-      value: 21
+      value: 22
       objectReference: {fileID: 0}
     - target: {fileID: 5517872922993406904, guid: e661c2ec09d0d7d4eb5b6008e53b6145,
         type: 3}
@@ -4810,7 +4815,7 @@ PrefabInstance:
     - target: {fileID: 6098466390292055630, guid: 53a27d185b3754f4f9d67748b8bfc2b2,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 16.52
+      value: 21.51
       objectReference: {fileID: 0}
     - target: {fileID: 6098466390292055630, guid: 53a27d185b3754f4f9d67748b8bfc2b2,
         type: 3}
