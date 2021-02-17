@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 using MoreMountains.Tools;
 
 namespace MoreMountains.InfiniteRunnerEngine
@@ -20,6 +21,7 @@ namespace MoreMountains.InfiniteRunnerEngine
 		private Animation pivotAnim;
 		public GameObject helmetModel;
 		public GameObject headContainer;
+		public List<ParticleSystem> boostEffect;
 		public float MoveSpeed = 5f;
 		private float slowSpeed = 0.1f;
 		public GameObject mainCamera;
@@ -216,6 +218,14 @@ namespace MoreMountains.InfiniteRunnerEngine
 				pivotAnim["Anim_Superman"].layer = 1;
 				pivotAnim.Play("Anim_Superman");
 				pivotAnim["Anim_Superman"].weight = 0.4f;
+				Camera.main.GetComponent<CameraShake>().isShake = true;
+				Camera.main.GetComponent<CameraShake>().shakeDurationSet = 10;
+
+				for (int i = 0;i<3;i++)
+                {
+					var emission = boostEffect[i].emission;
+					emission.enabled = true;
+                }
 			}
 			else
             {
@@ -225,6 +235,14 @@ namespace MoreMountains.InfiniteRunnerEngine
 				pivotAnim["Anim_Superman"].time = pivotAnim["Anim_Superman"].length;
 				pivotAnim.Play("Anim_Superman");
 				pivotAnim["Anim_Superman"].weight = 0.4f;
+				Camera.main.GetComponent<CameraShake>().isShake = false;
+				Camera.main.GetComponent<CameraShake>().shakeDurationSet = 0.5f;
+
+				for (int i = 0; i < 3; i++)
+				{
+					var emission = boostEffect[i].emission;
+					emission.enabled = false;
+				}
 			}
 		}
 

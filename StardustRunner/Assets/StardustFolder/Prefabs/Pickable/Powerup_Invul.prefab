@@ -222,6 +222,8 @@ MonoBehaviour:
   Speed: 5
   Acceleration: 0
   Direction: {x: 0, y: 0, z: -1}
+  StopWhenOver: 1
+  IsMovingCar: 0
   DirectionCanBeChangedBySpawner: 1
   MovementSpace: 0
 --- !u!114 &3939897683315348559
@@ -251,6 +253,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DestroyDistanceBehindBounds: 0
+  DestroyMode: 0
 --- !u!114 &1880079355302393578
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -263,8 +266,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b74d6bf5dd93175419d2f416cd761f6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PickEffect: {fileID: 0}
+  PickEffect: {fileID: 8748687995501502678, guid: 1fe12c292853b324181553bd8e59196b,
+    type: 3}
   PickSoundFx: {fileID: 0}
+  DestroyMode: 0
   invulDuration: 6
   SpeedFactor: 2
   EffectDuration: 5

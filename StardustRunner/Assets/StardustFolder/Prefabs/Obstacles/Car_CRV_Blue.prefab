@@ -199,7 +199,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.79713035, y: 0.61202896, z: 1.4720709}
+  m_Size: {x: 0.85, y: 0.61202896, z: 1.4720709}
   m_Center: {x: 0.0000008791685, y: 0.40159768, z: 0}
 --- !u!64 &6519750986857903988
 MeshCollider:
@@ -254,6 +254,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DestroyDistanceBehindBounds: 0
+  DestroyMode: 0
 --- !u!114 &-4484439158930743198
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -287,7 +288,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DontAutoCheckLane: 0
   isGround: 0
+  isBreakable: 0
+  isWeak: 0
   whatLane: 0
+  showModel: []
+  breakablePart: {fileID: 0}
+  breakableCopy: {fileID: 0}
+  crashEffect: {fileID: 0}
 --- !u!114 &6984541519587331098
 MonoBehaviour:
   m_ObjectHideFlags: 0
