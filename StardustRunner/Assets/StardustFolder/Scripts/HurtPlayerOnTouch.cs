@@ -59,6 +59,8 @@ namespace MoreMountains.InfiniteRunnerEngine
 					if ((SimpleLane.whatLane != this.whatLane) || this.whatLane == 'n')
 					{
 						LevelManager.Instance.CurrentPlayableCharacters[0].GetComponent<SimpleLane>().HurtPlayer(!isGround);
+						if(crashEffect != null)
+						Instantiate(crashEffect, this.transform.position - (collidingObject.transform.position/0.75f)+(Vector3.forward*0.5f), crashEffect.transform.rotation,this.transform);
 					}
 					else if(SimpleLane.isWheelie && isBreakable && !isBreak)
 					{ BreakingDown(); }
@@ -128,7 +130,7 @@ namespace MoreMountains.InfiniteRunnerEngine
 
 			if (crashEffect != null)
 			{
-				Instantiate(crashEffect, this.transform.position + (Vector3.forward * 0.5f), crashEffect.transform.rotation);
+				Instantiate(crashEffect, this.transform.position+Vector3.up*0.5f, crashEffect.transform.rotation,this.transform);
 			}
 
 			Invoke("CountDownDestroy", 5);

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4586893743452016277}
   - component: {fileID: 4594145193964906965}
   - component: {fileID: 4603829780614722701}
+  - component: {fileID: 2435223964238516548}
   m_Layer: 0
   m_Name: SM_Tile_Cube_Concrete_01
   m_TagString: Untagged
@@ -79,3 +80,16 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &2435223964238516548
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4590109863932470805}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 5, y: 0.43241468, z: 5}
+  m_Center: {x: 0, y: -0.21526538, z: 0}

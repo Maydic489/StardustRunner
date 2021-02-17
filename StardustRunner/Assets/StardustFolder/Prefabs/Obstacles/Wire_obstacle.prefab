@@ -127,7 +127,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.26, y: 1.1540947, z: 1}
+  m_Size: {x: 1.5, y: 1.1540947, z: 1}
   m_Center: {x: 0, y: 0.07704735, z: 0}
 --- !u!114 &5517872922993406902
 MonoBehaviour:
@@ -192,14 +192,14 @@ MonoBehaviour:
   isGround: 0
   isBreakable: 1
   isWeak: 1
-  whatLane: 109
+  whatLane: 108
   showModel:
   - {fileID: 2356935990442028634}
   - {fileID: 5517872921889525415}
   breakablePart: {fileID: 722566996462610395, guid: 091920c234582e747b93172d7d65b2ca,
     type: 3}
   breakableCopy: {fileID: 0}
-  crashEffect: {fileID: 4916588861702059318, guid: 7dea69ceae8b2f34f81f4c8050f45010,
+  crashEffect: {fileID: 4021103657954561961, guid: 5c755f9bc5253ea418e919994537dcc7,
     type: 3}
 --- !u!1001 &5517872923272671727
 PrefabInstance:
