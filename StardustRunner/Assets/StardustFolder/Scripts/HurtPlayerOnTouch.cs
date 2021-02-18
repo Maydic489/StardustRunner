@@ -56,9 +56,9 @@ namespace MoreMountains.InfiniteRunnerEngine
 					//check if do small damage instead of instant kill
 					if ((SimpleLane.whatLane != this.whatLane) || this.whatLane == 'n')
 					{
-						LevelManager.Instance.CurrentPlayableCharacters[0].GetComponent<SimpleLane>().HurtPlayer(!isGround);
-						if(crashEffect != null)
-						Instantiate(crashEffect, this.transform.position - (collidingObject.transform.position/0.75f)+(Vector3.forward*0.5f), crashEffect.transform.rotation,this.transform);
+						LevelManager.Instance.CurrentPlayableCharacters[0].GetComponent<SimpleLane>().HurtPlayer(!isGround,this.transform);
+						//if(crashEffect != null)
+						//Instantiate(crashEffect, this.transform.position - (collidingObject.transform.position/0.75f)+(Vector3.forward*0.5f), crashEffect.transform.rotation,this.transform);
 					}
 					else if(SimpleLane.isWheelie && isBreakable && !isBreak)
 					{ BreakingDown(); }

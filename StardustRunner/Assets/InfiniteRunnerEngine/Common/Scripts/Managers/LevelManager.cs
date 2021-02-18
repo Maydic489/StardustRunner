@@ -289,11 +289,23 @@ namespace MoreMountains.InfiniteRunnerEngine
 
 			// we increment the total distance traveled so far
 			DistanceTraveled = DistanceTraveled + Speed * Time.fixedDeltaTime;
-			
+
 			// if we can still accelerate, we apply the level's speed acceleration
-			if (Speed<MaximumSpeed)
+			if (Speed < 15 && GameManager.Instance.FuelPoints > 50)
+			{
+				Speed += (SpeedAcceleration * 3) * Time.deltaTime;
+			}
+			else if (Speed<MaximumSpeed && GameManager.Instance.FuelPoints > 50)
 			{
 				Speed += SpeedAcceleration * Time.deltaTime;
+			}
+			else if(Speed > 15 && GameManager.Instance.FuelPoints < 25)
+            {
+				Speed -= (SpeedAcceleration*5) * Time.deltaTime;
+			}
+			else if (Speed > 15 && GameManager.Instance.FuelPoints < 50)
+			{
+				Speed -= (SpeedAcceleration * 2) * Time.deltaTime;
 			}
 
 			HandleSpeedFactor ();

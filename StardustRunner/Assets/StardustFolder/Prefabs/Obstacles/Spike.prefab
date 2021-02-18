@@ -108,4 +108,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DontAutoCheckLane: 0
   isGround: 0
+  isBreakable: 0
+  isWeak: 0
   whatLane: 110
+  laneSize: 0
+  showModel: []
+  breakablePart: {fileID: 0}
+  breakableCopy: {fileID: 0}
+  crashEffect: {fileID: 0}

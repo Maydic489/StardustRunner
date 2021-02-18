@@ -58,7 +58,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 4cc52960dadf7d646a59191a35859f69, type: 2}
+  - {fileID: 2100000, guid: 8f2e6460e77c5aa43bb0746131dd60cb, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -93,9 +93,11 @@ GameObject:
   - component: {fileID: 5517872922993406903}
   - component: {fileID: 5517872922993406900}
   - component: {fileID: 5517872922993406901}
+  - component: {fileID: 1547015980474783486}
+  - component: {fileID: 8591951502219658910}
   m_Layer: 0
   m_Name: Wire_obstacle
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -201,6 +203,31 @@ MonoBehaviour:
   breakableCopy: {fileID: 0}
   crashEffect: {fileID: 4021103657954561961, guid: 5c755f9bc5253ea418e919994537dcc7,
     type: 3}
+--- !u!114 &1547015980474783486
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5517872922993406898}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3560b448e90ad744adfa1edfc429537, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  laneSize: 0
+--- !u!114 &8591951502219658910
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5517872922993406898}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2722819bb64326141b1074149b50ce98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &5517872923272671727
 PrefabInstance:
   m_ObjectHideFlags: 0

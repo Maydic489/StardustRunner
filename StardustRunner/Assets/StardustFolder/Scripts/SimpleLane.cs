@@ -21,6 +21,7 @@ namespace MoreMountains.InfiniteRunnerEngine
 		private Animation pivotAnim;
 		public GameObject helmetModel;
 		public GameObject headContainer;
+		public GameObject crashEffect;
 		public List<ParticleSystem> boostEffect;
 		public float MoveSpeed = 5f;
 		private float slowSpeed = 0.1f;
@@ -34,12 +35,13 @@ namespace MoreMountains.InfiniteRunnerEngine
 		public static bool isInvul;
 		public static bool isBoost;
 		public static bool isProtect;
+		public static bool isSuperman;
 		public int protectLayer;
 		private bool isSlide;
 		public static bool isWheelie;
 		private bool lookBack;
 		public static bool isSpeed {get; set;}
-		private bool isSuperman;
+		
 		static int s_BlinkingValueHash;
 
 		protected override void Start()
@@ -219,12 +221,14 @@ namespace MoreMountains.InfiniteRunnerEngine
         {
 			
 			{
-				Debug.Log("superman "+ pivotAnim.IsPlaying("Anim_Superman"));
-				isSuperman = true;
-				pivotAnim["Anim_Superman"].layer = 1;
-				pivotAnim["Anim_Superman"].speed = 1;
-				pivotAnim.Play("Anim_Superman");
-				pivotAnim["Anim_Superman"].weight = 0.4f;
+				if (!isSuperman)
+				{
+					isSuperman = true;
+					pivotAnim["Anim_Superman"].layer = 1;
+					pivotAnim["Anim_Superman"].speed = 1;
+					pivotAnim.Play("Anim_Superman");
+					pivotAnim["Anim_Superman"].weight = 0.4f;
+				}
 				Camera.main.GetComponent<CameraShake>().isShake = true;
 				Camera.main.GetComponent<CameraShake>().shakeDuration = 5;
 
@@ -422,8 +426,9 @@ namespace MoreMountains.InfiniteRunnerEngine
 			}
         }
 
-		public void HurtPlayer(bool pushing)
+		public void HurtPlayer(bool pushing, Transform hitLocation)
 		{
+			Instantiate(crashEffect, hitLocation.transform.position - (this.transform.position / 0.75f) + (Vector3.forward * 0.5f), crashEffect.transform.rotation,hitLocation.transform);
 			GameManager.Instance.AddFuel(-50f);
 			if (GameManager.Instance.FuelPoints > 0.00f) { LevelManager.Instance.ActivateInvul(1f); }
 			Camera.main.GetComponent<CameraShake>().isShake = true;
@@ -472,6 +477,7 @@ namespace MoreMountains.InfiniteRunnerEngine
 			isSpeed = false;
 			isProtect = false;
 			isWheelie = false;
+			isSuperman = false;
 		}
 	}
 }

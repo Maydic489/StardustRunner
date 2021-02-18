@@ -19,6 +19,7 @@ GameObject:
   - component: {fileID: 4211106514552197494}
   - component: {fileID: 6743478659107383193}
   - component: {fileID: 3332793450002161492}
+  - component: {fileID: -6756186371833698790}
   m_Layer: 0
   m_Name: HotdogCart
   m_TagString: Obstacle
@@ -161,7 +162,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DontAutoCheckLane: 0
   isGround: 0
+  isBreakable: 0
+  isWeak: 0
   whatLane: 0
+  laneSize: 0
+  showModel: []
+  breakablePart: {fileID: 0}
+  breakableCopy: {fileID: 0}
+  crashEffect: {fileID: 0}
 --- !u!114 &4211106514552197494
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -202,3 +210,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1eac7cbe197dc794dbaed99e0565d2de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-6756186371833698790
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 605646799717584809}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3560b448e90ad744adfa1edfc429537, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  laneSize: 1

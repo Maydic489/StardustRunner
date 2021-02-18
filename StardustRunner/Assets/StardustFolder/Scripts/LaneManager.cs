@@ -11,6 +11,7 @@ public class LaneManager : MonoBehaviour
     private int oldCount;
     [SerializeField]
     private List<GameObject> obstaclesList;
+    public int useLane;
     public int maxInLane = 2;
     public bool PushMode;
     
@@ -34,18 +35,20 @@ public class LaneManager : MonoBehaviour
         if (collidingObject.tag != "Obstacle") { return; }
 
         obstaclesList.Add(collidingObject);
+        useLane += collidingObject.GetComponent<AdditionalProperties>().laneSize;
 
-        if (obstaclesList.Count > maxInLane && (obstaclesList.Count - oldCount) >= maxInLane+1)
+        if (useLane > maxInLane && (useLane - oldCount) >= maxInLane+1)
             RandomCreateSpace();
-        else if(obstaclesList.Count > maxInLane)
+        else if(useLane > maxInLane)
             CreateSpace(collidingObject);
     }
     private void TriggerExit(GameObject collidingObject)
     {
         if (collidingObject.tag != "Obstacle") { return; }
 
+        useLane -= collidingObject.GetComponent<AdditionalProperties>().laneSize;
         obstaclesList.Remove(collidingObject);
-        oldCount = obstaclesList.Count;
+        oldCount = useLane;
     }
 
     private void RandomCreateSpace()
@@ -56,7 +59,7 @@ public class LaneManager : MonoBehaviour
         else
             obstaclesList[randomNum].transform.position += Vector3.forward * 2.5f;
 
-        oldCount = obstaclesList.Count;
+        oldCount = useLane;
         //obstaclesList.Remove(obstaclesList[randomNum]);
     }
     private void CreateSpace(GameObject surplus)
@@ -66,7 +69,7 @@ public class LaneManager : MonoBehaviour
         else
             surplus.transform.position += Vector3.forward * 2.5f;
 
-        oldCount = obstaclesList.Count;
+        oldCount = useLane;
         //obstaclesList.Remove(surplus);
     }
 }

@@ -153,6 +153,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 5
   zoomBoost: 75
+  zoomWheelie: 0
 --- !u!114 &1692500750
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -166,6 +167,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   camTransform: {fileID: 8633505499659744764}
+  shakeDuration: 0
   shakeDurationSet: 0.5
   shakeAmount: 0.005
   decreaseFactor: 1
@@ -609,7 +611,7 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 1
+  near clip plane: 0.5
   far clip plane: 100
   field of view: 65
   orthographic: 0
@@ -643,6 +645,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 5
   zoomBoost: 75
+  zoomWheelie: 0
 --- !u!1 &7630380696810176202
 GameObject:
   m_ObjectHideFlags: 0
@@ -1157,6 +1160,8 @@ MonoBehaviour:
   groundPivot: {fileID: 3481363774766235749}
   helmetModel: {fileID: 2817844771199432072}
   headContainer: {fileID: 8538727040808146388}
+  crashEffect: {fileID: 4021103657954561961, guid: 5c755f9bc5253ea418e919994537dcc7,
+    type: 3}
   boostEffect:
   - {fileID: 8551241020328580392}
   - {fileID: 8551813059573794954}

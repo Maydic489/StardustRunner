@@ -38,6 +38,7 @@ namespace MoreMountains.InfiniteRunnerEngine
 			Scenario();
 			// once our scenario is planned, we start invoking its evaluation at regular intervals
 			InvokeRepeating("EvaluateScenario",EvaluationFrequency,EvaluationFrequency);
+			EvaluateScenario();
 		}
 
 		/// <summary>

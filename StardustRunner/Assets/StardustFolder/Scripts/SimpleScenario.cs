@@ -13,18 +13,22 @@ namespace MoreMountains.InfiniteRunnerEngine
         public MMMultipleObjectPooler buildingSpawner;
         public List<DistanceSpawner> Set1;
         public List<DistanceSpawner> Set2;
+        public List<DistanceSpawner> Set3;
         private bool onBreak;
         private bool swap1;
         private bool swap2;
         private static float sideRoadPoint = 500;
-        private static float obstaclePoint = 1000;
+        private static float obstaclePoint = 500;
         private float timePass;
+        public int randomSet = 1;
+        public int oldRandomSet = 1;
 
         protected override void Start()
         {
             Scenario();
             // once our scenario is planned, we start invoking its evaluation at regular intervals
             //InvokeRepeating("EvaluateScenario", EvaluationFrequency, EvaluationFrequency);
+            EvaluateScenario();
         }
 
         private void Update()
@@ -58,7 +62,6 @@ namespace MoreMountains.InfiniteRunnerEngine
         {
             _scenario[0].StartScore += 500;
             swap1 = !swap1;
-            print("Change Zone");
             buildingSpawner.Pool[0].Enabled = !swap1;
             buildingSpawner.Pool[1].Enabled = !swap1;
             buildingSpawner.Pool[2].Enabled = swap1;
@@ -70,6 +73,7 @@ namespace MoreMountains.InfiniteRunnerEngine
         {
             if (!onBreak)
             {
+                Debug.Log("break");
                 onBreak = true;
                 foreach (DistanceSpawner obs in Set1)
                 {
@@ -84,31 +88,51 @@ namespace MoreMountains.InfiniteRunnerEngine
             }
             else
             {
-                print("change obstacle");
                 onBreak = false;
-                _scenario[1].StartScore += 1000;
-                if (swap2) _laneManager.maxInLane = 2;
-                else _laneManager.maxInLane = 1;
+                float currentScore = GameManager.Instance.Points;
+                _scenario[1].StartScore = currentScore + 400;
 
-                swap2 = !swap2;
+                //swap2 = !swap2;
+                oldRandomSet = randomSet;
+                while(oldRandomSet == randomSet)
+                {
+                    do
+                    {
+                        randomSet = UnityEngine.Random.Range(0, 4);
+                    } while(randomSet == 0 || randomSet == 4);
+                }
+                print("change obstacle "+randomSet);
                 foreach (DistanceSpawner obs in Set1)
                 {
-                    obs.Spawning = !swap2;
+                    if(randomSet == 1)
+                        obs.Spawning = true;
+                    else
+                        obs.Spawning = false;
                 }
                 foreach (DistanceSpawner obs in Set2)
                 {
-                    obs.Spawning = swap2;
+                    if (randomSet == 2)
+                        obs.Spawning = true;
+                    else
+                        obs.Spawning = false;
+                }
+                foreach (DistanceSpawner obs in Set3)
+                {
+                    if (randomSet == 3)
+                        obs.Spawning = true;
+                    else
+                        obs.Spawning = false;
                 }
             }
         }
 
         IEnumerator OnABreak()
         {
-            if(!swap2) yield return new WaitForSeconds(3);
+            if(randomSet == 1) yield return new WaitForSeconds(5);
             else yield return new WaitForSeconds(0);
 
             _scenario[1].Status = true;
-            _scenario[1].StartScore = GameManager.Instance.Points + 20;
+            //_scenario[1].StartScore = GameManager.Instance.Points + 20;
         }
 
         protected override void EvaluateScenario()

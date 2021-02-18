@@ -99,6 +99,7 @@ GameObject:
   - component: {fileID: 3956584032207851957}
   - component: {fileID: 3977153457893549231}
   - component: {fileID: -3114233958386901264}
+  - component: {fileID: -2268013985931167746}
   m_Layer: 0
   m_Name: Car_CRV_Red
   m_TagString: Obstacle
@@ -291,6 +292,7 @@ MonoBehaviour:
   isBreakable: 0
   isWeak: 0
   whatLane: 0
+  laneSize: 0
   showModel: []
   breakablePart: {fileID: 0}
   breakableCopy: {fileID: 0}
@@ -307,6 +309,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2722819bb64326141b1074149b50ce98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-2268013985931167746
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3097210269081167432}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3560b448e90ad744adfa1edfc429537, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  laneSize: 1
 --- !u!1 &3097260541272070918
 GameObject:
   m_ObjectHideFlags: 0
