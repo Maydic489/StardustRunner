@@ -9,7 +9,7 @@ public class CameraShake : MonoBehaviour
 	public bool isShake { get; set; }
 
 	// How long the object should shake for.
-	private float shakeDuration = 0f;
+	public float shakeDuration = 0f;
 	public float shakeDurationSet;
 
 	// Amplitude of the shake. A larger value shakes the camera harder.
@@ -35,7 +35,7 @@ public class CameraShake : MonoBehaviour
 	{
 		if (isShake)
 		{
-			if(shakeDuration == 0) { shakeDuration = shakeDurationSet; }
+			if(shakeDuration == 0) { shakeDuration = shakeDurationSet;}
 			if (shakeDuration > 0)
 			{
 				camTransform.localPosition = originalPos + Random.insideUnitSphere * shakeAmount;

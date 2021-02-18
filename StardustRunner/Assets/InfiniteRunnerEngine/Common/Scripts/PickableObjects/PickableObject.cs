@@ -59,7 +59,6 @@ namespace MoreMountains.InfiniteRunnerEngine
 				SoundManager.Instance.PlaySound(PickSoundFx,transform.position);	
 			}
 
-			print(collidingObject.name);
 			ObjectPicked();
 			// we desactivate the gameobject
 			if (!DestroyMode)

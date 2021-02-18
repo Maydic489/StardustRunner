@@ -11,8 +11,6 @@ namespace MoreMountains.InfiniteRunnerEngine
         {
             if (PickEffect != null && !SimpleLane.isDead && !SimpleLane.isProtect)
             {
-                Debug.Log("active invul");
-                
             }
         }
 

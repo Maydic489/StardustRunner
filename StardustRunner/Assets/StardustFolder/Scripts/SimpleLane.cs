@@ -71,7 +71,7 @@ namespace MoreMountains.InfiniteRunnerEngine
 			inLane = whatLane;
 
 			//play animation when get speed boost
-			CheckSpeedBoost();
+			//CheckSpeedBoost();
 
 			//old way to move, not good for rigidbody
 			//if(transform.position.x != slideDirection)
@@ -197,29 +197,36 @@ namespace MoreMountains.InfiniteRunnerEngine
 			if (!isSuperman && !isSlide && !isWheelie)
 			{
 				isWheelie = true;
-                pivotAnim["Bike_Wheelie"].layer = 1;
+                pivotAnim["Bike_Wheelie"].layer = 3;
                 pivotAnim.Play("Bike_Wheelie");
                 pivotAnim["Bike_Wheelie"].weight = 0.4f;
 				LevelManager.Instance.TemporarilyMultiplySpeed(1.5f, 0.5f);
 			}
 		}
 
-		public void CheckSpeedBoost()
-        {
-			if (isSpeed && !isSuperman && isInvul) { PlaySupermanAnim(isSpeed); }
-			else if (!isSpeed && isSuperman) { PlaySupermanAnim(isSpeed); }
-		}
+		//public void CheckSpeedBoost()
+  //      {
+		//	if (isSpeed && !isSuperman && isInvul && !isWheelie) { PlaySupermanAnim(isSpeed); }
+		//	else if (!isSpeed && isSuperman) { PlaySupermanAnim(isSpeed); }
+		//}
 
-        public void PlaySupermanAnim(bool state)
+		public void PreSuperman()
         {
-			if (state)
+			StartCoroutine(PlaySupermanAnim());
+        }
+
+        public IEnumerator PlaySupermanAnim()
+        {
+			
 			{
+				Debug.Log("superman "+ pivotAnim.IsPlaying("Anim_Superman"));
 				isSuperman = true;
 				pivotAnim["Anim_Superman"].layer = 1;
+				pivotAnim["Anim_Superman"].speed = 1;
 				pivotAnim.Play("Anim_Superman");
 				pivotAnim["Anim_Superman"].weight = 0.4f;
 				Camera.main.GetComponent<CameraShake>().isShake = true;
-				Camera.main.GetComponent<CameraShake>().shakeDurationSet = 10;
+				Camera.main.GetComponent<CameraShake>().shakeDuration = 5;
 
 				for (int i = 0;i<3;i++)
                 {
@@ -227,7 +234,7 @@ namespace MoreMountains.InfiniteRunnerEngine
 					emission.enabled = true;
                 }
 			}
-			else
+			yield return new WaitForSeconds(5);
             {
 				isSuperman = false;
 				pivotAnim["Anim_Superman"].layer = 1;
@@ -235,8 +242,7 @@ namespace MoreMountains.InfiniteRunnerEngine
 				pivotAnim["Anim_Superman"].time = pivotAnim["Anim_Superman"].length;
 				pivotAnim.Play("Anim_Superman");
 				pivotAnim["Anim_Superman"].weight = 0.4f;
-				Camera.main.GetComponent<CameraShake>().isShake = false;
-				Camera.main.GetComponent<CameraShake>().shakeDurationSet = 0.5f;
+				Camera.main.GetComponent<CameraShake>().shakeDuration = 0.5f;
 
 				for (int i = 0; i < 3; i++)
 				{
@@ -257,18 +263,6 @@ namespace MoreMountains.InfiniteRunnerEngine
         {
 			StopAllCoroutines();
 			StartCoroutine(ActivateInvul(duration));
-		}
-
-		private void CenterPose()
-        {
-			if (pivotAnim.IsPlaying("Anim_RotateLeft"))
-			{
-				pivotAnim.Play("Anim_LeftToCenter");
-			}
-			else if (pivotAnim.IsPlaying("Anim_RotateRight"))
-			{
-				pivotAnim.Play("Anim_RightToCenter");
-			}
 		}
 		public IEnumerator ActivateInvul(float duration)
 		{
@@ -303,6 +297,19 @@ namespace MoreMountains.InfiniteRunnerEngine
 			isInvul = false;
 		}
 
+		private void CenterPose()
+        {
+			if (pivotAnim.IsPlaying("Anim_RotateLeft"))
+			{
+				pivotAnim.Play("Anim_LeftToCenter");
+			}
+			else if (pivotAnim.IsPlaying("Anim_RotateRight"))
+			{
+				pivotAnim.Play("Anim_RightToCenter");
+			}
+		}
+		
+
 		public void ToggleProtect(bool state)
 		{
 			if (!state)
@@ -335,6 +342,7 @@ namespace MoreMountains.InfiniteRunnerEngine
 				case 3:
 					LevelManager.Instance.TemporarilyMultiplySpeed(2, 5);
 					LevelManager.Instance.ActivateInvul(6);
+					PreSuperman();
 					protectLayer = 2;
 					break;
 				case 2:
@@ -344,7 +352,6 @@ namespace MoreMountains.InfiniteRunnerEngine
 					headContainer.transform.localScale = Vector3.one;
 					break;
 				default:
-					print("Out of Helmet");
 					break;
 			}
 		}

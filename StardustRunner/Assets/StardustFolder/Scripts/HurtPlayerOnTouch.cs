@@ -48,8 +48,6 @@ namespace MoreMountains.InfiniteRunnerEngine
 			PlayableCharacter player = collidingObject.GetComponent<PlayableCharacter>();
 			if (player == null) { return; }
 
-			Debug.Log("crash");
-
 			// we ask the LevelManager to kill the character
 			if (!SimpleLane.isInvul)
 			{

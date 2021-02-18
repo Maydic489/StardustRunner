@@ -18,6 +18,7 @@ namespace MoreMountains.InfiniteRunnerEngine
 
             LevelManager.Instance.TemporarilyMultiplySpeed(SpeedFactor, EffectDuration);
             LevelManager.Instance.ActivateInvul(invulDuration);
+            LevelManager.Instance.CurrentPlayableCharacters[0].GetComponent<SimpleLane>().PreSuperman();
         }
     }
 }
