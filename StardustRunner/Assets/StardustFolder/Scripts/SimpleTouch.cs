@@ -123,7 +123,7 @@ namespace MoreMountains.InfiniteRunnerEngine
                     //swipe upwards
                     if (currentSwipe.y > 0 && currentSwipe.x > -0.5f && currentSwipe.x < 0.5f)
                     {
-                        Debug.Log("up swipe");
+                        Debug.Log("up swipeeeee");
                         InputManager.Instance.UpButtonDown();
                         triggerInput = true;
                     }
@@ -154,35 +154,37 @@ namespace MoreMountains.InfiniteRunnerEngine
             {
                 touchDown = false;
                 triggerInput = false;
-            //    //save ended touch 2d point
-            //    secondPressPos = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
+                //save ended touch 2d point
+                secondPressPos = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
 
-            //    //create vector from the two points
-            //    currentSwipe = new Vector2(secondPressPos.x - firstPressPos.x, secondPressPos.y - firstPressPos.y);
+                //create vector from the two points
+                currentSwipe = new Vector2(secondPressPos.x - firstPressPos.x, secondPressPos.y - firstPressPos.y);
 
-            //    //normalize the 2d vector
-            //    currentSwipe.Normalize();
+                //normalize the 2d vector
+                currentSwipe.Normalize();
 
-            //    //swipe upwards
-            //    if (currentSwipe.y > 0 && currentSwipe.x > -0.5f && currentSwipe.x < 0.5f)
-            //    {
-            //        Debug.Log("up swipe");
-            //    }
-            //    //swipe down
-            //    if (currentSwipe.y < 0 && currentSwipe.x > -0.5f && currentSwipe.x < 0.5f)
-            //    {
-            //        Debug.Log("down swipe");
-            //    }
-            //    //swipe left
-            //    if (currentSwipe.x < 0 && currentSwipe.y > -0.5f && currentSwipe.y < 0.5f)
-            //    {
-            //        Debug.Log("left swipe");
-            //    }
-            //    //swipe right
-            //    if (currentSwipe.x > 0 && currentSwipe.y > -0.5f && currentSwipe.y < 0.5f)
-            //    {
-            //        Debug.Log("right swipe");
-            //    }
+                //swipe upwards
+                if (currentSwipe.y > -0.1f && currentSwipe.y < 0.1f && currentSwipe.x > -0.1f && currentSwipe.x < 0.1f)
+                {
+                    Debug.Log("up tapping");
+                    InputManager.Instance.UpButtonDown();
+                    //triggerInput = true;
+                }
+                //    //swipe down
+                //    if (currentSwipe.y < 0 && currentSwipe.x > -0.5f && currentSwipe.x < 0.5f)
+                //    {
+                //        Debug.Log("down swipe");
+                //    }
+                //    //swipe left
+                //    if (currentSwipe.x < 0 && currentSwipe.y > -0.5f && currentSwipe.y < 0.5f)
+                //    {
+                //        Debug.Log("left swipe");
+                //    }
+                //    //swipe right
+                //    if (currentSwipe.x > 0 && currentSwipe.y > -0.5f && currentSwipe.y < 0.5f)
+                //    {
+                //        Debug.Log("right swipe");
+                //    }
             }
         }
     }
