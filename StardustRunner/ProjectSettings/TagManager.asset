@@ -6,6 +6,8 @@ TagManager:
   tags:
   - UICamera
   - Obstacle
+  - Ramp
+  - Road
   layers:
   - Default
   - TransparentFX
