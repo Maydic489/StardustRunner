@@ -2098,6 +2098,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Screw_01 (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 6634715899501544287, guid: c883f750fc8af1645953949267326fd3,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c883f750fc8af1645953949267326fd3, type: 3}
 --- !u!1 &575796733
@@ -2284,6 +2289,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Screw_01 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6634715899501544287, guid: c883f750fc8af1645953949267326fd3,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c883f750fc8af1645953949267326fd3, type: 3}
@@ -2661,7 +2671,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-2237566
+  m_Name: pb_Mesh-2050
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -2824,7 +2834,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-2236136
+  m_Name: pb_Mesh-1874
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -3519,7 +3529,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-2237876
+  m_Name: pb_Mesh-1846
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -4232,6 +4242,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Screw_01 (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 6634715899501544287, guid: c883f750fc8af1645953949267326fd3,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c883f750fc8af1645953949267326fd3, type: 3}
 --- !u!1001 &1134378979
@@ -4780,6 +4795,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Screw_01 (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 6634715899501544287, guid: c883f750fc8af1645953949267326fd3,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c883f750fc8af1645953949267326fd3, type: 3}
 --- !u!4 &1314742090 stripped
@@ -4869,6 +4889,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Screw_01 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6634715899501544287, guid: c883f750fc8af1645953949267326fd3,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c883f750fc8af1645953949267326fd3, type: 3}
@@ -5024,7 +5049,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-2219286
+  m_Name: pb_Mesh-1444
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -5390,6 +5415,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Screw_01
       objectReference: {fileID: 0}
+    - target: {fileID: 6634715899501544287, guid: c883f750fc8af1645953949267326fd3,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c883f750fc8af1645953949267326fd3, type: 3}
 --- !u!4 &1484380511 stripped
@@ -5461,7 +5491,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-2237776
+  m_Name: pb_Mesh-1966
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -5762,6 +5792,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Screw_01 (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6634715899501544287, guid: c883f750fc8af1645953949267326fd3,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c883f750fc8af1645953949267326fd3, type: 3}
@@ -6396,7 +6431,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-2115682
+  m_Name: pb_Mesh-1926
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -6666,7 +6701,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-2237462
+  m_Name: pb_Mesh-1770
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -6955,7 +6990,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-2116460
+  m_Name: pb_Mesh-2078
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -7304,11 +7339,11 @@ GameObject:
   - component: {fileID: 1981774993}
   m_Layer: 0
   m_Name: Camera_debug
-  m_TagString: MainCamera
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!81 &1981774988
 AudioListener:
   m_ObjectHideFlags: 0
@@ -7420,10 +7455,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92c8dc5f9d5e21e41b984469b8af29d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  camTransform: {fileID: 1981774990}
+  camTransform: {fileID: 0}
   shakeDuration: 0
   shakeDurationSet: 0.5
-  shakeAmount: 0.7
+  shakeAmount: 0.05
   decreaseFactor: 1
 --- !u!4 &2013501303 stripped
 Transform:
@@ -7660,6 +7695,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Screw_01 (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 6634715899501544287, guid: c883f750fc8af1645953949267326fd3,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c883f750fc8af1645953949267326fd3, type: 3}
 --- !u!43 &2107683661
@@ -7668,7 +7708,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-2237666
+  m_Name: pb_Mesh-1410
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -7901,6 +7941,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Screw_01 (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6634715899501544287, guid: c883f750fc8af1645953949267326fd3,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c883f750fc8af1645953949267326fd3, type: 3}

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ShadowScript : MonoBehaviour
 {
+    private bool inAir;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -12,9 +13,18 @@ public class ShadowScript : MonoBehaviour
 
     protected virtual void TriggerEnter(GameObject collidingObject)
     {
-        if(collidingObject.tag == "Road")
+        if(collidingObject.tag == "Road" && inAir)
         {
             this.gameObject.GetComponent<MeshRenderer>().enabled = true;
+
+            if (Camera.main.GetComponent<CameraShake>() != null)
+            {
+                Camera.main.GetComponent<CameraShake>().isShake = true;
+                Camera.main.GetComponent<CameraShake>().shakeDuration = 0.2f;
+                Invoke("Camera.main.GetComponent<CameraShake>().ResetShakeDuration",0.3f);
+            }
+            
+            inAir = false;
         }
     }
 
@@ -28,6 +38,7 @@ public class ShadowScript : MonoBehaviour
         if (collidingObject.tag == "Ramp")
         {
             this.gameObject.GetComponent<MeshRenderer>().enabled = false;
+            inAir = true;
         }
     }
 }
