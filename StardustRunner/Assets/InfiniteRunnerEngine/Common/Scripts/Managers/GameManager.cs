@@ -15,6 +15,8 @@ namespace MoreMountains.InfiniteRunnerEngine
 		public int TotalLives = 3;
 	    /// The current number of lives
 	    public int CurrentLives { get; protected set;  }
+		public int TotalHelmets = 3;
+		public int CurrentHelmets { get; protected set; }
 		/// the current number of game points
 		public float Points { get; protected set; }
 		/// game fuel point
@@ -220,11 +222,29 @@ namespace MoreMountains.InfiniteRunnerEngine
 			}
 	    }
 
-	    /// <summary>
-	    /// sets the timescale to the one in parameters
-	    /// </summary>
-	    /// <param name="newTimeScale">New time scale.</param>
-	    public virtual void SetTimeScale(float newTimeScale)
+		public virtual void SetHelmets(int helmets)
+		{
+			CurrentHelmets = helmets;
+			if (GUIManager.Instance != null)
+			{
+				GUIManager.Instance.InitializeHelmets();
+			}
+		}
+
+		public virtual void LoseHelmets(int helmets)
+		{
+			CurrentHelmets -= helmets;
+			if (GUIManager.Instance != null)
+			{
+				GUIManager.Instance.InitializeHelmets();
+			}
+		}
+
+		/// <summary>
+		/// sets the timescale to the one in parameters
+		/// </summary>
+		/// <param name="newTimeScale">New time scale.</param>
+		public virtual void SetTimeScale(float newTimeScale)
 		{
 			_savedTimeScale = Time.timeScale;
 			Time.timeScale = newTimeScale;

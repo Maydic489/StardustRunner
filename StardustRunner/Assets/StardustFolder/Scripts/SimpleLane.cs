@@ -205,6 +205,7 @@ namespace MoreMountains.InfiniteRunnerEngine
 
 				var emission = boostEffect[3].emission;
 				emission.enabled = true;
+				Invoke("StopWindFX", 0.5f);
 
 				LevelManager.Instance.TemporarilyMultiplySpeed(1.5f, 0.5f);
 			}
@@ -477,6 +478,12 @@ namespace MoreMountains.InfiniteRunnerEngine
 				var emission = boostEffect[3].emission;
 				emission.enabled = false;
 			}
+		}
+
+		private void StopWindFX()
+        {
+			var emission = boostEffect[3].emission;
+			emission.enabled = false;
 		}
 
 		private void ResetStaticBool()

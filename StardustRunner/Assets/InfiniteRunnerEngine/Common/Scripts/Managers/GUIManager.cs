@@ -17,6 +17,7 @@ namespace MoreMountains.InfiniteRunnerEngine
 	    public GameObject GameOverScreen;
 	    /// the object that will contain lives hearts
 	    public GameObject HeartsContainer;
+		public GameObject HelmetsContainer;
 	    /// the points counter
 	    public Text PointsText;
 		/// the fuel counter
@@ -35,7 +36,8 @@ namespace MoreMountains.InfiniteRunnerEngine
 		{
 			RefreshPoints();
 			RefreshFuel();
-	        InitializeLives();
+	        //InitializeLives();
+			InitializeHelmets();
 
 			if (CountdownText != null && CountdownText.text == null)
 	        {
@@ -70,8 +72,8 @@ namespace MoreMountains.InfiniteRunnerEngine
 	            }
 	            else
 	            {
-	            	// if the life is still 'alive', we display a full heart
-	                resourceURL = "GUI/GUIHeartFull";
+					// if the life is still 'alive', we display a full heart
+					resourceURL = "GUI/GUIHeartFull";
 	            }
 	            // we instantiate the heart gameobject and position it
 	            GameObject heart = (GameObject)Instantiate(Resources.Load(resourceURL));
@@ -81,10 +83,44 @@ namespace MoreMountains.InfiniteRunnerEngine
 	        }
 	    }
 
-	    /// <summary>
-	    /// Override this to have code executed on the GameStart event
-	    /// </summary>
-	    public virtual void OnGameStart()
+		public virtual void InitializeHelmets()
+		{
+			if (HelmetsContainer == null)
+				return;
+
+			// we remove everything inside the HeartsContainer
+			foreach (Transform child in HelmetsContainer.transform)
+			{
+				Destroy(child.gameObject);
+			}
+
+			int deadHelmets = GameManager.Instance.TotalHelmets - GameManager.Instance.CurrentHelmets;
+			// for each life in the total number of possible lives you can have
+			for (int i = 0; i < GameManager.Instance.TotalHelmets; i++)
+			{
+				// if the life is already lost, we display an empty heart
+				string resourceURL = "";
+				if (GameManager.Instance.TotalHelmets-deadHelmets > 0)
+				{
+					resourceURL = "GUI/GUIHeartFull";
+				}
+				else
+				{
+					// if the life is still 'alive', we display a full heart
+					resourceURL = "GUI/GUIHeartEmpty";
+				}
+				// we instantiate the heart gameobject and position it
+				GameObject helmet = (GameObject)Instantiate(Resources.Load(resourceURL));
+				helmet.transform.SetParent(HelmetsContainer.transform, false);
+				helmet.GetComponent<RectTransform>().localPosition = new Vector3(HelmetsContainer.GetComponent<RectTransform>().sizeDelta.x / 2 - i * (helmet.GetComponent<RectTransform>().sizeDelta.x * 75f), 0, 0);
+				deadHelmets++;
+			}
+		}
+
+		/// <summary>
+		/// Override this to have code executed on the GameStart event
+		/// </summary>
+		public virtual void OnGameStart()
 	    {
 	    	
 	    }
