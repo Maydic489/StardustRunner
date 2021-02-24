@@ -16,7 +16,7 @@ namespace MoreMountains.InfiniteRunnerEngine
 	    /// The current number of lives
 	    public int CurrentLives { get; protected set;  }
 		public int TotalHelmets = 3;
-		public int CurrentHelmets { get; protected set; }
+		public int CurrentHelmets { get; set; }
 		/// the current number of game points
 		public float Points { get; protected set; }
 		/// game fuel point
@@ -222,9 +222,9 @@ namespace MoreMountains.InfiniteRunnerEngine
 			}
 	    }
 
-		public virtual void SetHelmets(int helmets)
+		public virtual void AddHelmets(int helmets)
 		{
-			CurrentHelmets = helmets;
+			CurrentHelmets += helmets;
 			if (GUIManager.Instance != null)
 			{
 				GUIManager.Instance.InitializeHelmets();

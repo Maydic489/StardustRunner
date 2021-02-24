@@ -36,7 +36,6 @@ namespace MoreMountains.InfiniteRunnerEngine
 		public static bool isBoost;
 		public static bool isProtect;
 		public static bool isSuperman;
-		public int protectLayer;
 		private bool isSlide;
 		public static bool isWheelie;
 		private bool lookBack;
@@ -326,10 +325,10 @@ namespace MoreMountains.InfiniteRunnerEngine
 			{
 				LevelManager.Instance.ActivateInvul(2f);
 				Camera.main.GetComponent<CameraShake>().isShake = true;
-				protectLayer--;
+				GameManager.Instance.LoseHelmets(1);
 				helmetModel.GetComponent<CostumeScript>().PlayEffect();
-				if (protectLayer < 0) { protectLayer = 0; }
-				if (protectLayer < 1)
+				if (GameManager.Instance.CurrentHelmets < 0) { GameManager.Instance.CurrentHelmets = 0; }
+				if (GameManager.Instance.CurrentHelmets < 1)
 				{
 					isProtect = state;
 					helmetModel.SetActive(state);
@@ -338,22 +337,21 @@ namespace MoreMountains.InfiniteRunnerEngine
 			else
 			{
 
-				protectLayer++;
-				if (protectLayer > 3) { protectLayer = 3; }
-				if (protectLayer > 0)
+				GameManager.Instance.AddHelmets(1);
+				if (GameManager.Instance.CurrentHelmets > 3) { GameManager.Instance.CurrentHelmets = 3; }
+				if (GameManager.Instance.CurrentHelmets > 0)
 				{
 					isProtect = state;
 					helmetModel.SetActive(state);
 				}
 			}
 
-			switch (protectLayer)
+			switch (GameManager.Instance.CurrentHelmets)
 			{
 				case 3:
 					LevelManager.Instance.TemporarilyMultiplySpeed(2, 5);
 					LevelManager.Instance.ActivateInvul(6);
 					PreSuperman();
-					protectLayer = 2;
 					break;
 				case 2:
 					headContainer.transform.localScale = Vector3.one * 1.5f;

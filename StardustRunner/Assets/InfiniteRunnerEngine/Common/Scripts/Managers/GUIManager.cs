@@ -102,12 +102,12 @@ namespace MoreMountains.InfiniteRunnerEngine
 				string resourceURL = "";
 				if (GameManager.Instance.TotalHelmets-deadHelmets > 0)
 				{
-					resourceURL = "GUI/GUIHeartFull";
+					resourceURL = "GUI/GUIHelmetFull";
 				}
 				else
 				{
 					// if the life is still 'alive', we display a full heart
-					resourceURL = "GUI/GUIHeartEmpty";
+					resourceURL = "GUI/GUIHelmetEmpty";
 				}
 				// we instantiate the heart gameobject and position it
 				GameObject helmet = (GameObject)Instantiate(Resources.Load(resourceURL));
