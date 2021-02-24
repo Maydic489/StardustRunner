@@ -1278,6 +1278,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2827173973037885276, guid: a9e6d691c7c83da41b51f437daba4189,
         type: 3}
+      propertyPath: moveWithTransform
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2827173973037885276, guid: a9e6d691c7c83da41b51f437daba4189,
+        type: 3}
       propertyPath: EmissionModule.enabled
       value: 0
       objectReference: {fileID: 0}
