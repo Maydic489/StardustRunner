@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class DelayDestroy : MonoBehaviour
 {
-    public int delayInSec;
+    public float delayInSec;
     // Start is called before the first frame update
     void Start()
     {

@@ -19,7 +19,7 @@ public class AutoPushStack : MonoBehaviour
         }
         else
         {
-            this.transform.position += Vector3.forward*2f;
+            this.transform.position += Vector3.forward*6f;
         }
     }
 }

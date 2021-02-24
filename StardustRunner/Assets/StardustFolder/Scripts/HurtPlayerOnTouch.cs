@@ -12,7 +12,8 @@ namespace MoreMountains.InfiniteRunnerEngine
 		public bool isBreakable;
 		public bool isWeak;
 		public char whatLane;
-		private bool isBreak;
+        private bool isBreak;
+		private bool isHit;
 		public List<GameObject> showModel;
 		public GameObject breakablePart;
 		public GameObject breakableCopy;
@@ -37,7 +38,7 @@ namespace MoreMountains.InfiniteRunnerEngine
 
 		protected override void OnTriggerEnter(Collider other)
 		{
-			if (other.GetType() == typeof(BoxCollider))
+			if ((other.GetType() == typeof(BoxCollider) || other.GetType() == typeof(CapsuleCollider)) && !isHit)
 				TriggerEnter(other.gameObject);
 		}
 		protected override void TriggerEnter(GameObject collidingObject)
@@ -90,6 +91,8 @@ namespace MoreMountains.InfiniteRunnerEngine
 					BreakingDown();
 				}
 			}
+
+			isHit = true;
 		}
 
 		public void CheckLane()
@@ -148,6 +151,7 @@ namespace MoreMountains.InfiniteRunnerEngine
 
         private void OnDisable()
         {
+			isHit = false;
 			if (isBreak)
 			{
 				CancelInvoke("CountDownDestroy");

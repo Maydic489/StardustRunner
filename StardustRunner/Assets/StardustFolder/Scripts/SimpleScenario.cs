@@ -14,6 +14,7 @@ namespace MoreMountains.InfiniteRunnerEngine
         public List<DistanceSpawner> Set1;
         public List<DistanceSpawner> Set2;
         public List<DistanceSpawner> Set3;
+        public List<DistanceSpawner> Set4;
         private bool onBreak;
         private bool swap1;
         private bool swap2;
@@ -98,8 +99,8 @@ namespace MoreMountains.InfiniteRunnerEngine
                 {
                     do
                     {
-                        randomSet = UnityEngine.Random.Range(0, 4);
-                    } while(randomSet == 0 || randomSet == 4);
+                        randomSet = UnityEngine.Random.Range(0, 5);
+                    } while(randomSet == 0 || randomSet == 5);
                 }
                 print("change obstacle "+randomSet);
                 foreach (DistanceSpawner obs in Set1)
@@ -119,6 +120,13 @@ namespace MoreMountains.InfiniteRunnerEngine
                 foreach (DistanceSpawner obs in Set3)
                 {
                     if (randomSet == 3)
+                        obs.Spawning = true;
+                    else
+                        obs.Spawning = false;
+                }
+                foreach (DistanceSpawner obs in Set4)
+                {
+                    if (randomSet == 4)
                         obs.Spawning = true;
                     else
                         obs.Spawning = false;

@@ -352,8 +352,8 @@ namespace MoreMountains.InfiniteRunnerEngine
 			switch (GameManager.Instance.CurrentHelmets)
 			{
 				case 3:
-					LevelManager.Instance.TemporarilyMultiplySpeed(2, 5);
-					LevelManager.Instance.ActivateInvul(6);
+					LevelManager.Instance.TemporarilyMultiplySpeed(2, 5f);
+					LevelManager.Instance.ActivateInvul(6f);
 					PreSuperman();
 					break;
 				case 2:

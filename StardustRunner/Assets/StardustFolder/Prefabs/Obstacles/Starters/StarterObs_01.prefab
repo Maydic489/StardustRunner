@@ -215,6 +215,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Spike Obj (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 5365819594514678189, guid: 1fe89a5cb749e214899c57957847cd05,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6267982156990236026, guid: 1fe89a5cb749e214899c57957847cd05,
         type: 3}
       propertyPath: m_RootOrder
@@ -315,6 +320,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Spike Obj (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5365819594514678189, guid: 1fe89a5cb749e214899c57957847cd05,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6267982156990236026, guid: 1fe89a5cb749e214899c57957847cd05,
         type: 3}
@@ -593,6 +603,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Spike Obj (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 5365819594514678189, guid: 1fe89a5cb749e214899c57957847cd05,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6267982156990236026, guid: 1fe89a5cb749e214899c57957847cd05,
         type: 3}
       propertyPath: m_RootOrder
@@ -694,6 +709,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Spike Obj (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 5365819594514678189, guid: 1fe89a5cb749e214899c57957847cd05,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6267982156990236026, guid: 1fe89a5cb749e214899c57957847cd05,
         type: 3}
       propertyPath: m_RootOrder
@@ -789,6 +809,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Spike Obj (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5365819594514678189, guid: 1fe89a5cb749e214899c57957847cd05,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6267982156990236026, guid: 1fe89a5cb749e214899c57957847cd05,
         type: 3}

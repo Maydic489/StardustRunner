@@ -456,6 +456,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wire_obstacle (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 5517872922993406898, guid: e661c2ec09d0d7d4eb5b6008e53b6145,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5517872922993406900, guid: e661c2ec09d0d7d4eb5b6008e53b6145,
         type: 3}
       propertyPath: DestroyMode
@@ -540,6 +545,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Wire_obstacle (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5517872922993406898, guid: e661c2ec09d0d7d4eb5b6008e53b6145,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5517872922993406900, guid: e661c2ec09d0d7d4eb5b6008e53b6145,
         type: 3}
@@ -685,6 +695,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Powerup_Invul
+      objectReference: {fileID: 0}
+    - target: {fileID: 6100370548043138150, guid: 53a27d185b3754f4f9d67748b8bfc2b2,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6461763882022085551, guid: 53a27d185b3754f4f9d67748b8bfc2b2,
         type: 3}
