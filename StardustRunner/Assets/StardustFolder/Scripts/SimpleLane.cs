@@ -23,6 +23,7 @@ namespace MoreMountains.InfiniteRunnerEngine
 		public GameObject headContainer;
 		public GameObject crashEffect;
 		public List<ParticleSystem> boostEffect;
+		public ParticleSystem slideEffect;
 		public float MoveSpeed = 5f;
 		private float slowSpeed = 0.1f;
 		public GameObject mainCamera;
@@ -189,6 +190,8 @@ namespace MoreMountains.InfiniteRunnerEngine
 			{
 				isSlide = true;
 				GetComponent<CapsuleCollider>().enabled = false;
+				var emission = slideEffect.emission;
+				emission.enabled = true;
 				pivotAnim.Play("Anim_Slide");
 			}
 		}
@@ -467,6 +470,8 @@ namespace MoreMountains.InfiniteRunnerEngine
 			{
 				isSlide = false;
 				GetComponent<CapsuleCollider>().enabled = true;
+				var emission = slideEffect.emission;
+				emission.enabled = false;
 			}
 
 			if(!pivotAnim.IsPlaying("Bike_Wheelie") && isWheelie && !isSuperman)
