@@ -147,8 +147,8 @@ namespace MoreMountains.InfiniteRunnerEngine
 				return;
             }
 		}
-
-		public override void LeftStart()
+        #region Control
+        public override void LeftStart()
 		{
 			oldDirection = slideDirection;
             //_rigidbodyInterface.AddForce(Vector3.left * MoveSpeed * Time.deltaTime);
@@ -210,13 +210,14 @@ namespace MoreMountains.InfiniteRunnerEngine
 			}
 		}
 
-		//public void CheckSpeedBoost()
-  //      {
-		//	if (isSpeed && !isSuperman && isInvul && !isWheelie) { PlaySupermanAnim(isSpeed); }
-		//	else if (!isSpeed && isSuperman) { PlaySupermanAnim(isSpeed); }
-		//}
+        #endregion
+        //public void CheckSpeedBoost()
+        //      {
+        //	if (isSpeed && !isSuperman && isInvul && !isWheelie) { PlaySupermanAnim(isSpeed); }
+        //	else if (!isSpeed && isSuperman) { PlaySupermanAnim(isSpeed); }
+        //}
 
-		public void PreSuperman()
+        public void PreSuperman()
         {
 			StartCoroutine(PlaySupermanAnim());
         }
