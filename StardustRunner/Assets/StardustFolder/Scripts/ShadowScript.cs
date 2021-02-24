@@ -5,6 +5,7 @@ using UnityEngine;
 public class ShadowScript : MonoBehaviour
 {
     private bool inAir;
+    public GameObject shockwaveFX;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -17,11 +18,12 @@ public class ShadowScript : MonoBehaviour
         {
             this.gameObject.GetComponent<MeshRenderer>().enabled = true;
 
+            Instantiate(shockwaveFX, this.transform.position, shockwaveFX.transform.rotation, this.transform);
+
             if (Camera.main.GetComponent<CameraShake>() != null)
             {
                 Camera.main.GetComponent<CameraShake>().isShake = true;
                 Camera.main.GetComponent<CameraShake>().shakeDuration = 0.2f;
-                Invoke("Camera.main.GetComponent<CameraShake>().ResetShakeDuration",0.3f);
             }
             
             inAir = false;

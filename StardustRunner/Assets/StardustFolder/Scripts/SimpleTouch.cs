@@ -166,7 +166,6 @@ namespace MoreMountains.InfiniteRunnerEngine
                 //swipe upwards
                 if (currentSwipe.y > -0.1f && currentSwipe.y < 0.1f && currentSwipe.x > -0.1f && currentSwipe.x < 0.1f)
                 {
-                    Debug.Log("up tapping");
                     InputManager.Instance.UpButtonDown();
                     //triggerInput = true;
                 }

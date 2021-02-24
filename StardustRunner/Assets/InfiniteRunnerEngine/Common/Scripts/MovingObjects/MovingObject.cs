@@ -15,7 +15,7 @@ namespace MoreMountains.InfiniteRunnerEngine
 		/// the acceleration of the object over time. Starts accelerating on enable.
 	    public float Acceleration = 0;
 	    /// the current direction of the object
-	    public Vector3 Direction = Vector3.left;
+	    public Vector3 Direction = Vector3.back;
 
 		[Header("Behaviour")]
 		public bool StopWhenOver = true;

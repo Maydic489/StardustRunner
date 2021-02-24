@@ -202,6 +202,10 @@ namespace MoreMountains.InfiniteRunnerEngine
                 pivotAnim["Bike_Wheelie"].layer = 3;
                 pivotAnim.Play("Bike_Wheelie");
                 pivotAnim["Bike_Wheelie"].weight = 0.4f;
+
+				var emission = boostEffect[3].emission;
+				emission.enabled = true;
+
 				LevelManager.Instance.TemporarilyMultiplySpeed(1.5f, 0.5f);
 			}
 		}
@@ -232,7 +236,7 @@ namespace MoreMountains.InfiniteRunnerEngine
 				Camera.main.GetComponent<CameraShake>().isShake = true;
 				Camera.main.GetComponent<CameraShake>().shakeDuration = 5;
 
-				for (int i = 0;i<3;i++)
+				for (int i = 0;i<boostEffect.Count;i++)
                 {
 					var emission = boostEffect[i].emission;
 					emission.enabled = true;
@@ -248,7 +252,7 @@ namespace MoreMountains.InfiniteRunnerEngine
 				pivotAnim["Anim_Superman"].weight = 0.4f;
 				Camera.main.GetComponent<CameraShake>().shakeDuration = 0.5f;
 
-				for (int i = 0; i < 3; i++)
+				for (int i = 0; i < boostEffect.Count; i++)
 				{
 					var emission = boostEffect[i].emission;
 					emission.enabled = false;
@@ -428,7 +432,10 @@ namespace MoreMountains.InfiniteRunnerEngine
 
 		public void HurtPlayer(bool pushing, Transform hitLocation)
 		{
-			Instantiate(crashEffect, hitLocation.transform.position - (this.transform.position / 0.75f) + (Vector3.forward * 0.5f), crashEffect.transform.rotation,hitLocation.transform);
+			if(hitLocation != null)
+				Instantiate(crashEffect, hitLocation.transform.position - (this.transform.position / 0.75f) + (Vector3.forward * 0.5f), crashEffect.transform.rotation);
+			else
+				Instantiate(crashEffect,this.transform.position + (Vector3.forward * 0.5f), crashEffect.transform.rotation);
 			GameManager.Instance.AddFuel(-50f);
 			if (GameManager.Instance.FuelPoints > 0.00f) { LevelManager.Instance.ActivateInvul(1f); }
 			Camera.main.GetComponent<CameraShake>().isShake = true;
@@ -466,6 +473,8 @@ namespace MoreMountains.InfiniteRunnerEngine
             {
 				isWheelie = false;
 				isSpeed = false;
+				var emission = boostEffect[3].emission;
+				emission.enabled = false;
 			}
 		}
 

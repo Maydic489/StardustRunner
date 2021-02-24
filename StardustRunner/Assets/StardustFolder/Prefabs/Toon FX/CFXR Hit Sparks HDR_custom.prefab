@@ -104,6 +104,7 @@ GameObject:
   - component: {fileID: 4909181168946295745}
   - component: {fileID: 4075584798738414928}
   - component: {fileID: 3997335515395740909}
+  - component: {fileID: -8996607822680225389}
   m_Layer: 0
   m_Name: CFXR Hit Sparks HDR_custom
   m_TagString: Untagged
@@ -4960,3 +4961,22 @@ MonoBehaviour:
     perlinColor: 0
     perlinColorSpeed: 1
   fadeOutReference: {fileID: 0}
+--- !u!114 &-8996607822680225389
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8748687995501502678}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4a6617bb2a239047a2242ac9b1cc531, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Speed: 5
+  Acceleration: 0
+  Direction: {x: 0, y: 0, z: -1}
+  StopWhenOver: 1
+  IsMovingCar: 0
+  DirectionCanBeChangedBySpawner: 1
+  MovementSpace: 0
