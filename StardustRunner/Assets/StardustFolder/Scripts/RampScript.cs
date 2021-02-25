@@ -6,7 +6,7 @@ namespace MoreMountains.InfiniteRunnerEngine
 {
 	public class RampScript : MonoBehaviour
 	{
-		private bool isJump;
+		public bool isJump;
 
         private void OnEnable()
         {

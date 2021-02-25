@@ -10,7 +10,9 @@ namespace MoreMountains.InfiniteRunnerEngine
         Vector2 firstPressPos;
         Vector2 secondPressPos;
         Vector2 currentSwipe;
+        [SerializeField]
         private bool touchDown;
+        [SerializeField]
         private bool triggerInput;
 
         void Update()
@@ -102,6 +104,7 @@ namespace MoreMountains.InfiniteRunnerEngine
         {
             if (Input.GetMouseButtonDown(0))
             {
+                Debug.Log("touch down");
                 touchDown = true;
                 //save began touch 2d point
                 firstPressPos = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
@@ -152,6 +155,7 @@ namespace MoreMountains.InfiniteRunnerEngine
             }
             if (Input.GetMouseButtonUp(0))
             {
+                Debug.Log("up button");
                 touchDown = false;
                 triggerInput = false;
                 //save ended touch 2d point
@@ -161,10 +165,12 @@ namespace MoreMountains.InfiniteRunnerEngine
                 currentSwipe = new Vector2(secondPressPos.x - firstPressPos.x, secondPressPos.y - firstPressPos.y);
 
                 //normalize the 2d vector
-                currentSwipe.Normalize();
+                //currentSwipe.Normalize();
+                Debug.Log("x "+currentSwipe.x);
+                Debug.Log("y "+currentSwipe.y);
 
                 //swipe upwards
-                if (currentSwipe.y > -0.1f && currentSwipe.y < 0.1f && currentSwipe.x > -0.1f && currentSwipe.x < 0.1f)
+                if (Vector2.Distance(firstPressPos, secondPressPos) < 10)
                 {
                     InputManager.Instance.UpButtonDown();
                     //triggerInput = true;

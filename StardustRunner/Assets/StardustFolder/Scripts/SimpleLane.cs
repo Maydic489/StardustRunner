@@ -98,7 +98,7 @@ namespace MoreMountains.InfiniteRunnerEngine
                 {
                     slowSpeed += slowSpeed * (0.05f + slowSpeed);
                 }
-                transform.position = Vector3.MoveTowards(transform.position, new Vector3(slideDirection, transform.position.y, transform.position.z), slowSpeed * Time.deltaTime);
+                transform.position = Vector3.MoveTowards(transform.position, new Vector3(slideDirection, transform.position.y, transform.position.z), (slowSpeed * Time.deltaTime)*1.5f);
             }
             else
             {
@@ -190,9 +190,13 @@ namespace MoreMountains.InfiniteRunnerEngine
 			{
 				isSlide = true;
 				GetComponent<CapsuleCollider>().enabled = false;
-				var emission = slideEffect.emission;
-				emission.enabled = true;
 				pivotAnim.Play("Anim_Slide");
+
+				if(transform.position.y <0.5f)
+                {
+					var emission = slideEffect.emission;
+					emission.enabled = true;
+				}
 			}
 		}
 

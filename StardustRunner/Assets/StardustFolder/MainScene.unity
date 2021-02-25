@@ -613,7 +613,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &308554366
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2010,7 +2010,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &584939002
 Transform:
   m_ObjectHideFlags: 0
@@ -2734,7 +2734,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &942704921
 Transform:
   m_ObjectHideFlags: 0
@@ -2880,7 +2880,7 @@ MonoBehaviour:
   MinimumRotation: {x: 0, y: 90, z: 0}
   MaximumRotation: {x: 0, y: 90, z: 0}
   Spawning: 1
-  OnlySpawnWhileGameInProgress: 1
+  OnlySpawnWhileGameInProgress: 0
   InitialDelay: 0
   GapOrigin: 0
   MinimumGap: {x: 0, y: 0, z: 0}
@@ -3614,7 +3614,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8436df982716c39498ffb6b3829b98e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  delayInSec: 0.5
+  delayInSec: 0.7
 --- !u!114 &1103640819
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4104,12 +4104,12 @@ MonoBehaviour:
   UseObjectOriginalScale: 1
   MinimumRotation: {x: 0, y: 90, z: 0}
   MaximumRotation: {x: 0, y: 90, z: 0}
-  Spawning: 0
+  Spawning: 1
   OnlySpawnWhileGameInProgress: 1
   InitialDelay: 0
   GapOrigin: 0
-  MinimumGap: {x: 20, y: 1, z: 1}
-  MaximumGap: {x: 30, y: 1, z: 1}
+  MinimumGap: {x: 25, y: 1, z: 1}
+  MaximumGap: {x: 25, y: 1, z: 1}
   MinimumYClamp: 0
   MaximumYClamp: 0
   MinimumZClamp: 0
@@ -4509,7 +4509,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1431967779
 Transform:
   m_ObjectHideFlags: 0
@@ -4908,6 +4908,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 567edfaaa60bcb748afd7ebbefbf688a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  touchDown: 0
+  triggerInput: 0
 --- !u!4 &1654152030
 Transform:
   m_ObjectHideFlags: 0
@@ -5351,7 +5353,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1712006895
 Transform:
   m_ObjectHideFlags: 0
@@ -5801,7 +5803,7 @@ GameObject:
   - component: {fileID: 1965744095}
   - component: {fileID: 1965744094}
   m_Layer: 0
-  m_Name: spawner_barricade
+  m_Name: spawner_ramp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5815,7 +5817,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1965744092}
   m_LocalRotation: {x: -0, y: -0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -1.6, y: 0, z: 80}
+  m_LocalPosition: {x: 0, y: 0, z: 70}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1106762152}
@@ -5854,12 +5856,12 @@ MonoBehaviour:
   UseObjectOriginalScale: 1
   MinimumRotation: {x: 0, y: -90, z: 0}
   MaximumRotation: {x: 0, y: -90, z: 0}
-  Spawning: 0
+  Spawning: 1
   OnlySpawnWhileGameInProgress: 1
   InitialDelay: 0
   GapOrigin: 0
-  MinimumGap: {x: 15, y: 1, z: 1}
-  MaximumGap: {x: 20, y: 1, z: 1}
+  MinimumGap: {x: 25, y: 1, z: 1}
+  MaximumGap: {x: 25, y: 1, z: 1}
   MinimumYClamp: 0
   MaximumYClamp: 0
   MinimumZClamp: 0
@@ -5879,9 +5881,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MutualizeWaitingPools: 1
   NestWaitingPool: 1
-  GameObjectToPool: {fileID: 5453683040159785057, guid: 99e3cf1be758938419cd5431b1230ed1,
+  GameObjectToPool: {fileID: 2179095655529772828, guid: 2ae24511e23df73479f4c7e8c7ffd9f4,
     type: 3}
-  PoolSize: 10
+  PoolSize: 5
   PoolCanExpand: 0
 --- !u!4 &1978736969 stripped
 Transform:
@@ -6370,6 +6372,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_SizeDelta.y
       value: 103.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4192884200498944048, guid: 96b3df0c65775554093f8fb0bc4f5e94,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -33.71985
       objectReference: {fileID: 0}
     - target: {fileID: 4192884200498968052, guid: 96b3df0c65775554093f8fb0bc4f5e94,
         type: 3}

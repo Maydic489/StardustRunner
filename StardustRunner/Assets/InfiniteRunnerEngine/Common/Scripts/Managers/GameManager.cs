@@ -46,7 +46,7 @@ namespace MoreMountains.InfiniteRunnerEngine
 		/// </summary>
 	    protected virtual void Start()
 		{
-			Application.targetFrameRate = 300;
+			Application.targetFrameRate = 60;
 	        CurrentLives = TotalLives;
 			FuelPoints = 100;
 	        _savedTimeScale = TimeScale;
