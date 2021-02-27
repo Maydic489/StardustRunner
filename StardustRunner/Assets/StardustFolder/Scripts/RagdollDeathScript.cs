@@ -13,13 +13,18 @@ public class RagdollDeathScript : MonoBehaviour
         ToggleRagdoll(false);
     }
 
+    private void OnDisable()
+    {
+        ToggleRagdoll(false);
+    }
+
     public void ToggleRagdoll(bool state)
     {
         ragdollBodies = GetComponentsInChildren<Rigidbody>();
         foreach (Rigidbody rb in ragdollBodies)
         {
             rb.isKinematic = !state;
-            rb.detectCollisions = state;
+            //rb.detectCollisions = state;
             rb.freezeRotation = !state;
             if (!state)
             {
@@ -30,9 +35,12 @@ public class RagdollDeathScript : MonoBehaviour
                 rb.constraints = RigidbodyConstraints.None;
         }
 
-        foreach(Collider collider in ragdollColliders)
+        if (!this.CompareTag("Obstacle_Car"))
         {
-            collider.enabled = state;
+            foreach (Collider collider in ragdollColliders)
+            {
+                collider.enabled = state;
+            }
         }
     }
 }

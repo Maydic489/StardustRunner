@@ -136,7 +136,7 @@ namespace MoreMountains.InfiniteRunnerEngine
 
         IEnumerator OnABreak()
         {
-            if(randomSet == 1) yield return new WaitForSeconds(9);
+            if(randomSet == 1) yield return new WaitForSeconds(2);
             else yield return new WaitForSeconds(2);
 
             _scenario[1].Status = true;

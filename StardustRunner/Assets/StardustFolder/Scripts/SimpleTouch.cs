@@ -104,7 +104,6 @@ namespace MoreMountains.InfiniteRunnerEngine
         {
             if (Input.GetMouseButtonDown(0))
             {
-                Debug.Log("touch down");
                 touchDown = true;
                 //save began touch 2d point
                 firstPressPos = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
@@ -126,28 +125,24 @@ namespace MoreMountains.InfiniteRunnerEngine
                     //swipe upwards
                     if (currentSwipe.y > 0 && currentSwipe.x > -0.5f && currentSwipe.x < 0.5f)
                     {
-                        Debug.Log("up swipeeeee");
                         InputManager.Instance.UpButtonDown();
                         triggerInput = true;
                     }
                     //swipe down
                     if (currentSwipe.y < 0 && currentSwipe.x > -0.5f && currentSwipe.x < 0.5f)
                     {
-                        Debug.Log("down swipe");
                         InputManager.Instance.DownButtonDown();
                         triggerInput = true;
                     }
                     //swipe left
                     if (currentSwipe.x < 0 && currentSwipe.y > -0.5f && currentSwipe.y < 0.5f)
                     {
-                        Debug.Log("left swipe");
                         InputManager.Instance.LeftButtonDown();
                         triggerInput = true;
                     }
                     //swipe right
                     if (currentSwipe.x > 0 && currentSwipe.y > -0.5f && currentSwipe.y < 0.5f)
                     {
-                        Debug.Log("right swipe");
                         InputManager.Instance.RightButtonDown();
                         triggerInput = true;
                     }
@@ -155,7 +150,6 @@ namespace MoreMountains.InfiniteRunnerEngine
             }
             if (Input.GetMouseButtonUp(0))
             {
-                Debug.Log("up button");
                 touchDown = false;
                 triggerInput = false;
                 //save ended touch 2d point
@@ -166,8 +160,6 @@ namespace MoreMountains.InfiniteRunnerEngine
 
                 //normalize the 2d vector
                 //currentSwipe.Normalize();
-                Debug.Log("x "+currentSwipe.x);
-                Debug.Log("y "+currentSwipe.y);
 
                 //swipe upwards
                 if (Vector2.Distance(firstPressPos, secondPressPos) < 10)

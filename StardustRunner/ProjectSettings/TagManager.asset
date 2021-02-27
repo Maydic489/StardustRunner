@@ -9,6 +9,7 @@ TagManager:
   - Ramp
   - Road
   - RampRoad
+  - Obstacle_Car
   layers:
   - Default
   - TransparentFX

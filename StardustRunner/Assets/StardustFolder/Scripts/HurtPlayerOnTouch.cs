@@ -115,7 +115,7 @@ namespace MoreMountains.InfiniteRunnerEngine
 			}
 		}
 
-		private void BreakingDown()
+		public void BreakingDown()
         {
 			foreach (GameObject obj in showModel)
 			{
@@ -142,6 +142,33 @@ namespace MoreMountains.InfiniteRunnerEngine
 
 			Invoke("CountDownDestroy", 5);
 			isBreak = true;
+		}
+
+		public void BlowAway()
+        {
+			this.GetComponent<RagdollDeathScript>().ToggleRagdoll(true);
+
+			foreach (Rigidbody rb in this.GetComponent<RagdollDeathScript>().ragdollBodies)
+			{
+				rb.AddExplosionForce(20f, new Vector3(transform.position.x, 0, transform.position.z + 2), 10f, 3f, ForceMode.Impulse);
+			}
+			foreach (Collider collider in this.GetComponent<RagdollDeathScript>().ragdollColliders)
+			{
+				Physics.IgnoreCollision(LevelManager.Instance.CurrentPlayableCharacters[0].GetComponent<BoxCollider>(), collider, true);
+				Physics.IgnoreCollision(LevelManager.Instance.CurrentPlayableCharacters[0].GetComponent<CapsuleCollider>(), collider, true);
+			}
+
+			if (crashEffect != null)
+			{
+				Instantiate(crashEffect, this.transform.position + Vector3.up * 0.5f, crashEffect.transform.rotation, this.transform);
+			}
+
+			Invoke("CountDownRecycle", 1);
+		}
+
+		private void CountDownRecycle()
+        {
+			GetComponent<MMPoolableObject>().Destroy();
 		}
 
 		private void CountDownDestroy()
