@@ -13,7 +13,8 @@ namespace MoreMountains.InfiniteRunnerEngine
         [SerializeField]
         private bool touchDown;
         [SerializeField]
-        private bool triggerInput;
+        private bool triggerInput_1;
+        private bool triggerInput_2;
 
         void Update()
         {
@@ -120,38 +121,55 @@ namespace MoreMountains.InfiniteRunnerEngine
                 currentSwipe.Normalize();
 
 
-                if (Vector2.Distance(firstPressPos, secondPressPos) > 30 && !triggerInput)
+                if (Vector2.Distance(firstPressPos, secondPressPos) > 30 && !triggerInput_1)
                 {
                     //swipe upwards
                     if (currentSwipe.y > 0 && currentSwipe.x > -0.5f && currentSwipe.x < 0.5f)
                     {
                         InputManager.Instance.UpButtonDown();
-                        triggerInput = true;
+                        triggerInput_1 = true;
                     }
                     //swipe down
                     if (currentSwipe.y < 0 && currentSwipe.x > -0.5f && currentSwipe.x < 0.5f)
                     {
                         InputManager.Instance.DownButtonDown();
-                        triggerInput = true;
+                        triggerInput_1 = true;
                     }
                     //swipe left
                     if (currentSwipe.x < 0 && currentSwipe.y > -0.5f && currentSwipe.y < 0.5f)
                     {
                         InputManager.Instance.LeftButtonDown();
-                        triggerInput = true;
+                        triggerInput_1 = true;
                     }
                     //swipe right
                     if (currentSwipe.x > 0 && currentSwipe.y > -0.5f && currentSwipe.y < 0.5f)
                     {
                         InputManager.Instance.RightButtonDown();
-                        triggerInput = true;
+                        triggerInput_1 = true;
+                    }
+                }
+
+                if (Vector2.Distance(firstPressPos, secondPressPos) > 200 && triggerInput_1 && !triggerInput_2)
+                {
+                    //swipe left
+                    if (currentSwipe.x < 0 && currentSwipe.y > -0.5f && currentSwipe.y < 0.5f)
+                    {
+                        InputManager.Instance.LeftButtonDown();
+                        triggerInput_2 = true;
+                    }
+                    //swipe right
+                    if (currentSwipe.x > 0 && currentSwipe.y > -0.5f && currentSwipe.y < 0.5f)
+                    {
+                        InputManager.Instance.RightButtonDown();
+                        triggerInput_2 = true;
                     }
                 }
             }
             if (Input.GetMouseButtonUp(0))
             {
                 touchDown = false;
-                triggerInput = false;
+                triggerInput_1 = false;
+                triggerInput_2 = false;
                 //save ended touch 2d point
                 secondPressPos = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
 

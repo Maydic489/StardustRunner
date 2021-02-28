@@ -98,7 +98,7 @@ namespace MoreMountains.InfiniteRunnerEngine
                 {
                     slowSpeed += slowSpeed * (0.05f + slowSpeed);
                 }
-                transform.position = Vector3.MoveTowards(transform.position, new Vector3(slideDirection, transform.position.y, transform.position.z), (slowSpeed * Time.deltaTime)*2); //last number is for how fast for switching lane
+                transform.position = Vector3.MoveTowards(transform.position, new Vector3(slideDirection, transform.position.y, transform.position.z), (slowSpeed * Time.deltaTime)*1.75f); //last number is for how fast for switching lane
             }
             else
             {
@@ -496,7 +496,7 @@ namespace MoreMountains.InfiniteRunnerEngine
 		private void ResetStaticBool()
         {
 			isDead = false;
-			isInvul = true;
+			isInvul = false;
 			isBoost = false;
 			isSpeed = false;
 			isProtect = false;
