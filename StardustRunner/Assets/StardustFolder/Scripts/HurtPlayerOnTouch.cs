@@ -57,12 +57,15 @@ namespace MoreMountains.InfiniteRunnerEngine
 					//check if do small damage instead of instant kill
 					if ((SimpleLane.whatLane != this.whatLane) || this.whatLane == 'n')
 					{
-						if (this.whatLane != 'n')
-							LevelManager.Instance.CurrentPlayableCharacters[0].GetComponent<SimpleLane>().HurtPlayer(!isGround, this.transform);
-						else if (this.whatLane == 'n')
+						if (GameManager.Instance.Status != GameManager.GameStatus.GameOver)
 						{
-							Debug.Log("hit N");
-							LevelManager.Instance.CurrentPlayableCharacters[0].GetComponent<SimpleLane>().HurtPlayer(!isGround, null);
+							if (this.whatLane != 'n')
+								LevelManager.Instance.CurrentPlayableCharacters[0].GetComponent<SimpleLane>().HurtPlayer(!isGround, this.transform);
+							else if (this.whatLane == 'n')
+							{
+								Debug.Log("hit N");
+								LevelManager.Instance.CurrentPlayableCharacters[0].GetComponent<SimpleLane>().HurtPlayer(!isGround, null);
+							}
 						}
 						//if(crashEffect != null)
 						//Instantiate(crashEffect, this.transform.position - (collidingObject.transform.position/0.75f)+(Vector3.forward*0.5f), crashEffect.transform.rotation,this.transform);
@@ -152,21 +155,26 @@ namespace MoreMountains.InfiniteRunnerEngine
 			{
 				rb.AddExplosionForce(20f, new Vector3(transform.position.x, 0, transform.position.z + 2), 10f, 3f, ForceMode.Impulse);
 			}
-			//foreach (Collider collider in this.GetComponent<RagdollDeathScript>().ragdollColliders)
-			//{
-   //             if (LevelManager.Instance.CurrentPlayableCharacters[0] != null)
-   //             {
-   //                 Physics.IgnoreCollision(LevelManager.Instance.CurrentPlayableCharacters[0].GetComponent<BoxCollider>(), collider, true);
-   //                 Physics.IgnoreCollision(LevelManager.Instance.CurrentPlayableCharacters[0].GetComponent<CapsuleCollider>(), collider, true);
-   //             }
-   //         }
+			if (GameManager.Instance.Status != GameManager.GameStatus.GameOver) //check if game over
+			{
+				foreach (Collider collider in this.GetComponent<RagdollDeathScript>().ragdollColliders)
+				{
+					if (LevelManager.Instance.CurrentPlayableCharacters[0] != null)
+					{
+						Physics.IgnoreCollision(LevelManager.Instance.CurrentPlayableCharacters[0].GetComponent<BoxCollider>(), collider, true);
+						Physics.IgnoreCollision(LevelManager.Instance.CurrentPlayableCharacters[0].GetComponent<CapsuleCollider>(), collider, true);
+					}
+				}
+			}
 
-			if (crashEffect != null)
+            if (crashEffect != null)
 			{
 				Instantiate(crashEffect, this.transform.position + Vector3.up * 0.5f, crashEffect.transform.rotation);
 			}
 
-			GetComponent<MovingObject>().enabled = false;
+			if(gameObject.transform.Find("Shadow") != null)
+				gameObject.transform.Find("Shadow").gameObject.SetActive(false);
+
 			Invoke("CountDownRecycle", 1);
 		}
 
@@ -182,6 +190,9 @@ namespace MoreMountains.InfiniteRunnerEngine
 
         private void OnDisable()
         {
+			if (gameObject.transform.Find("Shadow") != null)
+				gameObject.transform.Find("Shadow").gameObject.SetActive(true);
+
 			isHit = false;
 			if (isBreak)
 			{

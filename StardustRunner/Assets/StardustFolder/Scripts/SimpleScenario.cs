@@ -136,8 +136,8 @@ namespace MoreMountains.InfiniteRunnerEngine
 
         IEnumerator OnABreak()
         {
-            if(randomSet == 1) yield return new WaitForSeconds(2);
-            else yield return new WaitForSeconds(2);
+            if(randomSet == 1) yield return new WaitForSeconds(3);
+            else yield return new WaitForSeconds(3);
 
             _scenario[1].Status = true;
             //_scenario[1].StartScore = GameManager.Instance.Points + 20;
