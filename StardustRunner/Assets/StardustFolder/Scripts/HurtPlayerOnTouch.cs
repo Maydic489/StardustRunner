@@ -152,17 +152,21 @@ namespace MoreMountains.InfiniteRunnerEngine
 			{
 				rb.AddExplosionForce(20f, new Vector3(transform.position.x, 0, transform.position.z + 2), 10f, 3f, ForceMode.Impulse);
 			}
-			foreach (Collider collider in this.GetComponent<RagdollDeathScript>().ragdollColliders)
-			{
-				Physics.IgnoreCollision(LevelManager.Instance.CurrentPlayableCharacters[0].GetComponent<BoxCollider>(), collider, true);
-				Physics.IgnoreCollision(LevelManager.Instance.CurrentPlayableCharacters[0].GetComponent<CapsuleCollider>(), collider, true);
-			}
+			//foreach (Collider collider in this.GetComponent<RagdollDeathScript>().ragdollColliders)
+			//{
+   //             if (LevelManager.Instance.CurrentPlayableCharacters[0] != null)
+   //             {
+   //                 Physics.IgnoreCollision(LevelManager.Instance.CurrentPlayableCharacters[0].GetComponent<BoxCollider>(), collider, true);
+   //                 Physics.IgnoreCollision(LevelManager.Instance.CurrentPlayableCharacters[0].GetComponent<CapsuleCollider>(), collider, true);
+   //             }
+   //         }
 
 			if (crashEffect != null)
 			{
-				Instantiate(crashEffect, this.transform.position + Vector3.up * 0.5f, crashEffect.transform.rotation, this.transform);
+				Instantiate(crashEffect, this.transform.position + Vector3.up * 0.5f, crashEffect.transform.rotation);
 			}
 
+			GetComponent<MovingObject>().enabled = false;
 			Invoke("CountDownRecycle", 1);
 		}
 

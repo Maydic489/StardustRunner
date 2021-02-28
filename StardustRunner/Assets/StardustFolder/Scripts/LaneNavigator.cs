@@ -32,7 +32,7 @@ namespace MoreMountains.InfiniteRunnerEngine
         }
         private void OnTriggerStay(Collider other)
         {
-            if (other.gameObject.tag != "Obstacle") { return; }
+            if (other.gameObject.tag.Substring(0,3) != "Obs") { return; }
 
             if (whatLane == 'm' && !firstTurn)
             {

@@ -496,7 +496,7 @@ namespace MoreMountains.InfiniteRunnerEngine
 		private void ResetStaticBool()
         {
 			isDead = false;
-			isInvul = true;
+			isInvul = false;
 			isBoost = false;
 			isSpeed = false;
 			isProtect = false;

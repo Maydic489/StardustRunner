@@ -11,7 +11,7 @@ namespace MoreMountains.InfiniteRunnerEngine
         // Start is called before the first frame update
         void Start()
         {
-            if(this.gameObject.tag != "Player") { return; }
+            if(!this.gameObject.CompareTag("Player")) { return; }
             else { navigator = GameObject.Find("LaneNavigator (1)"); }
         }
 

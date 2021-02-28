@@ -14,9 +14,9 @@ namespace MoreMountains.InfiniteRunnerEngine
 
         private void TriggerEnter(GameObject collidingObject)
         {
-            if (collidingObject.tag != "Obstacle" && (collidingObject.tag != "Obstacle_Car")) { return; }
+            if (collidingObject.tag.Substring(0, 3) != "Obs") { return; }
 
-            if (this.gameObject.tag == "Obstacle" && collidingObject.tag != "Obstacle_Car") //for stationary obstacle
+            if (this.gameObject.CompareTag("Obstacle") && !collidingObject.CompareTag("Obstacle_Car")) //for stationary obstacle
             {
                 if (this.transform.position.z < collidingObject.transform.position.z)
                 {

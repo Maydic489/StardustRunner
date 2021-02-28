@@ -23,7 +23,6 @@ public class LaneManager : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log(this.name + " " + other.gameObject.tag);
         TriggerEnter(other.gameObject);
     }
     private void OnTriggerExit(Collider other)
@@ -33,8 +32,7 @@ public class LaneManager : MonoBehaviour
 
     private void TriggerEnter(GameObject collidingObject)
     {
-        if (!collidingObject.CompareTag("Obstacle") && !collidingObject.CompareTag("Obstacle_Car")) { return; }
-        Debug.Log("manage "+collidingObject.tag);
+        if (collidingObject.tag.Substring(0, 3) != "Obs") { return; }
         obstaclesList.Add(collidingObject);
         useLane += collidingObject.GetComponent<AdditionalProperties>().laneSize;
 
@@ -45,7 +43,7 @@ public class LaneManager : MonoBehaviour
     }
     private void TriggerExit(GameObject collidingObject)
     {
-        if (!collidingObject.CompareTag("Obstacle") && !collidingObject.CompareTag("Obstacle_Car")) { return; }
+        if (collidingObject.tag.Substring(0, 3) != "Obs") { return; }
 
         useLane -= collidingObject.GetComponent<AdditionalProperties>().laneSize;
         obstaclesList.Remove(collidingObject);
