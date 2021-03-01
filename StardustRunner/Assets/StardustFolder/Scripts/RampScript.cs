@@ -26,7 +26,7 @@ namespace MoreMountains.InfiniteRunnerEngine
 				collidingObject.GetComponent<Rigidbody>().AddForce(new Vector3(0, 15, 0), ForceMode.Impulse);
 			else
 			{
-				LevelManager.Instance.TemporarilyMultiplySpeed(1.5f, 0.5f);
+				LevelManager.Instance.TemporarilyMultiplySpeed(1.5f, 0.5f,"ramp");
 				collidingObject.GetComponent<Rigidbody>().AddForce(new Vector3(0, 18, 0), ForceMode.Impulse);
 			}
 		}

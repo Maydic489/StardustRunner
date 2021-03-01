@@ -16,7 +16,7 @@ namespace MoreMountains.InfiniteRunnerEngine
                 return;
             }
             Debug.Log("Give Coke");
-            LevelManager.Instance.TemporarilyMultiplySpeed(SpeedFactor, EffectDuration);
+            LevelManager.Instance.TemporarilyMultiplySpeed(SpeedFactor, EffectDuration, "item");
             LevelManager.Instance.ActivateInvul(invulDuration);
             LevelManager.Instance.CurrentPlayableCharacters[0].GetComponent<SimpleLane>().PreSuperman();
         }

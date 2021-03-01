@@ -18,7 +18,7 @@ namespace MoreMountains.InfiniteRunnerEngine
 			{
 				return;
 			}
-			LevelManager.Instance.TemporarilyMultiplySpeed(SpeedFactor,EffectDuration);
+			LevelManager.Instance.TemporarilyMultiplySpeed(SpeedFactor,EffectDuration,"speed bonus");
 		}		
 	}
 }

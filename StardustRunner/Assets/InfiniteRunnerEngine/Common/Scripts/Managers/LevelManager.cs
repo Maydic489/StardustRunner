@@ -92,6 +92,10 @@ namespace MoreMountains.InfiniteRunnerEngine
 		protected float _temporarySpeedFactor;
 		protected float _temporarySpeedFactorRemainingTime;
 		protected float _temporarySavedSpeed;
+
+		//for boost
+		[SerializeField]
+		private string oldType;
 			
 		/// <summary>
 		/// Initialization
@@ -336,19 +340,30 @@ namespace MoreMountains.InfiniteRunnerEngine
 		/// </summary>
 		/// <param name="factor">The number of times you want to increase/decrease the speed by.</param>
 		/// <param name="duration">The duration of the speed change, in seconds.</param>
-		public virtual void TemporarilyMultiplySpeed(float factor, float duration)
+		public virtual void TemporarilyMultiplySpeed(float factor, float duration, string boostType)
 		{
 			SimpleLane.isSpeed = true;
-			_temporarySpeedFactor = factor;
-			_temporarySpeedFactorRemainingTime = duration;
 
-			if (!_temporarySpeedFactorActive)
+			if (boostType != "item" && (oldType != "item" && oldType != ""))
+			{
+				_temporarySpeedFactorRemainingTime = duration;
+				_temporarySpeedFactor = factor;
+			}
+
+			else if (boostType == "item")
+			{
+				_temporarySpeedFactorRemainingTime = duration;
+				_temporarySpeedFactor = factor;
+			}
+
+            if (!_temporarySpeedFactorActive)
 			{
 				_temporarySavedSpeed = Speed;
 			}
 
 			Speed = _temporarySavedSpeed * _temporarySpeedFactor;
 			_temporarySpeedFactorActive = true;
+			oldType = boostType;
 		}
 
 		/// <summary>

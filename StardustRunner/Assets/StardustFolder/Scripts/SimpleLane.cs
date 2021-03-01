@@ -155,14 +155,14 @@ namespace MoreMountains.InfiniteRunnerEngine
             if (whatLane == 'r' && slideDirection != 0f)
             {
                 slideDirection = 0f;
-				if (!isSlide && !isWheelie)
-					PlayTurnAnim("Left");
+				//if (!isSlide && !isWheelie)
+					//PlayTurnAnim("Left");
             }
             else
             {
                 slideDirection = -1.6f;
-				if (!isSlide && !isWheelie && whatLane != 'l')
-					PlayTurnAnim("Left");
+				//if (!isSlide && !isWheelie && whatLane != 'l')
+					//PlayTurnAnim("Left");
             }
 		}
 
@@ -173,14 +173,14 @@ namespace MoreMountains.InfiniteRunnerEngine
 			if (whatLane == 'l' && slideDirection != 0f)
 			{
 				slideDirection = 0f;
-				if (!isSlide && !isWheelie)
-					PlayTurnAnim("Right");
+				//if (!isSlide && !isWheelie)
+					//PlayTurnAnim("Right");
 			}
 			else
 			{
 				slideDirection = 1.6f;
-				if (!isSlide && !isWheelie && whatLane != 'r')
-					PlayTurnAnim("Right");
+				//if (!isSlide && !isWheelie && whatLane != 'r')
+					//PlayTurnAnim("Right");
 			}
 		}
 
@@ -213,7 +213,7 @@ namespace MoreMountains.InfiniteRunnerEngine
 				emission.enabled = true;
 				Invoke("StopWindFX", 0.5f);
 
-				LevelManager.Instance.TemporarilyMultiplySpeed(1.5f, 0.5f);
+				LevelManager.Instance.TemporarilyMultiplySpeed(1.5f, 0.5f, "wheelie");
 			}
 		}
 
@@ -356,7 +356,7 @@ namespace MoreMountains.InfiniteRunnerEngine
 			switch (GameManager.Instance.CurrentHelmets)
 			{
 				case 3:
-					LevelManager.Instance.TemporarilyMultiplySpeed(2, 5f);
+					LevelManager.Instance.TemporarilyMultiplySpeed(2, 5f, "helmet");
 					LevelManager.Instance.ActivateInvul(6f);
 					PreSuperman();
 					break;
