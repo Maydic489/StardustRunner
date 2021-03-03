@@ -133,7 +133,17 @@ namespace MoreMountains.InfiniteRunnerEngine
 		{
 			if (PauseScreen == null) { return;	}
 			PauseScreen.SetActive(state);
+			TurnSpeedNumber();
 	    }
+
+		public virtual void TurnSpeedNumber()
+        {
+			Text turnSpeedNumber = PauseScreen.transform.Find("TurnSpeedNum").GetComponent<Text>();
+			if (turnSpeedNumber != null)
+			{
+				turnSpeedNumber.text = SimpleLane.turnSpeedMultiply.ToString("0.0");
+			}
+		}
 		
 		/// <summary>
 		/// Sets the countdown active.

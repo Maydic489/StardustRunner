@@ -119,30 +119,31 @@ namespace MoreMountains.InfiniteRunnerEngine
 
                 //normalize the 2d vector
                 currentSwipe.Normalize();
-
+                Debug.Log("X " + currentSwipe.x);
+                Debug.Log("Y " + currentSwipe.y);
 
                 if (Vector2.Distance(firstPressPos, secondPressPos) > 30 && !triggerInput_1)
                 {
                     //swipe upwards
-                    if (currentSwipe.y > 0 && currentSwipe.x > -0.5f && currentSwipe.x < 0.5f)
+                    if (currentSwipe.y > 0 && currentSwipe.x > -0.4f && currentSwipe.x < 0.4f)
                     {
                         InputManager.Instance.UpButtonDown();
                         triggerInput_1 = true;
                     }
                     //swipe down
-                    if (currentSwipe.y < 0 && currentSwipe.x > -0.5f && currentSwipe.x < 0.5f)
+                    if (currentSwipe.y < 0 && currentSwipe.x > -0.4f && currentSwipe.x < 0.4f)
                     {
                         InputManager.Instance.DownButtonDown();
                         triggerInput_1 = true;
                     }
                     //swipe left
-                    if (currentSwipe.x < 0 && currentSwipe.y > -0.5f && currentSwipe.y < 0.5f)
+                    if (currentSwipe.x < 0 && currentSwipe.y > -0.85f && currentSwipe.y < 0.85f)
                     {
                         InputManager.Instance.LeftButtonDown();
                         triggerInput_1 = true;
                     }
                     //swipe right
-                    if (currentSwipe.x > 0 && currentSwipe.y > -0.5f && currentSwipe.y < 0.5f)
+                    if (currentSwipe.x > 0 && currentSwipe.y > -0.85f && currentSwipe.y < 0.85f)
                     {
                         InputManager.Instance.RightButtonDown();
                         triggerInput_1 = true;

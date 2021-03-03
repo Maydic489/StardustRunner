@@ -25,6 +25,7 @@ namespace MoreMountains.InfiniteRunnerEngine
 		public List<ParticleSystem> boostEffect;
 		public ParticleSystem slideEffect;
 		public float MoveSpeed = 5f;
+		public static float turnSpeedMultiply = 2;
 		private float slowSpeed = 0.1f;
 		public GameObject mainCamera;
 		public static Vector3 playerPositoin;
@@ -40,6 +41,8 @@ namespace MoreMountains.InfiniteRunnerEngine
 		private bool isSlide;
 		public static bool isWheelie;
 		private bool lookBack;
+
+		private static bool animationOn;
 		public static bool isSpeed {get; set;}
 		
 		static int s_BlinkingValueHash;
@@ -98,7 +101,7 @@ namespace MoreMountains.InfiniteRunnerEngine
                 {
                     slowSpeed += slowSpeed * (0.05f + slowSpeed);
                 }
-                transform.position = Vector3.MoveTowards(transform.position, new Vector3(slideDirection, transform.position.y, transform.position.z), (slowSpeed * Time.deltaTime)*1.75f); //last number is for how fast for switching lane
+                transform.position = Vector3.MoveTowards(transform.position, new Vector3(slideDirection, transform.position.y, transform.position.z), (slowSpeed * Time.deltaTime)*turnSpeedMultiply); //last number is for how fast for switching lane
             }
             else
             {
@@ -155,14 +158,14 @@ namespace MoreMountains.InfiniteRunnerEngine
             if (whatLane == 'r' && slideDirection != 0f)
             {
                 slideDirection = 0f;
-				//if (!isSlide && !isWheelie)
-					//PlayTurnAnim("Left");
+                if (!isSlide && !isWheelie && animationOn)
+                    PlayTurnAnim("Left");
             }
             else
             {
                 slideDirection = -1.6f;
-				//if (!isSlide && !isWheelie && whatLane != 'l')
-					//PlayTurnAnim("Left");
+                if (!isSlide && !isWheelie && whatLane != 'l' && animationOn)
+                    PlayTurnAnim("Left");
             }
 		}
 
@@ -173,15 +176,15 @@ namespace MoreMountains.InfiniteRunnerEngine
 			if (whatLane == 'l' && slideDirection != 0f)
 			{
 				slideDirection = 0f;
-				//if (!isSlide && !isWheelie)
-					//PlayTurnAnim("Right");
-			}
+                if (!isSlide && !isWheelie && animationOn)
+                    PlayTurnAnim("Right");
+            }
 			else
 			{
 				slideDirection = 1.6f;
-				//if (!isSlide && !isWheelie && whatLane != 'r')
-					//PlayTurnAnim("Right");
-			}
+                if (!isSlide && !isWheelie && whatLane != 'r' && animationOn)
+                    PlayTurnAnim("Right");
+            }
 		}
 
         public override void DownStart()
@@ -503,5 +506,22 @@ namespace MoreMountains.InfiniteRunnerEngine
 			isWheelie = false;
 			isSuperman = false;
 		}
+
+		//DEBUG ZONE
+		public void TurnFaster()
+        {
+			turnSpeedMultiply += 0.100f;
+			GUIManager.Instance.TurnSpeedNumber();
+        }
+		public void TurnSlower()
+		{
+			turnSpeedMultiply -= 0.100f;
+			GUIManager.Instance.TurnSpeedNumber();
+		}
+
+		public void OnOffAnimation()
+        {
+			animationOn = !animationOn;
+        }
 	}
 }
