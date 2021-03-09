@@ -12,7 +12,7 @@ public class LaneManager : MonoBehaviour
     [SerializeField]
     private List<GameObject> obstaclesList;
     public int useLane;
-    public int maxInLane = 2;
+    public int maxInLane = 1;
     public bool PushMode;
     
 

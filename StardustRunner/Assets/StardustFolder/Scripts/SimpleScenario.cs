@@ -9,7 +9,7 @@ namespace MoreMountains.InfiniteRunnerEngine
 {
     public class SimpleScenario : ScenarioManager
     {
-        public LaneManager _laneManager;
+        public GameObject _laneManager;
         public MMMultipleObjectPooler buildingSpawner;
         public List<DistanceSpawner> Set1;
         public List<DistanceSpawner> Set2;
@@ -19,7 +19,8 @@ namespace MoreMountains.InfiniteRunnerEngine
         private bool swap1;
         private bool swap2;
         private static float sideRoadPoint = 500;
-        private static float obstaclePoint = 500;
+        private static float obstaclePoint = 5000;
+        private static float difficultPoint = 600;
         private float timePass;
         public int randomSet = 1;
         public int oldRandomSet = 1;
@@ -57,6 +58,7 @@ namespace MoreMountains.InfiniteRunnerEngine
 
             AddScoreEvent(sideRoadPoint, () => ChangeZone());
             AddScoreEvent(obstaclePoint, () => ChangeObstacle());
+            AddScoreEvent(difficultPoint, () => ChangeDifficult());
         }
 
         public void ChangeZone()
@@ -141,6 +143,17 @@ namespace MoreMountains.InfiniteRunnerEngine
 
             _scenario[1].Status = true;
             //_scenario[1].StartScore = GameManager.Instance.Points + 20;
+        }
+
+        public void ChangeDifficult()
+        {
+            if (_scenario[2].StartScore > 5000)
+                _laneManager.GetComponent<LaneManager>().maxInLane = 2;
+
+            _scenario[2].StartScore += 600;
+
+            if(_laneManager.transform.localScale.z > 6)
+                _laneManager.transform.localScale -= Vector3.forward;
         }
 
         protected override void EvaluateScenario()

@@ -14,6 +14,7 @@ namespace MoreMountains.InfiniteRunnerEngine
         private Coroutine resetCo;
         private Coroutine confirmCo;
         public BoxCollider colliderComp;
+        private int randomNum;
 
         private void Start()
         {
@@ -34,9 +35,37 @@ namespace MoreMountains.InfiniteRunnerEngine
         {
             if (other.gameObject.tag.Substring(0,3) != "Obs") { return; }
 
+            switch(Random.Range(1,3))
+            {
+                case 1:
+                    MidLaneChange(-1.6f);
+                    break;
+                case 2:
+                    MidLaneChange(1.6f);
+                    break;
+                default:
+                    break;
+            }
+
+            if (whatLane != 'm' && firstTurn && safeLane != whatLane)
+            {
+                ResetCollider();
+                if(whatLane == 'l')
+                    transform.position = new Vector3(1.6f, transform.position.y, transform.position.z);
+                else if(whatLane == 'r')
+                    transform.position = new Vector3(-1.6f, transform.position.y, transform.position.z);
+
+                if (confirmCo != null)
+                    StopCoroutine(confirmCo);
+                confirmCo = StartCoroutine(Confirm());
+            }
+        }
+
+        private void MidLaneChange(float direction)
+        {
             if (whatLane == 'm' && !firstTurn)
             {
-                transform.position = new Vector3(-1.6f, transform.position.y, transform.position.z);
+                transform.position = new Vector3(direction, transform.position.y, transform.position.z);
                 colliderComp.center = new Vector3(0, 0, 2f);
                 colliderComp.size = new Vector3(1, 1, 6.8f);
                 firstTurn = true;
@@ -45,20 +74,13 @@ namespace MoreMountains.InfiniteRunnerEngine
                     StopCoroutine(confirmCo);
                 confirmCo = StartCoroutine(Confirm());
             }
-            else if (whatLane == 'r' && !firstTurn)
+            else if (whatLane != 'm' && !firstTurn)
             {
-                transform.position = new Vector3(1.6f, transform.position.y, transform.position.z);
+                if (whatLane == 'l')
+                    transform.position = new Vector3(-1.6f, transform.position.y, transform.position.z);
+                else if (whatLane == 'r')
+                    transform.position = new Vector3(1.6f, transform.position.y, transform.position.z);
                 ResetCollider();
-            }
-
-            if (whatLane == 'l' && firstTurn && safeLane != 'l')
-            {
-                ResetCollider();
-                transform.position = new Vector3(1.6f, transform.position.y, transform.position.z);
-
-                if (confirmCo != null)
-                    StopCoroutine(confirmCo);
-                confirmCo = StartCoroutine(Confirm());
             }
         }
 

@@ -25,7 +25,7 @@ namespace MoreMountains.InfiniteRunnerEngine
 		public List<ParticleSystem> boostEffect;
 		public ParticleSystem slideEffect;
 		public float MoveSpeed = 5f;
-		public static float turnSpeedMultiply = 2;
+		public static float turnSpeedMultiply = 1;
 		private float slowSpeed = 0.1f;
 		public GameObject mainCamera;
 		public static Vector3 playerPositoin;
@@ -42,7 +42,7 @@ namespace MoreMountains.InfiniteRunnerEngine
 		public static bool isWheelie;
 		private bool lookBack;
 
-		private static bool animationOn;
+		private static bool animationOn = true;
 		public static bool isSpeed {get; set;}
 		
 		static int s_BlinkingValueHash;
@@ -499,7 +499,7 @@ namespace MoreMountains.InfiniteRunnerEngine
 		private void ResetStaticBool()
         {
 			isDead = false;
-			isInvul = false;
+			isInvul = true;
 			isBoost = false;
 			isSpeed = false;
 			isProtect = false;
