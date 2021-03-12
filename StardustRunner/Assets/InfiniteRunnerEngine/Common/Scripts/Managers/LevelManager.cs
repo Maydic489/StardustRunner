@@ -344,12 +344,11 @@ namespace MoreMountains.InfiniteRunnerEngine
 		{
 			SimpleLane.isSpeed = true;
 
-			if (boostType != "item" && (oldType != "item" && oldType != ""))
+			if (boostType != "item" && (oldType != "item" /*&& oldType != ""*/)) //so Ramp won't reset Item-Boost Duration when landing
 			{
 				_temporarySpeedFactorRemainingTime = duration;
 				_temporarySpeedFactor = factor;
 			}
-
 			else if (boostType == "item")
 			{
 				_temporarySpeedFactorRemainingTime = duration;

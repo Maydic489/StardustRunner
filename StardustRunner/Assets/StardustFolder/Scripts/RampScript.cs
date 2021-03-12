@@ -14,19 +14,27 @@ namespace MoreMountains.InfiniteRunnerEngine
         }
         private void OnCollisionEnter(Collision other)
 		{
-			if(!isJump)
-			TriggerEnter(other.gameObject);
+			//if (!isJump)
+			//	TriggerEnter(other.gameObject);
 		}
 
-		protected virtual void TriggerEnter(GameObject collidingObject)
+        private void OnTriggerEnter(Collider other)
+        {
+			if (!isJump)
+				TriggerEnter(other.gameObject);
+		}
+
+        protected virtual void TriggerEnter(GameObject collidingObject)
 		{
 			if (collidingObject.tag != "Player") { return; }
 			isJump = true;
 			if (!SimpleLane.isSpeed)
+			{
 				collidingObject.GetComponent<Rigidbody>().AddForce(new Vector3(0, 15, 0), ForceMode.Impulse);
+			}
 			else
 			{
-				LevelManager.Instance.TemporarilyMultiplySpeed(1.5f, 0.5f,"ramp");
+				LevelManager.Instance.TemporarilyMultiplySpeed(1.5f, 0.5f, "ramp");
 				collidingObject.GetComponent<Rigidbody>().AddForce(new Vector3(0, 18, 0), ForceMode.Impulse);
 			}
 		}

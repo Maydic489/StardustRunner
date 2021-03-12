@@ -44,8 +44,8 @@ namespace MoreMountains.InfiniteRunnerEngine
 
 		private static bool animationOn = true;
 		public static bool isSpeed {get; set;}
-		
-		static int s_BlinkingValueHash;
+
+    static int s_BlinkingValueHash;
 
 		protected override void Start()
         {

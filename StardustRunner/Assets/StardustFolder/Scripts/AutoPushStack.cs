@@ -14,7 +14,8 @@ namespace MoreMountains.InfiniteRunnerEngine
 
         private void TriggerEnter(GameObject collidingObject)
         {
-            if (collidingObject.tag.Substring(0, 3) != "Obs") { return; }
+            if (!collidingObject.CompareTag("Ramp") && collidingObject.tag.Substring(0, 3) != "Obs") { return; }
+            Debug.Log(this.gameObject.tag+" obj tag= " + collidingObject.tag);
 
             if (this.gameObject.CompareTag("Obstacle") && !collidingObject.CompareTag("Obstacle_Car")) //for stationary obstacle
             {
@@ -42,10 +43,10 @@ namespace MoreMountains.InfiniteRunnerEngine
                         this.transform.position += Vector3.forward * 6f;
                     }
                 }
-                else if (collidingObject.CompareTag("Obstacle"))
+                else if (collidingObject.CompareTag("Obstacle") || collidingObject.CompareTag("Ramp"))
                 {
                     if(!isBlow)
-                    GetComponent<HurtPlayerOnTouch>().BlowAway();
+                        GetComponent<HurtPlayerOnTouch>().BlowAway();
                     isBlow = true;
                 }
             }

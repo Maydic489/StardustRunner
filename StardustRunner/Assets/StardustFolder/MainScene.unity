@@ -367,6 +367,7 @@ MonoBehaviour:
   Spawning: 0
   OnlySpawnWhileGameInProgress: 1
   InitialDelay: 0
+  fixedUpdateMode: 0
   GapOrigin: 0
   MinimumGap: {x: 25, y: 1, z: 1}
   MaximumGap: {x: 30, y: 1, z: 1}
@@ -462,6 +463,7 @@ MonoBehaviour:
   Spawning: 1
   OnlySpawnWhileGameInProgress: 1
   InitialDelay: 0
+  fixedUpdateMode: 0
   GapOrigin: 0
   MinimumGap: {x: 5, y: 1, z: 1}
   MaximumGap: {x: 5, y: 1, z: 1}
@@ -832,6 +834,7 @@ MonoBehaviour:
   Spawning: 0
   OnlySpawnWhileGameInProgress: 1
   InitialDelay: 0
+  fixedUpdateMode: 0
   GapOrigin: 0
   MinimumGap: {x: 17, y: 1, z: 1}
   MaximumGap: {x: 23, y: 1, z: 1}
@@ -1296,6 +1299,7 @@ MonoBehaviour:
   Spawning: 0
   OnlySpawnWhileGameInProgress: 1
   InitialDelay: 0
+  fixedUpdateMode: 0
   GapOrigin: 0
   MinimumGap: {x: 2, y: 2, z: 2}
   MaximumGap: {x: 2, y: 2, z: 2}
@@ -1588,6 +1592,7 @@ MonoBehaviour:
   Spawning: 0
   OnlySpawnWhileGameInProgress: 1
   InitialDelay: 0
+  fixedUpdateMode: 0
   GapOrigin: 0
   MinimumGap: {x: 15, y: 1, z: 1}
   MaximumGap: {x: 20, y: 1, z: 1}
@@ -1696,6 +1701,7 @@ MonoBehaviour:
   Spawning: 1
   OnlySpawnWhileGameInProgress: 1
   InitialDelay: 0
+  fixedUpdateMode: 0
   GapOrigin: 0
   MinimumGap: {x: 10, y: 1, z: 1}
   MaximumGap: {x: 10, y: 1, z: 1}
@@ -1794,6 +1800,7 @@ MonoBehaviour:
   Spawning: 1
   OnlySpawnWhileGameInProgress: 1
   InitialDelay: 0
+  fixedUpdateMode: 0
   GapOrigin: 0
   MinimumGap: {x: 1, y: 1, z: 1}
   MaximumGap: {x: 1, y: 1, z: 1}
@@ -2038,6 +2045,7 @@ MonoBehaviour:
   Spawning: 0
   OnlySpawnWhileGameInProgress: 1
   InitialDelay: 0
+  fixedUpdateMode: 0
   GapOrigin: 0
   MinimumGap: {x: 10, y: 1, z: 1}
   MaximumGap: {x: 10, y: 1, z: 1}
@@ -2257,6 +2265,7 @@ MonoBehaviour:
   Spawning: 0
   OnlySpawnWhileGameInProgress: 1
   InitialDelay: 0
+  fixedUpdateMode: 0
   GapOrigin: 0
   MinimumGap: {x: 2, y: 2, z: 2}
   MaximumGap: {x: 2, y: 2, z: 2}
@@ -2454,6 +2463,7 @@ MonoBehaviour:
   Spawning: 0
   OnlySpawnWhileGameInProgress: 1
   InitialDelay: 0
+  fixedUpdateMode: 0
   GapOrigin: 0
   MinimumGap: {x: 35, y: 1, z: 1}
   MaximumGap: {x: 45, y: 1, z: 1}
@@ -3654,12 +3664,12 @@ MonoBehaviour:
   Pool:
   - GameObjectToPool: {fileID: 8162398587118302864, guid: 12e7c7ca77ea83b47bf79028cf646be3,
       type: 3}
-    PoolSize: 10
+    PoolSize: 8
     PoolCanExpand: 0
     Enabled: 1
   - GameObjectToPool: {fileID: 1620487742905288771, guid: 7db38af2cf7802f408023e2118766fcf,
       type: 3}
-    PoolSize: 10
+    PoolSize: 8
     PoolCanExpand: 0
     Enabled: 1
   - GameObjectToPool: {fileID: 4572816695479169647, guid: c0a8b5592d7740f478e577f3df267534,
@@ -3700,6 +3710,7 @@ MonoBehaviour:
   Spawning: 1
   OnlySpawnWhileGameInProgress: 1
   InitialDelay: 0
+  fixedUpdateMode: 1
   GapOrigin: 0
   MinimumGap: {x: 0, y: 0, z: 0}
   MaximumGap: {x: 0, y: 0, z: 0}
@@ -3885,6 +3896,7 @@ MonoBehaviour:
   Spawning: 1
   OnlySpawnWhileGameInProgress: 0
   InitialDelay: 0
+  fixedUpdateMode: 1
   GapOrigin: 0
   MinimumGap: {x: 0, y: 0, z: 0}
   MaximumGap: {x: 0, y: 0, z: 0}
@@ -3909,7 +3921,7 @@ MonoBehaviour:
   NestWaitingPool: 1
   GameObjectToPool: {fileID: 7764764967498922748, guid: 26881105d19e76d4488f37602797e9e1,
     type: 3}
-  PoolSize: 16
+  PoolSize: 17
   PoolCanExpand: 1
 --- !u!4 &975139708
 Transform:
@@ -4546,6 +4558,7 @@ MonoBehaviour:
   Spawning: 1
   OnlySpawnWhileGameInProgress: 1
   InitialDelay: 0
+  fixedUpdateMode: 0
   GapOrigin: 0
   MinimumGap: {x: 5, y: 0, z: 0}
   MaximumGap: {x: 5, y: 0, z: 0}
@@ -4929,6 +4942,7 @@ MonoBehaviour:
   Spawning: 0
   OnlySpawnWhileGameInProgress: 1
   InitialDelay: 0
+  fixedUpdateMode: 0
   GapOrigin: 0
   MinimumGap: {x: 17, y: 1, z: 1}
   MaximumGap: {x: 17, y: 1, z: 1}
@@ -5116,6 +5130,7 @@ MonoBehaviour:
   Spawning: 0
   OnlySpawnWhileGameInProgress: 1
   InitialDelay: 0
+  fixedUpdateMode: 0
   GapOrigin: 0
   MinimumGap: {x: 25, y: 1, z: 1}
   MaximumGap: {x: 25, y: 1, z: 1}
@@ -5343,6 +5358,7 @@ MonoBehaviour:
   Spawning: 1
   OnlySpawnWhileGameInProgress: 1
   InitialDelay: 0
+  fixedUpdateMode: 0
   GapOrigin: 0
   MinimumGap: {x: 5, y: 1, z: 1}
   MaximumGap: {x: 5, y: 1, z: 1}
@@ -6099,7 +6115,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1664456757}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.54, z: 69.7}
+  m_LocalPosition: {x: 0, y: 0.54, z: 75}
   m_LocalScale: {x: 4.406565, y: 1, z: 15}
   m_Children: []
   m_Father: {fileID: 0}
@@ -6313,6 +6329,7 @@ MonoBehaviour:
   Spawning: 1
   OnlySpawnWhileGameInProgress: 1
   InitialDelay: 0
+  fixedUpdateMode: 0
   GapOrigin: 0
   MinimumGap: {x: 2, y: 2, z: 2}
   MaximumGap: {x: 2, y: 2, z: 2}
@@ -6601,6 +6618,7 @@ MonoBehaviour:
   Spawning: 0
   OnlySpawnWhileGameInProgress: 1
   InitialDelay: 0
+  fixedUpdateMode: 0
   GapOrigin: 0
   MinimumGap: {x: 2, y: 2, z: 2}
   MaximumGap: {x: 2, y: 2, z: 2}
@@ -6705,6 +6723,7 @@ MonoBehaviour:
   Spawning: 1
   OnlySpawnWhileGameInProgress: 1
   InitialDelay: 0
+  fixedUpdateMode: 0
   GapOrigin: 0
   MinimumGap: {x: 5, y: 1, z: 1}
   MaximumGap: {x: 5, y: 1, z: 1}
@@ -6800,6 +6819,7 @@ MonoBehaviour:
   Spawning: 0
   OnlySpawnWhileGameInProgress: 1
   InitialDelay: 0
+  fixedUpdateMode: 0
   GapOrigin: 0
   MinimumGap: {x: 15, y: 1, z: 1}
   MaximumGap: {x: 20, y: 1, z: 1}
@@ -6952,6 +6972,7 @@ MonoBehaviour:
   Spawning: 0
   OnlySpawnWhileGameInProgress: 1
   InitialDelay: 0
+  fixedUpdateMode: 0
   GapOrigin: 0
   MinimumGap: {x: 25, y: 1, z: 1}
   MaximumGap: {x: 25, y: 1, z: 1}

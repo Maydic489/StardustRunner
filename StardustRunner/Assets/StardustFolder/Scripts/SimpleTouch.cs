@@ -119,8 +119,6 @@ namespace MoreMountains.InfiniteRunnerEngine
 
                 //normalize the 2d vector
                 currentSwipe.Normalize();
-                Debug.Log("X " + currentSwipe.x);
-                Debug.Log("Y " + currentSwipe.y);
 
                 if (Vector2.Distance(firstPressPos, secondPressPos) > 30 && !triggerInput_1)
                 {
