@@ -195,10 +195,10 @@ namespace MoreMountains.InfiniteRunnerEngine
 				GetComponent<CapsuleCollider>().enabled = false;
 				pivotAnim.Play("Anim_Slide");
 
-				if(transform.position.y <0.5f)
+				if(transform.position.y <0.5f) //make sure is on ground
                 {
-					var emission = slideEffect.emission;
-					emission.enabled = true;
+					//var emission = slideEffect.emission;
+					//emission.enabled = true;
 				}
 			}
 		}
