@@ -97,6 +97,7 @@ GameObject:
   - component: {fileID: 3939897683315348559}
   - component: {fileID: 3933434354329480594}
   - component: {fileID: 1880079355302393578}
+  - component: {fileID: -5687285071209464305}
   m_Layer: 0
   m_Name: Powerup_Invul
   m_TagString: Item
@@ -273,3 +274,15 @@ MonoBehaviour:
   invulDuration: 6
   SpeedFactor: 2
   EffectDuration: 5
+--- !u!114 &-5687285071209464305
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6100370548043138150}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2722819bb64326141b1074149b50ce98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

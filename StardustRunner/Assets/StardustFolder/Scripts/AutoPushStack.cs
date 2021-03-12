@@ -50,6 +50,10 @@ namespace MoreMountains.InfiniteRunnerEngine
                     isBlow = true;
                 }
             }
+            else if (this.gameObject.tag == "Item")
+            {
+                this.transform.position += Vector3.up * 0.1f;
+            }
         }
 
         private void OnDisable()

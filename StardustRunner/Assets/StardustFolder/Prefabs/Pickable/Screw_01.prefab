@@ -96,6 +96,7 @@ GameObject:
   - component: {fileID: 8152848901444987206}
   - component: {fileID: 6855326356612610319}
   - component: {fileID: 5031378894293276759}
+  - component: {fileID: -6696218917845401084}
   m_Layer: 0
   m_Name: Screw_01
   m_TagString: Item
@@ -1325,3 +1326,15 @@ MonoBehaviour:
   PickSoundFx: {fileID: 0}
   DestroyMode: 0
   PointsToAdd: 10
+--- !u!114 &-6696218917845401084
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6634715899501544287}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2722819bb64326141b1074149b50ce98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
