@@ -9,7 +9,7 @@ namespace MoreMountains.InfiniteRunnerEngine
         private bool isDone;
         void Update()
         {
-            if (this.transform.position.z <= (LevelManager.Instance.Speed)/6.5f && !isDone)
+            if (this.transform.position.z <= (LevelManager.Instance.Speed)/1.5f && !isDone) //old value is 6.5f
             {
                 GetComponent<Animation>().Play("Spike");
                 isDone = true;
