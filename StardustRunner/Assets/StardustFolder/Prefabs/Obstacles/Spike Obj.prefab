@@ -157,7 +157,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3560b448e90ad744adfa1edfc429537, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  laneSize: 1
+  laneSize: 2
 --- !u!1001 &3516259923063785109
 PrefabInstance:
   m_ObjectHideFlags: 0
