@@ -102,6 +102,7 @@ namespace MoreMountains.InfiniteRunnerEngine
                     do
                     {
                         randomSet = UnityEngine.Random.Range(0, 5);
+                        if(currentScore < 10000 && randomSet == 2) { randomSet = 0; }
                     } while(randomSet == 0 || randomSet == 5);
                 }
                 print("change obstacle "+randomSet);
@@ -150,7 +151,7 @@ namespace MoreMountains.InfiniteRunnerEngine
             if (_scenario[2].StartScore > 5000)
                 _laneManager.GetComponent<LaneManager>().maxInLane = 2;
 
-            _scenario[2].StartScore += 600;
+            _scenario[2].StartScore += 1000;
 
             if(_laneManager.transform.localScale.z > 6)
                 _laneManager.transform.localScale -= Vector3.forward;
