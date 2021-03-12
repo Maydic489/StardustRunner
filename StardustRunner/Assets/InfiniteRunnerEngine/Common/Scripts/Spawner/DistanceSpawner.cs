@@ -11,7 +11,10 @@ namespace MoreMountains.InfiniteRunnerEngine
 	/// </summary>
 	public class DistanceSpawner : Spawner 
 	{
-		public enum GapOrigins { Spawner, LastSpawnedObject } 
+		public enum GapOrigins { Spawner, LastSpawnedObject }
+
+		[SerializeField]
+		private bool fixedUpdateMode;
 
 		[Header("Gap between objects")]
 		/// is the gap related to the last object or the spawner ?
@@ -55,13 +58,20 @@ namespace MoreMountains.InfiniteRunnerEngine
 	    /// </summary>
 	    protected virtual void Update () 
 		{
-			CheckSpawn();
+			if(!fixedUpdateMode)
+				CheckSpawn();
 		}
 
-		/// <summary>
-		/// Checks if the conditions for a new spawn are met, and if so, triggers the spawn of a new object
-		/// </summary>
-		protected virtual void CheckSpawn()
+		protected virtual void FixedUpdate()
+        {
+			if (fixedUpdateMode)
+				CheckSpawn();
+		}
+
+        /// <summary>
+        /// Checks if the conditions for a new spawn are met, and if so, triggers the spawn of a new object
+        /// </summary>
+        protected virtual void CheckSpawn()
 		{
 			// if we've set our distance spawner to only spawn when the game's in progress :
 	        if (OnlySpawnWhileGameInProgress)

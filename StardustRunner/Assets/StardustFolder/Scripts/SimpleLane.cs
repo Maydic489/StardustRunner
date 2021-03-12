@@ -477,7 +477,7 @@ namespace MoreMountains.InfiniteRunnerEngine
 			{
 				isSlide = false;
 				GetComponent<CapsuleCollider>().enabled = true;
-				var emission = slideEffect.emission;
+				var emission = slideEffect.emission; //not really need this, disable in animation anyway
 				emission.enabled = false;
 			}
 
@@ -499,7 +499,7 @@ namespace MoreMountains.InfiniteRunnerEngine
 		private void ResetStaticBool()
         {
 			isDead = false;
-			isInvul = true;
+			isInvul = false;
 			isBoost = false;
 			isSpeed = false;
 			isProtect = false;
