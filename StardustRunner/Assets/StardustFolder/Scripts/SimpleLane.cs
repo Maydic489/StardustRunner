@@ -263,6 +263,9 @@ namespace MoreMountains.InfiniteRunnerEngine
 				pivotAnim["Anim_Superman"].weight = 0.4f;
 				Camera.main.GetComponent<CameraShake>().shakeDuration = 0.5f;
 
+				if (GameManager.Instance.CurrentHelmets == 3)
+					GameManager.Instance.LoseHelmets(1);
+
 				for (int i = 0; i < boostEffect.Count; i++)
 				{
 					var emission = boostEffect[i].emission;

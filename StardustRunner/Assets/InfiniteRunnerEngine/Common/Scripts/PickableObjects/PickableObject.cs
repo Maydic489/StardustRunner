@@ -14,12 +14,18 @@ namespace MoreMountains.InfiniteRunnerEngine
 		/// The sound effect to play when the coin is hit
 		public AudioClip PickSoundFx;
 		public bool DestroyMode;
+		private bool isPick;
 
-		/// <summary>
-		/// Handles the collision if we're in 2D mode
-		/// </summary>
-		/// <param name="other">the Collider2D that collides with our object</param>
-	    protected virtual void OnTriggerEnter2D (Collider2D other)
+        private void OnEnable()
+        {
+			isPick = false;
+        }
+
+        /// <summary>
+        /// Handles the collision if we're in 2D mode
+        /// </summary>
+        /// <param name="other">the Collider2D that collides with our object</param>
+        protected virtual void OnTriggerEnter2D (Collider2D other)
 		{
 			TriggerEnter (other.gameObject);
 		}
@@ -30,9 +36,9 @@ namespace MoreMountains.InfiniteRunnerEngine
 		/// <param name="other">the Collider that collides with our object</param>
 	    protected virtual void OnTriggerEnter (Collider other)
 		{
-			if (other.gameObject.tag != "Player") return;
+			if (other.gameObject.tag != "Player" && isPick) return;
 			//only check boxcollider because player character has two colliders
-			if (other.GetType() == typeof(BoxCollider))
+			//if (other.GetType() == typeof(Collider))
 				TriggerEnter (other.gameObject);
 		}	
 		
@@ -59,7 +65,11 @@ namespace MoreMountains.InfiniteRunnerEngine
 				SoundManager.Instance.PlaySound(PickSoundFx,transform.position);	
 			}
 
-			ObjectPicked();
+			if (!isPick)
+			{
+				ObjectPicked();
+				isPick = true;
+			}
 			// we desactivate the gameobject
 			if (!DestroyMode)
 				gameObject.SetActive(false);

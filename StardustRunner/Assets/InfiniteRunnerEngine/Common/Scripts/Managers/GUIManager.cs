@@ -118,6 +118,9 @@ namespace MoreMountains.InfiniteRunnerEngine
 				GameObject helmet = (GameObject)Instantiate(Resources.Load(resourceURL));
 				helmet.transform.SetParent(HelmetsContainer.transform, false);
 				helmet.GetComponent<RectTransform>().localPosition = new Vector3(HelmetsContainer.GetComponent<RectTransform>().sizeDelta.x / 2 - i * (helmet.GetComponent<RectTransform>().sizeDelta.x * 75f), 0, 0);
+				if (i == GameManager.Instance.TotalHelmets - 1)
+					helmet.GetComponent<RectTransform>().localScale = new Vector3(70, 70, 70);
+
 				deadHelmets++;
 			}
 		}
