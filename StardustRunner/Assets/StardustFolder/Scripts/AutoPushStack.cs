@@ -50,7 +50,7 @@ namespace MoreMountains.InfiniteRunnerEngine
                     isBlow = true;
                 }
             }
-            else if (this.gameObject.tag == "Item")
+            else if (collidingObject.CompareTag("Ramp") && this.CompareTag("Item"))
             {
                 this.transform.position += Vector3.up * 0.1f;
             }
