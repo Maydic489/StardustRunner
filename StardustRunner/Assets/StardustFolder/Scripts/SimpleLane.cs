@@ -24,6 +24,7 @@ namespace MoreMountains.InfiniteRunnerEngine
 		public GameObject crashEffect;
 		public List<ParticleSystem> boostEffect;
 		public ParticleSystem slideEffect;
+		public AudioSource engineMidSFX;
 		public float MoveSpeed = 5f;
 		public static float turnSpeedMultiply = 1;
 		private float slowSpeed = 0.1f;
