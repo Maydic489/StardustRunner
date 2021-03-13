@@ -28,7 +28,9 @@ namespace MoreMountains.InfiniteRunnerEngine
 		public Text CountdownText;
 		/// the screen used for all fades
 		public Image Fader;
-						
+
+		private Animation pointsAnim;
+
 		/// <summary>
 		/// Initialization
 		/// </summary>
@@ -43,7 +45,10 @@ namespace MoreMountains.InfiniteRunnerEngine
 	        {
 				CountdownText.enabled=false;
 			}
-	    }
+
+			pointsAnim = PointsText.GetComponent<Animation>();
+
+		}
 
 		/// <summary>
 		/// Initializes the lives display.
@@ -188,6 +193,14 @@ namespace MoreMountains.InfiniteRunnerEngine
 				return;
 
 			PointsText.text=GameManager.Instance.Points.ToString("0");	
+		}
+
+		public virtual void PointExpand()
+        {
+			if (pointsAnim.IsPlaying("Points_expand"))
+				pointsAnim.Stop();
+
+			pointsAnim.Play("Points_expand");
 		}
 
 		public virtual void RefreshFuel()

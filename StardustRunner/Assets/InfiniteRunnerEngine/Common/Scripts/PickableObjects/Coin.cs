@@ -16,7 +16,7 @@ namespace MoreMountains.InfiniteRunnerEngine
 		{		
 			// We pass the specified amount of points to the game manager
 			GameManager.Instance.AddPoints(PointsToAdd);
-
+			GUIManager.Instance.PointExpand();
 		}
 		
 	}
