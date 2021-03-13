@@ -2,45 +2,50 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ShadowScript : MonoBehaviour
+namespace MoreMountains.InfiniteRunnerEngine
 {
-    private bool inAir;
-    public GameObject shockwaveFX;
-
-    private void OnTriggerEnter(Collider other)
+    public class ShadowScript : MonoBehaviour
     {
-        TriggerEnter(other.gameObject);
-    }
+        private bool inAir;
+        public GameObject shockwaveFX;
+        public AudioClip smackSFX;
 
-    protected virtual void TriggerEnter(GameObject collidingObject)
-    {
-        if(collidingObject.tag == "Road" && inAir)
+        private void OnTriggerEnter(Collider other)
         {
-            this.gameObject.GetComponent<MeshRenderer>().enabled = true;
-
-            Instantiate(shockwaveFX, this.transform.position, shockwaveFX.transform.rotation, this.transform);
-
-            if (Camera.main.GetComponent<CameraShake>() != null)
-            {
-                Camera.main.GetComponent<CameraShake>().isShake = true;
-                Camera.main.GetComponent<CameraShake>().shakeDuration = 0.2f;
-            }
-            
-            inAir = false;
+            TriggerEnter(other.gameObject);
         }
-    }
 
-    private void OnTriggerExit(Collider other)
-    {
-        TriggerExit(other.gameObject);
-    }
-
-    protected virtual void TriggerExit(GameObject collidingObject)
-    {
-        if (collidingObject.tag == "Ramp")
+        protected virtual void TriggerEnter(GameObject collidingObject)
         {
-            this.gameObject.GetComponent<MeshRenderer>().enabled = false;
-            inAir = true;
+            if (collidingObject.tag == "Road" && inAir)
+            {
+                this.gameObject.GetComponent<MeshRenderer>().enabled = true;
+
+                Instantiate(shockwaveFX, this.transform.position, shockwaveFX.transform.rotation, this.transform);
+
+                if (Camera.main.GetComponent<CameraShake>() != null)
+                {
+                    Camera.main.GetComponent<CameraShake>().isShake = true;
+                    Camera.main.GetComponent<CameraShake>().shakeDuration = 0.2f;
+                }
+
+                SoundManager.Instance.PlaySound(smackSFX, transform.position);
+                inAir = false;
+            }
+        }
+
+        private void OnTriggerExit(Collider other)
+        {
+            TriggerExit(other.gameObject);
+        }
+
+        protected virtual void TriggerExit(GameObject collidingObject)
+        {
+            if (collidingObject.tag == "Ramp")
+            {
+                this.gameObject.GetComponent<MeshRenderer>().enabled = false;
+                inAir = true;
+            }
         }
     }
 }

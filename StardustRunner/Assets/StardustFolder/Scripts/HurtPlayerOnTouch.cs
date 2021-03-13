@@ -18,9 +18,11 @@ namespace MoreMountains.InfiniteRunnerEngine
 		public GameObject breakablePart;
 		public GameObject breakableCopy;
 		public GameObject crashEffect;
+		public AudioClip breakSFX;
 
 		private void OnEnable()
 		{
+			isHit = false;
 			if (!DontAutoCheckLane)
 				Invoke("CheckLane", 1);
 
@@ -142,6 +144,9 @@ namespace MoreMountains.InfiniteRunnerEngine
 			{
 				Instantiate(crashEffect, this.transform.position+Vector3.up*0.5f, crashEffect.transform.rotation,this.transform);
 			}
+
+			if(breakSFX != null)
+				SoundManager.Instance.PlaySound(breakSFX, transform.position);
 
 			Invoke("CountDownDestroy", 5);
 			isBreak = true;

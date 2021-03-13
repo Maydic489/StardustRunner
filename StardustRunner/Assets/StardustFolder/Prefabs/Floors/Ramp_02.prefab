@@ -189,6 +189,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87a053af0e464924988d123f4e3c104d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  jumpSFX: {fileID: 8300000, guid: 58a4a1ef778ba1b4f8380264ab030742, type: 3}
   isJump: 0
 --- !u!114 &3659499568897880314
 MonoBehaviour:

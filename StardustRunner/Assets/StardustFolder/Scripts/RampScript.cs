@@ -6,6 +6,7 @@ namespace MoreMountains.InfiniteRunnerEngine
 {
 	public class RampScript : MonoBehaviour
 	{
+		public AudioClip jumpSFX;
 		public bool isJump;
 
         private void OnEnable()
@@ -37,6 +38,9 @@ namespace MoreMountains.InfiniteRunnerEngine
 				LevelManager.Instance.TemporarilyMultiplySpeed(1.5f, 0.5f, "ramp");
 				collidingObject.GetComponent<Rigidbody>().AddForce(new Vector3(0, 18, 0), ForceMode.Impulse);
 			}
+
+			if(jumpSFX != null)
+				SoundManager.Instance.PlaySound(jumpSFX, transform.position);
 		}
 	}
 }

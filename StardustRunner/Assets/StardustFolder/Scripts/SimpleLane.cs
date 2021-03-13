@@ -24,7 +24,16 @@ namespace MoreMountains.InfiniteRunnerEngine
 		public GameObject crashEffect;
 		public List<ParticleSystem> boostEffect;
 		public ParticleSystem slideEffect;
-		public AudioSource engineMidSFX;
+
+		public AudioSource engineSFX;
+		private AudioClip engineNormal;
+		public AudioClip engineBoostSFX;
+		public AudioClip engineScreech;
+		public AudioClip engineWhoosh;
+		public AudioClip engineIdle;
+		public AudioClip engineExplode;
+		public AudioClip bumpSFX;
+
 		public float MoveSpeed = 5f;
 		public static float turnSpeedMultiply = 1;
 		private float slowSpeed = 0.1f;
@@ -54,6 +63,7 @@ namespace MoreMountains.InfiniteRunnerEngine
 			s_BlinkingValueHash = Shader.PropertyToID("_BlinkingValue");
 			pivotAnim = groundPivot.GetComponent<Animation>();
 			Shader.SetGlobalFloat(s_BlinkingValueHash, 0.0f);
+			engineNormal = engineSFX.clip;
 			ResetStaticBool();
 		}
 
@@ -161,12 +171,16 @@ namespace MoreMountains.InfiniteRunnerEngine
                 slideDirection = 0f;
                 if (!isSlide && !isWheelie && animationOn)
                     PlayTurnAnim("Left");
-            }
+				SoundManager.Instance.PlaySound(engineWhoosh, transform.position);
+			}
             else
             {
                 slideDirection = -1.6f;
-                if (!isSlide && !isWheelie && whatLane != 'l' && animationOn)
-                    PlayTurnAnim("Left");
+				if (!isSlide && !isWheelie && whatLane != 'l' && animationOn)
+				{
+					PlayTurnAnim("Left");
+					SoundManager.Instance.PlaySound(engineWhoosh, transform.position);
+				}
             }
 		}
 
@@ -179,12 +193,16 @@ namespace MoreMountains.InfiniteRunnerEngine
 				slideDirection = 0f;
                 if (!isSlide && !isWheelie && animationOn)
                     PlayTurnAnim("Right");
-            }
+				SoundManager.Instance.PlaySound(engineWhoosh, transform.position);
+			}
 			else
 			{
 				slideDirection = 1.6f;
-                if (!isSlide && !isWheelie && whatLane != 'r' && animationOn)
-                    PlayTurnAnim("Right");
+				if (!isSlide && !isWheelie && whatLane != 'r' && animationOn)
+				{
+					PlayTurnAnim("Right");
+					SoundManager.Instance.PlaySound(engineWhoosh, transform.position);
+				}
             }
 		}
 
@@ -195,6 +213,8 @@ namespace MoreMountains.InfiniteRunnerEngine
 				isSlide = true;
 				GetComponent<CapsuleCollider>().enabled = false;
 				pivotAnim.Play("Anim_Slide");
+
+				SoundManager.Instance.PlaySound(engineScreech,transform.position);
 
 				if(transform.position.y <0.5f) //make sure is on ground
                 {
@@ -216,6 +236,8 @@ namespace MoreMountains.InfiniteRunnerEngine
 				var emission = boostEffect[3].emission;
 				emission.enabled = true;
 				Invoke("StopWindFX", 0.5f);
+
+				ChangeEngineSFX(engineBoostSFX);
 
 				LevelManager.Instance.TemporarilyMultiplySpeed(1.5f, 0.5f, "wheelie");
 			}
@@ -347,6 +369,8 @@ namespace MoreMountains.InfiniteRunnerEngine
 					isProtect = state;
 					helmetModel.SetActive(state);
 				}
+
+				SoundManager.Instance.PlaySound(bumpSFX, transform.position);
 			}
 			else
 			{
@@ -416,6 +440,9 @@ namespace MoreMountains.InfiniteRunnerEngine
 
 		public override void Die()
 		{
+			SoundManager.Instance.PlaySound(engineExplode, transform.position);
+			ChangeEngineSFX(engineIdle);
+
 			Camera.main.GetComponent<CameraShake>().isShake = true;
 			isDead = true;
 			pivotAnim.Stop();
@@ -461,6 +488,8 @@ namespace MoreMountains.InfiniteRunnerEngine
 				else
 					LeftStart();
 			}
+
+			SoundManager.Instance.PlaySound(bumpSFX, transform.position);
 		}
 
 		public bool IsBetween(float testValue, float min, float max)
@@ -491,7 +520,16 @@ namespace MoreMountains.InfiniteRunnerEngine
 				isSpeed = false;
 				var emission = boostEffect[3].emission;
 				emission.enabled = false;
+
+				ChangeEngineSFX(engineNormal);
 			}
+		}
+
+		private void ChangeEngineSFX(AudioClip newAudio)
+        {
+			engineSFX.Stop();
+			engineSFX.clip = newAudio;
+			engineSFX.Play();
 		}
 
 		private void StopWindFX()

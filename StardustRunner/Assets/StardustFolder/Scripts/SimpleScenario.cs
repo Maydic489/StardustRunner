@@ -19,7 +19,7 @@ namespace MoreMountains.InfiniteRunnerEngine
         private bool swap1;
         private bool swap2;
         private static float sideRoadPoint = 500;
-        private static float obstaclePoint = 5000;
+        private static float obstaclePoint = 3500;
         private static float difficultPoint = 600;
         private float timePass;
         public int randomSet = 1;

@@ -1031,6 +1031,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shockwaveFX: {fileID: 2736062456351020976, guid: f521bf4edc789ac4dbb232741edd7852,
     type: 3}
+  smackSFX: {fileID: 8300000, guid: 3a5b5571183a22e48809301ba16c0dcc, type: 3}
 --- !u!114 &241759553692457036
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1177,7 +1178,13 @@ MonoBehaviour:
   - {fileID: 8551592885729410910}
   - {fileID: 2827173972726069510}
   slideEffect: {fileID: 4231296242968076697}
-  engineMidSFX: {fileID: 8300000, guid: 820295a8d885c4240b8cc7be23b8c87c, type: 3}
+  engineSFX: {fileID: -5412763349398659217}
+  engineBoostSFX: {fileID: 8300000, guid: 3947e71e3384d82489e3425df75415fc, type: 3}
+  engineScreech: {fileID: 8300000, guid: f300b625f1f5aef4da52212052db71d7, type: 3}
+  engineWhoosh: {fileID: 8300000, guid: 8208e8d28788f7c46bd8d567eb9e11a2, type: 3}
+  engineIdle: {fileID: 8300000, guid: 6aee35fed60c10949995ce4e430c1401, type: 3}
+  engineExplode: {fileID: 8300000, guid: f455fc4be489fa141bca7f2b73928faf, type: 3}
+  bumpSFX: {fileID: 8300000, guid: feb8ffa3028a029458ec18c5db1367db, type: 3}
   MoveSpeed: 5
   mainCamera: {fileID: 0}
   slideDirection: 0
