@@ -1323,7 +1323,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PickEffect: {fileID: 100000, guid: 246a7780ed1858142b83dae1c54f80ed, type: 3}
-  PickSoundFx: {fileID: 0}
+  PickSoundFx: {fileID: 8300000, guid: 01ea8bf43556f58439f93f040f2e4556, type: 3}
   DestroyMode: 0
   PointsToAdd: 10
 --- !u!114 &-6696218917845401084
