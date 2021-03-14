@@ -141,7 +141,10 @@ namespace MoreMountains.InfiniteRunnerEngine
 			{
 				if ((GameManager.Instance.Status == GameStatus.GameInProgress) && (_fuelPerSecond != 0) && FuelPoints > 0 && !SimpleLane.isInvul)
 				{
-					AddFuel(_fuelPerSecond / (10-(FuelPoints/70)));
+					if(!SimpleLane.isWheelie)
+						AddFuel(_fuelPerSecond / (10-(FuelPoints/70)));
+					else
+						AddFuel((2*_fuelPerSecond) / (10 - (FuelPoints / 70)));
 				}
 				yield return new WaitForSeconds(0.01f);
 			}

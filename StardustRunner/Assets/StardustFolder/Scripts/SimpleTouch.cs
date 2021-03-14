@@ -148,21 +148,22 @@ namespace MoreMountains.InfiniteRunnerEngine
                     }
                 }
 
-                if (Vector2.Distance(firstPressPos, secondPressPos) > 200 && triggerInput_1 && !triggerInput_2)
-                {
-                    //swipe left
-                    if (currentSwipe.x < 0 && currentSwipe.y > -0.5f && currentSwipe.y < 0.5f)
-                    {
-                        InputManager.Instance.LeftButtonDown();
-                        triggerInput_2 = true;
-                    }
-                    //swipe right
-                    if (currentSwipe.x > 0 && currentSwipe.y > -0.5f && currentSwipe.y < 0.5f)
-                    {
-                        InputManager.Instance.RightButtonDown();
-                        triggerInput_2 = true;
-                    }
-                }
+                //long swipe for two lane 
+                //if (Vector2.Distance(firstPressPos, secondPressPos) > 200 && triggerInput_1 && !triggerInput_2)
+                //{
+                //    //swipe left
+                //    if (currentSwipe.x < 0 && currentSwipe.y > -0.5f && currentSwipe.y < 0.5f)
+                //    {
+                //        InputManager.Instance.LeftButtonDown();
+                //        triggerInput_2 = true;
+                //    }
+                //    //swipe right
+                //    if (currentSwipe.x > 0 && currentSwipe.y > -0.5f && currentSwipe.y < 0.5f)
+                //    {
+                //        InputManager.Instance.RightButtonDown();
+                //        triggerInput_2 = true;
+                //    }
+                //}
             }
             if (Input.GetMouseButtonUp(0))
             {

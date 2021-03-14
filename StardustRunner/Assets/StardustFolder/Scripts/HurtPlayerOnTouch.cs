@@ -13,6 +13,7 @@ namespace MoreMountains.InfiniteRunnerEngine
 		public bool isWeak;
 		public char whatLane;
         private bool isBreak;
+		[SerializeField]
 		private bool isHit;
 		public List<GameObject> showModel;
 		public GameObject breakablePart;
