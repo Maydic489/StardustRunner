@@ -289,10 +289,25 @@ namespace MoreMountains.InfiniteRunnerEngine
 			}		
 		}
 
-	    /// <summary>
-	    /// Unpauses the game
-	    /// </summary>
-	    public virtual void UnPause()
+		public virtual void PauseGeneric()
+		{
+			// if time is not already stopped		
+			if (Time.timeScale > 0.0f)
+			{
+				Instance.SetTimeScale(0.0f);
+				_statusBeforePause = Instance.Status;
+				Instance.SetStatus(GameStatus.Paused);
+			}
+			else
+			{
+				UnPause();
+			}
+		}
+
+		/// <summary>
+		/// Unpauses the game
+		/// </summary>
+		public virtual void UnPause()
 	    {
 	        Instance.ResetTimeScale();
 			Instance.SetStatus(_statusBeforePause);

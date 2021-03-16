@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using MoreMountains.Tools;
 
-
 namespace MoreMountains.InfiniteRunnerEngine
 {
-    public class SimpleTouch : MMSingleton<SimpleTouch>
+    public class TutorialTouch : MMSingleton<TutorialTouch>
     {
+        [SerializeField]
+        private string tutorialType;
         protected Vector2 firstPressPos;
         protected Vector2 secondPressPos;
         protected Vector2 currentSwipe;
@@ -22,86 +23,6 @@ namespace MoreMountains.InfiniteRunnerEngine
             //Swipe();
             MouseSwipe();
         }
-
-        public void Swipe()
-        {
-            if (Input.touches.Length > 0)
-            {
-                Touch t = Input.GetTouch(0);
-                if (t.phase == TouchPhase.Began)
-                {
-                    touchDown = true;
-                    //save began touch 2d point
-                    firstPressPos = new Vector2(t.position.x, t.position.y);
-                }
-                if(touchDown)
-                {
-                    //save ended touch 2d point
-                    secondPressPos = new Vector2(t.position.x, t.position.y);
-
-                    //create vector from the two points
-                    currentSwipe = new Vector3(secondPressPos.x - firstPressPos.x, secondPressPos.y - firstPressPos.y);
-
-                    //normalize the 2d vector
-                    currentSwipe.Normalize();
-
-                    //swipe upwards
-                    if (currentSwipe.y > 0 && currentSwipe.x > -0.5f && currentSwipe.x < 0.5f)
-                    {
-                        Debug.Log("up swipe");
-                    }
-                    //swipe down
-                    if (currentSwipe.y < 0 && currentSwipe.x > -0.5f && currentSwipe.x < 0.5f)
-                    {
-                        Debug.Log("down swipe");
-                    }
-                    //swipe left
-                    if (currentSwipe.x < 0 && currentSwipe.y > -0.5f && currentSwipe.y < 0.5f)
-                    {
-                        Debug.Log("left swipe");
-                    }
-                    //swipe right
-                    if (currentSwipe.x > 0 && currentSwipe.y > -0.5f && currentSwipe.y < 0.5f)
-                    {
-                        Debug.Log("right swipe");
-                    }
-                }
-                if (t.phase == TouchPhase.Ended)
-                {
-                    touchDown = false;
-                //    //save ended touch 2d point
-                //    secondPressPos = new Vector2(t.position.x, t.position.y);
-
-                //    //create vector from the two points
-                //    currentSwipe = new Vector3(secondPressPos.x - firstPressPos.x, secondPressPos.y - firstPressPos.y);
-
-                //    //normalize the 2d vector
-                //    currentSwipe.Normalize();
-
-                //    //swipe upwards
-                //    if (currentSwipe.y > 0 && currentSwipe.x > -0.5f && currentSwipe.x < 0.5f)
-                //    {
-                //        Debug.Log("up swipe");
-                //    }
-                //    //swipe down
-                //    if (currentSwipe.y < 0 && currentSwipe.x > -0.5f && currentSwipe.x < 0.5f)
-                //    {
-                //        Debug.Log("down swipe");
-                //    }
-                //    //swipe left
-                //    if (currentSwipe.x < 0 && currentSwipe.y > -0.5f && currentSwipe.y < 0.5f)
-                //    {
-                //        Debug.Log("left swipe");
-                //    }
-                //    //swipe right
-                //    if (currentSwipe.x > 0 && currentSwipe.y > -0.5f && currentSwipe.y < 0.5f)
-                //    {
-                //        Debug.Log("right swipe");
-                //    }
-                }
-            }
-        }
-
         protected virtual void MouseSwipe()
         {
             if (Input.GetMouseButtonDown(0))
@@ -110,7 +31,7 @@ namespace MoreMountains.InfiniteRunnerEngine
                 //save began touch 2d point
                 firstPressPos = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
             }
-            if(touchDown)
+            if (touchDown)
             {
                 //save ended touch 2d point
                 secondPressPos = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
@@ -124,28 +45,53 @@ namespace MoreMountains.InfiniteRunnerEngine
                 if (Vector2.Distance(firstPressPos, secondPressPos) > 30 && !triggerInput_1)
                 {
                     //swipe upwards
-                    if (currentSwipe.y > 0 && currentSwipe.x > -0.4f && currentSwipe.x < 0.4f)
+                    if (currentSwipe.y > 0 && currentSwipe.x > -0.4f && currentSwipe.x < 0.4f && (tutorialType == "up" || tutorialType == ""))
                     {
+                        Debug.Log("UP "+this.name);
                         InputManager.Instance.UpButtonDown();
                         triggerInput_1 = true;
+
+                        if (tutorialType != "")
+                        {
+                            tutorialType = "";
+                            GameManager.Instance.PauseGeneric();
+                        }
                     }
                     //swipe down
-                    if (currentSwipe.y < 0 && currentSwipe.x > -0.4f && currentSwipe.x < 0.4f)
+                    if (currentSwipe.y < 0 && currentSwipe.x > -0.4f && currentSwipe.x < 0.4f && (tutorialType == "down" || tutorialType == ""))
                     {
                         InputManager.Instance.DownButtonDown();
                         triggerInput_1 = true;
+
+                        if (tutorialType != "")
+                        {
+                            tutorialType = "";
+                            GameManager.Instance.PauseGeneric();
+                        }
                     }
                     //swipe left
-                    if (currentSwipe.x < 0 && currentSwipe.y > -0.85f && currentSwipe.y < 0.85f)
+                    if (currentSwipe.x < 0 && currentSwipe.y > -0.85f && currentSwipe.y < 0.85f && (tutorialType == "turn" || tutorialType == ""))
                     {
                         InputManager.Instance.LeftButtonDown();
                         triggerInput_1 = true;
+
+                        if (tutorialType != "")
+                        {
+                            tutorialType = "";
+                            GameManager.Instance.PauseGeneric();
+                        }
                     }
                     //swipe right
-                    if (currentSwipe.x > 0 && currentSwipe.y > -0.85f && currentSwipe.y < 0.85f)
+                    if (currentSwipe.x > 0 && currentSwipe.y > -0.85f && currentSwipe.y < 0.85f && (tutorialType == "turn" || tutorialType == ""))
                     {
                         InputManager.Instance.RightButtonDown();
                         triggerInput_1 = true;
+
+                        if (tutorialType != "")
+                        {
+                            tutorialType = "";
+                            GameManager.Instance.PauseGeneric();
+                        }
                     }
                 }
 
@@ -181,10 +127,16 @@ namespace MoreMountains.InfiniteRunnerEngine
                 //currentSwipe.Normalize();
 
                 //swipe upwards
-                if (Vector2.Distance(firstPressPos, secondPressPos) < 10)
+                if (Vector2.Distance(firstPressPos, secondPressPos) < 10 && (tutorialType == "up" || tutorialType == ""))
                 {
                     InputManager.Instance.UpButtonDown();
                     //triggerInput = true;
+
+                    if (tutorialType != "")
+                    {
+                        tutorialType = "";
+                        GameManager.Instance.PauseGeneric();
+                    }
                 }
                 //    //swipe down
                 //    if (currentSwipe.y < 0 && currentSwipe.x > -0.5f && currentSwipe.x < 0.5f)
@@ -203,5 +155,11 @@ namespace MoreMountains.InfiniteRunnerEngine
                 //    }
             }
         }
+
+        public virtual void ChangeTutorialType(string type)
+        {
+            tutorialType = type;
+        }
+
     }
 }
