@@ -29,6 +29,8 @@ namespace MoreMountains.InfiniteRunnerEngine
 		/// the screen used for all fades
 		public Image Fader;
 
+		public List<Text> tutorialTexts;
+
 		private Animation pointsAnim;
 
 		/// <summary>
@@ -143,6 +145,11 @@ namespace MoreMountains.InfiniteRunnerEngine
 			PauseScreen.SetActive(state);
 			TurnSpeedNumber();
 	    }
+
+		public virtual void SetTutorial(string tutorialType)
+        {
+
+        }
 
 		public virtual void TurnSpeedNumber()
         {

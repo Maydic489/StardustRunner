@@ -23,8 +23,17 @@ namespace MoreMountains.InfiniteRunnerEngine
 			{
 				GameManager.Instance.PauseGeneric();
 				TutorialTouch.Instance.ChangeTutorialType(tutorialType);
+				tutorialText.SetActive(true);
 				isStop = true;
 			}
 		}
-	}
+
+        private void Update()
+        {
+            if(tutorialText.activeSelf && Time.timeScale != 0)
+            {
+				tutorialText.SetActive(false);
+            }
+        }
+    }
 }
