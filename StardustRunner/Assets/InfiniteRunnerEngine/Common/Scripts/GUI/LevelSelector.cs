@@ -17,7 +17,8 @@ namespace MoreMountains.InfiniteRunnerEngine
 		/// </summary>
 	    public virtual void GoToLevel()
 	    {
-	        LevelManager.Instance.GotoLevel(LevelName);
+			GameManager.Instance.ResetTimeScale();
+			LevelManager.Instance.GotoLevel(LevelName);
 	    }
 
 		/// <summary>

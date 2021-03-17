@@ -21,6 +21,7 @@ namespace MoreMountains.InfiniteRunnerEngine
 		public float Points { get; protected set; }
 		/// game fuel point
 		public float FuelPoints { get; set; }
+		public float starterFuelPoints = 100;
 		/// the current time scale
 		public float TimeScale = 1;
 	    /// the various states the game can be in
@@ -41,6 +42,8 @@ namespace MoreMountains.InfiniteRunnerEngine
 		protected Coroutine _autoIncrementCoroutine;
 		protected Coroutine _autoDecrementCoroutine;
 
+		protected bool isPopUp;
+
 		/// <summary>
 		/// Initialization
 		/// </summary>
@@ -48,7 +51,7 @@ namespace MoreMountains.InfiniteRunnerEngine
 		{
 			Application.targetFrameRate = 60;
 	        CurrentLives = TotalLives;
-			FuelPoints = 100;
+			FuelPoints = starterFuelPoints;
 	        _savedTimeScale = TimeScale;
 	        Time.timeScale = TimeScale;
 	        if (GUIManager.Instance!=null)
@@ -275,7 +278,7 @@ namespace MoreMountains.InfiniteRunnerEngine
 		public virtual void Pause()
 		{
 			// if time is not already stopped		
-			if (Time.timeScale>0.0f)
+			if (Time.timeScale>0.0f && !isPopUp)
 			{
 				Instance.SetTimeScale(0.0f);
 				_statusBeforePause=Instance.Status;
@@ -285,7 +288,8 @@ namespace MoreMountains.InfiniteRunnerEngine
 			}
 			else
 			{
-	            UnPause();	
+				if(!isPopUp)
+					UnPause();	
 			}		
 		}
 
@@ -294,12 +298,14 @@ namespace MoreMountains.InfiniteRunnerEngine
 			// if time is not already stopped		
 			if (Time.timeScale > 0.0f)
 			{
+				isPopUp = true;
 				Instance.SetTimeScale(0.0f);
 				_statusBeforePause = Instance.Status;
 				Instance.SetStatus(GameStatus.Paused);
 			}
 			else
 			{
+				isPopUp = false;
 				UnPause();
 			}
 		}

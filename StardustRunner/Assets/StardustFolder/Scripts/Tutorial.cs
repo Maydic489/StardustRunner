@@ -1,17 +1,27 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 namespace MoreMountains.InfiniteRunnerEngine
 {
 	public class Tutorial : MonoBehaviour
 	{
-		public GameObject tutorialText;
+		public GameObject tutorialPanel;
+		private TextMeshProUGUI tutorialPanelText;
 		[SerializeField]
 		private string tutorialType;
+		private Text tutorialText;
 		private bool isStop;
 
-		private void OnTriggerEnter(Collider other)
+        private void Start()
+        {
+			tutorialPanelText = tutorialPanel.GetComponentInChildren<TextMeshProUGUI>();
+			tutorialText = GetComponent<Text>();
+        }
+
+        private void OnTriggerEnter(Collider other)
 		{
 			if (other.gameObject.CompareTag("Player"))
 				TriggerEnter(other.gameObject);
@@ -21,19 +31,19 @@ namespace MoreMountains.InfiniteRunnerEngine
 		{
 			if (!isStop)
 			{
-				Debug.Log("first stop");
 				GameManager.Instance.PauseGeneric();
 				TutorialTouch.Instance.ChangeTutorialType(tutorialType);
-				tutorialText.SetActive(true);
+				tutorialPanelText.text = tutorialText.text;
+				tutorialPanel.SetActive(true);
 				isStop = true;
 			}
 		}
 
         private void Update()
         {
-            if(tutorialText.activeSelf && Time.timeScale != 0)
+            if(tutorialPanel.activeSelf && Time.timeScale != 0)
             {
-				tutorialText.SetActive(false);
+				tutorialPanel.SetActive(false);
             }
         }
     }
