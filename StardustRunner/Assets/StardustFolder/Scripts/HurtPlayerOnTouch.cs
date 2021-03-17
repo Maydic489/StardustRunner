@@ -11,7 +11,7 @@ namespace MoreMountains.InfiniteRunnerEngine
 		public bool isGround;
 		public bool isBreakable;
 		public bool isWeak;
-		public char whatLane;
+		public char whatLane; //l,m,r for one lane object, n for hurt object, k for kill object with no specific lane
         private bool isBreak;
 		[SerializeField]
 		private bool isHit;
@@ -58,7 +58,7 @@ namespace MoreMountains.InfiniteRunnerEngine
 				if (!SimpleLane.isProtect)
 				{
 					//check if do small damage instead of instant kill
-					if ((SimpleLane.whatLane != this.whatLane) || this.whatLane == 'n')
+					if (((SimpleLane.whatLane != this.whatLane) || this.whatLane == 'n') && this.whatLane != 'k')
 					{
 						if (GameManager.Instance.Status != GameManager.GameStatus.GameOver)
 						{

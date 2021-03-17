@@ -21,6 +21,7 @@ namespace MoreMountains.InfiniteRunnerEngine
 		{
 			if (!isStop)
 			{
+				Debug.Log("first stop");
 				GameManager.Instance.PauseGeneric();
 				TutorialTouch.Instance.ChangeTutorialType(tutorialType);
 				tutorialText.SetActive(true);

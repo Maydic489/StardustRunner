@@ -45,10 +45,10 @@ namespace MoreMountains.InfiniteRunnerEngine
                 if (Vector2.Distance(firstPressPos, secondPressPos) > 30 && !triggerInput_1)
                 {
                     //swipe upwards
-                    if (currentSwipe.y > 0 && currentSwipe.x > -0.4f && currentSwipe.x < 0.4f && (tutorialType == "up" || tutorialType == ""))
+                    if (currentSwipe.y > 0 && currentSwipe.x > -0.4f && currentSwipe.x < 0.4f && (tutorialType == "up" || tutorialType == "" || tutorialType == "tap"))
                     {
-                        Debug.Log("UP "+this.name);
-                        InputManager.Instance.UpButtonDown();
+                        if(tutorialType != "tap")
+                            InputManager.Instance.UpButtonDown();
                         triggerInput_1 = true;
 
                         if (tutorialType != "")
@@ -70,7 +70,7 @@ namespace MoreMountains.InfiniteRunnerEngine
                         }
                     }
                     //swipe left
-                    if (currentSwipe.x < 0 && currentSwipe.y > -0.85f && currentSwipe.y < 0.85f && (tutorialType == "turn" || tutorialType == ""))
+                    if (currentSwipe.x < 0 && currentSwipe.y > -0.85f && currentSwipe.y < 0.85f && (tutorialType == "turn" || tutorialType == "left" || tutorialType == ""))
                     {
                         InputManager.Instance.LeftButtonDown();
                         triggerInput_1 = true;
@@ -82,7 +82,7 @@ namespace MoreMountains.InfiniteRunnerEngine
                         }
                     }
                     //swipe right
-                    if (currentSwipe.x > 0 && currentSwipe.y > -0.85f && currentSwipe.y < 0.85f && (tutorialType == "turn" || tutorialType == ""))
+                    if (currentSwipe.x > 0 && currentSwipe.y > -0.85f && currentSwipe.y < 0.85f && (tutorialType == "turn" || tutorialType == "right" || tutorialType == ""))
                     {
                         InputManager.Instance.RightButtonDown();
                         triggerInput_1 = true;
@@ -127,9 +127,10 @@ namespace MoreMountains.InfiniteRunnerEngine
                 //currentSwipe.Normalize();
 
                 //swipe upwards
-                if (Vector2.Distance(firstPressPos, secondPressPos) < 10 && (tutorialType == "up" || tutorialType == ""))
+                if (Vector2.Distance(firstPressPos, secondPressPos) < 10 && (tutorialType == "up" || tutorialType == "" || tutorialType == "tap"))
                 {
-                    InputManager.Instance.UpButtonDown();
+                    if(tutorialType != "tap")
+                        InputManager.Instance.UpButtonDown();
                     //triggerInput = true;
 
                     if (tutorialType != "")
