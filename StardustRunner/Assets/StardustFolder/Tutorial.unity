@@ -9515,6 +9515,11 @@ PrefabInstance:
       propertyPath: m_FontData.m_FontSize
       value: 47
       objectReference: {fileID: 0}
+    - target: {fileID: 4192884200485044580, guid: 96b3df0c65775554093f8fb0bc4f5e94,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4192884200485088726, guid: 96b3df0c65775554093f8fb0bc4f5e94,
         type: 3}
       propertyPath: m_Name

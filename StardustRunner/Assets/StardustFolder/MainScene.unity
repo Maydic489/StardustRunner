@@ -7624,35 +7624,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 210363671, guid: 96b3df0c65775554093f8fb0bc4f5e94, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1286375941, guid: 96b3df0c65775554093f8fb0bc4f5e94, type: 3}
-      propertyPath: m_Name
-      value: "\u0E3ABackToMenuButton"
-      objectReference: {fileID: 0}
-    - target: {fileID: 1286375943, guid: 96b3df0c65775554093f8fb0bc4f5e94, type: 3}
-      propertyPath: LevelName
-      value: MainMenuScene
-      objectReference: {fileID: 0}
-    - target: {fileID: 1742796827, guid: 96b3df0c65775554093f8fb0bc4f5e94, type: 3}
-      propertyPath: m_Text
-      value: MAIN MENU
-      objectReference: {fileID: 0}
-    - target: {fileID: 1742796827, guid: 96b3df0c65775554093f8fb0bc4f5e94, type: 3}
-      propertyPath: m_FontData.m_FontSize
-      value: 49
-      objectReference: {fileID: 0}
     - target: {fileID: 4192884200485088726, guid: 96b3df0c65775554093f8fb0bc4f5e94,
         type: 3}
       propertyPath: m_Name
       value: UICamera
-      objectReference: {fileID: 0}
-    - target: {fileID: 4192884200485091962, guid: 96b3df0c65775554093f8fb0bc4f5e94,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4192884200485365552, guid: 96b3df0c65775554093f8fb0bc4f5e94,
         type: 3}
