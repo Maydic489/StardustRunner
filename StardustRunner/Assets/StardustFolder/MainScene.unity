@@ -7630,15 +7630,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1286375941, guid: 96b3df0c65775554093f8fb0bc4f5e94, type: 3}
       propertyPath: m_Name
-      value: ToTutorialButton
+      value: "\u0E3ABackToMenuButton"
       objectReference: {fileID: 0}
     - target: {fileID: 1286375943, guid: 96b3df0c65775554093f8fb0bc4f5e94, type: 3}
       propertyPath: LevelName
-      value: Tutorial
+      value: MainMenuScene
       objectReference: {fileID: 0}
     - target: {fileID: 1742796827, guid: 96b3df0c65775554093f8fb0bc4f5e94, type: 3}
       propertyPath: m_Text
-      value: Play Tutorial
+      value: MAIN MENU
+      objectReference: {fileID: 0}
+    - target: {fileID: 1742796827, guid: 96b3df0c65775554093f8fb0bc4f5e94, type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 49
       objectReference: {fileID: 0}
     - target: {fileID: 4192884200485088726, guid: 96b3df0c65775554093f8fb0bc4f5e94,
         type: 3}

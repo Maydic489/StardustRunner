@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/StardustFolder/MainMenuScene.unity
+    guid: d7642afbb8c66e54c8c67cd525ba5bd6
+  - enabled: 1
     path: Assets/StardustFolder/Tutorial.unity
     guid: 4e71d70bc4e3cf7479a05d76fde6e66a
   - enabled: 1

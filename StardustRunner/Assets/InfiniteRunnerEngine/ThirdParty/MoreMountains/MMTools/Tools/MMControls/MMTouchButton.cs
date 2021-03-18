@@ -352,14 +352,17 @@ namespace MoreMountains.Tools
 			}
 			if (DisabledAnimationParameterName != null)
 			{
+				Debug.Log("disable");
 				_animator.SetBool (DisabledAnimationParameterName, (CurrentState == ButtonStates.Disabled));
 			}
 			if (PressedAnimationParameterName != null)
 			{
+				Debug.Log("pressed");
 				_animator.SetBool (PressedAnimationParameterName, (CurrentState == ButtonStates.ButtonPressed));
 			}
 			if (IdleAnimationParameterName != null)
 			{
+				Debug.Log("off");
 				_animator.SetBool (IdleAnimationParameterName, (CurrentState == ButtonStates.Off));
 			}
 		}
