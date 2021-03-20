@@ -15,32 +15,32 @@ namespace MoreMountains.InfiniteRunnerEngine
 		public bool SfxOn = true;
 	}
 
-    public struct IRESfxEvent
-    {
-        public delegate void Delegate(AudioClip clipToPlay, AudioMixerGroup audioGroup = null, float volume = 1f, float pitch = 1f);
-        static private event Delegate OnEvent;
+	public struct IRESfxEvent
+	{
+		public delegate void Delegate(AudioClip clipToPlay, AudioMixerGroup audioGroup = null, float volume = 1f, float pitch = 1f);
+		static private event Delegate OnEvent;
 
-        static public void Register(Delegate callback)
-        {
-            OnEvent += callback;
-        }
+		static public void Register(Delegate callback)
+		{
+			OnEvent += callback;
+		}
 
-        static public void Unregister(Delegate callback)
-        {
-            OnEvent -= callback;
-        }
+		static public void Unregister(Delegate callback)
+		{
+			OnEvent -= callback;
+		}
 
-        static public void Trigger(AudioClip clipToPlay, AudioMixerGroup audioGroup = null, float volume = 1f, float pitch = 1f)
-        {
-            OnEvent?.Invoke(clipToPlay, audioGroup, volume, pitch);
-        }
-    }
+		static public void Trigger(AudioClip clipToPlay, AudioMixerGroup audioGroup = null, float volume = 1f, float pitch = 1f)
+		{
+			OnEvent?.Invoke(clipToPlay, audioGroup, volume, pitch);
+		}
+	}
 
 
-    /// <summary>
-    /// This persistent singleton handles sound playing
-    /// </summary>
-    [AddComponentMenu("Infinite Runner Engine/Managers/Sound Manager")]
+	/// <summary>
+	/// This persistent singleton handles sound playing
+	/// </summary>
+	[AddComponentMenu("Infinite Runner Engine/Managers/Sound Manager")]
 	public class SoundManager : MMPersistentSingleton<SoundManager>
 	{	
 		[Header("Settings")]
@@ -66,7 +66,7 @@ namespace MoreMountains.InfiniteRunnerEngine
 		protected const string _saveFolderName = "CorgiEngine/";
 		protected const string _saveFileName = "sound.settings";
 
-	    protected AudioSource _backgroundMusic;	
+		protected AudioSource _backgroundMusic;	
 
 		protected List<AudioSource> _loopingSounds;
 			
@@ -86,7 +86,7 @@ namespace MoreMountains.InfiniteRunnerEngine
 			// we set the background music clip
 			_backgroundMusic=Music;
 			// we set the music's volume
-			_backgroundMusic.volume=MusicVolume;
+			_backgroundMusic.volume= Music.volume*MusicVolume;
 			// we set the loop setting to true, the music will loop forever
 			_backgroundMusic.loop=true;
 			// we start playing the background music
@@ -127,6 +127,38 @@ namespace MoreMountains.InfiniteRunnerEngine
 			else
 			{
 				_loopingSounds.Add (audioSource);
+			}
+
+			// we return the audiosource reference
+			return audioSource;
+		}
+
+		public virtual AudioSource PlaySoundSource(AudioSource sfx, Vector3 location, bool loop = false)
+		{
+			if (!Settings.SfxOn)
+				return null;
+			// we create a temporary game object to host our audio source
+			GameObject temporaryAudioHost = new GameObject("TempAudio ("+sfx.clip.name+")");
+			// we set the temp audio's position
+			temporaryAudioHost.transform.position = location;
+			// we add an audio source to that host
+			AudioSource audioSource = temporaryAudioHost.AddComponent<AudioSource>(sfx);
+			temporaryAudioHost.name = "TempAudio (" + sfx.clip.name + ")";
+			// we set the audio source volume to the one in parameters
+			audioSource.volume = sfx.volume*SfxVolume;
+			// we set our loop setting
+			audioSource.loop = loop;
+			// we start playing the sound
+			audioSource.Play();
+
+			if (!loop)
+			{
+				// we destroy the host after the clip has played
+				Destroy(temporaryAudioHost, sfx.clip.length);
+			}
+			else
+			{
+				_loopingSounds.Add(audioSource);
 			}
 
 			// we return the audiosource reference
@@ -177,22 +209,22 @@ namespace MoreMountains.InfiniteRunnerEngine
 			}
 		}
 
-        public virtual AudioSource GetBackgroundMusic()
-        {
-            return _backgroundMusic;
-        }
+		public virtual AudioSource GetBackgroundMusic()
+		{
+			return _backgroundMusic;
+		}
 
-        protected virtual void ResetSoundSettings()
+		protected virtual void ResetSoundSettings()
 		{
 			MMSaveLoadManager.DeleteSave(_saveFileName, _saveFolderName);
 		}
 
-        public virtual void OnMMSfxEvent(AudioClip clipToPlay, AudioMixerGroup audioGroup = null, float volume = 1f, float pitch = 1f)
-        {
-            PlaySound(clipToPlay, this.transform.position);
-        }
+		public virtual void OnMMSfxEvent(AudioClip clipToPlay, AudioMixerGroup audioGroup = null, float volume = 1f, float pitch = 1f)
+		{
+			PlaySound(clipToPlay, this.transform.position);
+		}
 
-        protected virtual void MuteAllSfx()
+		protected virtual void MuteAllSfx()
 		{
 			foreach(AudioSource source in _loopingSounds)
 			{
@@ -216,17 +248,17 @@ namespace MoreMountains.InfiniteRunnerEngine
 
 		protected virtual void OnEnable()
 		{
-            IRESfxEvent.Register(OnMMSfxEvent);
-            LoadSoundSettings ();
+			IRESfxEvent.Register(OnMMSfxEvent);
+			LoadSoundSettings ();
 			_loopingSounds = new List<AudioSource> ();
 		}
 
 		protected virtual void OnDisable()
 		{
 			if (_enabled)
-            {
-                IRESfxEvent.Unregister(OnMMSfxEvent);
-            }
+			{
+				IRESfxEvent.Unregister(OnMMSfxEvent);
+			}
 		}
 	}
 }

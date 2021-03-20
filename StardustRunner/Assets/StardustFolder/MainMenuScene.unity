@@ -488,9 +488,49 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1796768037393312049, guid: 60ce4f08b52e107409acfd9a66cbe4c8,
         type: 3}
+      propertyPath: PressedFirstTimeDelay
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1796768037393312049, guid: 60ce4f08b52e107409acfd9a66cbe4c8,
+        type: 3}
+      propertyPath: ButtonPressed.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1796768037393312049, guid: 60ce4f08b52e107409acfd9a66cbe4c8,
+        type: 3}
+      propertyPath: ButtonPressedNoDelay.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1796768037393312049, guid: 60ce4f08b52e107409acfd9a66cbe4c8,
+        type: 3}
       propertyPath: ButtonPressedFirstTime.m_PersistentCalls.m_Calls.Array.size
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1796768037393312049, guid: 60ce4f08b52e107409acfd9a66cbe4c8,
+        type: 3}
+      propertyPath: ButtonPressed.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 473005990}
+    - target: {fileID: 1796768037393312049, guid: 60ce4f08b52e107409acfd9a66cbe4c8,
+        type: 3}
+      propertyPath: ButtonPressed.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: PlayAudioSource
+      objectReference: {fileID: 0}
+    - target: {fileID: 1796768037393312049, guid: 60ce4f08b52e107409acfd9a66cbe4c8,
+        type: 3}
+      propertyPath: ButtonPressedNoDelay.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1796768037393312049, guid: 60ce4f08b52e107409acfd9a66cbe4c8,
+        type: 3}
+      propertyPath: ButtonPressedFirstTime.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1796768037393312049, guid: 60ce4f08b52e107409acfd9a66cbe4c8,
+        type: 3}
+      propertyPath: ButtonPressedNoDelay.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 473005990}
     - target: {fileID: 1796768037393312049, guid: 60ce4f08b52e107409acfd9a66cbe4c8,
         type: 3}
       propertyPath: ButtonPressedFirstTime.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -498,18 +538,63 @@ PrefabInstance:
       objectReference: {fileID: 617293433}
     - target: {fileID: 1796768037393312049, guid: 60ce4f08b52e107409acfd9a66cbe4c8,
         type: 3}
+      propertyPath: ButtonPressedFirstTime.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 473005990}
+    - target: {fileID: 1796768037393312049, guid: 60ce4f08b52e107409acfd9a66cbe4c8,
+        type: 3}
+      propertyPath: ButtonPressedNoDelay.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1796768037393312049, guid: 60ce4f08b52e107409acfd9a66cbe4c8,
+        type: 3}
+      propertyPath: ButtonPressedNoDelay.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: PlayAudioSource
+      objectReference: {fileID: 0}
+    - target: {fileID: 1796768037393312049, guid: 60ce4f08b52e107409acfd9a66cbe4c8,
+        type: 3}
+      propertyPath: ButtonPressedFirstTime.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1796768037393312049, guid: 60ce4f08b52e107409acfd9a66cbe4c8,
+        type: 3}
       propertyPath: ButtonPressedFirstTime.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: Open
+      objectReference: {fileID: 0}
+    - target: {fileID: 1796768037393312049, guid: 60ce4f08b52e107409acfd9a66cbe4c8,
+        type: 3}
+      propertyPath: ButtonPressedFirstTime.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: PlayAudioSource
+      objectReference: {fileID: 0}
+    - target: {fileID: 1796768037393312049, guid: 60ce4f08b52e107409acfd9a66cbe4c8,
+        type: 3}
+      propertyPath: ButtonPressedNoDelay.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 1796768037393312049, guid: 60ce4f08b52e107409acfd9a66cbe4c8,
         type: 3}
       propertyPath: ButtonPressedFirstTime.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 1796768037393312049, guid: 60ce4f08b52e107409acfd9a66cbe4c8,
+        type: 3}
+      propertyPath: ButtonPressedFirstTime.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 1796768037393312061, guid: 60ce4f08b52e107409acfd9a66cbe4c8,
         type: 3}
       propertyPath: NextLevelName
       value: Tutorial
+      objectReference: {fileID: 0}
+    - target: {fileID: 1796768037393312062, guid: 60ce4f08b52e107409acfd9a66cbe4c8,
+        type: 3}
+      propertyPath: m_Volume
+      value: 0.69
+      objectReference: {fileID: 0}
+    - target: {fileID: 1796768037393312062, guid: 60ce4f08b52e107409acfd9a66cbe4c8,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 0}
@@ -543,6 +628,18 @@ MonoBehaviour:
   FaderOpenDuration: 0.2
   FaderCloseDuration: 0.2
   FaderOpacity: 0.8
+--- !u!114 &473005990
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 473005982}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5f8f92b9ff80924880e5d6891d6acf6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &511438406 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 224254155301153700, guid: 9d5a912efa183824e96372a320d88a81,
@@ -821,6 +918,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1796768037393312049, guid: 60ce4f08b52e107409acfd9a66cbe4c8,
         type: 3}
+      propertyPath: PressedFirstTimeDelay
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1796768037393312049, guid: 60ce4f08b52e107409acfd9a66cbe4c8,
+        type: 3}
       propertyPath: ButtonPressedFirstTime.m_PersistentCalls.m_Calls.Array.size
       value: 1
       objectReference: {fileID: 0}
@@ -843,6 +945,11 @@ PrefabInstance:
         type: 3}
       propertyPath: NextLevelName
       value: Tutorial
+      objectReference: {fileID: 0}
+    - target: {fileID: 1796768037393312062, guid: 60ce4f08b52e107409acfd9a66cbe4c8,
+        type: 3}
+      propertyPath: m_Volume
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 0}
@@ -952,6 +1059,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SoundClip: {fileID: 8300000, guid: 2912be44987c31945a9d12555edfcc54, type: 3}
+  setVolume: 0.05
 --- !u!4 &1208660984
 Transform:
   m_ObjectHideFlags: 0
@@ -1154,7 +1262,7 @@ MonoBehaviour:
   Settings:
     MusicOn: 1
     SfxOn: 1
-  MusicVolume: 0.03
+  MusicVolume: 0.5
   SfxVolume: 0.5
   MuteSfxOnPause: 1
 --- !u!4 &1808346227

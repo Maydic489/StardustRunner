@@ -12,6 +12,7 @@ namespace MoreMountains.InfiniteRunnerEngine
 	{
 		/// The audioclip to play
 		public AudioClip SoundClip ;
+		public float setVolume = 0.5f;
 	    protected AudioSource _source;
 
 	    /// <summary>
@@ -28,7 +29,8 @@ namespace MoreMountains.InfiniteRunnerEngine
 				}
 			}
 
-			_source = gameObject.AddComponent<AudioSource>() as AudioSource;	
+			_source = gameObject.AddComponent<AudioSource>() as AudioSource;
+			_source.volume = setVolume;
 			_source.playOnAwake=false;
 			_source.spatialBlend=0;
 			_source.rolloffMode = AudioRolloffMode.Logarithmic;

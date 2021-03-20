@@ -22,6 +22,7 @@ namespace MoreMountains.Tools
 		[Header("Binding")]
 		/// The method(s) to call when the button gets pressed down
 		public UnityEvent ButtonPressedFirstTime;
+		public UnityEvent ButtonPressedNoDelay;
 		/// The method(s) to call when the button gets released
 		public UnityEvent ButtonReleased;
 		/// The method(s) to call while the button is being pressed
@@ -228,11 +229,13 @@ namespace MoreMountains.Tools
 			_lastClickTimestamp = Time.time;
 			if ((Time.timeScale != 0) && (PressedFirstTimeDelay > 0))
 			{
-				Invoke ("InvokePressedFirstTime", PressedFirstTimeDelay);	
+				Invoke ("InvokePressedFirstTime", PressedFirstTimeDelay);
+				ButtonPressedNoDelay.Invoke();
 			}
 			else
 			{
 				ButtonPressedFirstTime.Invoke();
+				ButtonPressedNoDelay.Invoke();
 			}
 		}
 
@@ -241,6 +244,13 @@ namespace MoreMountains.Tools
 			if (ButtonPressedFirstTime!=null)
 			{
 				ButtonPressedFirstTime.Invoke();
+			}
+		}
+		protected virtual void InvokePressedNoDelay()
+		{
+			if (ButtonPressedNoDelay != null)
+			{
+				ButtonPressedNoDelay.Invoke();
 			}
 		}
 
@@ -352,17 +362,14 @@ namespace MoreMountains.Tools
 			}
 			if (DisabledAnimationParameterName != null)
 			{
-				Debug.Log("disable");
 				_animator.SetBool (DisabledAnimationParameterName, (CurrentState == ButtonStates.Disabled));
 			}
 			if (PressedAnimationParameterName != null)
 			{
-				Debug.Log("pressed");
 				_animator.SetBool (PressedAnimationParameterName, (CurrentState == ButtonStates.ButtonPressed));
 			}
 			if (IdleAnimationParameterName != null)
 			{
-				Debug.Log("off");
 				_animator.SetBool (IdleAnimationParameterName, (CurrentState == ButtonStates.Off));
 			}
 		}
@@ -372,6 +379,7 @@ namespace MoreMountains.Tools
 			if (ButtonPressedFirstTime!=null)
 			{
 				ButtonPressedFirstTime.Invoke();
+				ButtonPressedNoDelay.Invoke();
 			}
 			if (ButtonReleased!=null)
 			{
