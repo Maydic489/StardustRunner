@@ -6,14 +6,22 @@ namespace MoreMountains.InfiniteRunnerEngine
 {
     public class CopScript : MonoBehaviour
     {
-        public AudioSource runAudio;
+        private AudioSource runAudio;
 		public float MoveSpeed = 5f;
         private Animator anim;
 
         private void Start()
         {
+            var sM = SoundManager.Instance;
             anim = GetComponent<Animator>();
-            ActivateRunAudio(true);
+            //ActivateRunAudio(true);
+            runAudio = GetComponent<AudioSource>();
+            Debug.Log("SFX " + sM.Settings.SfxOn);
+            if (sM.Settings.SfxOn)
+            {
+                runAudio.volume = runAudio.volume * sM.SfxVolume;
+                SoundManager.Instance.PlaySoundSource(runAudio, transform.position,true,true);
+            }
         }
 
         // Update is called once per frame
@@ -43,14 +51,14 @@ namespace MoreMountains.InfiniteRunnerEngine
             if (!SimpleLane.isDead) 
             { 
                 anim.SetBool("isHit", false);
-                if(!anim.GetBool("isThere"))
-                    ActivateRunAudio(true);
+                //if(!anim.GetBool("isThere"))
+                    //ActivateRunAudio(true);
             }
             else
             {
                 anim.SetBool("isHit", true);
                 anim.SetBool("isThere", false);
-                ActivateRunAudio(false);
+                //ActivateRunAudio(false);
             }
 		}
 

@@ -986,6 +986,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SoundClip: {fileID: 8300000, guid: 2912be44987c31945a9d12555edfcc54, type: 3}
+  setVolume: 0.5
 --- !u!4 &373446979
 Transform:
   m_ObjectHideFlags: 0
@@ -2354,6 +2355,7 @@ MonoBehaviour:
   MusicVolume: 0.03
   SfxVolume: 0.5
   MuteSfxOnPause: 1
+  _loopingSounds: []
 --- !u!4 &603369261
 Transform:
   m_ObjectHideFlags: 0
@@ -6117,7 +6119,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 11402082, guid: b1537507c557d46d3a4963042faeaafe, type: 3}
       propertyPath: starterFuelPoints
-      value: 100
+      value: 50
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b1537507c557d46d3a4963042faeaafe, type: 3}
@@ -6755,12 +6757,12 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1905764669}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: d935eca9552238c41b5ba2535d72905c, type: 3}
-  m_PlayOnAwake: 1
-  m_Volume: 0.25
+  m_PlayOnAwake: 0
+  m_Volume: 1
   m_Pitch: 3
   Loop: 1
   Mute: 0

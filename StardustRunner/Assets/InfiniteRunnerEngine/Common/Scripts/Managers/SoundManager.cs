@@ -41,7 +41,7 @@ namespace MoreMountains.InfiniteRunnerEngine
 	/// This persistent singleton handles sound playing
 	/// </summary>
 	[AddComponentMenu("Infinite Runner Engine/Managers/Sound Manager")]
-	public class SoundManager : MMPersistentSingleton<SoundManager>
+	public class SoundManager : MMPersistentSingleton<SoundManager>, MMEventListener<MMGameEvent>
 	{	
 		[Header("Settings")]
 		public SoundSettings Settings;
@@ -68,7 +68,7 @@ namespace MoreMountains.InfiniteRunnerEngine
 
 		protected AudioSource _backgroundMusic;	
 
-		protected List<AudioSource> _loopingSounds;
+		public List<AudioSource> _loopingSounds;
 			
 		/// <summary>
 		/// Plays a background music.
@@ -133,7 +133,7 @@ namespace MoreMountains.InfiniteRunnerEngine
 			return audioSource;
 		}
 
-		public virtual AudioSource PlaySoundSource(AudioSource sfx, Vector3 location, bool loop = false)
+		public virtual AudioSource PlaySoundSource(AudioSource sfx, Vector3 location, bool loop = false, bool followParent = false)
 		{
 			if (!Settings.SfxOn)
 				return null;
@@ -141,6 +141,8 @@ namespace MoreMountains.InfiniteRunnerEngine
 			GameObject temporaryAudioHost = new GameObject("TempAudio ("+sfx.clip.name+")");
 			// we set the temp audio's position
 			temporaryAudioHost.transform.position = location;
+			if (followParent)
+				temporaryAudioHost.transform.SetParent(sfx.GetComponentInParent<Transform>());
 			// we add an audio source to that host
 			AudioSource audioSource = temporaryAudioHost.AddComponent<AudioSource>(sfx);
 			temporaryAudioHost.name = "TempAudio (" + sfx.clip.name + ")";
@@ -158,6 +160,7 @@ namespace MoreMountains.InfiniteRunnerEngine
 			}
 			else
 			{
+				Debug.Log("start looping");
 				_loopingSounds.Add(audioSource);
 			}
 
@@ -177,6 +180,39 @@ namespace MoreMountains.InfiniteRunnerEngine
 				Destroy(source.gameObject);
 			}
 		}
+		public virtual void OnMMEvent(MMGameEvent gameEvent)
+		{
+			if (MuteSfxOnPause)
+			{
+				Debug.Log("event trigger "+gameEvent.EventName);
+                switch (gameEvent.EventName)
+                {
+                    case "PauseOn":
+                        PauseLoop();
+                        break;
+                    case "PauseOff":
+                        PlayLoop();
+                        break;
+                    case "GameStart":
+                        PlayLoop();
+                        break;
+                }
+            }
+		}
+		public virtual void PlayLoop()
+		{
+			foreach (AudioSource aS in _loopingSounds)
+			{
+				aS.Play();
+			}
+		}
+		public virtual void PauseLoop()
+        {
+			foreach(AudioSource aS in _loopingSounds)
+            {
+				aS.Stop();
+            }
+        }
 
 		protected virtual void SetMusic(bool status)
 		{
@@ -249,6 +285,7 @@ namespace MoreMountains.InfiniteRunnerEngine
 		protected virtual void OnEnable()
 		{
 			IRESfxEvent.Register(OnMMSfxEvent);
+			this.MMEventStartListening<MMGameEvent>();
 			LoadSoundSettings ();
 			_loopingSounds = new List<AudioSource> ();
 		}
@@ -259,6 +296,7 @@ namespace MoreMountains.InfiniteRunnerEngine
 			{
 				IRESfxEvent.Unregister(OnMMSfxEvent);
 			}
+			this.MMEventStopListening<MMGameEvent>();
 		}
 	}
 }
