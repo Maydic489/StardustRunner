@@ -28,6 +28,7 @@ namespace MoreMountains.InfiniteRunnerEngine
                     break;
             }
 
+            Debug.Log("eiei");
             VolumeLevelSlider.value = valueInSlider;
             VolumeLevelSlider.onValueChanged.AddListener(delegate { ValueChangeCheck(); });
         }
