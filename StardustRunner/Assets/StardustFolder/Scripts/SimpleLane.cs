@@ -8,7 +8,8 @@ namespace MoreMountains.InfiniteRunnerEngine
 	/// <summary>
 	/// Extends playable character to implement the specific gameplay of the Dragon level
 	/// </summary>
-	public class SimpleLane : PlayableCharacter
+	public class SimpleLane : PlayableCharacter, MMEventListener<MMGameEvent>
+
 	{
 		public float gameSpeed;
 		public GameObject riderModel;
@@ -55,10 +56,10 @@ namespace MoreMountains.InfiniteRunnerEngine
 		private static bool animationOn = true;
 		public static bool isSpeed {get; set;}
 
-    static int s_BlinkingValueHash;
+		static int s_BlinkingValueHash;
 
 		protected override void Start()
-        {
+		{
 			mainCamera = GameObject.Find("Main Camera");
 			s_BlinkingValueHash = Shader.PropertyToID("_BlinkingValue");
 			pivotAnim = groundPivot.GetComponent<Animation>();
@@ -67,7 +68,7 @@ namespace MoreMountains.InfiniteRunnerEngine
 			ResetStaticBool();
 		}
 
-        protected override void Update()
+		protected override void Update()
 		{
 			// we determine the distance between the ground and the Jumper
 			ComputeDistanceToTheGround();
@@ -106,82 +107,82 @@ namespace MoreMountains.InfiniteRunnerEngine
 
 		private void FixedUpdate()
 		{
-            if (!IsBetween(transform.position.x, slideDirection - 0.05f, slideDirection + 0.05f))
-            {
-                if (slowSpeed < MoveSpeed)
-                {
-                    slowSpeed += slowSpeed * (0.05f + slowSpeed);
-                }
-                transform.position = Vector3.MoveTowards(transform.position, new Vector3(slideDirection, transform.position.y, transform.position.z), (slowSpeed * Time.deltaTime)*turnSpeedMultiply); //last number is for how fast for switching lane
-            }
-            else
-            {
-                slowSpeed = 0.25f;
-            }
+			if (!IsBetween(transform.position.x, slideDirection - 0.05f, slideDirection + 0.05f))
+			{
+				if (slowSpeed < MoveSpeed)
+				{
+					slowSpeed += slowSpeed * (0.05f + slowSpeed);
+				}
+				transform.position = Vector3.MoveTowards(transform.position, new Vector3(slideDirection, transform.position.y, transform.position.z), (slowSpeed * Time.deltaTime)*turnSpeedMultiply); //last number is for how fast for switching lane
+			}
+			else
+			{
+				slowSpeed = 0.25f;
+			}
 
-            //go back to normal pose after changing lane
-            if ((IsBetween(transform.position.x, slideDirection - 0.2f, slideDirection + 0.2f)) && !pivotAnim.IsPlaying("Anim_Slide") && !isDead)
-            {
-                if (pivotAnim.IsPlaying("Anim_RotateLeft") || pivotAnim.IsPlaying("Anim_RotateRight"))
-                    CenterPose();
-                else if (!pivotAnim.IsPlaying("Anim_LeftToCenter") && !pivotAnim.IsPlaying("Anim_RightToCenter"))
-                {
-                    //pivotAnim.IsPlaying("Anim_Idle");
-                }
-            }
+			//go back to normal pose after changing lane
+			if ((IsBetween(transform.position.x, slideDirection - 0.2f, slideDirection + 0.2f)) && !pivotAnim.IsPlaying("Anim_Slide") && !isDead)
+			{
+				if (pivotAnim.IsPlaying("Anim_RotateLeft") || pivotAnim.IsPlaying("Anim_RotateRight"))
+					CenterPose();
+				else if (!pivotAnim.IsPlaying("Anim_LeftToCenter") && !pivotAnim.IsPlaying("Anim_RightToCenter"))
+				{
+					//pivotAnim.IsPlaying("Anim_Idle");
+				}
+			}
 
-            //go back to normal pose after changing lane
-            if ((IsBetween(transform.position.x, slideDirection - 0.2f, slideDirection + 0.2f)) && !pivotAnim.IsPlaying("Anim_Slide") && !isDead)
-            {
-                if (pivotAnim.IsPlaying("Anim_RotateLeft") || pivotAnim.IsPlaying("Anim_RotateRight"))
-                    CenterPose();
-                else if (!pivotAnim.IsPlaying("Anim_LeftToCenter") && !pivotAnim.IsPlaying("Anim_RightToCenter"))
-                {
-                    //pivotAnim.IsPlaying("Anim_Idle");
-                }
-            }
-        }
+			//go back to normal pose after changing lane
+			if ((IsBetween(transform.position.x, slideDirection - 0.2f, slideDirection + 0.2f)) && !pivotAnim.IsPlaying("Anim_Slide") && !isDead)
+			{
+				if (pivotAnim.IsPlaying("Anim_RotateLeft") || pivotAnim.IsPlaying("Anim_RotateRight"))
+					CenterPose();
+				else if (!pivotAnim.IsPlaying("Anim_LeftToCenter") && !pivotAnim.IsPlaying("Anim_RightToCenter"))
+				{
+					//pivotAnim.IsPlaying("Anim_Idle");
+				}
+			}
+		}
 
 		public void ChooseLane()
-        {
-            if (transform.position.x > -0.7f && transform.position.x < 0.7f)
-            {
-                whatLane = 'm';
-            }
-            else if (transform.position.x < -0.1f)
-            {
-                whatLane = 'l';
-            }
-            else if (transform.position.x > 0.1f)
-            {
-                whatLane = 'r';
-            }
-            else
-            {
+		{
+			if (transform.position.x > -0.7f && transform.position.x < 0.7f)
+			{
+				whatLane = 'm';
+			}
+			else if (transform.position.x < -0.1f)
+			{
+				whatLane = 'l';
+			}
+			else if (transform.position.x > 0.1f)
+			{
+				whatLane = 'r';
+			}
+			else
+			{
 				return;
-            }
+			}
 		}
-        #region Control
-        public override void LeftStart()
+		#region Control
+		public override void LeftStart()
 		{
 			oldDirection = slideDirection;
-            //_rigidbodyInterface.AddForce(Vector3.left * MoveSpeed * Time.deltaTime);
-            if (whatLane == 'r' && slideDirection != 0f)
-            {
-                slideDirection = 0f;
-                if (!isSlide && !isWheelie && animationOn)
-                    PlayTurnAnim("Left");
+			//_rigidbodyInterface.AddForce(Vector3.left * MoveSpeed * Time.deltaTime);
+			if (whatLane == 'r' && slideDirection != 0f)
+			{
+				slideDirection = 0f;
+				if (!isSlide && !isWheelie && animationOn)
+					PlayTurnAnim("Left");
 				SoundManager.Instance.PlaySound(engineWhoosh, transform.position);
 			}
-            else
-            {
-                slideDirection = -1.6f;
+			else
+			{
+				slideDirection = -1.6f;
 				if (!isSlide && !isWheelie && whatLane != 'l' && animationOn)
 				{
 					PlayTurnAnim("Left");
 					SoundManager.Instance.PlaySound(engineWhoosh, transform.position);
 				}
-            }
+			}
 		}
 
 		public override void RightStart()
@@ -191,8 +192,8 @@ namespace MoreMountains.InfiniteRunnerEngine
 			if (whatLane == 'l' && slideDirection != 0f)
 			{
 				slideDirection = 0f;
-                if (!isSlide && !isWheelie && animationOn)
-                    PlayTurnAnim("Right");
+				if (!isSlide && !isWheelie && animationOn)
+					PlayTurnAnim("Right");
 				SoundManager.Instance.PlaySound(engineWhoosh, transform.position);
 			}
 			else
@@ -203,11 +204,11 @@ namespace MoreMountains.InfiniteRunnerEngine
 					PlayTurnAnim("Right");
 					SoundManager.Instance.PlaySound(engineWhoosh, transform.position);
 				}
-            }
+			}
 		}
 
-        public override void DownStart()
-        {
+		public override void DownStart()
+		{
 			if (!isSuperman && !isWheelie && !isSlide)
 			{
 				isSlide = true;
@@ -217,21 +218,21 @@ namespace MoreMountains.InfiniteRunnerEngine
 				SoundManager.Instance.PlaySound(engineScreech,transform.position);
 
 				if(transform.position.y <0.5f) //make sure is on ground
-                {
+				{
 					//var emission = slideEffect.emission;
 					//emission.enabled = true;
 				}
 			}
 		}
 
-        public override void UpStart()
-        {
+		public override void UpStart()
+		{
 			if (!isSuperman && !isSlide && !isWheelie)
 			{
 				isWheelie = true;
-                pivotAnim["Bike_Wheelie"].layer = 3;
-                pivotAnim.Play("Bike_Wheelie");
-                pivotAnim["Bike_Wheelie"].weight = 0.4f;
+				pivotAnim["Bike_Wheelie"].layer = 3;
+				pivotAnim.Play("Bike_Wheelie");
+				pivotAnim["Bike_Wheelie"].weight = 0.4f;
 
 				var emission = boostEffect[3].emission;
 				emission.enabled = true;
@@ -243,20 +244,20 @@ namespace MoreMountains.InfiniteRunnerEngine
 			}
 		}
 
-        #endregion
-        //public void CheckSpeedBoost()
-        //      {
-        //	if (isSpeed && !isSuperman && isInvul && !isWheelie) { PlaySupermanAnim(isSpeed); }
-        //	else if (!isSpeed && isSuperman) { PlaySupermanAnim(isSpeed); }
-        //}
+		#endregion
+		//public void CheckSpeedBoost()
+		//      {
+		//	if (isSpeed && !isSuperman && isInvul && !isWheelie) { PlaySupermanAnim(isSpeed); }
+		//	else if (!isSpeed && isSuperman) { PlaySupermanAnim(isSpeed); }
+		//}
 
-        public void PreSuperman()
-        {
+		public void PreSuperman()
+		{
 			StartCoroutine(PlaySupermanAnim());
-        }
+		}
 
-        public IEnumerator PlaySupermanAnim()
-        {
+		public IEnumerator PlaySupermanAnim()
+		{
 			
 			{
 				if (!isSuperman)
@@ -271,13 +272,13 @@ namespace MoreMountains.InfiniteRunnerEngine
 				Camera.main.GetComponent<CameraShake>().shakeDuration = 5;
 
 				for (int i = 0;i<boostEffect.Count;i++)
-                {
+				{
 					var emission = boostEffect[i].emission;
 					emission.enabled = true;
-                }
+				}
 			}
 			yield return new WaitForSeconds(5);
-            {
+			{
 				isSuperman = false;
 				pivotAnim["Anim_Superman"].layer = 1;
 				pivotAnim["Anim_Superman"].speed = -1;
@@ -298,14 +299,14 @@ namespace MoreMountains.InfiniteRunnerEngine
 		}
 
 		private void PlayTurnAnim(string direction)
-        {
+		{
 			//pivotAnim["Anim_Rotate"+direction].layer = 1;
 			pivotAnim.Play("Anim_Rotate" + direction);
 			//pivotAnim["Anim_Rotate" + direction].weight = 0.4f;
 		}			
 
-        public void PreActivateInvul(float duration)
-        {
+		public void PreActivateInvul(float duration)
+		{
 			StopAllCoroutines();
 			StartCoroutine(ActivateInvul(duration));
 		}
@@ -343,7 +344,7 @@ namespace MoreMountains.InfiniteRunnerEngine
 		}
 
 		private void CenterPose()
-        {
+		{
 			if (pivotAnim.IsPlaying("Anim_RotateLeft"))
 			{
 				pivotAnim.Play("Anim_LeftToCenter");
@@ -403,7 +404,7 @@ namespace MoreMountains.InfiniteRunnerEngine
 		}
 
 		private void LookBackCheck()
-        {
+		{
 			if (GameManager.Instance.FuelPoints < 20 && !pivotAnim.isPlaying && !lookBack && !isSuperman)
 			{
 				//pivotAnim.Play("Anim_LookBack");
@@ -419,16 +420,16 @@ namespace MoreMountains.InfiniteRunnerEngine
 		}
 
 		public void IsOutofFuel()
-        {
+		{
 			if(GameManager.Instance.FuelPoints <= 0f && !isDead)
-            {
+			{
 				if (!isInvul)
 					if(!isProtect)
 						LevelManager.Instance.KillCharacter(this);
 					else
 						LevelManager.Instance.CurrentPlayableCharacters[0].GetComponent<SimpleLane>().ToggleProtect(false);
 			}
-        }
+		}
 
 		protected override void CheckDeathConditions()
 		{
@@ -448,28 +449,28 @@ namespace MoreMountains.InfiniteRunnerEngine
 			pivotAnim.Stop();
 			GameManager.Instance.SlowMotion();
 			Destroy(shadow);
-            this.GetComponent<Rigidbody>().isKinematic = true;
-            this.GetComponent<BoxCollider>().enabled = false;
-            this.GetComponent<CapsuleCollider>().enabled = false;
+			this.GetComponent<Rigidbody>().isKinematic = true;
+			this.GetComponent<BoxCollider>().enabled = false;
+			this.GetComponent<CapsuleCollider>().enabled = false;
 			riderModel.SetActive(false);
 			bikeModel.SetActive(false);
 			ragdollObj.SetActive(true);
-            riderRagdoll.GetComponent<RagdollDeathScript>().ToggleRagdoll(true);
-            bikeRagdoll.GetComponent<RagdollDeathScript>().ToggleRagdoll(true);
+			riderRagdoll.GetComponent<RagdollDeathScript>().ToggleRagdoll(true);
+			bikeRagdoll.GetComponent<RagdollDeathScript>().ToggleRagdoll(true);
 
 			foreach (Rigidbody rb in riderRagdoll.GetComponent<RagdollDeathScript>().ragdollBodies)
-            {
-                rb.AddExplosionForce(30f, new Vector3(transform.position.x + Random.Range(-0.7f, 0.7f), 0, -1f), 5f, 3f, ForceMode.Impulse);
-            }
+			{
+				rb.AddExplosionForce(30f, new Vector3(transform.position.x + Random.Range(-0.7f, 0.7f), 0, -1f), 5f, 3f, ForceMode.Impulse);
+			}
 
-            Rigidbody bikeRb = bikeRagdoll.GetComponent<Rigidbody>();
-            bikeRb.AddExplosionForce(25f, new Vector3(transform.position.x + Random.Range(-0.7f, 0.7f), -0.5f, -1f), 5f, 1f, ForceMode.Impulse);
-            foreach (Collider collider in riderRagdoll.GetComponent<RagdollDeathScript>().ragdollColliders)
-            {
-                Physics.IgnoreCollision(bikeRagdoll.GetComponent<BoxCollider>(), collider, true);
+			Rigidbody bikeRb = bikeRagdoll.GetComponent<Rigidbody>();
+			bikeRb.AddExplosionForce(25f, new Vector3(transform.position.x + Random.Range(-0.7f, 0.7f), -0.5f, -1f), 5f, 1f, ForceMode.Impulse);
+			foreach (Collider collider in riderRagdoll.GetComponent<RagdollDeathScript>().ragdollColliders)
+			{
+				Physics.IgnoreCollision(bikeRagdoll.GetComponent<BoxCollider>(), collider, true);
 				Physics.IgnoreCollision(bikeRagdoll.GetComponent<CapsuleCollider>(), collider, true);
 			}
-        }
+		}
 
 		public void HurtPlayer(bool pushing, Transform hitLocation)
 		{
@@ -495,17 +496,17 @@ namespace MoreMountains.InfiniteRunnerEngine
 		public bool IsBetween(float testValue, float min, float max)
 		{	
 			if(testValue > min && testValue < max)
-            {
+			{
 				return (true);
-            }
+			}
 			else
-            {
+			{
 				return (false);
-            }
+			}
 		}
 
 		private void CheckAnimation()
-        {
+		{
 			if (!pivotAnim.IsPlaying("Anim_Slide") && isSlide)
 			{
 				isSlide = false;
@@ -515,7 +516,7 @@ namespace MoreMountains.InfiniteRunnerEngine
 			}
 
 			if(!pivotAnim.IsPlaying("Bike_Wheelie") && isWheelie && !isSuperman)
-            {
+			{
 				isWheelie = false;
 				isSpeed = false;
 				var emission = boostEffect[3].emission;
@@ -526,20 +527,42 @@ namespace MoreMountains.InfiniteRunnerEngine
 		}
 
 		private void ChangeEngineSFX(AudioClip newAudio)
-        {
-			engineSFX.Stop();
-			engineSFX.clip = newAudio;
-			engineSFX.Play();
+		{
+			if (SoundManager.Instance.Settings.SfxOn)
+			{
+				engineSFX.Stop();
+				engineSFX.clip = newAudio;
+				engineSFX.Play();
+			}
+		}
+
+		public virtual void OnMMEvent(MMGameEvent gameEvent)
+		{
+			if (SoundManager.Instance.MuteSfxOnPause && SoundManager.Instance.Settings.SfxOn)
+			{
+				switch (gameEvent.EventName)
+				{
+					case "PauseOn":
+						engineSFX.Stop();
+						break;
+					case "PauseOff":
+						engineSFX.Play();
+						break;
+					case "GameStart":
+						engineSFX.Play();
+						break;
+				}
+			}
 		}
 
 		private void StopWindFX()
-        {
+		{
 			var emission = boostEffect[3].emission;
 			emission.enabled = false;
 		}
 
 		private void ResetStaticBool()
-        {
+		{
 			isDead = false;
 			isInvul = false;
 			isBoost = false;
@@ -551,10 +574,10 @@ namespace MoreMountains.InfiniteRunnerEngine
 
 		//DEBUG ZONE
 		public void TurnFaster()
-        {
+		{
 			turnSpeedMultiply += 0.100f;
 			GUIManager.Instance.TurnSpeedNumber();
-        }
+		}
 		public void TurnSlower()
 		{
 			turnSpeedMultiply -= 0.100f;
@@ -562,8 +585,18 @@ namespace MoreMountains.InfiniteRunnerEngine
 		}
 
 		public void OnOffAnimation()
-        {
+		{
 			animationOn = !animationOn;
-        }
+		}
+
+		protected virtual void OnEnable()
+		{
+			this.MMEventStartListening<MMGameEvent>();
+		}
+
+		protected virtual void OnDisable()
+		{
+			this.MMEventStopListening<MMGameEvent>();
+		}
 	}
 }
