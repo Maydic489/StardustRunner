@@ -138,7 +138,7 @@ namespace MoreMountains.InfiniteRunnerEngine
 			if (!Settings.SfxOn)
 				return null;
 			// we create a temporary game object to host our audio source
-			GameObject temporaryAudioHost = new GameObject("TempAudio ("+sfx.clip.name+")");
+			GameObject temporaryAudioHost = new GameObject();
 			// we set the temp audio's position
 			temporaryAudioHost.transform.position = location;
 			if (followParent)
@@ -172,12 +172,16 @@ namespace MoreMountains.InfiniteRunnerEngine
 		/// Stops the looping sounds if there are any
 		/// </summary>
 		/// <param name="source">Source.</param>
-		public virtual void StopLoopingSound(AudioSource source)
+		public virtual void StopLoopingSound(string source)
 		{
-			if (source != null)
+			foreach(AudioSource loopSound in _loopingSounds)
 			{
-				_loopingSounds.Remove (source);
-				Destroy(source.gameObject);
+				if(loopSound.clip.name == source)
+				{
+					_loopingSounds.Remove(loopSound);
+					Destroy(loopSound);
+					return;
+				}
 			}
 		}
 		public virtual void OnMMEvent(MMGameEvent gameEvent)
@@ -185,34 +189,30 @@ namespace MoreMountains.InfiniteRunnerEngine
 			if (MuteSfxOnPause)
 			{
 				Debug.Log("event trigger "+gameEvent.EventName);
-                switch (gameEvent.EventName)
-                {
-                    case "PauseOn":
-                        PauseLoop();
-                        break;
-                    case "PauseOff":
-                        PlayLoop();
-                        break;
-                    case "GameStart":
-                        PlayLoop();
-                        break;
-                }
-            }
+				switch (gameEvent.EventName)
+				{
+					case "PauseOn":
+						PlayLoop(false);
+						break;
+					case "PauseOff":
+						PlayLoop(true);
+						break;
+					case "GameStart":
+						PlayLoop(true);
+						break;
+				}
+			}
 		}
-		public virtual void PlayLoop()
+		public virtual void PlayLoop(bool state)
 		{
 			foreach (AudioSource aS in _loopingSounds)
 			{
-				aS.Play();
+				if (state)
+					aS.Play();
+				else
+					aS.Stop();
 			}
 		}
-		public virtual void PauseLoop()
-        {
-			foreach(AudioSource aS in _loopingSounds)
-            {
-				aS.Stop();
-            }
-        }
 
 		protected virtual void SetMusic(bool status)
 		{
