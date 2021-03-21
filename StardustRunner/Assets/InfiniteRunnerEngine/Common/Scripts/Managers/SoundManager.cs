@@ -86,7 +86,7 @@ namespace MoreMountains.InfiniteRunnerEngine
 			// we set the background music clip
 			_backgroundMusic=Music;
 			// we set the music's volume
-			_backgroundMusic.volume= Music.volume*MusicVolume;
+			_backgroundMusic.volume= MusicVolume;
 			// we set the loop setting to true, the music will loop forever
 			_backgroundMusic.loop=true;
 			// we start playing the background music
@@ -166,6 +166,20 @@ namespace MoreMountains.InfiniteRunnerEngine
 
 			// we return the audiosource reference
 			return audioSource;
+		}
+
+		public virtual void ChangeVolumeLevel(float newValue,string soundType)
+        {
+			switch (soundType)
+			{
+				case "BackgroundMusic":
+					MusicVolume = newValue;
+					_backgroundMusic.volume = newValue;
+					break;
+				case "SoundEffect":
+					SfxVolume = newValue;
+					break;
+			}
 		}
 
 		/// <summary>
