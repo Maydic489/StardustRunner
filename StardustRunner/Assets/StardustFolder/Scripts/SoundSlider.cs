@@ -34,7 +34,6 @@ namespace MoreMountains.InfiniteRunnerEngine
 
         public void ValueChangeCheck()
         {
-            Debug.Log("Change value");
             valueInSlider = VolumeLevelSlider.value;
             sM.ChangeVolumeLevel(valueInSlider, soundType.ToString());
         }

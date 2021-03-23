@@ -2,17 +2,30 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SingletonButton : MonoBehaviour
+namespace MoreMountains.InfiniteRunnerEngine
 {
-    // Start is called before the first frame update
-    void Start()
+    public class SingletonButton : MonoBehaviour
     {
-        
-    }
+        public void SaveSetting()
+        {
+            SettingManager.Instance.SaveSettings();
+        }
+        public void ChangeToEnglish()
+        {
+            SettingManager.Instance.ChangeToEnglish();
+        }
+        public void ChangeToThai()
+        {
+            SettingManager.Instance.ChangeToThai();
+        }
+        public void ChangeToSkoi()
+        {
+            SettingManager.Instance.ChangeToSkoi();
+        }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        public void SaveSoundSettings()
+        {
+            SoundManager.Instance.SaveSoundSettings();
+        }
     }
 }

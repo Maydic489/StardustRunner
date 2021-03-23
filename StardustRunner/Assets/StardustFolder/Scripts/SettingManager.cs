@@ -21,7 +21,6 @@ namespace MoreMountains.InfiniteRunnerEngine
 
         public void Start()
         {
-            Debug.Log("SETTING START");
             LoadSettings();
         }
 

@@ -255,7 +255,6 @@ namespace MoreMountains.InfiniteRunnerEngine
 
 		public virtual void SaveSoundSettings()
 		{
-			Debug.Log(Settings.MusicLevel);
 			MMSaveLoadManager.Save(Settings, _saveFileName, _saveFolderName);
 		}
 
