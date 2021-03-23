@@ -102,7 +102,7 @@ namespace MoreMountains.InfiniteRunnerEngine
 		/// </summary>
 		protected virtual void Start()
 		{
-			PlayableCharacters[0] = Resources.Load<GameObject>("Player Character").GetComponent<PlayableCharacter>();
+			PlayableCharacters[0] = Resources.Load<GameObject>("Player Character_w").GetComponent<PlayableCharacter>();
 
 			//Speed = InitialSpeed;
 			Speed = 0;
