@@ -36,6 +36,10 @@ namespace MoreMountains.InfiniteRunnerEngine
             {
                 thisLanguage = saveLanguage;
             }
+            else
+            {
+                ChangeToEnglish();
+            }
         }
 
         public void ChangeToEnglish()
