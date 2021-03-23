@@ -15,13 +15,13 @@ namespace MoreMountains.InfiniteRunnerEngine
 		private Text tutorialText;
 		private bool isStop;
 
-        private void Start()
-        {
+		private void Start()
+		{
 			tutorialPanelText = tutorialPanel.GetComponentInChildren<TextMeshProUGUI>();
 			tutorialText = GetComponent<Text>();
-        }
+		}
 
-        private void OnTriggerEnter(Collider other)
+		private void OnTriggerEnter(Collider other)
 		{
 			if (other.gameObject.CompareTag("Player"))
 				TriggerEnter(other.gameObject);
@@ -39,12 +39,12 @@ namespace MoreMountains.InfiniteRunnerEngine
 			}
 		}
 
-        private void Update()
-        {
-            if(tutorialPanel.activeSelf && Time.timeScale != 0)
-            {
+		private void Update()
+		{
+			if(tutorialPanel.activeSelf && Time.timeScale != 0)
+			{
 				tutorialPanel.SetActive(false);
-            }
-        }
-    }
+			}
+		}
+	}
 }

@@ -13,6 +13,8 @@ namespace MoreMountains.InfiniteRunnerEngine
 	{
 		public bool MusicOn = true;
 		public bool SfxOn = true;
+		public float MusicLevel;
+		public float SfxLevel;
 	}
 
 	public struct IRESfxEvent
@@ -169,7 +171,7 @@ namespace MoreMountains.InfiniteRunnerEngine
 		}
 
 		public virtual void ChangeVolumeLevel(float newValue,string soundType)
-        {
+		{
 			switch (soundType)
 			{
 				case "BackgroundMusic":
@@ -180,6 +182,8 @@ namespace MoreMountains.InfiniteRunnerEngine
 					SfxVolume = newValue;
 					break;
 			}
+			Settings.MusicLevel = MusicVolume;
+			Settings.SfxLevel = SfxVolume;
 		}
 
 		/// <summary>
@@ -245,7 +249,7 @@ namespace MoreMountains.InfiniteRunnerEngine
 		public virtual void SfxOn() { SetSfx (true); }
 		public virtual void SfxOff() { SetSfx (false); }
 
-		protected virtual void SaveSoundSettings()
+		public virtual void SaveSoundSettings()
 		{
 			MMSaveLoadManager.Save(Settings, _saveFileName, _saveFolderName);
 		}
