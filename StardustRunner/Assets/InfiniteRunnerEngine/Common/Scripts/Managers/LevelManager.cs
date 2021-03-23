@@ -15,8 +15,8 @@ namespace MoreMountains.InfiniteRunnerEngine
 	{		
 		public enum Controls { SingleButton, LeftRight, Swipe }
 
-	    /// The current speed the level is traveling at
-	    public float Speed { get; protected set; }	
+		/// The current speed the level is traveling at
+		public float Speed { get; protected set; }	
 		/// The distance traveled since the start of the level
 		public float DistanceTraveled { get; protected set; }
 
@@ -31,20 +31,20 @@ namespace MoreMountains.InfiniteRunnerEngine
 		public float DistanceBetweenCharacters = 1f;
 		/// the elapsed time since the start of the level
 		public float RunningTime { get; protected set; }
-	    /// the amount of points a player gets per second
-	    public float PointsPerSecond = 20;
+		/// the amount of points a player gets per second
+		public float PointsPerSecond = 20;
 		public float FuelPerSecond = -1f;
-	    /// the text that will be shown (if not empty) at the start of the level
+		/// the text that will be shown (if not empty) at the start of the level
 		[Multiline]
-	    public String InstructionsText;
+		public String InstructionsText;
 
 
-	    [Space(10)]
+		[Space(10)]
 		[Header("Level Bounds")]
 		/// the line after which objects can be recycled
 		public Bounds RecycleBounds;
 
-	    [Space(10)]
+		[Space(10)]
 		/// the line after which playable characters will die - leave it to zero if you don't want to use it
 		public Bounds DeathBounds;
 			
@@ -72,18 +72,18 @@ namespace MoreMountains.InfiniteRunnerEngine
 		/// the text displayed at the end of the countdown
 		public string StartText;
 
-	    [Space(10)]
-	    [Header("Mobile Controls")]
-	    /// the mobile control scheme applied to this level
-	    public Controls ControlScheme;
+		[Space(10)]
+		[Header("Mobile Controls")]
+		/// the mobile control scheme applied to this level
+		public Controls ControlScheme;
 
-	    [Space(10)]
-	    [Header("Life Lost")]
-	    /// the effect we instantiate when a life is lost
-	    public GameObject LifeLostExplosion;
+		[Space(10)]
+		[Header("Life Lost")]
+		/// the effect we instantiate when a life is lost
+		public GameObject LifeLostExplosion;
 
-	    // protected stuff
-	    protected DateTime _started;
+		// protected stuff
+		protected DateTime _started;
 		protected float _savedPoints;	
 		protected float _recycleX;
 		protected Bounds _tmpRecycleBounds;
@@ -107,28 +107,28 @@ namespace MoreMountains.InfiniteRunnerEngine
 			//Speed = InitialSpeed;
 			Speed = 0;
 			SpeedAcceleration = 0;
-	        DistanceTraveled = 0;
+			DistanceTraveled = 0;
 
-	        InstantiateCharacters();
+			InstantiateCharacters();
 
-	        ManageControlScheme();
+			ManageControlScheme();
 
-	        // storage
-	        _savedPoints =GameManager.Instance.Points;
+			// storage
+			_savedPoints =GameManager.Instance.Points;
 			_started = DateTime.UtcNow;
-	        GameManager.Instance.SetStatus(GameManager.GameStatus.BeforeGameStart);
-	        GameManager.Instance.SetPointsPerSecond(PointsPerSecond);
+			GameManager.Instance.SetStatus(GameManager.GameStatus.BeforeGameStart);
+			GameManager.Instance.SetPointsPerSecond(PointsPerSecond);
 			GameManager.Instance.SetFuelPerSecond(FuelPerSecond);
 
-	        if (GUIManager.Instance != null) 
-	        { 
+			if (GUIManager.Instance != null) 
+			{ 
 				// set the level name in the GUI
 				GUIManager.Instance.SetLevelName(SceneManager.GetActiveScene().name);		
 				// fade in
 				GUIManager.Instance.FaderOn(false,IntroFadeDuration);
 			}
 
-	        PrepareStart();
+			PrepareStart();
 		}
 		
 		/// <summary>
@@ -140,12 +140,12 @@ namespace MoreMountains.InfiniteRunnerEngine
 			if (StartCountdown>0)
 			{
 				GameManager.Instance.SetStatus(GameManager.GameStatus.BeforeGameStart);
-	            StartCoroutine(PrepareStartCountdown());	
+				StartCoroutine(PrepareStartCountdown());	
 			}	
 			else
 			{
-	            LevelStart();
-	        }	
+				LevelStart();
+			}	
 		}
 		
 		/// <summary>
@@ -177,43 +177,43 @@ namespace MoreMountains.InfiniteRunnerEngine
 			
 			// we turn the countdown inactive, and start the level
 			GUIManager.Instance.SetCountdownActive(false);
-	        LevelStart();
-	    }
+			LevelStart();
+		}
 
 		/// <summary>
 		/// Handles the start of the level : starts the autoincrementation of the score, sets the proper status and triggers the corresponding event.
 		/// </summary>
-	    public virtual void LevelStart()
-	    {
+		public virtual void LevelStart()
+		{
 			Speed = InitialSpeed;
 			SpeedAcceleration = 1;
-	        GameManager.Instance.SetStatus(GameManager.GameStatus.GameInProgress);
+			GameManager.Instance.SetStatus(GameManager.GameStatus.GameInProgress);
 			GameManager.Instance.AutoIncrementScore(true);
 			GameManager.Instance.AutoDecrementFuel(true);
 			MMEventManager.TriggerEvent(new MMGameEvent("GameStart"));
-	    }
+		}
 
 		/// <summary>
 		/// Instantiates all the playable characters and feeds them to the gameManager
 		/// </summary>
-	    protected virtual void InstantiateCharacters()
-	    {
+		protected virtual void InstantiateCharacters()
+		{
 			CurrentPlayableCharacters = new List<PlayableCharacter>();
-            /// we go through the list of playable characters and instantiate them while adding them to the list we'll use from any class to access the
-            /// currently playable characters
+			/// we go through the list of playable characters and instantiate them while adding them to the list we'll use from any class to access the
+			/// currently playable characters
 
-            // we check if there's a stored character in the game manager we should instantiate
-            if (CharacterSelectorManager.Instance.StoredCharacter != null)
-            {
-                PlayableCharacter newPlayer = (PlayableCharacter)Instantiate(CharacterSelectorManager.Instance.StoredCharacter, StartingPosition.transform.position, StartingPosition.transform.rotation);
-                newPlayer.name = CharacterSelectorManager.Instance.StoredCharacter.name;
-                newPlayer.SetInitialPosition(newPlayer.transform.position);
-                CurrentPlayableCharacters.Add(newPlayer);
-                MMEventManager.TriggerEvent(new MMGameEvent("PlayableCharactersInstantiated"));
-                return;
-            }
+			// we check if there's a stored character in the game manager we should instantiate
+			if (CharacterSelectorManager.Instance.StoredCharacter != null)
+			{
+				PlayableCharacter newPlayer = (PlayableCharacter)Instantiate(CharacterSelectorManager.Instance.StoredCharacter, StartingPosition.transform.position, StartingPosition.transform.rotation);
+				newPlayer.name = CharacterSelectorManager.Instance.StoredCharacter.name;
+				newPlayer.SetInitialPosition(newPlayer.transform.position);
+				CurrentPlayableCharacters.Add(newPlayer);
+				MMEventManager.TriggerEvent(new MMGameEvent("PlayableCharactersInstantiated"));
+				return;
+			}
 
-            if (PlayableCharacters == null)
+			if (PlayableCharacters == null)
 			{
 				return;
 			}
@@ -223,44 +223,44 @@ namespace MoreMountains.InfiniteRunnerEngine
 				return;
 			}
 
-            // for each character in the PlayableCharacters list
-            for (int i = 0; i < PlayableCharacters.Count; i++)
-            {
-                // we instantiate the corresponding prefab
-                PlayableCharacter instance = (PlayableCharacter)Instantiate(PlayableCharacters[i]);
-                // we position it based on the StartingPosition point
-                instance.transform.position = new Vector3(StartingPosition.transform.position.x + i * DistanceBetweenCharacters, StartingPosition.transform.position.y, StartingPosition.transform.position.z);
-                // we set manually its initial position
-                instance.SetInitialPosition(instance.transform.position);
-                // we feed it to the game manager
-                CurrentPlayableCharacters.Add(instance);
-            }
+			// for each character in the PlayableCharacters list
+			for (int i = 0; i < PlayableCharacters.Count; i++)
+			{
+				// we instantiate the corresponding prefab
+				PlayableCharacter instance = (PlayableCharacter)Instantiate(PlayableCharacters[i]);
+				// we position it based on the StartingPosition point
+				instance.transform.position = new Vector3(StartingPosition.transform.position.x + i * DistanceBetweenCharacters, StartingPosition.transform.position.y, StartingPosition.transform.position.z);
+				// we set manually its initial position
+				instance.SetInitialPosition(instance.transform.position);
+				// we feed it to the game manager
+				CurrentPlayableCharacters.Add(instance);
+			}
 
-            MMEventManager.TriggerEvent(new MMGameEvent("PlayableCharactersInstantiated"));
-	    }
+			MMEventManager.TriggerEvent(new MMGameEvent("PlayableCharactersInstantiated"));
+		}
 
 		/// <summary>
 		/// Resets the level : repops dead characters, sets everything up for a new game
 		/// </summary>
-	    public virtual void ResetLevel()
-	    {
-	        InstantiateCharacters();
-	        PrepareStart();
-	    }
+		public virtual void ResetLevel()
+		{
+			InstantiateCharacters();
+			PrepareStart();
+		}
 
 		/// <summary>
 		/// Turns buttons on or off depending on the chosen mobile control scheme
 		/// </summary>
-	    protected virtual void ManageControlScheme() 
-	    {
-	        String buttonPath = "";
-	        switch (ControlScheme)
-	        {
-	            case Controls.SingleButton:
-	                buttonPath = "Canvas/MainActionButton";
-	                if (GUIManager.Instance == null) { return; }
-	                if (GUIManager.Instance.transform.Find(buttonPath) == null) { return; }
-	                GUIManager.Instance.transform.Find(buttonPath).gameObject.SetActive(true);
+		protected virtual void ManageControlScheme() 
+		{
+			String buttonPath = "";
+			switch (ControlScheme)
+			{
+				case Controls.SingleButton:
+					buttonPath = "Canvas/MainActionButton";
+					if (GUIManager.Instance == null) { return; }
+					if (GUIManager.Instance.transform.Find(buttonPath) == null) { return; }
+					GUIManager.Instance.transform.Find(buttonPath).gameObject.SetActive(true);
 					break;
 
 				case Controls.LeftRight:
@@ -276,14 +276,14 @@ namespace MoreMountains.InfiniteRunnerEngine
 					if (GUIManager.Instance.transform.Find(buttonPath) == null) { return; }
 					GUIManager.Instance.transform.Find(buttonPath).gameObject.SetActive(true);
 					break;
-	        }
+			}
 
-	    }
+		}
 
-	    /// <summary>
-	    /// Every frame
-	    /// </summary>
-	    public virtual void Update()
+		/// <summary>
+		/// Every frame
+		/// </summary>
+		public virtual void Update()
 		{
 			//make sure physic is smooth
 			Time.fixedDeltaTime = Time.deltaTime;
@@ -304,7 +304,7 @@ namespace MoreMountains.InfiniteRunnerEngine
 				Speed += SpeedAcceleration * Time.deltaTime;
 			}
 			else if(Speed > 15 && GameManager.Instance.FuelPoints < 25)
-            {
+			{
 				Speed -= (SpeedAcceleration*5) * Time.deltaTime;
 			}
 			else if (Speed > 15 && GameManager.Instance.FuelPoints < 50)
@@ -355,7 +355,7 @@ namespace MoreMountains.InfiniteRunnerEngine
 				_temporarySpeedFactor = factor;
 			}
 
-            if (!_temporarySpeedFactorActive)
+			if (!_temporarySpeedFactorActive)
 			{
 				_temporarySavedSpeed = Speed;
 			}
@@ -436,13 +436,13 @@ namespace MoreMountains.InfiniteRunnerEngine
 		/// <param name="levelName">Level name.</param>
 		protected virtual IEnumerator GotoLevelCo(string levelName)
 		{
-	        if (Time.timeScale > 0.0f)
-	        {
-	            yield return new WaitForSeconds(OutroFadeDuration);
-	        }
-	        GameManager.Instance.UnPause();
+			if (Time.timeScale > 0.0f)
+			{
+				yield return new WaitForSeconds(OutroFadeDuration);
+			}
+			GameManager.Instance.UnPause();
 
-	        if (string.IsNullOrEmpty(levelName))
+			if (string.IsNullOrEmpty(levelName))
 			{
 				LoadingSceneManager.LoadScene("StartScreen");
 			}
@@ -458,17 +458,17 @@ namespace MoreMountains.InfiniteRunnerEngine
 		/// </summary>
 		public virtual void GameOverAction()
 		{
-	    	GameManager.Instance.UnPause();
+			GameManager.Instance.UnPause();
 			GotoLevel(SceneManager.GetActiveScene().name);
 		}
 
 		/// <summary>
 		/// Triggered when a life is lost and you press the main action button
 		/// </summary>
-	    public virtual void LifeLostAction()
-	    {   
-	        ResetLevel();
-	    }
+		public virtual void LifeLostAction()
+		{   
+			ResetLevel();
+		}
 		
 		/// <summary>
 		/// Kills the player.
@@ -488,7 +488,7 @@ namespace MoreMountains.InfiniteRunnerEngine
 			player.Die();
 			//yield return new WaitForSeconds(0.5f);
 			yield return new WaitForSeconds(0f);
-	        	        
+						
 			// if this was the last character, we trigger the all characters are dead coroutine
 			if (LevelManager.Instance.CurrentPlayableCharacters.Count==0)
 			{
@@ -498,51 +498,51 @@ namespace MoreMountains.InfiniteRunnerEngine
 		}
 
 		public virtual void ActivateInvul(float duration)
-        {
+		{
 			CurrentPlayableCharacters[0].GetComponent<SimpleLane>().PreActivateInvul(duration);
-        }
+		}
 		
 		/// <summary>
 		/// What happens when all characters are dead (or when the character is dead if you only have one)
 		/// </summary>
 		protected virtual void AllCharactersAreDead()
 		{
-	        // if we've specified an effect for when a life is lost, we instantiate it at the camera's position
-	        if (LifeLostExplosion != null)
-	        {
-	            GameObject explosion = Instantiate(LifeLostExplosion);
-	            explosion.transform.position = new Vector3(Camera.main.transform.position.x,0.3f,0) ;
-	        }
-
-	        // we've just lost a life
-	        GameManager.Instance.SetStatus(GameManager.GameStatus.LifeLost);
-			MMEventManager.TriggerEvent(new MMGameEvent("LifeLost"));
-	        _started = DateTime.UtcNow;
-	        GameManager.Instance.SetPoints(_savedPoints);
-	        GameManager.Instance.LoseLives(1);
-
-	        if (GameManager.Instance.CurrentLives<=0)
+			// if we've specified an effect for when a life is lost, we instantiate it at the camera's position
+			if (LifeLostExplosion != null)
 			{
-	            GUIManager.Instance.SetGameOverScreen(true);
-	            GameManager.Instance.SetStatus(GameManager.GameStatus.GameOver);
+				GameObject explosion = Instantiate(LifeLostExplosion);
+				explosion.transform.position = new Vector3(Camera.main.transform.position.x,0.3f,0) ;
+			}
+
+			// we've just lost a life
+			GameManager.Instance.SetStatus(GameManager.GameStatus.LifeLost);
+			MMEventManager.TriggerEvent(new MMGameEvent("LifeLost"));
+			_started = DateTime.UtcNow;
+			GameManager.Instance.SetPoints(_savedPoints);
+			GameManager.Instance.LoseLives(1);
+
+			if (GameManager.Instance.CurrentLives<=0)
+			{
+				GUIManager.Instance.SetGameOverScreen(true);
+				GameManager.Instance.SetStatus(GameManager.GameStatus.GameOver);
 				MMEventManager.TriggerEvent(new MMGameEvent("GameOver"));
-	        }
-	    }
-
-	    /// <summary>
-	    /// Override this if needed
-	    /// </summary>
-	    protected virtual void OnEnable()
-	    {
-
-	    }
+			}
+		}
 
 		/// <summary>
-	    /// Override this if needed
-	    /// </summary>
-	    protected virtual void OnDisable()
-	    {
-	    	
-	    }
+		/// Override this if needed
+		/// </summary>
+		protected virtual void OnEnable()
+		{
+
+		}
+
+		/// <summary>
+		/// Override this if needed
+		/// </summary>
+		protected virtual void OnDisable()
+		{
+			
+		}
 	}
 }

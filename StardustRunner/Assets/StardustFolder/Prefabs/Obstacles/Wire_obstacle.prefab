@@ -195,6 +195,7 @@ MonoBehaviour:
   isBreakable: 1
   isWeak: 1
   whatLane: 108
+  isHit: 0
   showModel:
   - {fileID: 2356935990442028634}
   - {fileID: 5517872921889525415}
@@ -216,7 +217,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3560b448e90ad744adfa1edfc429537, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  laneSize: 0
+  laneSize: 1
 --- !u!114 &8591951502219658910
 MonoBehaviour:
   m_ObjectHideFlags: 0

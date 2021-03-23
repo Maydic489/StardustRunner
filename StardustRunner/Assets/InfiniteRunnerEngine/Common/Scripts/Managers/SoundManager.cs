@@ -229,6 +229,7 @@ namespace MoreMountains.InfiniteRunnerEngine
 		{
 			foreach (AudioSource aS in _loopingSounds)
 			{
+				if(aS != null)
 				if (state)
 					aS.Play();
 				else
@@ -264,6 +265,11 @@ namespace MoreMountains.InfiniteRunnerEngine
 			if (settings != null)
 			{
 				Settings = settings;
+			}
+			else
+			{
+				Settings.MusicLevel = 0.5f;
+				settings.SfxLevel = 0.5f;
 			}
 		}
 
