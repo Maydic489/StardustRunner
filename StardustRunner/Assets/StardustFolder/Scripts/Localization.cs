@@ -4,7 +4,7 @@ using UnityEngine;
 
 public static class Localization
 {
-    static string language;
+    static string thisLanguage;
 
     public static string startButton = "Play";
     public static string tutorialButton = "Tutorial";
@@ -13,8 +13,8 @@ public static class Localization
 
     public static void GetLanguage()
     {
-        language = MoreMountains.InfiniteRunnerEngine.SettingManager.Instance.language;
-        switch (language)
+        thisLanguage = MoreMountains.InfiniteRunnerEngine.SettingManager.Instance.thisLanguage.language;
+        switch (thisLanguage)
         {
             case "english":
                 SetEnglish();

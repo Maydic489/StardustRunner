@@ -52,8 +52,8 @@ namespace MoreMountains.InfiniteRunnerEngine
 		/// true if the music is enabled	
 		//public bool MusicOn=true;
 		/// the music volume
-		[Range(0,1)]
-		public float MusicVolume=0.3f;
+		//[Range(0,1)]
+		public float MusicVolume;
 
 		[Header("Sound Effects")]
 		/// true if the sound fx are enabled
@@ -71,7 +71,13 @@ namespace MoreMountains.InfiniteRunnerEngine
 		protected AudioSource _backgroundMusic;	
 
 		public List<AudioSource> _loopingSounds;
-			
+
+		private void Start()
+		{
+			MusicVolume = Settings.MusicLevel;
+			SfxVolume = Settings.SfxLevel;
+		}
+
 		/// <summary>
 		/// Plays a background music.
 		/// Only one background music can be active at a time.
@@ -162,7 +168,6 @@ namespace MoreMountains.InfiniteRunnerEngine
 			}
 			else
 			{
-				Debug.Log("start looping");
 				_loopingSounds.Add(audioSource);
 			}
 
@@ -206,7 +211,6 @@ namespace MoreMountains.InfiniteRunnerEngine
 		{
 			if (MuteSfxOnPause)
 			{
-				Debug.Log("event trigger "+gameEvent.EventName);
 				switch (gameEvent.EventName)
 				{
 					case "PauseOn":
@@ -251,6 +255,7 @@ namespace MoreMountains.InfiniteRunnerEngine
 
 		public virtual void SaveSoundSettings()
 		{
+			Debug.Log(Settings.MusicLevel);
 			MMSaveLoadManager.Save(Settings, _saveFileName, _saveFolderName);
 		}
 
@@ -305,6 +310,7 @@ namespace MoreMountains.InfiniteRunnerEngine
 			IRESfxEvent.Register(OnMMSfxEvent);
 			this.MMEventStartListening<MMGameEvent>();
 			LoadSoundSettings ();
+
 			_loopingSounds = new List<AudioSource> ();
 		}
 

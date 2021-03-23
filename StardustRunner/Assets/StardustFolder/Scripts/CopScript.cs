@@ -19,7 +19,6 @@ namespace MoreMountains.InfiniteRunnerEngine
 			var sM = SoundManager.Instance;
 			anim = GetComponent<Animator>();
 			runAudio = GetComponent<AudioSource>();
-			Debug.Log("SFX " + sM.Settings.SfxOn);
 			if (sM.Settings.SfxOn)
 			{
 				SoundManager.Instance.PlaySoundSource(runAudio, transform.position,true,true);

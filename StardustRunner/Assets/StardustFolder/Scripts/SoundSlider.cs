@@ -11,7 +11,7 @@ namespace MoreMountains.InfiniteRunnerEngine
         public Slider VolumeLevelSlider;
         public enum WhatSoundType { BackgroundMusic, SoundEffect}
 
-        [Header("Bounds")]
+        [Header("SoundType")]
         public WhatSoundType soundType;
         SoundManager sM;
 
@@ -28,7 +28,6 @@ namespace MoreMountains.InfiniteRunnerEngine
                     break;
             }
 
-            Debug.Log("eiei");
             VolumeLevelSlider.value = valueInSlider;
             VolumeLevelSlider.onValueChanged.AddListener(delegate { ValueChangeCheck(); });
         }

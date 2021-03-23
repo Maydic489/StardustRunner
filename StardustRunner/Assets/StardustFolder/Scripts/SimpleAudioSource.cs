@@ -12,7 +12,6 @@ public class SimpleAudioSource : MonoBehaviour
 
     public void PlayAudioSource()
     {
-        Debug.Log("Play sound");
         MoreMountains.InfiniteRunnerEngine.SoundManager.Instance.PlaySoundSource(thisAudio, transform.position);
     }
 }

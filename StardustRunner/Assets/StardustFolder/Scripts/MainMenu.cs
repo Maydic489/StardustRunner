@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 //for GUI
 public class MainMenu : MonoBehaviour
@@ -14,11 +15,14 @@ public class MainMenu : MonoBehaviour
 
     void Start()
     {
-        Localization.GetLanguage();
-        startButton.text = Localization.startButton;
-        tutorialButton.text = Localization.tutorialButton;
-        settingButton.text = Localization.settingButton;
-        creditsButton.text = Localization.creditsButton;
+        Scene scene = SceneManager.GetActiveScene();
+        
+        switch(scene.name)
+        {
+            case "MainMenuScene":
+                RefreshMenu();
+                break;
+        }
     }
 
     public void RefreshMenu()
