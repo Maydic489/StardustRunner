@@ -644,7 +644,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 8fd192304df88db499eedb3456dc6d67, type: 2}
+  - {fileID: 2100000, guid: 785872039712b5a4ba20dbbfada52dec, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -847,7 +847,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 8fd192304df88db499eedb3456dc6d67, type: 2}
+  - {fileID: 2100000, guid: 785872039712b5a4ba20dbbfada52dec, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2161,61 +2161,7 @@ Animator:
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
   m_LinearVelocityBlending: 0
-  m_WarningMessage: '
-
-    Transform ''Bip001 L Toe0'' has been deleted
-
-    Transform
-    ''Bip001 L Foot'' has been deleted
-
-    Transform ''Bip001 L Calf'' has been
-    deleted
-
-    Transform ''Bip001 L Thigh'' has been deleted
-
-    Transform ''Bip001
-    R Toe0'' has been deleted
-
-    Transform ''Bip001 R Foot'' has been deleted
-
-    Transform
-    ''Bip001 R Calf'' has been deleted
-
-    Transform ''Bip001 R Thigh'' has been
-    deleted
-
-    Transform ''Bip001 L Hand'' has been deleted
-
-    Transform ''Bip001
-    L Forearm'' has been deleted
-
-    Transform ''Bip001 L UpperArm'' has been deleted
-
-    Transform
-    ''Bip001 L Clavicle'' has been deleted
-
-    Transform ''Bip001 Head'' has been
-    deleted
-
-    Transform ''Bip001 Neck'' has been deleted
-
-    Transform ''Bip001
-    R Hand'' has been deleted
-
-    Transform ''Bip001 R Forearm'' has been deleted
-
-    Transform
-    ''Bip001 R UpperArm'' has been deleted
-
-    Transform ''Bip001 R Clavicle'' has
-    been deleted
-
-    Transform ''Bip001 Spine'' has been deleted
-
-    Transform
-    ''Bip001 Pelvis'' has been deleted
-
-    Transform ''Bip001'' has been deleted'
+  m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
@@ -2355,8 +2301,8 @@ MonoBehaviour:
   ragdollObj: {fileID: 7989850626635089728}
   shadow: {fileID: 8453192960646674113}
   groundPivot: {fileID: 3481363774766235749}
-  helmetModel: {fileID: 0}
-  headContainer: {fileID: 0}
+  helmetModel: {fileID: 315150745556438147}
+  headContainer: {fileID: 5116205937193476235}
   crashEffect: {fileID: 4021103657954561961, guid: 5c755f9bc5253ea418e919994537dcc7,
     type: 3}
   boostEffect:
