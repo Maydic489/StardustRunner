@@ -13,7 +13,7 @@ public static class Localization
 
     public static void GetLanguage()
     {
-        thisLanguage = MoreMountains.InfiniteRunnerEngine.SettingManager.Instance.thisLanguage.language;
+        thisLanguage = MoreMountains.InfiniteRunnerEngine.SettingManager.Instance.thisSetting.language;
         switch (thisLanguage)
         {
             case "english":

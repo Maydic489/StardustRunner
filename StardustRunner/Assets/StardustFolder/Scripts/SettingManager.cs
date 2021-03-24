@@ -7,17 +7,18 @@ using System.Collections.Generic;
 namespace MoreMountains.InfiniteRunnerEngine
 {
     [Serializable]
-    public class LanguageSetting
+    public class GeneralSetting
     {
         public string language;
+        public string gender;
     }
 
     public class SettingManager : MMPersistentSingleton<SettingManager>
     {
-        public LanguageSetting thisLanguage;
+        public GeneralSetting thisSetting;
 
         protected const string _saveFolderName = "CorgiEngine/";
-        protected const string _saveFileName = "langauge.settings";
+        protected const string _saveFileName = "General.settings";
 
         public void Start()
         {
@@ -26,33 +27,43 @@ namespace MoreMountains.InfiniteRunnerEngine
 
         public virtual void SaveSettings()
         {
-            MMSaveLoadManager.Save(thisLanguage, _saveFileName, _saveFolderName);
+            MMSaveLoadManager.Save(thisSetting, _saveFileName, _saveFolderName);
         }
 
         protected virtual void LoadSettings()
         {
-            LanguageSetting saveLanguage = (LanguageSetting)MMSaveLoadManager.Load(typeof(LanguageSetting), _saveFileName, _saveFolderName);
+            GeneralSetting saveLanguage = (GeneralSetting)MMSaveLoadManager.Load(typeof(GeneralSetting), _saveFileName, _saveFolderName);
             if (saveLanguage != null)
             {
-                thisLanguage = saveLanguage;
+                thisSetting = saveLanguage;
             }
             else
             {
-                ChangeToEnglish();
+                thisSetting.language = "english";
+                thisSetting.gender = "boy";
             }
         }
 
         public void ChangeToEnglish()
         {
-            thisLanguage.language = "english";
+            thisSetting.language = "english";
         }
         public void ChangeToThai()
         {
-            thisLanguage.language = "thai";
+            thisSetting.language = "thai";
         }
         public void ChangeToSkoi()
         {
-            thisLanguage.language = "skoi";
+            thisSetting.language = "skoi";
+        }
+
+        public void ChangeToBoy()
+        {
+            thisSetting.gender = "boy";
+        }
+        public void ChangeToGirl()
+        {
+            thisSetting.gender = "girl";
         }
     }
 }

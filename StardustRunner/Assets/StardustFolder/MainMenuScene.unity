@@ -1750,8 +1750,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06f82948ee5a4c347ab7dc4f7b930f6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thisLanguage:
+  thisSetting:
     language: 
+    gender: 
 --- !u!4 &1425369621
 Transform:
   m_ObjectHideFlags: 0
@@ -2451,7 +2452,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 2008933334}
-        m_MethodName: ChangeToEnglish
+        m_MethodName: ChangeToBoy
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2865,7 +2866,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 2008933334}
-        m_MethodName: ChangeToEnglish
+        m_MethodName: ChangeToGirl
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3683,7 +3684,7 @@ PrefabInstance:
     - target: {fileID: 3338510929370680456, guid: 95046490b6f4adf42bd36783c4107587,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3338510929370680459, guid: 95046490b6f4adf42bd36783c4107587,
         type: 3}

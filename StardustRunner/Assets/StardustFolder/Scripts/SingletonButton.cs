@@ -23,6 +23,15 @@ namespace MoreMountains.InfiniteRunnerEngine
             SettingManager.Instance.ChangeToSkoi();
         }
 
+        public void ChangeToBoy()
+        {
+            SettingManager.Instance.ChangeToBoy();
+        }
+        public void ChangeToGirl()
+        {
+            SettingManager.Instance.ChangeToGirl();
+        }
+
         public void SaveSoundSettings()
         {
             SoundManager.Instance.SaveSoundSettings();

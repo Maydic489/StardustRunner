@@ -102,7 +102,11 @@ namespace MoreMountains.InfiniteRunnerEngine
 		/// </summary>
 		protected virtual void Start()
 		{
-			PlayableCharacters[0] = Resources.Load<GameObject>("Player Character_w").GetComponent<PlayableCharacter>();
+			//choose character gender
+			if(SettingManager.Instance.thisSetting.gender == "boy")
+				PlayableCharacters[0] = Resources.Load<GameObject>("Player Character").GetComponent<PlayableCharacter>();
+			else if (SettingManager.Instance.thisSetting.gender == "girl")
+				PlayableCharacters[0] = Resources.Load<GameObject>("Player Character_w").GetComponent<PlayableCharacter>();
 
 			//Speed = InitialSpeed;
 			Speed = 0;
