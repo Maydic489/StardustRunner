@@ -22,6 +22,7 @@ namespace MoreMountains.InfiniteRunnerEngine
 		private Animation pivotAnim;
 		public GameObject helmetModel;
 		public GameObject headContainer;
+		public GameObject headModel;
 		public GameObject crashEffect;
 		public List<ParticleSystem> boostEffect;
 		public ParticleSystem slideEffect;
@@ -369,6 +370,7 @@ namespace MoreMountains.InfiniteRunnerEngine
 				{
 					isProtect = state;
 					helmetModel.SetActive(state);
+					headModel.SetActive(!state);
 				}
 
 				SoundManager.Instance.PlaySound(bumpSFX, transform.position);
@@ -382,6 +384,7 @@ namespace MoreMountains.InfiniteRunnerEngine
 				{
 					isProtect = state;
 					helmetModel.SetActive(state);
+					headModel.SetActive(!state);
 				}
 			}
 

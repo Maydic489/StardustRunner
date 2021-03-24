@@ -2303,6 +2303,7 @@ MonoBehaviour:
   groundPivot: {fileID: 3481363774766235749}
   helmetModel: {fileID: 315150745556438147}
   headContainer: {fileID: 5116205937193476235}
+  headModel: {fileID: 3403984845355311738}
   crashEffect: {fileID: 4021103657954561961, guid: 5c755f9bc5253ea418e919994537dcc7,
     type: 3}
   boostEffect:
