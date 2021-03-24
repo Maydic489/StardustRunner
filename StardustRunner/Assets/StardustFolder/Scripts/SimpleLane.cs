@@ -370,7 +370,9 @@ namespace MoreMountains.InfiniteRunnerEngine
 				{
 					isProtect = state;
 					helmetModel.SetActive(state);
-					headModel.SetActive(!state);
+
+					if(SettingManager.Instance.thisSetting.gender == "girl")
+						headModel.SetActive(!state);
 				}
 
 				SoundManager.Instance.PlaySound(bumpSFX, transform.position);
@@ -384,7 +386,9 @@ namespace MoreMountains.InfiniteRunnerEngine
 				{
 					isProtect = state;
 					helmetModel.SetActive(state);
-					headModel.SetActive(!state);
+
+					if (SettingManager.Instance.thisSetting.gender == "girl")
+						headModel.SetActive(!state);
 				}
 			}
 
