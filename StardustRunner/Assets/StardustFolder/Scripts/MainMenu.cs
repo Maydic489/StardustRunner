@@ -27,6 +27,18 @@ public class MainMenu : MonoBehaviour
     //Credits
     public TextMeshProUGUI cr_TextTitle;
 
+    //Tutorial
+    public Text tu_Turn1;
+    public Text tu_Turn2;
+    public Text tu_Turn3;
+    public Text tu_Up;
+    public Text tu_Break;
+    public Text tu_Down;
+    public Text tu_Fuel;
+    public Text tu_Helmet;
+    public Text tu_3Helmet;
+    public Text tu_End;
+
     void Start()
     {
         Scene scene = SceneManager.GetActiveScene();
@@ -36,11 +48,15 @@ public class MainMenu : MonoBehaviour
             case "MainMenuScene":
                 RefreshMenu();
                 break;
+            case "Tutorial":
+                RefreshTutorial();
+                break;
         }
     }
 
     public void RefreshMenu()
     {
+        Debug.Log("fresh Menu");
         Localization.GetLanguage();
         startButton.text = Localization.startButton;
         tutorialButton.text = Localization.tutorialButton;
@@ -57,5 +73,20 @@ public class MainMenu : MonoBehaviour
         st_Girl.text = Localization.st_Girl;
 
         cr_TextTitle.text = Localization.cr_TextTitle;
+    }
+
+    public void RefreshTutorial()
+    {
+        Debug.Log("fresh Tutorial");
+        tu_Turn1.text = Localization.tu_Turn1;
+        tu_Turn2.text = Localization.tu_Turn2;
+        tu_Turn3.text = Localization.tu_Turn3;
+        tu_Up.text = Localization.tu_Up;
+        tu_Break.text = Localization.tu_Break;
+        tu_Down.text = Localization.tu_Down;
+        tu_Fuel.text = Localization.tu_Fuel;
+        tu_Helmet.text = Localization.tu_Helmet;
+        tu_3Helmet.text = Localization.tu_3Helmet;
+        tu_End.text = Localization.tu_End;
     }
 }
