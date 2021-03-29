@@ -298,7 +298,7 @@ namespace MoreMountains.InfiniteRunnerEngine
 			// if we can still accelerate, we apply the level's speed acceleration
 			if (Speed < 15 && GameManager.Instance.FuelPoints > 50)
 			{
-				Speed += (SpeedAcceleration * 10) * Time.deltaTime;
+				Speed += (SpeedAcceleration * 20) * Time.deltaTime;
 			}
 			else if (Speed<MaximumSpeed && GameManager.Instance.FuelPoints > 50)
 			{
