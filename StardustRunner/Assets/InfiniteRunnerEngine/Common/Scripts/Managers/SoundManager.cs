@@ -216,6 +216,9 @@ namespace MoreMountains.InfiniteRunnerEngine
 					case "PauseOn":
 						PlayLoop(false);
 						break;
+					case "PauseGenericOn":
+						PlayLoop(false);
+						break;
 					case "PauseOff":
 						PlayLoop(true);
 						break;

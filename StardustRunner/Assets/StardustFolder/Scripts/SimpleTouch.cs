@@ -20,7 +20,8 @@ namespace MoreMountains.InfiniteRunnerEngine
         void Update()
         {
             //Swipe();
-            MouseSwipe();
+            if(GameManager.Instance.Status != GameManager.GameStatus.Paused)
+                MouseSwipe();
         }
 
         public void Swipe()

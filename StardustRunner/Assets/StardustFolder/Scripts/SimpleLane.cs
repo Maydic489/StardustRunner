@@ -552,6 +552,9 @@ namespace MoreMountains.InfiniteRunnerEngine
 					case "PauseOn":
 						engineSFX.Stop();
 						break;
+					case "PauseGenericOn":
+						engineSFX.Stop();
+						break;
 					case "PauseOff":
 						engineSFX.Play();
 						break;

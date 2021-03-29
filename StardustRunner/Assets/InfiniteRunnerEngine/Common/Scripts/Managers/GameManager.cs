@@ -42,7 +42,7 @@ namespace MoreMountains.InfiniteRunnerEngine
 		protected Coroutine _autoIncrementCoroutine;
 		protected Coroutine _autoDecrementCoroutine;
 
-		protected bool isPopUp;
+		public bool isPopUp;
 
 		/// <summary>
 		/// Initialization
@@ -302,6 +302,8 @@ namespace MoreMountains.InfiniteRunnerEngine
 				Instance.SetTimeScale(0.0f);
 				_statusBeforePause = Instance.Status;
 				Instance.SetStatus(GameStatus.Paused);
+
+				MMEventManager.TriggerEvent(new MMGameEvent("PauseGenericOn"));
 			}
 			else
 			{

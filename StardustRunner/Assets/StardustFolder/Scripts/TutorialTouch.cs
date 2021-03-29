@@ -20,8 +20,8 @@ namespace MoreMountains.InfiniteRunnerEngine
 
         void Update()
         {
-            //Swipe();
-            MouseSwipe();
+            if (GameManager.Instance.isPopUp)
+                MouseSwipe();
         }
         protected virtual void MouseSwipe()
         {

@@ -36,7 +36,7 @@ public class CameraShake : MonoBehaviour
 
 	void Update()
 	{
-		if (isShake)
+		if (isShake && MoreMountains.InfiniteRunnerEngine.GameManager.Instance.Status != MoreMountains.InfiniteRunnerEngine.GameManager.GameStatus.Paused)
 		{
 			if(shakeDuration == 0) { shakeDuration = shakeDurationSet;}
 			if (shakeDuration > 0)

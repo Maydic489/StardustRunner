@@ -103,10 +103,7 @@ namespace MoreMountains.InfiniteRunnerEngine
 		protected virtual void Start()
 		{
 			//choose character gender
-			if(SettingManager.Instance.thisSetting.gender == "boy")
-				PlayableCharacters[0] = Resources.Load<GameObject>("Player Character").GetComponent<PlayableCharacter>();
-			else if (SettingManager.Instance.thisSetting.gender == "girl")
-				PlayableCharacters[0] = Resources.Load<GameObject>("Player Character_w").GetComponent<PlayableCharacter>();
+			SetCharacter();
 
 			//Speed = InitialSpeed;
 			Speed = 0;
@@ -531,6 +528,16 @@ namespace MoreMountains.InfiniteRunnerEngine
 				GameManager.Instance.SetStatus(GameManager.GameStatus.GameOver);
 				MMEventManager.TriggerEvent(new MMGameEvent("GameOver"));
 			}
+		}
+
+		protected virtual void SetCharacter()
+        {
+			if (SettingManager.Instance.thisSetting.gender == "boy")
+				PlayableCharacters[0] = Resources.Load<GameObject>("Player Character").GetComponent<PlayableCharacter>();
+			else if (SettingManager.Instance.thisSetting.gender == "girl")
+				PlayableCharacters[0] = Resources.Load<GameObject>("Player Character_w").GetComponent<PlayableCharacter>();
+			else if(SettingManager.Instance.thisSetting.gender == "")
+				PlayableCharacters[0] = Resources.Load<GameObject>("Player Character").GetComponent<PlayableCharacter>();
 		}
 
 		/// <summary>
