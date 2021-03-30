@@ -226,7 +226,7 @@ namespace MoreMountains.InfiniteRunnerEngine
 						PlayLoop(true);
 						break;
 					case "GameOver":
-						_loopingSounds.Clear();
+						ClearLoop();
 						break;
 				}
 			}
@@ -318,6 +318,10 @@ namespace MoreMountains.InfiniteRunnerEngine
 
 		public virtual void ClearLoop()
         {
+			foreach (AudioSource loopSound in _loopingSounds)
+			{
+					Destroy(loopSound);
+			}
 			_loopingSounds.Clear();
         }
 
@@ -329,8 +333,6 @@ namespace MoreMountains.InfiniteRunnerEngine
 
 			_loopingSounds = new List<AudioSource> ();
 		}
-
-		
 
 		protected virtual void OnDisable()
 		{

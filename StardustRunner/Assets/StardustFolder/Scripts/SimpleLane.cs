@@ -277,6 +277,8 @@ namespace MoreMountains.InfiniteRunnerEngine
 					var emission = boostEffect[i].emission;
 					emission.enabled = true;
 				}
+
+				ChangeEngineSFX(engineBoostSFX);
 			}
 			yield return new WaitForSeconds(5);
 			{
@@ -296,6 +298,8 @@ namespace MoreMountains.InfiniteRunnerEngine
 					var emission = boostEffect[i].emission;
 					emission.enabled = false;
 				}
+
+				ChangeEngineSFX(engineNormal);
 			}
 		}
 

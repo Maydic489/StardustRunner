@@ -96,6 +96,11 @@ namespace MoreMountains.InfiniteRunnerEngine
 				{
 					BreakingDown();
 				}
+
+				if (this.CompareTag("Obstacle_Car"))
+                {
+					BlowAway();
+                }
 			}
 
 			isHit = true;
