@@ -225,6 +225,9 @@ namespace MoreMountains.InfiniteRunnerEngine
 					case "GameStart":
 						PlayLoop(true);
 						break;
+					case "GameOver":
+						_loopingSounds.Clear();
+						break;
 				}
 			}
 		}
@@ -313,6 +316,11 @@ namespace MoreMountains.InfiniteRunnerEngine
 			}
 		}
 
+		public virtual void ClearLoop()
+        {
+			_loopingSounds.Clear();
+        }
+
 		protected virtual void OnEnable()
 		{
 			IRESfxEvent.Register(OnMMSfxEvent);
@@ -321,6 +329,8 @@ namespace MoreMountains.InfiniteRunnerEngine
 
 			_loopingSounds = new List<AudioSource> ();
 		}
+
+		
 
 		protected virtual void OnDisable()
 		{

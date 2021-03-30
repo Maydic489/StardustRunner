@@ -3,6 +3,7 @@ using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
 using MoreMountains.Tools;
+using TMPro;
 
 namespace MoreMountains.InfiniteRunnerEngine
 {	
@@ -12,14 +13,14 @@ namespace MoreMountains.InfiniteRunnerEngine
 	public class GUIManager : MMSingleton<GUIManager>, MMEventListener<MMGameEvent>
 	{
 		/// the pause screen game object
-		public GameObject PauseScreen;	
+		public GameObject PauseScreen;
 	    /// the game over screen game object
 	    public GameObject GameOverScreen;
 	    /// the object that will contain lives hearts
 	    public GameObject HeartsContainer;
 		public GameObject HelmetsContainer;
 	    /// the points counter
-	    public Text PointsText;
+	    public TextMeshProUGUI PointsText;
 		/// the fuel counter
 		public Text FuelText;
 		/// the level display
@@ -119,9 +120,14 @@ namespace MoreMountains.InfiniteRunnerEngine
 				// we instantiate the heart gameobject and position it
 				GameObject helmet = (GameObject)Instantiate(Resources.Load(resourceURL));
 				helmet.transform.SetParent(HelmetsContainer.transform, false);
-				helmet.GetComponent<RectTransform>().localPosition = new Vector3(HelmetsContainer.GetComponent<RectTransform>().sizeDelta.x / 2 - i * (helmet.GetComponent<RectTransform>().sizeDelta.x * 75f), 0, 0);
 				if (i == GameManager.Instance.TotalHelmets - 1)
+				{
 					helmet.GetComponent<RectTransform>().localScale = new Vector3(70, 70, 70);
+					helmet.GetComponent<RectTransform>().localPosition = new Vector3((HelmetsContainer.GetComponent<RectTransform>().sizeDelta.x / 2) - i * (helmet.GetComponent<RectTransform>().sizeDelta.x * 68f), 0, 0);
+				}
+				else
+					helmet.GetComponent<RectTransform>().localPosition = new Vector3((HelmetsContainer.GetComponent<RectTransform>().sizeDelta.x / 2) - i * (helmet.GetComponent<RectTransform>().sizeDelta.x * 65f), 0, 0);
+				
 
 				deadHelmets++;
 			}

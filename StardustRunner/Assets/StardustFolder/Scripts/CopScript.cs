@@ -21,6 +21,7 @@ namespace MoreMountains.InfiniteRunnerEngine
 			runAudio = GetComponent<AudioSource>();
 			if (sM.Settings.SfxOn)
 			{
+				SoundManager.Instance.ClearLoop();
 				SoundManager.Instance.PlaySoundSource(runAudio, transform.position,true,true);
 			}
 		}
