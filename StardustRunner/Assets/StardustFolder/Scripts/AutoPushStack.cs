@@ -45,7 +45,7 @@ namespace MoreMountains.InfiniteRunnerEngine
                 else if (collidingObject.CompareTag("Obstacle") || collidingObject.CompareTag("Ramp"))
                 {
                     if(!isBlow)
-                        GetComponent<HurtPlayerOnTouch>().BlowAway();
+                        GetComponent<HurtPlayerOnTouch>().BlowAway(collidingObject.transform);
                     isBlow = true;
                 }
             }

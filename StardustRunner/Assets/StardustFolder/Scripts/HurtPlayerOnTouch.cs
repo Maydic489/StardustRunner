@@ -86,7 +86,8 @@ namespace MoreMountains.InfiniteRunnerEngine
 						{
 						LevelManager.Instance.CurrentPlayableCharacters[0].GetComponent<SimpleLane>().ToggleProtect(false);
 						if (isBreakable && !isBreak) { BreakingDown(); }
-						}
+						if (this.CompareTag("Obstacle_Car")) {BlowAway(collidingObject.transform);}
+					}
 				}
 
 			}
@@ -99,7 +100,7 @@ namespace MoreMountains.InfiniteRunnerEngine
 
 				if (this.CompareTag("Obstacle_Car"))
                 {
-					BlowAway();
+					BlowAway(collidingObject.transform);
                 }
 			}
 
@@ -158,13 +159,13 @@ namespace MoreMountains.InfiniteRunnerEngine
 			isBreak = true;
 		}
 
-		public void BlowAway()
+		public void BlowAway(Transform collidingObject)
         {
 			this.GetComponent<RagdollDeathScript>().ToggleRagdoll(true);
 
 			foreach (Rigidbody rb in this.GetComponent<RagdollDeathScript>().ragdollBodies)
 			{
-				rb.AddExplosionForce(20f, new Vector3(transform.position.x, 0, transform.position.z + 2), 10f, 3f, ForceMode.Impulse);
+				rb.AddExplosionForce(20f, this.transform.position -((this.transform.position-collidingObject.transform.position)/2), 10f, 3f, ForceMode.Impulse);
 			}
 			if (GameManager.Instance.Status != GameManager.GameStatus.GameOver) //check if game over
 			{
@@ -180,10 +181,13 @@ namespace MoreMountains.InfiniteRunnerEngine
 
             if (crashEffect != null)
 			{
-				Instantiate(crashEffect, this.transform.position + Vector3.up * 0.5f, crashEffect.transform.rotation);
+				Instantiate(crashEffect, (this.transform.position - ((this.transform.position - collidingObject.transform.position) / 2))+ Vector3.up * 0.5f, crashEffect.transform.rotation);
 			}
 
-			if(gameObject.transform.Find("Shadow") != null)
+			if (breakSFX != null)
+				SoundManager.Instance.PlaySound(breakSFX, transform.position);
+
+			if (gameObject.transform.Find("Shadow") != null)
 				gameObject.transform.Find("Shadow").gameObject.SetActive(false);
 
 			Invoke("CountDownRecycle", 1);
