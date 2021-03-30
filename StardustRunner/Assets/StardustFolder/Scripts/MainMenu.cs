@@ -56,7 +56,6 @@ public class MainMenu : MonoBehaviour
 
     public void RefreshMenu()
     {
-        Debug.Log("fresh Menu");
         Localization.GetLanguage();
         startButton.text = Localization.startButton;
         tutorialButton.text = Localization.tutorialButton;
@@ -77,7 +76,6 @@ public class MainMenu : MonoBehaviour
 
     public void RefreshTutorial()
     {
-        Debug.Log("fresh Tutorial");
         tu_Turn1.text = Localization.tu_Turn1;
         tu_Turn2.text = Localization.tu_Turn2;
         tu_Turn3.text = Localization.tu_Turn3;

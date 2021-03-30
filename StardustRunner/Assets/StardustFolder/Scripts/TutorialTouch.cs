@@ -20,100 +20,106 @@ namespace MoreMountains.InfiniteRunnerEngine
 
         void Update()
         {
-            if (GameManager.Instance.isPopUp)
+            
                 MouseSwipe();
         }
         protected virtual void MouseSwipe()
         {
-            if (Input.GetMouseButtonDown(0))
+            if (GameManager.Instance.isPopUp)
             {
-                touchDown = true;
-                //save began touch 2d point
-                firstPressPos = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
-            }
-            if (touchDown)
-            {
-                //save ended touch 2d point
-                secondPressPos = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
-
-                //create vector from the two points
-                currentSwipe = new Vector2(secondPressPos.x - firstPressPos.x, secondPressPos.y - firstPressPos.y);
-
-                //normalize the 2d vector
-                currentSwipe.Normalize();
-
-                if (Vector2.Distance(firstPressPos, secondPressPos) > 30 && !triggerInput_1)
+                if (Input.GetMouseButtonDown(0))
                 {
-                    //swipe upwards
-                    if (currentSwipe.y > 0 && currentSwipe.x > -0.4f && currentSwipe.x < 0.4f && (tutorialType == "up" || tutorialType == "tap"))
-                    {
-                        if(tutorialType != "tap")
-                            InputManager.Instance.UpButtonDown();
-                        triggerInput_1 = true;
-
-                        if (tutorialType != "")
-                        {
-                            tutorialType = "";
-                            GameManager.Instance.PauseGeneric();
-                        }
-                    }
-                    //swipe down
-                    if (currentSwipe.y < 0 && currentSwipe.x > -0.4f && currentSwipe.x < 0.4f && (tutorialType == "down"))
-                    {
-                        InputManager.Instance.DownButtonDown();
-                        triggerInput_1 = true;
-
-                        if (tutorialType != "")
-                        {
-                            tutorialType = "";
-                            GameManager.Instance.PauseGeneric();
-                        }
-                    }
-                    //swipe left
-                    if (currentSwipe.x < 0 && currentSwipe.y > -0.85f && currentSwipe.y < 0.85f && (tutorialType == "turn" || tutorialType == "left"))
-                    {
-                        InputManager.Instance.LeftButtonDown();
-                        triggerInput_1 = true;
-
-                        if (tutorialType != "")
-                        {
-                            tutorialType = "";
-                            GameManager.Instance.PauseGeneric();
-                        }
-                    }
-                    //swipe right
-                    if (currentSwipe.x > 0 && currentSwipe.y > -0.85f && currentSwipe.y < 0.85f && (tutorialType == "turn" || tutorialType == "right"))
-                    {
-                        InputManager.Instance.RightButtonDown();
-                        triggerInput_1 = true;
-
-                        if (tutorialType != "")
-                        {
-                            tutorialType = "";
-                            GameManager.Instance.PauseGeneric();
-                        }
-                    }
+                    Debug.Log("Swipe");
+                    touchDown = true;
+                    //save began touch 2d point
+                    firstPressPos = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
                 }
+                if (touchDown)
+                {
+                    //save ended touch 2d point
+                    secondPressPos = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
 
-                //long swipe for two lane 
-                //if (Vector2.Distance(firstPressPos, secondPressPos) > 200 && triggerInput_1 && !triggerInput_2)
-                //{
-                //    //swipe left
-                //    if (currentSwipe.x < 0 && currentSwipe.y > -0.5f && currentSwipe.y < 0.5f)
-                //    {
-                //        InputManager.Instance.LeftButtonDown();
-                //        triggerInput_2 = true;
-                //    }
-                //    //swipe right
-                //    if (currentSwipe.x > 0 && currentSwipe.y > -0.5f && currentSwipe.y < 0.5f)
-                //    {
-                //        InputManager.Instance.RightButtonDown();
-                //        triggerInput_2 = true;
-                //    }
-                //}
+                    //create vector from the two points
+                    currentSwipe = new Vector2(secondPressPos.x - firstPressPos.x, secondPressPos.y - firstPressPos.y);
+
+                    //normalize the 2d vector
+                    currentSwipe.Normalize();
+
+                    if (Vector2.Distance(firstPressPos, secondPressPos) > 30 && !triggerInput_1)
+                    {
+                        //swipe upwards
+                        if (currentSwipe.y > 0 && currentSwipe.x > -0.4f && currentSwipe.x < 0.4f && (tutorialType == "up" || tutorialType == "tap"))
+                        {
+                            if (tutorialType != "tap")
+                                InputManager.Instance.UpButtonDown();
+                            triggerInput_1 = true;
+
+                            if (tutorialType != "")
+                            {
+                                tutorialType = "";
+                                GameManager.Instance.PauseGeneric();
+                            }
+                        }
+                        //swipe down
+                        if (currentSwipe.y < 0 && currentSwipe.x > -0.4f && currentSwipe.x < 0.4f && (tutorialType == "down"))
+                        {
+                            InputManager.Instance.DownButtonDown();
+                            triggerInput_1 = true;
+
+                            if (tutorialType != "")
+                            {
+                                tutorialType = "";
+                                GameManager.Instance.PauseGeneric();
+                            }
+                        }
+                        //swipe left
+                        if (currentSwipe.x < 0 && currentSwipe.y > -0.85f && currentSwipe.y < 0.85f && (tutorialType == "turn" || tutorialType == "left"))
+                        {
+                            InputManager.Instance.LeftButtonDown();
+                            triggerInput_1 = true;
+
+                            if (tutorialType != "")
+                            {
+                                tutorialType = "";
+                                GameManager.Instance.PauseGeneric();
+                            }
+                        }
+                        //swipe right
+                        if (currentSwipe.x > 0 && currentSwipe.y > -0.85f && currentSwipe.y < 0.85f && (tutorialType == "turn" || tutorialType == "right"))
+                        {
+                            Debug.Log("Swipe right");
+                            InputManager.Instance.RightButtonDown();
+                            triggerInput_1 = true;
+
+                            if (tutorialType != "")
+                            {
+                                tutorialType = "";
+                                GameManager.Instance.PauseGeneric();
+                            }
+                        }
+                    }
+
+                    //long swipe for two lane 
+                    //if (Vector2.Distance(firstPressPos, secondPressPos) > 200 && triggerInput_1 && !triggerInput_2)
+                    //{
+                    //    //swipe left
+                    //    if (currentSwipe.x < 0 && currentSwipe.y > -0.5f && currentSwipe.y < 0.5f)
+                    //    {
+                    //        InputManager.Instance.LeftButtonDown();
+                    //        triggerInput_2 = true;
+                    //    }
+                    //    //swipe right
+                    //    if (currentSwipe.x > 0 && currentSwipe.y > -0.5f && currentSwipe.y < 0.5f)
+                    //    {
+                    //        InputManager.Instance.RightButtonDown();
+                    //        triggerInput_2 = true;
+                    //    }
+                    //}
+                }
             }
             if (Input.GetMouseButtonUp(0))
             {
+                Debug.Log("lift finger");
                 touchDown = false;
                 triggerInput_1 = false;
                 triggerInput_2 = false;

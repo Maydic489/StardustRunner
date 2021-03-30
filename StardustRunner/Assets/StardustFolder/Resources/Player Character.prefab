@@ -123,7 +123,7 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1416881012249775539}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!114 &7591214051029753228
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1061,6 +1061,7 @@ GameObject:
   - component: {fileID: 7284560472650660950}
   - component: {fileID: 8068637796655847470}
   - component: {fileID: -5412763349398659217}
+  - component: {fileID: 3222198289468723529}
   m_Layer: 0
   m_Name: Player Character
   m_TagString: Player
@@ -1170,6 +1171,7 @@ MonoBehaviour:
   groundPivot: {fileID: 3481363774766235749}
   helmetModel: {fileID: 2817844771199432072}
   headContainer: {fileID: 8538727040808146388}
+  headModel: {fileID: 0}
   crashEffect: {fileID: 4021103657954561961, guid: 5c755f9bc5253ea418e919994537dcc7,
     type: 3}
   boostEffect:
@@ -1285,6 +1287,14 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!81 &3222198289468723529
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8854290281616377687}
+  m_Enabled: 1
 --- !u!1001 &397811290
 PrefabInstance:
   m_ObjectHideFlags: 0
