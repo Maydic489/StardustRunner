@@ -19,7 +19,7 @@ namespace MoreMountains.InfiniteRunnerEngine
 		public GameObject breakablePart;
 		public GameObject breakableCopy;
 		public GameObject crashEffect;
-		public AudioClip breakSFX;
+		public AudioSource breakSFX;
 
 		private void OnEnable()
 		{
@@ -153,7 +153,7 @@ namespace MoreMountains.InfiniteRunnerEngine
 			}
 
 			if(breakSFX != null)
-				SoundManager.Instance.PlaySound(breakSFX, transform.position);
+				SoundManager.Instance.PlaySoundSource(breakSFX, transform.position);
 
 			Invoke("CountDownDestroy", 5);
 			isBreak = true;
@@ -185,7 +185,7 @@ namespace MoreMountains.InfiniteRunnerEngine
 			}
 
 			if (breakSFX != null)
-				SoundManager.Instance.PlaySound(breakSFX, transform.position);
+				SoundManager.Instance.PlaySoundSource(breakSFX, transform.position);
 
 			if (gameObject.transform.Find("Shadow") != null)
 				gameObject.transform.Find("Shadow").gameObject.SetActive(false);
