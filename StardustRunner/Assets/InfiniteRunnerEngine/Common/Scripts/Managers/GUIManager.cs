@@ -148,9 +148,13 @@ namespace MoreMountains.InfiniteRunnerEngine
 		public virtual void SetPause(bool state)
 		{
 			if (PauseScreen == null) { return;	}
-			PauseScreen.SetActive(state);
-			TurnSpeedNumber();
-	    }
+			if(state)
+				PauseScreen.GetComponent<MMInterface.MMPopup>().Open();
+			else
+				PauseScreen.GetComponent<MMInterface.MMPopup>().Close();
+			//PauseScreen.SetActive(state); //old way
+			//TurnSpeedNumber(); //for debug purpose
+		}
 
 		public virtual void SetTutorial(string tutorialType)
         {

@@ -288,8 +288,9 @@ namespace MoreMountains.InfiniteRunnerEngine
 			}
 			else
 			{
+				Debug.Log("check unpause");
 				if(!isPopUp)
-					UnPause();	
+					StartCoroutine(DelayUnPause());
 			}		
 		}
 
@@ -316,7 +317,15 @@ namespace MoreMountains.InfiniteRunnerEngine
 		/// Unpauses the game
 		/// </summary>
 		public virtual void UnPause()
+		{
+			Instance.ResetTimeScale();
+			Instance.SetStatus(_statusBeforePause);
+
+			MMEventManager.TriggerEvent(new MMGameEvent("PauseOff"));
+		}
+		public virtual IEnumerator DelayUnPause() //wait popup animation to end first before resume
 	    {
+			yield return new WaitForSecondsRealtime(0.3f);
 	        Instance.ResetTimeScale();
 			Instance.SetStatus(_statusBeforePause);
 

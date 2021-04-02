@@ -9,12 +9,14 @@ using UnityEngine.SceneManagement;
 public class MainMenu : MonoBehaviour
 {
     //main menu
+    [Header("Main Menu")]
     public TextMeshProUGUI startButton;
     public TextMeshProUGUI tutorialButton;
     public TextMeshProUGUI settingButton;
     public TextMeshProUGUI creditsButton;
 
     //setting
+    [Header("Setting")]
     public TextMeshProUGUI st_TextTitle;
     public TextMeshProUGUI st_SFX;
     public TextMeshProUGUI st_Music;
@@ -25,9 +27,11 @@ public class MainMenu : MonoBehaviour
     public TextMeshProUGUI st_Girl;
 
     //Credits
+    [Header("Credits")]
     public TextMeshProUGUI cr_TextTitle;
 
     //Tutorial
+    [Header("Tutorial")]
     public Text tu_Turn1;
     public Text tu_Turn2;
     public Text tu_Turn3;
@@ -50,6 +54,9 @@ public class MainMenu : MonoBehaviour
                 break;
             case "Tutorial":
                 RefreshTutorial();
+                break;
+            case "MainScene":
+                RefreshMain();
                 break;
         }
     }
@@ -86,5 +93,10 @@ public class MainMenu : MonoBehaviour
         tu_Helmet.text = Localization.tu_Helmet;
         tu_3Helmet.text = Localization.tu_3Helmet;
         tu_End.text = Localization.tu_End;
+    }
+
+    public void RefreshMain()
+    {
+        Debug.Log("Refresh Main");
     }
 }
