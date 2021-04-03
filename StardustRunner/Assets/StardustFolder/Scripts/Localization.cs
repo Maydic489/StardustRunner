@@ -37,6 +37,19 @@ public static class Localization
     public static string tu_3Helmet;
     public static string tu_End;
 
+    //Pause Menu
+    public static string pm_Pause;
+    public static string pm_Resume;
+    public static string pm_Restart;
+    public static string pm_Setting;
+    public static string pm_MainMenu;
+    public static string pm_TextTitle;
+    public static string pm_SFX;
+    public static string pm_Music;
+    public static string pm_Eng;
+    public static string pm_Thai;
+    public static string pm_Skoi;
+
     public static void GetLanguage()
     {
         thisLanguage = MoreMountains.InfiniteRunnerEngine.SettingManager.Instance.thisSetting.language;
@@ -86,7 +99,20 @@ public static class Localization
         tu_Helmet = "A helmet will\nprevent crashing\nfor one time each.\n[tap to continue]";
         tu_3Helmet = "You'll get a boost\nif you can stack\nthree helmets.\n[tap to continue]";
         tu_End = "That's all!\nLET'S GO!\n[tap to continue]";
-}
+
+        //pause menu
+        pm_Pause = "PAUSE";
+        pm_Resume = "Resume";
+        pm_Restart = "Restart";
+        pm_Setting = "Setting";
+        pm_MainMenu = "Main Menu";
+        pm_TextTitle = st_TextTitle;
+        pm_SFX = st_SFX;
+        pm_Music = st_Music;
+        pm_Eng = st_Eng;
+        pm_Thai = st_Thai;
+        pm_Skoi = st_Skoi;
+    }
     public static void SetThai()
     {
         //main menu
@@ -119,6 +145,19 @@ public static class Localization
         tu_Helmet = "หมวกกันน็อคจะ\nช่วยป้องกันการชน\nได้ 1 ครั้ง\n[แตะจอเพื่อเล่นต่อ]";
         tu_3Helmet = "จะได้บู้สความเร็ว\nเมื่อเก็บหมวกซ้อน\nกัน 3 ใบ\n[แตะจอเพื่อเล่นต่อ]";
         tu_End = "แค่นี้แหละ\nไปแว้นได้แล้ว!\n[แตะจอเพื่อเล่นต่อ]";
+
+        //pause menu
+        pm_Pause = "หยุดเกม";
+        pm_Resume = "เล่นต่อ";
+        pm_Restart = "เริ่มใหม่";
+        pm_Setting = "ตั้งค่า";
+        pm_MainMenu = "ไปหน้าแรก";
+        pm_TextTitle = st_TextTitle;
+        pm_SFX = st_SFX;
+        pm_Music = st_Music;
+        pm_Eng = st_Eng;
+        pm_Thai = st_Thai;
+        pm_Skoi = st_Skoi;
     }
     public static void SetSkoi()
     {
@@ -152,6 +191,19 @@ public static class Localization
         tu_Helmet = "หฒ๊กกับ์ลฯ็อคจ่\nช่วญป๊องกัลก๊รชฯ\nไฎ๊ 1 ฅั๊ฐ์งหสุ์\n[เเฏ๊จอเภื่อเฬ่นฏ่ฮ]";
         tu_3Helmet = "จ่ไฎ๊บุ๊๊ษคว๊มเร็ว\nเมื่อเกํบหฒ๊กซ๊อฯ\nกัล 3 ใบ\n[เเฏ๊จอเภื่อเฬซ์่ณฏ่อ]";
         tu_End = "เเค่ณิ๊เเหล๊\nปั๊บ์ยเเว๊ฯไฎ๊เร่รฬฬ!\n[เเฏ๊จอเภื่อเห์ฬ่ฯฏ่อ]";
+
+        //pause menu
+        pm_Pause = "หยุฎเกฒ";
+        pm_Resume = "เฬ่นฏ่ฮ";
+        pm_Restart = "เริ่มใหฒ่";
+        pm_Setting = "ฏั๊งค่๊";
+        pm_MainMenu = "ปั๊บ์ยหณ๊๊เเรก";
+        pm_TextTitle = st_TextTitle;
+        pm_SFX = st_SFX;
+        pm_Music = st_Music;
+        pm_Eng = st_Eng;
+        pm_Thai = st_Thai;
+        pm_Skoi = st_Skoi;
     }
 }
 

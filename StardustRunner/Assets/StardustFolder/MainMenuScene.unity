@@ -1586,6 +1586,17 @@ MonoBehaviour:
   tu_Helmet: {fileID: 0}
   tu_3Helmet: {fileID: 0}
   tu_End: {fileID: 0}
+  pm_Pause: {fileID: 0}
+  pm_Resume: {fileID: 0}
+  pm_Restart: {fileID: 0}
+  pm_Setting: {fileID: 0}
+  pm_MainMenu: {fileID: 0}
+  pm_TextTitle: {fileID: 0}
+  pm_SFX: {fileID: 0}
+  pm_Music: {fileID: 0}
+  pm_Eng: {fileID: 0}
+  pm_Thai: {fileID: 0}
+  pm_Skoi: {fileID: 0}
 --- !u!114 &2008933334
 MonoBehaviour:
   m_ObjectHideFlags: 0

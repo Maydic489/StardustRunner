@@ -275,7 +275,7 @@ namespace MoreMountains.InfiniteRunnerEngine
 			else
 			{
 				Settings.MusicLevel = 0.5f;
-				settings.SfxLevel = 0.5f;
+				Settings.SfxLevel = 0.5f;
 			}
 		}
 

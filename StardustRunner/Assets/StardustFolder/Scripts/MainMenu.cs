@@ -43,8 +43,24 @@ public class MainMenu : MonoBehaviour
     public Text tu_3Helmet;
     public Text tu_End;
 
+    [Header("PauseMenu")]
+    public TextMeshProUGUI pm_Pause;
+    public TextMeshProUGUI pm_Resume;
+    public TextMeshProUGUI pm_Restart;
+    public TextMeshProUGUI pm_Setting;
+    public TextMeshProUGUI pm_MainMenu;
+    public TextMeshProUGUI pm_TextTitle;
+    public TextMeshProUGUI pm_SFX;
+    public TextMeshProUGUI pm_Music;
+    public TextMeshProUGUI pm_Eng;
+    public TextMeshProUGUI pm_Thai;
+    public TextMeshProUGUI pm_Skoi;
+
     void Start()
     {
+        Debug.Log("Start");
+        SceneManager.sceneLoaded += OnLevelFinishedLoading;
+
         Scene scene = SceneManager.GetActiveScene();
         
         switch(scene.name)
@@ -54,11 +70,17 @@ public class MainMenu : MonoBehaviour
                 break;
             case "Tutorial":
                 RefreshTutorial();
+                RefreshPauseMenu();
                 break;
             case "MainScene":
                 RefreshMain();
+                RefreshPauseMenu();
                 break;
         }
+    }
+    private void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnLevelFinishedLoading;
     }
 
     public void RefreshMenu()
@@ -83,6 +105,7 @@ public class MainMenu : MonoBehaviour
 
     public void RefreshTutorial()
     {
+        Localization.GetLanguage();
         tu_Turn1.text = Localization.tu_Turn1;
         tu_Turn2.text = Localization.tu_Turn2;
         tu_Turn3.text = Localization.tu_Turn3;
@@ -98,5 +121,39 @@ public class MainMenu : MonoBehaviour
     public void RefreshMain()
     {
         Debug.Log("Refresh Main");
+    }
+
+    public void RefreshPauseMenu()
+    {
+        Localization.GetLanguage();
+        pm_Pause.text = Localization.pm_Pause;
+        pm_Resume.text = Localization.pm_Resume;
+        pm_Restart.text = Localization.pm_Restart;
+        pm_Setting.text = Localization.pm_Setting;
+        pm_MainMenu.text = Localization.pm_MainMenu;
+        pm_TextTitle.text = Localization.pm_TextTitle;
+        pm_SFX.text = Localization.pm_SFX;
+        pm_Music.text = Localization.pm_Music;
+        pm_Eng.text = Localization.pm_Eng;
+        pm_Thai.text = Localization.pm_Thai;
+        pm_Skoi.text = Localization.pm_Skoi;
+    }
+
+    void OnLevelFinishedLoading(Scene scene, LoadSceneMode mode)
+    {
+        scene = SceneManager.GetActiveScene();
+
+        switch (scene.name)
+        {
+            case "MainMenuScene":
+                RefreshMenu();
+                break;
+            case "Tutorial":
+                RefreshTutorial();
+                break;
+            case "MainScene":
+                RefreshMain();
+                break;
+        }
     }
 }
