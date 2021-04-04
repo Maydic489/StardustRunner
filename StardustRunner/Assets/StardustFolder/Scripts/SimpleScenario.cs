@@ -19,7 +19,7 @@ namespace MoreMountains.InfiniteRunnerEngine
         private bool swap1;
         private bool swap2;
         private static float sideRoadPoint = 500;
-        private static float obstaclePoint = 3500;
+        private static float obstaclePoint = 2500;
         private static float difficultPoint = 600;
         private float timePass;
         public int randomSet = 1;
@@ -86,6 +86,14 @@ namespace MoreMountains.InfiniteRunnerEngine
                 {
                     obs.Spawning = false;
                 }
+                foreach (DistanceSpawner obs in Set3)
+                {
+                    obs.Spawning = false;
+                }
+                foreach (DistanceSpawner obs in Set4)
+                {
+                    obs.Spawning = false;
+                }
                 StartCoroutine(OnABreak());
                 _scenario[1].Status = false;
             }
@@ -140,9 +148,10 @@ namespace MoreMountains.InfiniteRunnerEngine
         IEnumerator OnABreak()
         {
             if(randomSet == 1) yield return new WaitForSeconds(3);
-            else yield return new WaitForSeconds(6);
+            else yield return new WaitForSeconds(0.5f);
 
             _scenario[1].Status = true;
+            Debug.Log("Break End");
             //_scenario[1].StartScore = GameManager.Instance.Points + 20;
         }
 

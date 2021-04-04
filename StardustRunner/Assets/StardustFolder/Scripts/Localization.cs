@@ -231,8 +231,8 @@ public static class Localization
 
         //Game Over
         go_GameOver = "เกฒโฮเวฮร์";
-        go_HighScore = "ขร๊เเนฯษุ๊งษุฎ";
-        go_NewScore = "ฆ๊เเนณใหฒ่";
+        go_HighScore = "ขร๊เเนณษุ๊งษุฎ";
+        go_NewScore = "ขร๊เเนณใหฒ่";
         go_Share = "แฎช์";
         go_Restart = pm_Restart;
         go_MainMenu = pm_MainMenu;

@@ -168,7 +168,7 @@ namespace MoreMountains.InfiniteRunnerEngine
 			{
 				rb.AddExplosionForce(20f, this.transform.position -((this.transform.position-collidingObject.transform.position)/2), 10f, 3f, ForceMode.Impulse);
 			}
-			//not sure if need, copied from SimpleLane, so, leave it here.
+			//ignorecollision so it won't hurt player after blowup, but need to reset ignore when OnEnable
 			//if (GameManager.Instance.Status != GameManager.GameStatus.GameOver) //check if game over
 			//{
 			//	foreach (Collider collider in this.GetComponent<RagdollDeathScript>().ragdollColliders)
