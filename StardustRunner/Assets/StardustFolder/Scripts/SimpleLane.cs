@@ -486,7 +486,7 @@ namespace MoreMountains.InfiniteRunnerEngine
 		public void HurtPlayer(bool pushing, Transform hitLocation)
 		{
 			if(hitLocation != null)
-				Instantiate(crashEffect, hitLocation.transform.position - (this.transform.position / 0.75f) + (Vector3.forward * 0.5f), crashEffect.transform.rotation);
+				Instantiate(crashEffect, (transform.position - ((transform.position - hitLocation.position) / 3)) + Vector3.up * 0.5f, crashEffect.transform.rotation);
 			else
 				Instantiate(crashEffect,this.transform.position + (Vector3.forward * 0.5f), crashEffect.transform.rotation);
 			GameManager.Instance.AddFuel(-50f);
