@@ -5829,7 +5829,7 @@ Animation:
   serializedVersion: 3
   m_Animation: {fileID: 0}
   m_Animations:
-  - {fileID: 0}
+  - {fileID: 7400000, guid: 4535ec1673d6d54439592af90c8bdc6c, type: 2}
   - {fileID: 7400000, guid: 3f7d3d2f1ef6ec249b875fba7747c536, type: 2}
   m_WrapMode: 0
   m_PlayAutomatically: 0

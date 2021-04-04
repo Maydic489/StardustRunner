@@ -225,12 +225,22 @@ namespace MoreMountains.InfiniteRunnerEngine
 			PointsText.text=GameManager.Instance.Points.ToString("0");	
 		}
 
-		public virtual void PointExpand()
+		public virtual void PointExpand(bool isBig = false)
         {
-			if (pointsAnim.IsPlaying("Points_expand"))
-				pointsAnim.Stop();
+			if (!isBig)
+			{
+				if (pointsAnim.IsPlaying("Points_expand") || pointsAnim.IsPlaying("Points_expand_big"))
+					pointsAnim.Stop();
 
-			pointsAnim.Play("Points_expand");
+				pointsAnim.Play("Points_expand");
+			}
+			else
+            {
+				if (pointsAnim.IsPlaying("Points_expand") || pointsAnim.IsPlaying("Points_expand_big"))
+					pointsAnim.Stop();
+
+				pointsAnim.Play("Points_expand_big");
+			}
 		}
 
 		public virtual void RefreshFuel()

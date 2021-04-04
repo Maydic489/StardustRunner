@@ -74,19 +74,22 @@ namespace MoreMountains.InfiniteRunnerEngine
 						//Instantiate(crashEffect, this.transform.position - (collidingObject.transform.position/0.75f)+(Vector3.forward*0.5f), crashEffect.transform.rotation,this.transform);
 					}
 					else if(SimpleLane.isWheelie && isBreakable && !isBreak)
-					{ BreakingDown(); }
+					{ BreakingDown(collidingObject); }
 					else
 						LevelManager.Instance.KillCharacter(player);
 				}
 				else
 				{
 					if (SimpleLane.isWheelie && isBreakable && !isBreak)
-					{ BreakingDown(); }
+					{ BreakingDown(collidingObject); }
 					else if(SimpleLane.isProtect)
 						{
 						LevelManager.Instance.CurrentPlayableCharacters[0].GetComponent<SimpleLane>().ToggleProtect(false);
-						if (isBreakable && !isBreak) { BreakingDown(); }
-						if (this.CompareTag("Obstacle_Car")) {BlowAway(collidingObject.transform);}
+						if (isBreakable && !isBreak) { BreakingDown(collidingObject); }
+						if (this.CompareTag("Obstacle_Car")) 
+						{
+							BlowAway(collidingObject.transform);
+						}
 					}
 				}
 
@@ -95,12 +98,11 @@ namespace MoreMountains.InfiniteRunnerEngine
 			{
 				if (isBreakable && !isBreak)
 				{
-					BreakingDown();
+					BreakingDown(collidingObject);
 				}
 
 				if (this.CompareTag("Obstacle_Car"))
 				{
-					GameManager.Instance.AddPoints(100);
 					BlowAway(collidingObject.transform);
 				}
 			}
@@ -128,8 +130,14 @@ namespace MoreMountains.InfiniteRunnerEngine
 			}
 		}
 
-		public void BreakingDown()
+		public void BreakingDown(GameObject collidingObject)
 		{
+			if(collidingObject.CompareTag("Player"))
+            {
+				GameManager.Instance.AddPoints(50);
+				GUIManager.Instance.PointExpand();
+			}
+
 			foreach (GameObject obj in showModel)
 			{
 				obj.SetActive(false);
@@ -162,6 +170,12 @@ namespace MoreMountains.InfiniteRunnerEngine
 
 		public void BlowAway(Transform collidingObject)
 		{
+			if(collidingObject.gameObject.CompareTag("Player"))
+            {
+				GameManager.Instance.AddPoints(100);
+				GUIManager.Instance.PointExpand(true);
+			}
+
 			this.GetComponent<RagdollDeathScript>().ToggleRagdoll(true);
 
 			foreach (Rigidbody rb in this.GetComponent<RagdollDeathScript>().ragdollBodies)
