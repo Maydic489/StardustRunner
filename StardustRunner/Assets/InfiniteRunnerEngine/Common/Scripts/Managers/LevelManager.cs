@@ -524,10 +524,18 @@ namespace MoreMountains.InfiniteRunnerEngine
 
 			if (GameManager.Instance.CurrentLives<=0)
 			{
+				CheckHighScore();
+
 				GUIManager.Instance.SetGameOverScreen(true);
 				GameManager.Instance.SetStatus(GameManager.GameStatus.GameOver);
 				MMEventManager.TriggerEvent(new MMGameEvent("GameOver"));
 			}
+		}
+		
+		protected virtual void CheckHighScore()
+        {
+			if(GameManager.Instance.Points > SingleHighScoreManager.GetHighScore())
+				SingleHighScoreManager.SaveNewHighScore(GameManager.Instance.Points);
 		}
 
 		protected virtual void SetCharacter()

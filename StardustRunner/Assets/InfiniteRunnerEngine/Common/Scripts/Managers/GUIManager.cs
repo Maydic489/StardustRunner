@@ -208,7 +208,7 @@ namespace MoreMountains.InfiniteRunnerEngine
 			TextMeshProUGUI newScoreText = GameOverScreen.transform.Find("Popup/Text_New/Text_ScoreNew").GetComponent<TextMeshProUGUI>();
 
 			if (highScoreText != null)
-				highScoreText.text = Mathf.Round(GameManager.Instance.Points).ToString();
+				highScoreText.text = Mathf.Round(SingleHighScoreManager.GetHighScore()).ToString();
 			if (newScoreText != null)
 				newScoreText.text = Mathf.Round(GameManager.Instance.Points).ToString();
 		}
