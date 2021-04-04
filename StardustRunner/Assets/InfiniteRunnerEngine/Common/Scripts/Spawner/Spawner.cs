@@ -23,6 +23,7 @@ namespace MoreMountains.InfiniteRunnerEngine
 		public Vector3 MinimumRotation ;
 		/// the maximum size of a spawned object
 		public Vector3 MaximumRotation ;
+		public bool UseObjectOriginalRotation;
 		[Space(10)]	
 		[Header("When can it spawn?")]
 		/// if true, the spawner can spawn, if not, it won't spawn
@@ -91,13 +92,16 @@ namespace MoreMountains.InfiniteRunnerEngine
 
 			// we position the object
 			nextGameObject.transform.position =spawnPosition;
-			
+
 			// we set the object's rotation
-			nextGameObject.transform.eulerAngles = new Vector3 (
-				UnityEngine.Random.Range (MinimumRotation.x, MaximumRotation.x), 
-				UnityEngine.Random.Range (MinimumRotation.y, MaximumRotation.y), 
-				UnityEngine.Random.Range (MinimumRotation.z, MaximumRotation.z)
-				);
+			if (!UseObjectOriginalRotation)
+			{
+				nextGameObject.transform.eulerAngles = new Vector3(
+					UnityEngine.Random.Range(MinimumRotation.x, MaximumRotation.x),
+					UnityEngine.Random.Range(MinimumRotation.y, MaximumRotation.y),
+					UnityEngine.Random.Range(MinimumRotation.z, MaximumRotation.z)
+					);
+			}
 
 			// we activate the object
 	        nextGameObject.gameObject.SetActive(true);

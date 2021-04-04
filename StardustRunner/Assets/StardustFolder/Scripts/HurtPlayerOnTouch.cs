@@ -12,7 +12,7 @@ namespace MoreMountains.InfiniteRunnerEngine
 		public bool isBreakable;
 		public bool isWeak;
 		public char whatLane; //l,m,r for one lane object, n for hurt object, k for kill object with no specific lane
-        private bool isBreak;
+		private bool isBreak;
 		[SerializeField]
 		private bool isHit;
 		public List<GameObject> showModel;
@@ -92,16 +92,17 @@ namespace MoreMountains.InfiniteRunnerEngine
 
 			}
 			else
-            {
+			{
 				if (isBreakable && !isBreak)
 				{
 					BreakingDown();
 				}
 
 				if (this.CompareTag("Obstacle_Car"))
-                {
+				{
+					GameManager.Instance.AddPoints(100);
 					BlowAway(collidingObject.transform);
-                }
+				}
 			}
 
 			isHit = true;
@@ -128,7 +129,7 @@ namespace MoreMountains.InfiniteRunnerEngine
 		}
 
 		public void BreakingDown()
-        {
+		{
 			foreach (GameObject obj in showModel)
 			{
 				obj.SetActive(false);
@@ -160,26 +161,27 @@ namespace MoreMountains.InfiniteRunnerEngine
 		}
 
 		public void BlowAway(Transform collidingObject)
-        {
+		{
 			this.GetComponent<RagdollDeathScript>().ToggleRagdoll(true);
 
 			foreach (Rigidbody rb in this.GetComponent<RagdollDeathScript>().ragdollBodies)
 			{
 				rb.AddExplosionForce(20f, this.transform.position -((this.transform.position-collidingObject.transform.position)/2), 10f, 3f, ForceMode.Impulse);
 			}
-			if (GameManager.Instance.Status != GameManager.GameStatus.GameOver) //check if game over
-			{
-				foreach (Collider collider in this.GetComponent<RagdollDeathScript>().ragdollColliders)
-				{
-					if (LevelManager.Instance.CurrentPlayableCharacters[0] != null)
-					{
-						Physics.IgnoreCollision(LevelManager.Instance.CurrentPlayableCharacters[0].GetComponent<BoxCollider>(), collider, true);
-						Physics.IgnoreCollision(LevelManager.Instance.CurrentPlayableCharacters[0].GetComponent<CapsuleCollider>(), collider, true);
-					}
-				}
-			}
+			//not sure if need, copied from SimpleLane, so, leave it here.
+			//if (GameManager.Instance.Status != GameManager.GameStatus.GameOver) //check if game over
+			//{
+			//	foreach (Collider collider in this.GetComponent<RagdollDeathScript>().ragdollColliders)
+			//	{
+			//		if (LevelManager.Instance.CurrentPlayableCharacters[0] != null)
+			//		{
+			//			Physics.IgnoreCollision(LevelManager.Instance.CurrentPlayableCharacters[0].GetComponent<BoxCollider>(), collider, true);
+			//			Physics.IgnoreCollision(LevelManager.Instance.CurrentPlayableCharacters[0].GetComponent<CapsuleCollider>(), collider, true);
+			//		}
+			//	}
+			//}
 
-            if (crashEffect != null)
+			if (crashEffect != null)
 			{
 				Instantiate(crashEffect, (this.transform.position - ((this.transform.position - collidingObject.transform.position) / 2))+ Vector3.up * 0.5f, crashEffect.transform.rotation);
 			}
@@ -194,17 +196,17 @@ namespace MoreMountains.InfiniteRunnerEngine
 		}
 
 		private void CountDownRecycle()
-        {
+		{
 			GetComponent<MMPoolableObject>().Destroy();
 		}
 
 		private void CountDownDestroy()
-        {
+		{
 			Destroy(breakableCopy);
 		}
 
-        private void OnDisable()
-        {
+		private void OnDisable()
+		{
 			if (gameObject.transform.Find("Shadow") != null)
 				gameObject.transform.Find("Shadow").gameObject.SetActive(true);
 
@@ -214,7 +216,7 @@ namespace MoreMountains.InfiniteRunnerEngine
 				CancelInvoke("CountDownDestroy");
 				Destroy(breakableCopy);
 			}
-        }
+		}
 
-    }
+	}
 }
