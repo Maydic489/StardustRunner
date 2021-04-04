@@ -202,10 +202,10 @@ namespace MoreMountains.InfiniteRunnerEngine
 
 		public virtual IEnumerator CoSetGameOverScreen(bool state)
         {
-			yield return new WaitForSeconds(0.5f);
+			yield return new WaitForSeconds(0.4f);
 			GameOverScreen.transform.Find("Popup").GetComponent<MMInterface.MMPopup>().Open();
-			TextMeshProUGUI highScoreText = GameOverScreen.transform.Find("Popup/Text_High/Text_ScoreHigh").GetComponentInChildren<TextMeshProUGUI>();
-			TextMeshProUGUI newScoreText = GameOverScreen.transform.Find("Popup/Text_New/Text_ScoreNew").GetComponentInChildren<TextMeshProUGUI>();
+			TextMeshProUGUI highScoreText = GameOverScreen.transform.Find("Popup/Text_High/Text_ScoreHigh").GetComponent<TextMeshProUGUI>();
+			TextMeshProUGUI newScoreText = GameOverScreen.transform.Find("Popup/Text_New/Text_ScoreNew").GetComponent<TextMeshProUGUI>();
 
 			if (highScoreText != null)
 				highScoreText.text = Mathf.Round(GameManager.Instance.Points).ToString();
