@@ -56,14 +56,19 @@ public class MainMenu : MonoBehaviour
     public TextMeshProUGUI pm_Thai;
     public TextMeshProUGUI pm_Skoi;
 
+    [Header("GameOver")]
+    public TextMeshProUGUI go_GameOver;
+    public TextMeshProUGUI go_HighScore;
+    public TextMeshProUGUI go_NewScore;
+    public TextMeshProUGUI go_Share;
+    public TextMeshProUGUI go_Restart;
+    public TextMeshProUGUI go_MainMenu;
+
     void Start()
     {
-        Debug.Log("Start");
-        SceneManager.sceneLoaded += OnLevelFinishedLoading;
-
         Scene scene = SceneManager.GetActiveScene();
-        
-        switch(scene.name)
+
+        switch (scene.name)
         {
             case "MainMenuScene":
                 RefreshMenu();
@@ -71,16 +76,14 @@ public class MainMenu : MonoBehaviour
             case "Tutorial":
                 RefreshTutorial();
                 RefreshPauseMenu();
+                RefreshGameOver();
                 break;
             case "MainScene":
                 RefreshMain();
                 RefreshPauseMenu();
+                RefreshGameOver();
                 break;
         }
-    }
-    private void OnDisable()
-    {
-        SceneManager.sceneLoaded -= OnLevelFinishedLoading;
     }
 
     public void RefreshMenu()
@@ -139,21 +142,14 @@ public class MainMenu : MonoBehaviour
         pm_Skoi.text = Localization.pm_Skoi;
     }
 
-    void OnLevelFinishedLoading(Scene scene, LoadSceneMode mode)
+    public void RefreshGameOver()
     {
-        scene = SceneManager.GetActiveScene();
-
-        switch (scene.name)
-        {
-            case "MainMenuScene":
-                RefreshMenu();
-                break;
-            case "Tutorial":
-                RefreshTutorial();
-                break;
-            case "MainScene":
-                RefreshMain();
-                break;
-        }
+        Localization.GetLanguage();
+        go_GameOver.text = Localization.go_GameOver;
+        go_HighScore.text = Localization.go_HighScore;
+        go_NewScore.text = Localization.go_NewScore;
+        go_Share.text = Localization.go_Share;
+        go_Restart.text = Localization.go_Restart;
+        go_MainMenu.text = Localization.go_MainMenu;
     }
 }

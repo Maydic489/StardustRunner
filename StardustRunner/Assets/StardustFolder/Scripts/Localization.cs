@@ -50,6 +50,14 @@ public static class Localization
     public static string pm_Thai;
     public static string pm_Skoi;
 
+    //Game Over
+    public static string go_GameOver;
+    public static string go_HighScore;
+    public static string go_NewScore;
+    public static string go_Share;
+    public static string go_Restart;
+    public static string go_MainMenu;
+
     public static void GetLanguage()
     {
         thisLanguage = MoreMountains.InfiniteRunnerEngine.SettingManager.Instance.thisSetting.language;
@@ -112,7 +120,15 @@ public static class Localization
         pm_Eng = st_Eng;
         pm_Thai = st_Thai;
         pm_Skoi = st_Skoi;
-    }
+
+        //Game Over
+        go_GameOver = "GAME OVER";
+        go_HighScore = "High Score";
+        go_NewScore = "New Score";
+        go_Share = "Share";
+        go_Restart = pm_Restart;
+        go_MainMenu = pm_MainMenu;
+}
     public static void SetThai()
     {
         //main menu
@@ -158,6 +174,14 @@ public static class Localization
         pm_Eng = st_Eng;
         pm_Thai = st_Thai;
         pm_Skoi = st_Skoi;
+
+        //Game Over
+        go_GameOver = "เกมโอเวอร์";
+        go_HighScore = "คะแนนสูงสุด";
+        go_NewScore = "คะแนนใหม่";
+        go_Share = "แชร์";
+        go_Restart = pm_Restart;
+        go_MainMenu = pm_MainMenu;
     }
     public static void SetSkoi()
     {
@@ -204,6 +228,14 @@ public static class Localization
         pm_Eng = st_Eng;
         pm_Thai = st_Thai;
         pm_Skoi = st_Skoi;
+
+        //Game Over
+        go_GameOver = "เกฒโฮเวฮร์";
+        go_HighScore = "ขร๊เเนฯษุ๊งษุฎ";
+        go_NewScore = "ฆ๊เเนณใหฒ่";
+        go_Share = "แฎช์";
+        go_Restart = pm_Restart;
+        go_MainMenu = pm_MainMenu;
     }
 }
 

@@ -197,6 +197,7 @@ namespace MoreMountains.InfiniteRunnerEngine
 		public virtual void SetGameOverScreen(bool state)
 		{
 			GameOverScreen.SetActive(state);
+			GUIManager.Instance.GetComponent<MainMenu>().RefreshGameOver();
 			StartCoroutine(CoSetGameOverScreen(state));
         }
 
