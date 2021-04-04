@@ -197,13 +197,22 @@ namespace MoreMountains.InfiniteRunnerEngine
 		public virtual void SetGameOverScreen(bool state)
 		{
 			GameOverScreen.SetActive(state);
-	        Text gameOverScreenTextObject = GameOverScreen.transform.Find("GameOverScreenText").GetComponent<Text>();
-	        if (gameOverScreenTextObject!= null)
-	        {
-	            gameOverScreenTextObject.text= "GAME OVER\nYOUR SCORE\n-" + Mathf.Round(GameManager.Instance.Points)+"-";
-	        }
+			StartCoroutine(CoSetGameOverScreen(state));
+        }
+
+		public virtual IEnumerator CoSetGameOverScreen(bool state)
+        {
+			yield return new WaitForSeconds(0.5f);
+			GameOverScreen.transform.Find("Popup").GetComponent<MMInterface.MMPopup>().Open();
+			TextMeshProUGUI highScoreText = GameOverScreen.transform.Find("Popup/Text_High/Text_ScoreHigh").GetComponentInChildren<TextMeshProUGUI>();
+			TextMeshProUGUI newScoreText = GameOverScreen.transform.Find("Popup/Text_New/Text_ScoreNew").GetComponentInChildren<TextMeshProUGUI>();
+
+			if (highScoreText != null)
+				highScoreText.text = Mathf.Round(GameManager.Instance.Points).ToString();
+			if (newScoreText != null)
+				newScoreText.text = Mathf.Round(GameManager.Instance.Points).ToString();
 		}
-			
+
 		/// <summary>
 		/// Sets the text to the game manager's points.
 		/// </summary>
