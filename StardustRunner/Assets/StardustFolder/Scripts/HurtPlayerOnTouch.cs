@@ -182,20 +182,20 @@ namespace MoreMountains.InfiniteRunnerEngine
 			{
 				rb.AddExplosionForce(20f, this.transform.position -((this.transform.position-collidingObject.transform.position)/2), 10f, 3f, ForceMode.Impulse);
 			}
-			//ignorecollision so it won't hurt player after blowup, but need to reset ignore when OnEnable
-			//if (GameManager.Instance.Status != GameManager.GameStatus.GameOver) //check if game over
-			//{
-			//	foreach (Collider collider in this.GetComponent<RagdollDeathScript>().ragdollColliders)
-			//	{
-			//		if (LevelManager.Instance.CurrentPlayableCharacters[0] != null)
-			//		{
-			//			Physics.IgnoreCollision(LevelManager.Instance.CurrentPlayableCharacters[0].GetComponent<BoxCollider>(), collider, true);
-			//			Physics.IgnoreCollision(LevelManager.Instance.CurrentPlayableCharacters[0].GetComponent<CapsuleCollider>(), collider, true);
-			//		}
-			//	}
-			//}
+            //ignorecollision so it won't hurt player after blowup, but need to reset ignore when OnEnable
+            if (GameManager.Instance.Status != GameManager.GameStatus.GameOver) //check if game over
+            {
+                foreach (Collider collider in this.GetComponent<RagdollDeathScript>().ragdollColliders)
+                {
+                    if (LevelManager.Instance.CurrentPlayableCharacters[0] != null)
+                    {
+                        Physics.IgnoreCollision(LevelManager.Instance.CurrentPlayableCharacters[0].GetComponent<BoxCollider>(), collider, true);
+                        Physics.IgnoreCollision(LevelManager.Instance.CurrentPlayableCharacters[0].GetComponent<CapsuleCollider>(), collider, true);
+                    }
+                }
+            }
 
-			if (crashEffect != null)
+            if (crashEffect != null)
 			{
 				Instantiate(crashEffect, (this.transform.position - ((this.transform.position - collidingObject.transform.position) / 2))+ Vector3.up * 0.5f, crashEffect.transform.rotation);
 			}
