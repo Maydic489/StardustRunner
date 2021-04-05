@@ -726,7 +726,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 308554365}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 71ae6d9b4a4b04049a1e22d4b2dda74f, type: 3}
   m_Name: 
@@ -1792,10 +1792,10 @@ MonoBehaviour:
       type: 3}
     PoolSize: 10
     PoolCanExpand: 0
-    Enabled: 0
+    Enabled: 1
   - GameObjectToPool: {fileID: 6100370548043138150, guid: 53a27d185b3754f4f9d67748b8bfc2b2,
       type: 3}
-    PoolSize: 10
+    PoolSize: 2
     PoolCanExpand: 0
     Enabled: 1
   PoolingMethod: 3
@@ -1836,8 +1836,8 @@ MonoBehaviour:
   Spawning: 1
   OnlySpawnWhileGameInProgress: 1
   InitialDelay: 0
-  MinSpawnTime: 5
-  MaxSpawnTime: 5
+  MinSpawnTime: 27
+  MaxSpawnTime: 33
   MinPosition: {x: 0, y: 0, z: 0}
   MaxPosition: {x: 0, y: 0, z: 0}
 --- !u!114 &564098970

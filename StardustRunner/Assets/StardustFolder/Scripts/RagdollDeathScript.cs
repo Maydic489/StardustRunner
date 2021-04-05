@@ -20,9 +20,7 @@ namespace MoreMountains.InfiniteRunnerEngine
         private void OnDisable()
         {
             ToggleRagdoll(false);
-
-            if (!isFirstTime)
-                ResetIgnore();
+            //Debug.Log("check first time " + isFirstTime);
         }
 
         public void ToggleRagdoll(bool state)
@@ -56,17 +54,15 @@ namespace MoreMountains.InfiniteRunnerEngine
 
         public void ResetIgnore()
         {
-            if (GameManager.Instance.Status != GameManager.GameStatus.GameOver) //check if game over
+            foreach (Collider collider in this.GetComponent<RagdollDeathScript>().ragdollColliders)
             {
-                foreach (Collider collider in this.GetComponent<RagdollDeathScript>().ragdollColliders)
+                if (LevelManager.Instance.CurrentPlayableCharacters != null)
                 {
-                    if (LevelManager.Instance.CurrentPlayableCharacters[0] != null)
-                    {
-                        Physics.IgnoreCollision(LevelManager.Instance.CurrentPlayableCharacters[0].GetComponent<BoxCollider>(), collider, false);
-                        Physics.IgnoreCollision(LevelManager.Instance.CurrentPlayableCharacters[0].GetComponent<CapsuleCollider>(), collider, false);
-                    }
+                    Physics.IgnoreCollision(LevelManager.Instance.CurrentPlayableCharacters[0].GetComponent<BoxCollider>(), collider, false);
+                    Physics.IgnoreCollision(LevelManager.Instance.CurrentPlayableCharacters[0].GetComponent<CapsuleCollider>(), collider, false);
                 }
             }
+
         }
     }
 }
