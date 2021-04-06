@@ -363,7 +363,9 @@ namespace MoreMountains.InfiniteRunnerEngine
 
 			Speed = _temporarySavedSpeed * _temporarySpeedFactor;
 			_temporarySpeedFactorActive = true;
-			oldType = boostType;
+
+			if(boostType != "ramp" && oldType != "item") //don't set type for double ramp case
+				oldType = boostType;
 		}
 
 		/// <summary>

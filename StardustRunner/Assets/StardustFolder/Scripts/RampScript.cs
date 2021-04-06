@@ -31,10 +31,12 @@ namespace MoreMountains.InfiniteRunnerEngine
 			isJump = true;
 			if (!SimpleLane.isSpeed)
 			{
+				Debug.Log("normal boost");
 				collidingObject.GetComponent<Rigidbody>().AddForce(new Vector3(0, 15, 0), ForceMode.Impulse);
 			}
 			else
 			{
+				Debug.Log("double boost");
 				LevelManager.Instance.TemporarilyMultiplySpeed(1.5f, 0.5f, "ramp");
 				collidingObject.GetComponent<Rigidbody>().AddForce(new Vector3(0, 18, 0), ForceMode.Impulse);
 			}

@@ -7,8 +7,6 @@ namespace MoreMountains.InfiniteRunnerEngine
         public Rigidbody[] ragdollBodies;
         public Collider[] ragdollColliders;
 
-        private bool isFirstTime = true;
-
         private void Awake()
         {
             ragdollBodies = GetComponentsInChildren<Rigidbody>();
@@ -47,9 +45,6 @@ namespace MoreMountains.InfiniteRunnerEngine
                     collider.enabled = state;
                 }
             }
-
-            if (state)
-                isFirstTime = false;
         }
 
         public void ResetIgnore()

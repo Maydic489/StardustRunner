@@ -6306,6 +6306,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Powerup_Invul
       objectReference: {fileID: 0}
+    - target: {fileID: 6100370548043138150, guid: 53a27d185b3754f4f9d67748b8bfc2b2,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 53a27d185b3754f4f9d67748b8bfc2b2, type: 3}
 --- !u!4 &1934648446 stripped
@@ -6719,6 +6724,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Powerup_Helmet
+      objectReference: {fileID: 0}
+    - target: {fileID: 524523283370544938, guid: 64312c4f7c0de464da395476c485bdc8,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6704630247815358126, guid: 64312c4f7c0de464da395476c485bdc8,
         type: 3}
