@@ -753,6 +753,7 @@ MonoBehaviour:
   UseObjectOriginalScale: 0
   MinimumRotation: {x: 0, y: 90, z: 0}
   MaximumRotation: {x: 0, y: 90, z: 0}
+  UseObjectOriginalRotation: 0
   Spawning: 0
   OnlySpawnWhileGameInProgress: 1
   InitialDelay: 0
@@ -849,6 +850,7 @@ MonoBehaviour:
   UseObjectOriginalScale: 0
   MinimumRotation: {x: 0, y: 90, z: 0}
   MaximumRotation: {x: 0, y: 90, z: 0}
+  UseObjectOriginalRotation: 0
   Spawning: 1
   OnlySpawnWhileGameInProgress: 1
   InitialDelay: 0
@@ -1361,6 +1363,7 @@ MonoBehaviour:
   UseObjectOriginalScale: 1
   MinimumRotation: {x: 0, y: 0, z: 0}
   MaximumRotation: {x: 0, y: 360, z: 0}
+  UseObjectOriginalRotation: 0
   Spawning: 0
   OnlySpawnWhileGameInProgress: 1
   InitialDelay: 0
@@ -1706,7 +1709,7 @@ Transform:
   - {fileID: 1975040369}
   - {fileID: 1810557165}
   m_Father: {fileID: 0}
-  m_RootOrder: 19
+  m_RootOrder: 20
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &442307299
 PrefabInstance:
@@ -1975,6 +1978,7 @@ MonoBehaviour:
   UseObjectOriginalScale: 0
   MinimumRotation: {x: 0, y: 0, z: 0}
   MaximumRotation: {x: 0, y: 0, z: 0}
+  UseObjectOriginalRotation: 0
   Spawning: 0
   OnlySpawnWhileGameInProgress: 1
   InitialDelay: 0
@@ -2129,6 +2133,7 @@ MonoBehaviour:
   UseObjectOriginalScale: 1
   MinimumRotation: {x: 0, y: 90, z: 0}
   MaximumRotation: {x: 0, y: 90, z: 0}
+  UseObjectOriginalRotation: 0
   Spawning: 0
   OnlySpawnWhileGameInProgress: 1
   InitialDelay: 0
@@ -2198,6 +2203,7 @@ MonoBehaviour:
   UseObjectOriginalScale: 0
   MinimumRotation: {x: 0, y: 0, z: 0}
   MaximumRotation: {x: 0, y: 0, z: 0}
+  UseObjectOriginalRotation: 0
   Spawning: 1
   OnlySpawnWhileGameInProgress: 1
   InitialDelay: 0
@@ -2238,6 +2244,7 @@ MonoBehaviour:
   UseObjectOriginalScale: 0
   MinimumRotation: {x: 0, y: 0, z: 0}
   MaximumRotation: {x: 0, y: 0, z: 0}
+  UseObjectOriginalRotation: 0
   Spawning: 1
   OnlySpawnWhileGameInProgress: 1
   InitialDelay: 0
@@ -2337,6 +2344,7 @@ MonoBehaviour:
   UseObjectOriginalScale: 0
   MinimumRotation: {x: 0, y: 0, z: 0}
   MaximumRotation: {x: 0, y: 0, z: 0}
+  UseObjectOriginalRotation: 0
   Spawning: 1
   OnlySpawnWhileGameInProgress: 1
   InitialDelay: 0
@@ -2408,6 +2416,7 @@ MonoBehaviour:
   UseObjectOriginalScale: 1
   MinimumRotation: {x: 0, y: 180, z: 0}
   MaximumRotation: {x: 0, y: 180, z: 0}
+  UseObjectOriginalRotation: 0
   Spawning: 1
   OnlySpawnWhileGameInProgress: 1
   InitialDelay: 0
@@ -2588,6 +2597,7 @@ MonoBehaviour:
   UseObjectOriginalScale: 1
   MinimumRotation: {x: 0, y: -90, z: 0}
   MaximumRotation: {x: 0, y: -90, z: 0}
+  UseObjectOriginalRotation: 0
   Spawning: 0
   OnlySpawnWhileGameInProgress: 1
   InitialDelay: 0
@@ -2808,6 +2818,7 @@ MonoBehaviour:
   UseObjectOriginalScale: 0
   MinimumRotation: {x: 0, y: 0, z: 0}
   MaximumRotation: {x: 0, y: 0, z: 0}
+  UseObjectOriginalRotation: 0
   Spawning: 0
   OnlySpawnWhileGameInProgress: 1
   InitialDelay: 0
@@ -3193,6 +3204,7 @@ MonoBehaviour:
   UseObjectOriginalScale: 0
   MinimumRotation: {x: 0, y: 90, z: 0}
   MaximumRotation: {x: 0, y: 90, z: 0}
+  UseObjectOriginalRotation: 0
   Spawning: 0
   OnlySpawnWhileGameInProgress: 1
   InitialDelay: 0
@@ -3793,7 +3805,7 @@ PrefabInstance:
     - target: {fileID: 5271117226364039741, guid: d9f0c7c19ed44b94186b7eafbe84c084,
         type: 3}
       propertyPath: m_RootOrder
-      value: 18
+      value: 19
       objectReference: {fileID: 0}
     - target: {fileID: 5271117226364039741, guid: d9f0c7c19ed44b94186b7eafbe84c084,
         type: 3}
@@ -4616,6 +4628,7 @@ MonoBehaviour:
   UseObjectOriginalScale: 0
   MinimumRotation: {x: 0, y: 90, z: 0}
   MaximumRotation: {x: 0, y: 90, z: 0}
+  UseObjectOriginalRotation: 0
   Spawning: 1
   OnlySpawnWhileGameInProgress: 1
   InitialDelay: 0
@@ -4871,6 +4884,7 @@ MonoBehaviour:
   UseObjectOriginalScale: 0
   MinimumRotation: {x: 0, y: 90, z: 0}
   MaximumRotation: {x: 0, y: 90, z: 0}
+  UseObjectOriginalRotation: 0
   Spawning: 1
   OnlySpawnWhileGameInProgress: 0
   InitialDelay: 0
@@ -5718,6 +5732,7 @@ MonoBehaviour:
   UseObjectOriginalScale: 1
   MinimumRotation: {x: 0, y: 90, z: 0}
   MaximumRotation: {x: 0, y: 90, z: 0}
+  UseObjectOriginalRotation: 0
   Spawning: 1
   OnlySpawnWhileGameInProgress: 1
   InitialDelay: 0
@@ -5857,6 +5872,75 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 1243607860}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1121344291
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 582026798816807946, guid: 1d814d76390ba454c9c995c14bba87f4,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 582026798816807946, guid: 1d814d76390ba454c9c995c14bba87f4,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 582026798816807946, guid: 1d814d76390ba454c9c995c14bba87f4,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 582026798816807946, guid: 1d814d76390ba454c9c995c14bba87f4,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 23.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 582026798816807946, guid: 1d814d76390ba454c9c995c14bba87f4,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 582026798816807946, guid: 1d814d76390ba454c9c995c14bba87f4,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 582026798816807946, guid: 1d814d76390ba454c9c995c14bba87f4,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 582026798816807946, guid: 1d814d76390ba454c9c995c14bba87f4,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 582026798816807946, guid: 1d814d76390ba454c9c995c14bba87f4,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 582026798816807946, guid: 1d814d76390ba454c9c995c14bba87f4,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 582026798816807946, guid: 1d814d76390ba454c9c995c14bba87f4,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2618896488878555917, guid: 1d814d76390ba454c9c995c14bba87f4,
+        type: 3}
+      propertyPath: m_Name
+      value: UnderFloor
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1d814d76390ba454c9c995c14bba87f4, type: 3}
 --- !u!4 &1122420208 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4263424157320744, guid: fe1ac251221e1514c98f8a5ed53b57fd,
@@ -6204,6 +6288,7 @@ MonoBehaviour:
   UseObjectOriginalScale: 1
   MinimumRotation: {x: 0, y: 0, z: 0}
   MaximumRotation: {x: 0, y: 180, z: 0}
+  UseObjectOriginalRotation: 0
   Spawning: 0
   OnlySpawnWhileGameInProgress: 1
   InitialDelay: 0
@@ -6527,6 +6612,7 @@ MonoBehaviour:
   UseObjectOriginalScale: 1
   MinimumRotation: {x: 0, y: 90, z: 0}
   MaximumRotation: {x: 0, y: 90, z: 0}
+  UseObjectOriginalRotation: 0
   Spawning: 0
   OnlySpawnWhileGameInProgress: 1
   InitialDelay: 0
@@ -6755,6 +6841,7 @@ MonoBehaviour:
   UseObjectOriginalScale: 0
   MinimumRotation: {x: 0, y: 90, z: 0}
   MaximumRotation: {x: 0, y: 90, z: 0}
+  UseObjectOriginalRotation: 0
   Spawning: 1
   OnlySpawnWhileGameInProgress: 1
   InitialDelay: 0
@@ -7959,6 +8046,7 @@ MonoBehaviour:
   UseObjectOriginalScale: 0
   MinimumRotation: {x: 0, y: 0, z: 0}
   MaximumRotation: {x: 0, y: 0, z: 0}
+  UseObjectOriginalRotation: 0
   Spawning: 1
   OnlySpawnWhileGameInProgress: 1
   InitialDelay: 0
@@ -8724,6 +8812,7 @@ MonoBehaviour:
   UseObjectOriginalScale: 0
   MinimumRotation: {x: 0, y: 0, z: 0}
   MaximumRotation: {x: 0, y: 0, z: 0}
+  UseObjectOriginalRotation: 0
   Spawning: 0
   OnlySpawnWhileGameInProgress: 1
   InitialDelay: 0
@@ -8931,6 +9020,7 @@ MonoBehaviour:
   UseObjectOriginalScale: 0
   MinimumRotation: {x: 0, y: 90, z: 0}
   MaximumRotation: {x: 0, y: 90, z: 0}
+  UseObjectOriginalRotation: 0
   Spawning: 1
   OnlySpawnWhileGameInProgress: 1
   InitialDelay: 0
@@ -9027,6 +9117,7 @@ MonoBehaviour:
   UseObjectOriginalScale: 1
   MinimumRotation: {x: 0, y: 90, z: 0}
   MaximumRotation: {x: 0, y: 90, z: 0}
+  UseObjectOriginalRotation: 0
   Spawning: 0
   OnlySpawnWhileGameInProgress: 1
   InitialDelay: 0
@@ -9180,6 +9271,7 @@ MonoBehaviour:
   UseObjectOriginalScale: 1
   MinimumRotation: {x: 0, y: -90, z: 0}
   MaximumRotation: {x: 0, y: -90, z: 0}
+  UseObjectOriginalRotation: 0
   Spawning: 0
   OnlySpawnWhileGameInProgress: 1
   InitialDelay: 0
