@@ -125,10 +125,12 @@ MonoBehaviour:
   isBreakable: 0
   isWeak: 0
   whatLane: 114
+  isHit: 0
   showModel: []
   breakablePart: {fileID: 0}
   breakableCopy: {fileID: 0}
   crashEffect: {fileID: 0}
+  breakSFX: {fileID: 0}
 --- !u!65 &12242763388846346
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -221,10 +223,12 @@ MonoBehaviour:
   isBreakable: 0
   isWeak: 0
   whatLane: 108
+  isHit: 0
   showModel: []
   breakablePart: {fileID: 0}
   breakableCopy: {fileID: 0}
   crashEffect: {fileID: 0}
+  breakSFX: {fileID: 0}
 --- !u!65 &2325867348123248326
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -374,10 +378,12 @@ MonoBehaviour:
   isBreakable: 0
   isWeak: 0
   whatLane: 109
+  isHit: 0
   showModel: []
   breakablePart: {fileID: 0}
   breakableCopy: {fileID: 0}
   crashEffect: {fileID: 0}
+  breakSFX: {fileID: 0}
 --- !u!65 &2950825453350711158
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -419,7 +425,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3560b448e90ad744adfa1edfc429537, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  laneSize: 1
+  laneSize: 0
 --- !u!114 &191297211081033292
 MonoBehaviour:
   m_ObjectHideFlags: 0

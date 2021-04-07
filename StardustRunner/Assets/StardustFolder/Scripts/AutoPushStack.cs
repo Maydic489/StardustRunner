@@ -18,6 +18,7 @@ namespace MoreMountains.InfiniteRunnerEngine
 
             if (this.gameObject.CompareTag("Obstacle") && !collidingObject.CompareTag("Obstacle_Car")) //for stationary obstacle
             {
+                Debug.Log(this.name + " got hit by " + collidingObject.name);
                 if (this.transform.position.z < collidingObject.transform.position.z)
                 {
                     return;
@@ -28,7 +29,7 @@ namespace MoreMountains.InfiniteRunnerEngine
                     this.transform.position += Vector3.forward * 6f;
                 }
             }
-            else if (this.gameObject.tag == "Obstacle_Car") //for moving car obstacle
+            else if (this.gameObject.CompareTag("Obstacle_Car")) //for moving car obstacle
             {
                 if (collidingObject.CompareTag("Obstacle_Car"))
                 {
@@ -51,7 +52,7 @@ namespace MoreMountains.InfiniteRunnerEngine
             }
             else if (collidingObject.CompareTag("Ramp") && this.CompareTag("Item"))
             {
-                this.transform.position += Vector3.up * 0.1f;
+                this.transform.position += Vector3.back * 0.1f;
             }
         }
 

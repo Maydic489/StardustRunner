@@ -54,7 +54,6 @@ public class LaneManager : MonoBehaviour
 
     private void RandomCreateSpace()
     {
-        Debug.Log("random space");
         randomNum = Random.Range(0, obstaclesList.Count);
         if (!PushMode)
             obstaclesList[randomNum].GetComponent<MMPoolableObject>().Destroy();
@@ -63,12 +62,9 @@ public class LaneManager : MonoBehaviour
 
         oldCount = useLane;
         //obstaclesList.Remove(obstaclesList[randomNum]);
-
-        Debug.Break();
     }
     private void CreateSpace(GameObject surplus)
     {
-        Debug.Log("normal space");
         if (!PushMode)
             surplus.GetComponent<MMPoolableObject>().Destroy();
         else
