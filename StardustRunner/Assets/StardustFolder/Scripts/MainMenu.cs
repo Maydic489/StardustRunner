@@ -6,6 +6,8 @@ using TMPro;
 using UnityEngine.SceneManagement;
 
 //for GUI
+//for refresh GUI in general
+
 public class MainMenu : MonoBehaviour
 {
     //main menu
@@ -25,6 +27,11 @@ public class MainMenu : MonoBehaviour
     public TextMeshProUGUI st_Skoi;
     public TextMeshProUGUI st_Boy;
     public TextMeshProUGUI st_Girl;
+    public GameObject engButt;
+    public GameObject thaiButt;
+    public GameObject skoiButt;
+    public GameObject boyButt;
+    public GameObject girlButt;
 
     //Credits
     [Header("Credits")]
@@ -104,6 +111,29 @@ public class MainMenu : MonoBehaviour
         st_Girl.text = Localization.st_Girl;
 
         cr_TextTitle.text = Localization.cr_TextTitle;
+
+        Debug.Log(MoreMountains.InfiniteRunnerEngine.SettingManager.Instance.thisSetting.language);
+        switch(MoreMountains.InfiniteRunnerEngine.SettingManager.Instance.thisSetting.language)
+        {
+            case "english":
+                engButt.GetComponent<MarkedButton>().TriggerMove();
+                break;
+            case "thai":
+                thaiButt.GetComponent<MarkedButton>().TriggerMove();
+                break;
+            case "skoi":
+                skoiButt.GetComponent<MarkedButton>().TriggerMove();
+                break;
+        }
+        switch (MoreMountains.InfiniteRunnerEngine.SettingManager.Instance.thisSetting.gender)
+        {
+            case "boy":
+                boyButt.GetComponent<MarkedButton>().TriggerMove();
+                break;
+            case "girl":
+                girlButt.GetComponent<MarkedButton>().TriggerMove();
+                break;
+        }
     }
 
     public void RefreshTutorial()
@@ -128,6 +158,7 @@ public class MainMenu : MonoBehaviour
 
     public void RefreshPauseMenu()
     {
+        Debug.Log("refresh pauseMenu");
         Localization.GetLanguage();
         pm_Pause.text = Localization.pm_Pause;
         pm_Resume.text = Localization.pm_Resume;
@@ -140,6 +171,19 @@ public class MainMenu : MonoBehaviour
         pm_Eng.text = Localization.pm_Eng;
         pm_Thai.text = Localization.pm_Thai;
         pm_Skoi.text = Localization.pm_Skoi;
+
+        switch (MoreMountains.InfiniteRunnerEngine.SettingManager.Instance.thisSetting.language)
+        {
+            case "english":
+                engButt.GetComponent<MarkedButton>().TriggerMove();
+                break;
+            case "thai":
+                thaiButt.GetComponent<MarkedButton>().TriggerMove();
+                break;
+            case "skoi":
+                skoiButt.GetComponent<MarkedButton>().TriggerMove();
+                break;
+        }
     }
 
     public void RefreshGameOver()

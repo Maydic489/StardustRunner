@@ -4858,6 +4858,11 @@ MonoBehaviour:
   st_Skoi: {fileID: 0}
   st_Boy: {fileID: 0}
   st_Girl: {fileID: 0}
+  engButt: {fileID: 0}
+  thaiButt: {fileID: 0}
+  skoiButt: {fileID: 0}
+  boyButt: {fileID: 0}
+  girlButt: {fileID: 0}
   cr_TextTitle: {fileID: 0}
   tu_Turn1: {fileID: 0}
   tu_Turn2: {fileID: 0}
@@ -7037,12 +7042,12 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1858771397}
     - target: {fileID: 1150622863, guid: aeb6c7eb274ae7c44b7be4f20891eb12, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: RefreshMain
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 1150622863, guid: aeb6c7eb274ae7c44b7be4f20891eb12, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: ChangeToSkoi
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_Target
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 1919309311, guid: aeb6c7eb274ae7c44b7be4f20891eb12, type: 3}
       propertyPath: m_AnchorMax.y
@@ -7069,12 +7074,12 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1858771397}
     - target: {fileID: 1919309312, guid: aeb6c7eb274ae7c44b7be4f20891eb12, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: RefreshMain
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 1919309312, guid: aeb6c7eb274ae7c44b7be4f20891eb12, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: ChangeToThai
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_Target
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 318920349844071541, guid: aeb6c7eb274ae7c44b7be4f20891eb12,
         type: 3}
@@ -7328,13 +7333,13 @@ PrefabInstance:
       objectReference: {fileID: 1858771397}
     - target: {fileID: 3608559420195895467, guid: aeb6c7eb274ae7c44b7be4f20891eb12,
         type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: RefreshMain
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 3608559420195895467, guid: aeb6c7eb274ae7c44b7be4f20891eb12,
         type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: ChangeToEnglish
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_Target
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 3608559420195895476, guid: aeb6c7eb274ae7c44b7be4f20891eb12,
         type: 3}
