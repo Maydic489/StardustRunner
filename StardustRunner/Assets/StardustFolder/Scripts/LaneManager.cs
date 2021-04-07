@@ -36,8 +36,10 @@ public class LaneManager : MonoBehaviour
         obstaclesList.Add(collidingObject);
         useLane += collidingObject.GetComponent<AdditionalProperties>().laneSize;
 
-        if (useLane > maxInLane && (useLane - oldCount) >= maxInLane+1)
+        if (useLane > maxInLane && (useLane - oldCount) == maxInLane+1) //for one lane object
             RandomCreateSpace();
+        else if(useLane > maxInLane && (useLane - oldCount) > maxInLane + 1) //for two or more lanes object
+            CreateSpace(collidingObject);
         else if(useLane > maxInLane)
             CreateSpace(collidingObject);
     }
@@ -52,6 +54,7 @@ public class LaneManager : MonoBehaviour
 
     private void RandomCreateSpace()
     {
+        Debug.Log("random space");
         randomNum = Random.Range(0, obstaclesList.Count);
         if (!PushMode)
             obstaclesList[randomNum].GetComponent<MMPoolableObject>().Destroy();
@@ -60,9 +63,12 @@ public class LaneManager : MonoBehaviour
 
         oldCount = useLane;
         //obstaclesList.Remove(obstaclesList[randomNum]);
+
+        Debug.Break();
     }
     private void CreateSpace(GameObject surplus)
     {
+        Debug.Log("normal space");
         if (!PushMode)
             surplus.GetComponent<MMPoolableObject>().Destroy();
         else

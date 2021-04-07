@@ -96,6 +96,8 @@ GameObject:
   - component: {fileID: 1547015980474783486}
   - component: {fileID: 8591951502219658910}
   - component: {fileID: -1943612986188385119}
+  - component: {fileID: 6803837182815795455}
+  - component: {fileID: -2415896554086123108}
   m_Layer: 0
   m_Name: Wire_obstacle
   m_TagString: Obstacle
@@ -327,6 +329,34 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!54 &6803837182815795455
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5517872922993406898}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!114 &-2415896554086123108
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5517872922993406898}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1eac7cbe197dc794dbaed99e0565d2de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &5517872923272671727
 PrefabInstance:
   m_ObjectHideFlags: 0
