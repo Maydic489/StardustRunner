@@ -325,7 +325,7 @@ namespace MoreMountains.InfiniteRunnerEngine
 		/// <summary>
 		/// What happens when the left button is pressed
 		/// </summary>
-		public virtual void LeftStart() { }
+		public virtual void LeftStart(bool pushing = false) { }
 		/// <summary>
 		/// What happens when the left button is released
 		/// </summary>
@@ -338,7 +338,7 @@ namespace MoreMountains.InfiniteRunnerEngine
 		/// <summary>
 		/// What happens when the right button is pressed
 		/// </summary>
-		public virtual void RightStart() { }
+		public virtual void RightStart(bool pushing = false) { }
 		/// <summary>
 		/// What happens when the right button is released
 		/// </summary>

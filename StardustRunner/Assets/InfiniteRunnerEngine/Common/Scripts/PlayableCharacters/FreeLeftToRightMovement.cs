@@ -102,7 +102,7 @@ namespace MoreMountains.InfiniteRunnerEngine
 		/// <summary>
 		/// When the player presses left, we apply a negative movement
 		/// </summary>
-		public override void LeftStart()
+		public override void LeftStart(bool pushing)
 		{
 			_movementLeft=-1;
 			_movementRight=0;
@@ -124,7 +124,7 @@ namespace MoreMountains.InfiniteRunnerEngine
 		/// <summary>
 		/// When the player presses right, we apply a positive movement
 		/// </summary>
-		public override void RightStart()
+		public override void RightStart(bool pushing)
 		{
 			_movementRight=1;
 			_movementLeft=0;

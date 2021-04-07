@@ -42,6 +42,7 @@ namespace MoreMountains.InfiniteRunnerEngine
 		public GameObject mainCamera;
 		public static Vector3 playerPositoin;
 		public float slideDirection;
+		[SerializeField]
 		private float oldDirection;
 		public static char whatLane;
 		public char inLane;
@@ -53,6 +54,7 @@ namespace MoreMountains.InfiniteRunnerEngine
 		private bool isSlide;
 		public static bool isWheelie;
 		private bool lookBack;
+		private GameManager gm;
 
 		private static bool animationOn = true;
 		public static bool isSpeed {get; set;}
@@ -61,6 +63,7 @@ namespace MoreMountains.InfiniteRunnerEngine
 
 		protected override void Start()
 		{
+			gm = GameManager.Instance;
 			mainCamera = GameObject.Find("Main Camera");
 			s_BlinkingValueHash = Shader.PropertyToID("_BlinkingValue");
 			pivotAnim = groundPivot.GetComponent<Animation>();
@@ -108,7 +111,8 @@ namespace MoreMountains.InfiniteRunnerEngine
 
 		private void FixedUpdate()
 		{
-			if (!IsBetween(transform.position.x, slideDirection - 0.05f, slideDirection + 0.05f))
+			//main moving/changing lane code
+			if (!IsBetween(transform.position.x, slideDirection - 0.05f, slideDirection + 0.05f) && gm.Status != GameManager.GameStatus.GameOver)
 			{
 				if (slowSpeed < MoveSpeed)
 				{
@@ -164,20 +168,21 @@ namespace MoreMountains.InfiniteRunnerEngine
 			}
 		}
 		#region Control
-		public override void LeftStart()
+		public override void LeftStart(bool pushing = false)
 		{
-			oldDirection = slideDirection;
+			if(!pushing)
+				oldDirection = slideDirection;
 			//_rigidbodyInterface.AddForce(Vector3.left * MoveSpeed * Time.deltaTime);
 			if (whatLane == 'r' && slideDirection != 0f)
 			{
-				slideDirection = 0f;
+				slideDirection = pushing? oldDirection : 0;
 				if (!isSlide && !isWheelie && animationOn)
 					PlayTurnAnim("Left");
 				SoundManager.Instance.PlaySound(engineWhoosh, transform.position);
 			}
 			else
 			{
-				slideDirection = -1.6f;
+				slideDirection = pushing? oldDirection : -1.6f;
 				if (!isSlide && !isWheelie && whatLane != 'l' && animationOn)
 				{
 					PlayTurnAnim("Left");
@@ -186,20 +191,21 @@ namespace MoreMountains.InfiniteRunnerEngine
 			}
 		}
 
-		public override void RightStart()
+		public override void RightStart(bool pushing = false)
 		{
-			oldDirection = slideDirection;
+			if (!pushing)
+				oldDirection = slideDirection;
 			//_rigidbodyInterface.AddForce(Vector3.right * MoveSpeed * Time.deltaTime);
 			if (whatLane == 'l' && slideDirection != 0f)
 			{
-				slideDirection = 0f;
+				slideDirection = pushing? oldDirection : 0;
 				if (!isSlide && !isWheelie && animationOn)
 					PlayTurnAnim("Right");
 				SoundManager.Instance.PlaySound(engineWhoosh, transform.position);
 			}
 			else
 			{
-				slideDirection = 1.6f;
+				slideDirection = pushing ? oldDirection : 1.6f;
 				if (!isSlide && !isWheelie && whatLane != 'r' && animationOn)
 				{
 					PlayTurnAnim("Right");
@@ -496,9 +502,9 @@ namespace MoreMountains.InfiniteRunnerEngine
 			if (pushing)
 			{
 				if (transform.position.x <= oldDirection)
-					RightStart();
+					RightStart(pushing);
 				else
-					LeftStart();
+					LeftStart(pushing);
 			}
 
 			SoundManager.Instance.PlaySound(bumpSFX, transform.position);
@@ -578,7 +584,7 @@ namespace MoreMountains.InfiniteRunnerEngine
 		private void ResetStaticBool()
 		{
 			isDead = false;
-			isInvul = true;
+			isInvul = false;
 			isBoost = false;
 			isSpeed = false;
 			isProtect = false;

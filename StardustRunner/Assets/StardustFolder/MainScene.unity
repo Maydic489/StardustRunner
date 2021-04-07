@@ -211,7 +211,7 @@ PrefabInstance:
     - target: {fileID: 8305195348323541262, guid: ba2d4ee1722ce724a99d4494b62f852a,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ba2d4ee1722ce724a99d4494b62f852a, type: 3}
@@ -1451,8 +1451,8 @@ MonoBehaviour:
   PlayableCharacters:
   - {fileID: 0}
   DistanceBetweenCharacters: 1
-  PointsPerSecond: 100
-  FuelPerSecond: 0
+  PointsPerSecond: 20
+  FuelPerSecond: -0.85
   InstructionsText: "<b><color=yellow>\u0E1B\u0E31\u0E14\u0E0B\u0E49\u0E32\u0E22/\u0E02\u0E27\u0E32:</color></b>
     \u0E40\u0E25\u0E35\u0E49\u0E22\u0E27\u0E0B\u0E49\u0E32\u0E22/\u0E02\u0E27\u0E32\n<b><color=yellow>\u0E1B\u0E31\u0E14\u0E02\u0E36\u0E49\u0E19/\u0E41\u0E15\u0E30\u0E08\u0E2D:</color></b>
     \u0E22\u0E01\u0E25\u0E49\u0E2D\n<b><color=yellow>\u0E1B\u0E31\u0E14\u0E25\u0E07:</color></b>
@@ -2670,7 +2670,7 @@ PrefabInstance:
     - target: {fileID: 8305195348323541262, guid: ba2d4ee1722ce724a99d4494b62f852a,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ba2d4ee1722ce724a99d4494b62f852a, type: 3}
@@ -3090,7 +3090,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &942704921
 Transform:
   m_ObjectHideFlags: 0
@@ -4376,7 +4376,7 @@ MonoBehaviour:
   MinimumRotation: {x: 0, y: 90, z: 0}
   MaximumRotation: {x: 0, y: 90, z: 0}
   UseObjectOriginalRotation: 0
-  Spawning: 1
+  Spawning: 0
   OnlySpawnWhileGameInProgress: 1
   InitialDelay: 0
   fixedUpdateMode: 0
@@ -5053,7 +5053,7 @@ PrefabInstance:
     - target: {fileID: 8305195348323541262, guid: ba2d4ee1722ce724a99d4494b62f852a,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ba2d4ee1722ce724a99d4494b62f852a, type: 3}
@@ -6359,7 +6359,7 @@ MonoBehaviour:
   MinimumRotation: {x: 0, y: -90, z: 0}
   MaximumRotation: {x: 0, y: -90, z: 0}
   UseObjectOriginalRotation: 0
-  Spawning: 1
+  Spawning: 0
   OnlySpawnWhileGameInProgress: 1
   InitialDelay: 0
   fixedUpdateMode: 0
