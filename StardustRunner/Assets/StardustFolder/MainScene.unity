@@ -6928,6 +6928,31 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 248213638411934553, guid: 96b3df0c65775554093f8fb0bc4f5e94,
+        type: 3}
+      propertyPath: ButtonPressedNoDelay.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 248213638411934553, guid: 96b3df0c65775554093f8fb0bc4f5e94,
+        type: 3}
+      propertyPath: ButtonPressedNoDelay.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 4192884201236294466}
+    - target: {fileID: 248213638411934553, guid: 96b3df0c65775554093f8fb0bc4f5e94,
+        type: 3}
+      propertyPath: ButtonPressedNoDelay.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 248213638411934553, guid: 96b3df0c65775554093f8fb0bc4f5e94,
+        type: 3}
+      propertyPath: ButtonPressedNoDelay.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: PlayAudioSource
+      objectReference: {fileID: 0}
+    - target: {fileID: 248213638411934553, guid: 96b3df0c65775554093f8fb0bc4f5e94,
+        type: 3}
+      propertyPath: ButtonPressedNoDelay.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 537544232282138115, guid: 96b3df0c65775554093f8fb0bc4f5e94,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -7172,6 +7197,31 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -33.71997
+      objectReference: {fileID: 0}
+    - target: {fileID: 5116191780720853449, guid: 96b3df0c65775554093f8fb0bc4f5e94,
+        type: 3}
+      propertyPath: ButtonPressedNoDelay.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5116191780720853449, guid: 96b3df0c65775554093f8fb0bc4f5e94,
+        type: 3}
+      propertyPath: ButtonPressedNoDelay.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 4192884201236294467}
+    - target: {fileID: 5116191780720853449, guid: 96b3df0c65775554093f8fb0bc4f5e94,
+        type: 3}
+      propertyPath: ButtonPressedNoDelay.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5116191780720853449, guid: 96b3df0c65775554093f8fb0bc4f5e94,
+        type: 3}
+      propertyPath: ButtonPressedNoDelay.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: PlayAudioSource
+      objectReference: {fileID: 0}
+    - target: {fileID: 5116191780720853449, guid: 96b3df0c65775554093f8fb0bc4f5e94,
+        type: 3}
+      propertyPath: ButtonPressedNoDelay.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 5340262943240174248, guid: 96b3df0c65775554093f8fb0bc4f5e94,
         type: 3}
@@ -7557,6 +7607,30 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b2db3baf3f146c143820090394073d00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &4192884201236294466 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7720872195016605236, guid: 96b3df0c65775554093f8fb0bc4f5e94,
+    type: 3}
+  m_PrefabInstance: {fileID: 4192884201236294463}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5f8f92b9ff80924880e5d6891d6acf6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &4192884201236294467 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1895858373141902665, guid: 96b3df0c65775554093f8fb0bc4f5e94,
+    type: 3}
+  m_PrefabInstance: {fileID: 4192884201236294463}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5f8f92b9ff80924880e5d6891d6acf6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &5279201023056443137
