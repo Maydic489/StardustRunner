@@ -545,7 +545,7 @@ namespace MoreMountains.InfiniteRunnerEngine
 			if (SettingManager.Instance.thisSetting.gender == "boy")
 				PlayableCharacters[0] = Resources.Load<GameObject>("Player Character").GetComponent<PlayableCharacter>();
 			else if (SettingManager.Instance.thisSetting.gender == "girl")
-				PlayableCharacters[0] = Resources.Load<GameObject>("Player Character_w").GetComponent<PlayableCharacter>();
+				PlayableCharacters[0] = Resources.Load<GameObject>("Player Character_w2").GetComponent<PlayableCharacter>();
 			else if(SettingManager.Instance.thisSetting.gender == "")
 				PlayableCharacters[0] = Resources.Load<GameObject>("Player Character").GetComponent<PlayableCharacter>();
 		}
