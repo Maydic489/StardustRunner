@@ -860,7 +860,7 @@ PlayerSettings:
     Game_Performance: 0
     Hub: 0
     Purchasing: 0
-    UNet: 0
+    UNet: 1
     Unity_Ads: 0
   luminIcon:
     m_Name: 
@@ -874,10 +874,10 @@ PlayerSettings:
     m_VersionCode: 1
     m_VersionName: 
   apiCompatibilityLevel: 6
-  cloudProjectId: 
+  cloudProjectId: 15efc7cd-efac-42d1-bebf-0a7559f10a0d
   framebufferDepthMemorylessMode: 0
-  projectName: 
-  organizationId: 
+  projectName: StardustRunner
+  organizationId: stardust_enterprise01
   cloudEnabled: 0
   enableNativePlatformBackendsForNewInputSystem: 0
   disableOldInputManagerSupport: 0

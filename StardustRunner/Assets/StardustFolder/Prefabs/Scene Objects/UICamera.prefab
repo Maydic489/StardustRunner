@@ -6720,52 +6720,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3631048082829327041, guid: f086086950045ca4483e202144362d4c,
         type: 3}
-      propertyPath: ButtonPressedNoDelay.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3631048082829327041, guid: f086086950045ca4483e202144362d4c,
-        type: 3}
-      propertyPath: ButtonPressedNoDelay.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 3631048082829327041, guid: f086086950045ca4483e202144362d4c,
-        type: 3}
-      propertyPath: ButtonPressedNoDelay.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3631048082829327041, guid: f086086950045ca4483e202144362d4c,
-        type: 3}
-      propertyPath: ButtonPressedNoDelay.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 3631048082829327041, guid: f086086950045ca4483e202144362d4c,
-        type: 3}
-      propertyPath: ButtonPressedNoDelay.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      propertyPath: ButtonPressedFirstTime.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 8508877848251408465, guid: f086086950045ca4483e202144362d4c,
         type: 3}
-      propertyPath: ButtonPressedNoDelay.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8508877848251408465, guid: f086086950045ca4483e202144362d4c,
-        type: 3}
-      propertyPath: ButtonPressedNoDelay.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 8508877848251408465, guid: f086086950045ca4483e202144362d4c,
-        type: 3}
-      propertyPath: ButtonPressedNoDelay.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8508877848251408465, guid: f086086950045ca4483e202144362d4c,
-        type: 3}
-      propertyPath: ButtonPressedNoDelay.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 8508877848251408465, guid: f086086950045ca4483e202144362d4c,
-        type: 3}
-      propertyPath: ButtonPressedNoDelay.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      propertyPath: ButtonPressedFirstTime.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
