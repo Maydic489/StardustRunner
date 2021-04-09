@@ -16,7 +16,7 @@ namespace MoreMountains.InfiniteRunnerEngine
 	    /// The current number of lives
 	    public int CurrentLives { get; protected set;  }
 		public int TotalHelmets = 3;
-		public int CurrentHelmets { get; set; }
+		public int CurrentHelmets; /*{ get; set; }*/
 		/// the current number of game points
 		public float Points { get; protected set; }
 		/// game fuel point

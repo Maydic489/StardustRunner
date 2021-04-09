@@ -10398,12 +10398,22 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 248213638411934553, guid: 96b3df0c65775554093f8fb0bc4f5e94,
         type: 3}
+      propertyPath: ButtonPressedFirstTime.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 248213638411934553, guid: 96b3df0c65775554093f8fb0bc4f5e94,
+        type: 3}
       propertyPath: ButtonPressedNoDelay.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 64870253}
     - target: {fileID: 248213638411934553, guid: 96b3df0c65775554093f8fb0bc4f5e94,
         type: 3}
       propertyPath: ButtonPressedFirstTime.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 506389627}
+    - target: {fileID: 248213638411934553, guid: 96b3df0c65775554093f8fb0bc4f5e94,
+        type: 3}
+      propertyPath: ButtonPressedFirstTime.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 506389627}
     - target: {fileID: 248213638411934553, guid: 96b3df0c65775554093f8fb0bc4f5e94,
@@ -10420,6 +10430,16 @@ PrefabInstance:
         type: 3}
       propertyPath: ButtonPressedFirstTime.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: PlayInterstitialAd
+      objectReference: {fileID: 0}
+    - target: {fileID: 248213638411934553, guid: 96b3df0c65775554093f8fb0bc4f5e94,
+        type: 3}
+      propertyPath: ButtonPressedFirstTime.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: SetRestart
+      objectReference: {fileID: 0}
+    - target: {fileID: 248213638411934553, guid: 96b3df0c65775554093f8fb0bc4f5e94,
+        type: 3}
+      propertyPath: ButtonPressedFirstTime.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_BoolArgument
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 248213638411934553, guid: 96b3df0c65775554093f8fb0bc4f5e94,
         type: 3}
@@ -10678,12 +10698,22 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5116191780720853449, guid: 96b3df0c65775554093f8fb0bc4f5e94,
         type: 3}
+      propertyPath: ButtonPressedFirstTime.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5116191780720853449, guid: 96b3df0c65775554093f8fb0bc4f5e94,
+        type: 3}
       propertyPath: ButtonPressedNoDelay.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 839195646}
     - target: {fileID: 5116191780720853449, guid: 96b3df0c65775554093f8fb0bc4f5e94,
         type: 3}
       propertyPath: ButtonPressedFirstTime.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 506389627}
+    - target: {fileID: 5116191780720853449, guid: 96b3df0c65775554093f8fb0bc4f5e94,
+        type: 3}
+      propertyPath: ButtonPressedFirstTime.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 506389627}
     - target: {fileID: 5116191780720853449, guid: 96b3df0c65775554093f8fb0bc4f5e94,
@@ -10700,6 +10730,11 @@ PrefabInstance:
         type: 3}
       propertyPath: ButtonPressedFirstTime.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: PlayInterstitialAd
+      objectReference: {fileID: 0}
+    - target: {fileID: 5116191780720853449, guid: 96b3df0c65775554093f8fb0bc4f5e94,
+        type: 3}
+      propertyPath: ButtonPressedFirstTime.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: SetRestart
       objectReference: {fileID: 0}
     - target: {fileID: 5116191780720853449, guid: 96b3df0c65775554093f8fb0bc4f5e94,
         type: 3}

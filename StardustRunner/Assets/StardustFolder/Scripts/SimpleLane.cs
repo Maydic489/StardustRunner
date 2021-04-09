@@ -63,6 +63,7 @@ namespace MoreMountains.InfiniteRunnerEngine
 
 		protected override void Start()
 		{
+			Debug.Log("start");
 			gm = GameManager.Instance;
 			mainCamera = GameObject.Find("Main Camera");
 			s_BlinkingValueHash = Shader.PropertyToID("_BlinkingValue");
@@ -570,6 +571,13 @@ namespace MoreMountains.InfiniteRunnerEngine
 						break;
 					case "GameStart":
 						engineSFX.Play();
+						if (AdManager.getFreeHelmet)
+						{
+							Debug.Log("free helmet");
+							ToggleProtect(true);
+							AdManager.getFreeHelmet = false;
+						}
+
 						break;
 				}
 			}
@@ -587,7 +595,8 @@ namespace MoreMountains.InfiniteRunnerEngine
 			isInvul = false;
 			isBoost = false;
 			isSpeed = false;
-			isProtect = false;
+			if(GameManager.Instance.CurrentHelmets < 1)
+				isProtect = false;
 			isWheelie = false;
 			isSuperman = false;
 		}

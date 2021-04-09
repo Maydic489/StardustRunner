@@ -17,6 +17,9 @@ namespace MoreMountains.InfiniteRunnerEngine
         public bool isTargetPlayStore;
         public bool isTestAd = true;
 
+        private bool isRestart;
+        public static bool getFreeHelmet;
+
         private void Start()
         {
             Advertisement.AddListener(this);
@@ -94,23 +97,36 @@ namespace MoreMountains.InfiniteRunnerEngine
             switch (showResult)
             {
                 case ShowResult.Failed:
-                    GetComponent<LevelSelector>().RestartLevel();
+                    if(isRestart)
+                        AdManager.Instance.GetComponent<LevelSelector>().RestartLevel();
+                    else
+                        AdManager.Instance.GetComponent<LevelSelector>().GoToLevel();
                     break;
                 case ShowResult.Skipped:
-                    GetComponent<LevelSelector>().RestartLevel();
+                    if (isRestart)
+                        AdManager.Instance.GetComponent<LevelSelector>().RestartLevel();
+                    else
+                        AdManager.Instance.GetComponent<LevelSelector>().GoToLevel();
                     break;
                 case ShowResult.Finished:
                     if (placementId == rewardedVideoAd)
                     {
-                        Debug.Log("give 10K");
-                        GameManager.Instance.AddPoints(10000f);
+                        Debug.Log("give helmet");
+                        getFreeHelmet = true;
                         Advertisement.RemoveListener(this);
                     }
-
-                    AdManager.Instance.GetComponent<LevelSelector>().RestartLevel();
+                    if (isRestart)
+                        AdManager.Instance.GetComponent<LevelSelector>().RestartLevel();
+                    else
+                        AdManager.Instance.GetComponent<LevelSelector>().GoToLevel();
                     break;
             }
             //throw new System.NotImplementedException();
+        }
+
+        public void SetRestart(bool restart)
+        {
+            isRestart = restart;
         }
     }
 }
