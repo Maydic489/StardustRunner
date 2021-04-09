@@ -575,6 +575,7 @@ namespace MoreMountains.InfiniteRunnerEngine
 						{
 							Debug.Log("free helmet");
 							ToggleProtect(true);
+							ToggleProtect(true);
 							AdManager.getFreeHelmet = false;
 						}
 

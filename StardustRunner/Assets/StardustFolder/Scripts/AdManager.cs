@@ -17,7 +17,8 @@ namespace MoreMountains.InfiniteRunnerEngine
         public bool isTargetPlayStore;
         public bool isTestAd = true;
 
-        private bool isRestart;
+        public enum AdsAction {Stay, Restart,MainMenu};
+        public AdsAction nextAction;
         public static bool getFreeHelmet;
 
         private void Start()
@@ -94,39 +95,61 @@ namespace MoreMountains.InfiniteRunnerEngine
 
         public void OnUnityAdsDidFinish(string placementId, ShowResult showResult)
         {
+            Debug.Log("AD finished");
+            Advertisement.RemoveListener(this); //so no double reward next time
             switch (showResult)
             {
                 case ShowResult.Failed:
-                    if(isRestart)
-                        AdManager.Instance.GetComponent<LevelSelector>().RestartLevel();
-                    else
-                        AdManager.Instance.GetComponent<LevelSelector>().GoToLevel();
+                    DoAdsAction();
                     break;
                 case ShowResult.Skipped:
-                    if (isRestart)
-                        AdManager.Instance.GetComponent<LevelSelector>().RestartLevel();
-                    else
-                        AdManager.Instance.GetComponent<LevelSelector>().GoToLevel();
+                    DoAdsAction();
                     break;
                 case ShowResult.Finished:
                     if (placementId == rewardedVideoAd)
                     {
                         Debug.Log("give helmet");
                         getFreeHelmet = true;
-                        Advertisement.RemoveListener(this);
                     }
-                    if (isRestart)
-                        AdManager.Instance.GetComponent<LevelSelector>().RestartLevel();
-                    else
-                        AdManager.Instance.GetComponent<LevelSelector>().GoToLevel();
+                    DoAdsAction();
                     break;
             }
+            Advertisement.AddListener(this);
             //throw new System.NotImplementedException();
         }
 
-        public void SetRestart(bool restart)
+        public void SetAdsAction(string action)
         {
-            isRestart = restart;
+            switch(action)
+            {
+                case "stay":
+                    AdManager.Instance.nextAction = AdsAction.Stay;
+                    break;
+                case "restart":
+                    AdManager.Instance.nextAction = AdsAction.Restart;
+                    break;
+                case "mainmenu":
+                    AdManager.Instance.nextAction = AdsAction.MainMenu;
+                    break;
+            }
+        }
+
+        private void DoAdsAction()
+        {
+            switch(AdManager.Instance.nextAction)
+            {
+                case AdsAction.Stay:
+                    Debug.Log("stay");
+                    break;
+                case AdsAction.Restart:
+                    Debug.Log("restart");
+                    AdManager.Instance.GetComponent<LevelSelector>().RestartLevel();
+                    break;
+                case AdsAction.MainMenu:
+                    Debug.Log("mainmenu");
+                    AdManager.Instance.GetComponent<LevelSelector>().GoToLevel();
+                    break;
+            }
         }
     }
 }

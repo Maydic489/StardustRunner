@@ -6943,7 +6943,7 @@ PrefabInstance:
     - target: {fileID: 248213638411934553, guid: 96b3df0c65775554093f8fb0bc4f5e94,
         type: 3}
       propertyPath: ButtonPressedFirstTime.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 248213638411934553, guid: 96b3df0c65775554093f8fb0bc4f5e94,
         type: 3}
@@ -6958,17 +6958,22 @@ PrefabInstance:
     - target: {fileID: 248213638411934553, guid: 96b3df0c65775554093f8fb0bc4f5e94,
         type: 3}
       propertyPath: ButtonPressedFirstTime.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: PlayRewaredAd
+      value: PlayBannerAd
       objectReference: {fileID: 0}
     - target: {fileID: 248213638411934553, guid: 96b3df0c65775554093f8fb0bc4f5e94,
         type: 3}
       propertyPath: ButtonPressedFirstTime.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: SetRestart
+      value: SetAdsAction
       objectReference: {fileID: 0}
     - target: {fileID: 248213638411934553, guid: 96b3df0c65775554093f8fb0bc4f5e94,
         type: 3}
       propertyPath: ButtonPressedFirstTime.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_BoolArgument
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 248213638411934553, guid: 96b3df0c65775554093f8fb0bc4f5e94,
+        type: 3}
+      propertyPath: ButtonPressedFirstTime.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_StringArgument
+      value: restart
       objectReference: {fileID: 0}
     - target: {fileID: 537544232282138115, guid: 96b3df0c65775554093f8fb0bc4f5e94,
         type: 3}
@@ -7110,6 +7115,66 @@ PrefabInstance:
       propertyPath: checkMark
       value: 
       objectReference: {fileID: 1909300677}
+    - target: {fileID: 3475602653900427293, guid: 96b3df0c65775554093f8fb0bc4f5e94,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3475602653900427293, guid: 96b3df0c65775554093f8fb0bc4f5e94,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3475602653900427293, guid: 96b3df0c65775554093f8fb0bc4f5e94,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3475602653900427293, guid: 96b3df0c65775554093f8fb0bc4f5e94,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2017012106}
+    - target: {fileID: 3475602653900427293, guid: 96b3df0c65775554093f8fb0bc4f5e94,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 2017012106}
+    - target: {fileID: 3475602653900427293, guid: 96b3df0c65775554093f8fb0bc4f5e94,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3475602653900427293, guid: 96b3df0c65775554093f8fb0bc4f5e94,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3475602653900427293, guid: 96b3df0c65775554093f8fb0bc4f5e94,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: PlayRewaredAd
+      objectReference: {fileID: 0}
+    - target: {fileID: 3475602653900427293, guid: 96b3df0c65775554093f8fb0bc4f5e94,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: SetAdsAction
+      objectReference: {fileID: 0}
+    - target: {fileID: 3475602653900427293, guid: 96b3df0c65775554093f8fb0bc4f5e94,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_StringArgument
+      value: stay
+      objectReference: {fileID: 0}
+    - target: {fileID: 3475602653900427293, guid: 96b3df0c65775554093f8fb0bc4f5e94,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 3475602653900427293, guid: 96b3df0c65775554093f8fb0bc4f5e94,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 3763043637455657872, guid: 96b3df0c65775554093f8fb0bc4f5e94,
         type: 3}
       propertyPath: checkMark
@@ -7218,7 +7283,7 @@ PrefabInstance:
     - target: {fileID: 5116191780720853449, guid: 96b3df0c65775554093f8fb0bc4f5e94,
         type: 3}
       propertyPath: ButtonPressedFirstTime.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 5116191780720853449, guid: 96b3df0c65775554093f8fb0bc4f5e94,
         type: 3}
@@ -7233,7 +7298,12 @@ PrefabInstance:
     - target: {fileID: 5116191780720853449, guid: 96b3df0c65775554093f8fb0bc4f5e94,
         type: 3}
       propertyPath: ButtonPressedFirstTime.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: SetRestart
+      value: SetAdsAction
+      objectReference: {fileID: 0}
+    - target: {fileID: 5116191780720853449, guid: 96b3df0c65775554093f8fb0bc4f5e94,
+        type: 3}
+      propertyPath: ButtonPressedFirstTime.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_StringArgument
+      value: mainmenu
       objectReference: {fileID: 0}
     - target: {fileID: 5340262943240174248, guid: 96b3df0c65775554093f8fb0bc4f5e94,
         type: 3}
