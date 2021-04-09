@@ -657,6 +657,7 @@ GameObject:
   - component: {fileID: 3552066270937798339}
   - component: {fileID: 8939821786206778816}
   - component: {fileID: 7110379424368314404}
+  - component: {fileID: 7290947939133916953}
   m_Layer: 5
   m_Name: Button_Share
   m_TagString: Untagged
@@ -754,6 +755,17 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 7110379424368314404}
         m_MethodName: PlayAudioSource
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 7290947939133916953}
+        m_MethodName: ClickShareButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -914,6 +926,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a5f8f92b9ff80924880e5d6891d6acf6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &7290947939133916953
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2236341882155428128}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7df053dc209e6fb40b568683c22a6f14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &3080213631573756931
