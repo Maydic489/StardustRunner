@@ -30,6 +30,12 @@ namespace MoreMountains.InfiniteRunnerEngine
 	    public virtual void GoToLevel()
 	    {
 			LoadingSceneManager.LoadScene(NextLevelName);
-	    }    
+	    }
+
+		public virtual void ExitGame()
+        {
+			Debug.Log("Exit Game");
+			Application.Quit();
+        }
 	}
 }

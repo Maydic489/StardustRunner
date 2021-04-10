@@ -16,6 +16,7 @@ public class MainMenu : MonoBehaviour
     public TextMeshProUGUI tutorialButton;
     public TextMeshProUGUI settingButton;
     public TextMeshProUGUI creditsButton;
+    public TextMeshProUGUI exitButton;
 
     //setting
     [Header("Setting")]
@@ -100,6 +101,7 @@ public class MainMenu : MonoBehaviour
         tutorialButton.text = Localization.tutorialButton;
         settingButton.text = Localization.settingButton;
         creditsButton.text = Localization.creditsButton;
+        exitButton.text = Localization.exitButton;
 
         st_TextTitle.text = Localization.st_TextTitle;
         st_SFX.text = Localization.st_SFX;

@@ -11,6 +11,7 @@ public static class Localization
     public static string tutorialButton = "Tutorial";
     public static string settingButton = "Setting";
     public static string creditsButton = "Credits";
+    public static string exitButton = "Exit";
 
     //setting
     public static string st_TextTitle;
@@ -82,6 +83,7 @@ public static class Localization
         tutorialButton = "Tutorial";
         settingButton = "Setting";
         creditsButton = "Credits";
+        exitButton = "Exit";
 
         //setting
         st_TextTitle = "Setting";
@@ -136,6 +138,7 @@ public static class Localization
         tutorialButton = "เล่นไงอะ?";
         settingButton = "ตั้งค่า";
         creditsButton = "เครดิต";
+        exitButton = "ปิดเกม";
 
         //setting
         st_TextTitle = "ตั้งค่า";
@@ -190,6 +193,7 @@ public static class Localization
         tutorialButton = "เฬ่ณงั๊ยอ่?";
         settingButton = "ฏั๊งค่๊";
         creditsButton = "เครฎิฏ";
+        exitButton = "ปิฎเกฒ";
 
         //setting
         st_TextTitle = "ฏั๊งค่๊";
