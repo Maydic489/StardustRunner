@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.Advertisements;
 using MoreMountains.Tools;
+using UnityEngine.SceneManagement;
 
 
 namespace MoreMountains.InfiniteRunnerEngine
@@ -20,11 +21,28 @@ namespace MoreMountains.InfiniteRunnerEngine
         public enum AdsAction {Stay, Restart,MainMenu};
         public AdsAction nextAction;
         public static bool getFreeHelmet;
+        private bool showBanner;
 
         private void Start()
         {
             Advertisement.AddListener(this);
             InitializeAdvertisement();
+            showBanner = false;
+            if (SceneManager.GetActiveScene().name == "MainMenuScene")
+            {
+                Debug.Log("Load Main Menu");
+                AdManager.Instance.PlayBannerAd();
+            }
+        }
+
+        private void Update()
+        {
+            if (SceneManager.GetActiveScene().name == "MainMenuScene" && !Advertisement.Banner.isLoaded && !showBanner)
+            {
+                Debug.Log("Load Banner if not load");
+                showBanner = true;
+                AdManager.Instance.PlayBannerAd();
+            }
         }
 
         private void InitializeAdvertisement()
@@ -73,7 +91,9 @@ namespace MoreMountains.InfiniteRunnerEngine
             }
             else
             {
+                Advertisement.Banner.SetPosition(BannerPosition.TOP_CENTER);
                 Advertisement.Show(bannerAd);
+                Advertisement.Banner.SetPosition(BannerPosition.TOP_CENTER);
             }
         }
 

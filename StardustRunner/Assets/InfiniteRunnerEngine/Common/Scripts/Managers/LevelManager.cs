@@ -488,6 +488,8 @@ namespace MoreMountains.InfiniteRunnerEngine
 		protected virtual IEnumerator KillCharacterCo(PlayableCharacter player)
 		{
 			LevelManager.Instance.CurrentPlayableCharacters.Remove(player);
+			//show banner ad
+			AdManager.Instance.PlayBannerAd();
 			player.Die();
 			//yield return new WaitForSeconds(0.5f);
 			yield return new WaitForSeconds(0f);

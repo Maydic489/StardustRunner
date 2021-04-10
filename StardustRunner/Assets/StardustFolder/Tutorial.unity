@@ -10393,7 +10393,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 248213638411934553, guid: 96b3df0c65775554093f8fb0bc4f5e94,
         type: 3}
+      propertyPath: ButtonPressedFirstTime.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 248213638411934553, guid: 96b3df0c65775554093f8fb0bc4f5e94,
+        type: 3}
       propertyPath: ButtonPressedNoDelay.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 248213638411934553, guid: 96b3df0c65775554093f8fb0bc4f5e94,
+        type: 3}
+      propertyPath: ButtonPressedFirstTime.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 248213638411934553, guid: 96b3df0c65775554093f8fb0bc4f5e94,
@@ -10410,7 +10420,7 @@ PrefabInstance:
         type: 3}
       propertyPath: ButtonPressedFirstTime.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 506389627}
+      objectReference: {fileID: 4192884201236294465}
     - target: {fileID: 248213638411934553, guid: 96b3df0c65775554093f8fb0bc4f5e94,
         type: 3}
       propertyPath: ButtonPressedFirstTime.m_PersistentCalls.m_Calls.Array.data[1].m_Target
@@ -10429,7 +10439,7 @@ PrefabInstance:
     - target: {fileID: 248213638411934553, guid: 96b3df0c65775554093f8fb0bc4f5e94,
         type: 3}
       propertyPath: ButtonPressedFirstTime.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: PlayInterstitialAd
+      value: RestartLevel
       objectReference: {fileID: 0}
     - target: {fileID: 248213638411934553, guid: 96b3df0c65775554093f8fb0bc4f5e94,
         type: 3}
@@ -10438,8 +10448,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 248213638411934553, guid: 96b3df0c65775554093f8fb0bc4f5e94,
         type: 3}
+      propertyPath: ButtonPressedFirstTime.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_BoolArgument
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 248213638411934553, guid: 96b3df0c65775554093f8fb0bc4f5e94,
+        type: 3}
       propertyPath: ButtonPressedFirstTime.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_BoolArgument
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 248213638411934553, guid: 96b3df0c65775554093f8fb0bc4f5e94,
+        type: 3}
+      propertyPath: ButtonPressedFirstTime.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: restart
       objectReference: {fileID: 0}
     - target: {fileID: 248213638411934553, guid: 96b3df0c65775554093f8fb0bc4f5e94,
         type: 3}
@@ -10758,7 +10778,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5116191780720853449, guid: 96b3df0c65775554093f8fb0bc4f5e94,
         type: 3}
+      propertyPath: ButtonPressedFirstTime.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5116191780720853449, guid: 96b3df0c65775554093f8fb0bc4f5e94,
+        type: 3}
       propertyPath: ButtonPressedNoDelay.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5116191780720853449, guid: 96b3df0c65775554093f8fb0bc4f5e94,
+        type: 3}
+      propertyPath: ButtonPressedFirstTime.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5116191780720853449, guid: 96b3df0c65775554093f8fb0bc4f5e94,
@@ -10775,7 +10805,7 @@ PrefabInstance:
         type: 3}
       propertyPath: ButtonPressedFirstTime.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 506389627}
+      objectReference: {fileID: 4192884201236294464}
     - target: {fileID: 5116191780720853449, guid: 96b3df0c65775554093f8fb0bc4f5e94,
         type: 3}
       propertyPath: ButtonPressedFirstTime.m_PersistentCalls.m_Calls.Array.data[1].m_Target
@@ -10794,12 +10824,17 @@ PrefabInstance:
     - target: {fileID: 5116191780720853449, guid: 96b3df0c65775554093f8fb0bc4f5e94,
         type: 3}
       propertyPath: ButtonPressedFirstTime.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: PlayInterstitialAd
+      value: GoToLevel
       objectReference: {fileID: 0}
     - target: {fileID: 5116191780720853449, guid: 96b3df0c65775554093f8fb0bc4f5e94,
         type: 3}
       propertyPath: ButtonPressedFirstTime.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
       value: SetAdsAction
+      objectReference: {fileID: 0}
+    - target: {fileID: 5116191780720853449, guid: 96b3df0c65775554093f8fb0bc4f5e94,
+        type: 3}
+      propertyPath: ButtonPressedFirstTime.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: mainmenu
       objectReference: {fileID: 0}
     - target: {fileID: 5116191780720853449, guid: 96b3df0c65775554093f8fb0bc4f5e94,
         type: 3}
@@ -11343,6 +11378,30 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 96b3df0c65775554093f8fb0bc4f5e94, type: 3}
+--- !u!114 &4192884201236294464 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6446761213768657690, guid: 96b3df0c65775554093f8fb0bc4f5e94,
+    type: 3}
+  m_PrefabInstance: {fileID: 4192884201236294463}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c3369c675a677747bde4a857aee7f8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &4192884201236294465 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6813047650095446445, guid: 96b3df0c65775554093f8fb0bc4f5e94,
+    type: 3}
+  m_PrefabInstance: {fileID: 4192884201236294463}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c3369c675a677747bde4a857aee7f8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &4192884201236294466 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1858771397, guid: 96b3df0c65775554093f8fb0bc4f5e94,
