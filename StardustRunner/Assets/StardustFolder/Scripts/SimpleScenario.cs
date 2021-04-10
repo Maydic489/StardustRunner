@@ -11,10 +11,10 @@ namespace MoreMountains.InfiniteRunnerEngine
     {
         public GameObject _laneManager;
         public MMMultipleObjectPooler buildingSpawner;
-        public List<DistanceSpawner> Set1;
-        public List<DistanceSpawner> Set2;
-        public List<DistanceSpawner> Set3;
-        public List<DistanceSpawner> Set4;
+        public List<Spawner> Set1;
+        public List<Spawner> Set2;
+        public List<Spawner> Set3;
+        public List<Spawner> Set4;
         private bool onBreak;
         private bool swap1;
         private bool swap2;
@@ -101,7 +101,6 @@ namespace MoreMountains.InfiniteRunnerEngine
             {
                 onBreak = false;
                 float currentScore = GameManager.Instance.Points;
-                _scenario[1].StartScore = currentScore + 400;
 
                 //swap2 = !swap2;
                 oldRandomSet = randomSet;
@@ -113,6 +112,14 @@ namespace MoreMountains.InfiniteRunnerEngine
                         if(currentScore < 10000 && randomSet == 2) { randomSet = 0; }
                     } while(randomSet == 0 || randomSet == 5);
                 }
+
+                if(randomSet == 2) //if cop with spike, make it shorter than the rest
+                    _scenario[1].StartScore = currentScore + 120;
+                else if(randomSet == 4)
+                    _scenario[1].StartScore = currentScore + 200;
+                else
+                    _scenario[1].StartScore = currentScore + 400;
+
                 print("change obstacle "+randomSet);
                 foreach (DistanceSpawner obs in Set1)
                 {
@@ -160,7 +167,7 @@ namespace MoreMountains.InfiniteRunnerEngine
             if (_scenario[2].StartScore > 5000)
                 _laneManager.GetComponent<LaneManager>().maxInLane = 2;
 
-            _scenario[2].StartScore += 1000;
+            _scenario[2].StartScore += 1500;
 
             if(_laneManager.transform.localScale.z > 6)
                 _laneManager.transform.localScale -= Vector3.forward;

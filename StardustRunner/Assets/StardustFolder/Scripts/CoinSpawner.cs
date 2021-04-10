@@ -30,7 +30,7 @@ namespace MoreMountains.InfiniteRunnerEngine
 
 			// if we haven't spawned anything yet, or if the last spawned transform is inactive, we reset to first spawn.
 			//but first check if it should pause between sets.
-			if (isSpawnPause)
+			if (isSpawnPause && _lastSpawnedTransform != null)
 			{
 				if (transform.InverseTransformPoint(_lastSpawnedTransform.position).x < -_nextSpawnDistance - setGap)
 				{
@@ -89,7 +89,6 @@ namespace MoreMountains.InfiniteRunnerEngine
 			// if the spawned object is null, we're gonna start again with a fresh spawn next time we get fresh objects.
 			if (spawnedObject == null)
 			{
-				if (this.CompareTag("coin")) Debug.Log(this.name+" Spawn at 73");
 				_lastSpawnedTransform = null;
 				_nextSpawnDistance = UnityEngine.Random.Range(MinimumGap.x, MaximumGap.x);
 				return;
@@ -171,7 +170,6 @@ namespace MoreMountains.InfiniteRunnerEngine
 				}
 			}
 
-			if(this.CompareTag("coin")) Debug.Log(this.name + " Spawn at 154");
 			// we determine after what distance we should try spawning our next object
 				_nextSpawnDistance = spawnedObject.GetComponent<MMPoolableObject>().Size.x / 2;
 			// we store our new object, which will now be the previously spawned object for our next spawn

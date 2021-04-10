@@ -63,7 +63,6 @@ namespace MoreMountains.InfiniteRunnerEngine
 
 		protected override void Start()
 		{
-			Debug.Log("start");
 			gm = GameManager.Instance;
 			mainCamera = GameObject.Find("Main Camera");
 			s_BlinkingValueHash = Shader.PropertyToID("_BlinkingValue");

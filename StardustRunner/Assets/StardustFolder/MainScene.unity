@@ -753,23 +753,22 @@ MonoBehaviour:
   _laneManager: {fileID: 1664456757}
   buildingSpawner: {fileID: 912011930}
   Set1:
-  - {fileID: 0}
+  - {fileID: 1701246763}
   - {fileID: 218673121}
   - {fileID: 1309801101}
   - {fileID: 1908619852}
   Set2:
-  - {fileID: 0}
+  - {fileID: 480151596}
   - {fileID: 156533677}
   - {fileID: 663425097}
   Set3:
-  - {fileID: 0}
+  - {fileID: 1894399268}
   - {fileID: 533913649}
   - {fileID: 1936292347}
   - {fileID: 331500259}
   Set4:
-  - {fileID: 584939007}
-  - {fileID: 1965744095}
   - {fileID: 1255389970}
+  - {fileID: 1965744095}
   randomSet: 1
   oldRandomSet: 1
 --- !u!4 &308554367
@@ -1371,8 +1370,8 @@ MonoBehaviour:
   NestWaitingPool: 1
   GameObjectToPool: {fileID: 6634715899501544287, guid: c883f750fc8af1645953949267326fd3,
     type: 3}
-  PoolSize: 30
-  PoolCanExpand: 0
+  PoolSize: 20
+  PoolCanExpand: 1
 --- !u!114 &480151593
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2109,134 +2108,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &584939001
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 584939002}
-  - component: {fileID: 584939007}
-  - component: {fileID: 584939006}
-  - component: {fileID: 584939005}
-  - component: {fileID: 584939004}
-  - component: {fileID: 584939003}
-  m_Layer: 0
-  m_Name: Spawner_Coin_Static (2)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!4 &584939002
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 584939001}
-  m_LocalRotation: {x: -0, y: -0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: 116}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1106762152}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
---- !u!114 &584939003
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 584939001}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0b7277539b95c0d45895792ecc99ce66, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  MutualizeWaitingPools: 0
-  NestWaitingPool: 1
-  GameObjectToPool: {fileID: 6634715899501544287, guid: c883f750fc8af1645953949267326fd3,
-    type: 3}
-  PoolSize: 30
-  PoolCanExpand: 0
---- !u!114 &584939004
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 584939001}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5065939a67bb5b240b21badaf83af639, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  stayDuration: 0
-  moveSpeed: 5
-  SmoothTurn: 0
-  navigator: {fileID: 1682509548}
---- !u!65 &584939005
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 584939001}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0.5, z: 0}
---- !u!114 &584939006
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 584939001}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 59f5c1ac090b84f4c87ce1565190206e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  stayDuration: 80
-  moveSpeed: 5
-  SmoothTurn: 1
---- !u!114 &584939007
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 584939001}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6733ca52c3fdb5843abc7ba0ed3608c2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  MinimumSize: {x: 1, y: 1, z: 1}
-  MaximumSize: {x: 1, y: 1, z: 1}
-  PreserveRatio: 0
-  UseObjectOriginalScale: 0
-  MinimumRotation: {x: 0, y: 0, z: 0}
-  MaximumRotation: {x: 0, y: 0, z: 0}
-  UseObjectOriginalRotation: 0
-  Spawning: 0
-  OnlySpawnWhileGameInProgress: 1
-  InitialDelay: 0
-  fixedUpdateMode: 0
-  GapOrigin: 0
-  MinimumGap: {x: 2, y: 2, z: 2}
-  MaximumGap: {x: 2, y: 2, z: 2}
-  MinimumYClamp: 0
-  MaximumYClamp: 0
-  MinimumZClamp: 0
-  MaximumZClamp: 0
-  SpawnRotatedToDirection: 1
 --- !u!1001 &593259496
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3965,7 +3836,6 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 584939002}
   - {fileID: 1255389968}
   - {fileID: 1965744093}
   m_Father: {fileID: 289940328}
@@ -4302,7 +4172,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1106762152}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!114 &1255389969
 MonoBehaviour:
@@ -5766,8 +5636,8 @@ MonoBehaviour:
   NestWaitingPool: 1
   GameObjectToPool: {fileID: 6634715899501544287, guid: c883f750fc8af1645953949267326fd3,
     type: 3}
-  PoolSize: 30
-  PoolCanExpand: 0
+  PoolSize: 20
+  PoolCanExpand: 1
 --- !u!114 &1894399265
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6311,7 +6181,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1106762152}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!114 &1965744094
 MonoBehaviour:
