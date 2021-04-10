@@ -52,7 +52,7 @@ namespace MoreMountains.InfiniteRunnerEngine
 		/// true if the music is enabled	
 		//public bool MusicOn=true;
 		/// the music volume
-		//[Range(0,1)]
+		[Range(0,1)]
 		public float MusicVolume;
 
 		[Header("Sound Effects")]
@@ -67,6 +67,8 @@ namespace MoreMountains.InfiniteRunnerEngine
 
 		protected const string _saveFolderName = "CorgiEngine/";
 		protected const string _saveFileName = "sound.settings";
+
+		public AudioMixer mainMixer;
 
 		protected AudioSource _backgroundMusic;	
 
@@ -97,6 +99,8 @@ namespace MoreMountains.InfiniteRunnerEngine
 			_backgroundMusic.volume= MusicVolume;
 			// we set the loop setting to true, the music will loop forever
 			_backgroundMusic.loop=true;
+			//add to main mixer
+			_backgroundMusic.outputAudioMixerGroup = mainMixer.FindMatchingGroups("Master")[0];
 			// we start playing the background music
 			_backgroundMusic.Play();		
 		}	
@@ -124,6 +128,8 @@ namespace MoreMountains.InfiniteRunnerEngine
 			audioSource.volume = SfxVolume;
 			// we set our loop setting
 			audioSource.loop = loop;
+			//add to main mixer
+			audioSource.outputAudioMixerGroup = mainMixer.FindMatchingGroups("Master")[0];
 			// we start playing the sound
 			audioSource.Play(); 
 
@@ -158,6 +164,8 @@ namespace MoreMountains.InfiniteRunnerEngine
 			audioSource.volume = sfx.volume*SfxVolume;
 			// we set our loop setting
 			audioSource.loop = loop;
+			//add to main mixer
+			audioSource.outputAudioMixerGroup = mainMixer.FindMatchingGroups("Master")[0];
 			// we start playing the sound
 			audioSource.Play();
 
@@ -207,6 +215,18 @@ namespace MoreMountains.InfiniteRunnerEngine
 				}
 			}
 		}
+		public virtual void MuteMixer(bool setMute)
+        {
+			switch(setMute)
+			{
+				case true:
+					mainMixer.SetFloat("MasterVolume", -80);
+					break;
+				case false:
+					mainMixer.SetFloat("MasterVolume",0);
+					break;
+			}
+        }
 		public virtual void OnMMEvent(MMGameEvent gameEvent)
 		{
 			if (MuteSfxOnPause)

@@ -110,14 +110,16 @@ namespace MoreMountains.InfiniteRunnerEngine
         {
             //useful for mute in-game sound during ad
             //throw new System.NotImplementedException();
-
             if (placementId == bannerAd)
                 showBanner = true;
+            else
+                SoundManager.Instance.MuteMixer(true);
         }
 
         public void OnUnityAdsDidFinish(string placementId, ShowResult showResult)
         {
             Debug.Log("AD finished");
+            SoundManager.Instance.MuteMixer(false);
             Advertisement.RemoveListener(this); //so no double reward next time
             switch (showResult)
             {

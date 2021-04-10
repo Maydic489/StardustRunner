@@ -1190,6 +1190,7 @@ MonoBehaviour:
   MoveSpeed: 5
   mainCamera: {fileID: 0}
   slideDirection: 0
+  oldDirection: 0
   inLane: 0
 --- !u!82 &-5412763349398659217
 AudioSource:
@@ -1200,7 +1201,8 @@ AudioSource:
   m_GameObject: {fileID: 8854290281616377687}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: 834a9c2d1d88463489f59ffe1cf8c959,
+    type: 2}
   m_audioClip: {fileID: 8300000, guid: 820295a8d885c4240b8cc7be23b8c87c, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.05

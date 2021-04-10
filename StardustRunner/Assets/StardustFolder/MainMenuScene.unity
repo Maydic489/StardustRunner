@@ -2314,6 +2314,7 @@ MonoBehaviour:
   MusicVolume: 0.5
   SfxVolume: 0.5
   MuteSfxOnPause: 1
+  mainMixer: {fileID: 24100000, guid: 834a9c2d1d88463489f59ffe1cf8c959, type: 2}
   _loopingSounds: []
 --- !u!4 &1808346227
 Transform:
