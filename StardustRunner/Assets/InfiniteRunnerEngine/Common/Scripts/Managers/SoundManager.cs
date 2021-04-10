@@ -317,13 +317,13 @@ namespace MoreMountains.InfiniteRunnerEngine
 		}
 
 		public virtual void ClearLoop()
-        {
+		{
 			foreach (AudioSource loopSound in _loopingSounds)
 			{
 					Destroy(loopSound);
 			}
 			_loopingSounds.Clear();
-        }
+		}
 
 		protected virtual void OnEnable()
 		{

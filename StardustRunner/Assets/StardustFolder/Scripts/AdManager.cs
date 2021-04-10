@@ -40,7 +40,6 @@ namespace MoreMountains.InfiniteRunnerEngine
             if (SceneManager.GetActiveScene().name == "MainMenuScene" && !Advertisement.Banner.isLoaded && !showBanner)
             {
                 Debug.Log("Load Banner if not load");
-                showBanner = true;
                 AdManager.Instance.PlayBannerAd();
             }
         }
@@ -111,6 +110,9 @@ namespace MoreMountains.InfiniteRunnerEngine
         {
             //useful for mute in-game sound during ad
             //throw new System.NotImplementedException();
+
+            if (placementId == bannerAd)
+                showBanner = true;
         }
 
         public void OnUnityAdsDidFinish(string placementId, ShowResult showResult)
