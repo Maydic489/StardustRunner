@@ -758,11 +758,11 @@ MonoBehaviour:
   - {fileID: 1309801101}
   - {fileID: 1908619852}
   Set2:
-  - {fileID: 480151596}
+  - {fileID: 0}
   - {fileID: 156533677}
   - {fileID: 663425097}
   Set3:
-  - {fileID: 1894399268}
+  - {fileID: 0}
   - {fileID: 533913649}
   - {fileID: 1936292347}
   - {fileID: 331500259}
@@ -1426,7 +1426,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 480151590}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6733ca52c3fdb5843abc7ba0ed3608c2, type: 3}
+  m_Script: {fileID: 11500000, guid: d75f7723617b6b4419c5a3c1a8700937, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   MinimumSize: {x: 1, y: 1, z: 1}
@@ -1448,6 +1448,10 @@ MonoBehaviour:
   MinimumZClamp: 0
   MaximumZClamp: 0
   SpawnRotatedToDirection: 1
+  setGap: 30
+  setSizeMax: 15
+  spawnedCoints: 0
+  isSpawnPause: 0
 --- !u!1 &517138329
 GameObject:
   m_ObjectHideFlags: 0
@@ -5817,7 +5821,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1894399262}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6733ca52c3fdb5843abc7ba0ed3608c2, type: 3}
+  m_Script: {fileID: 11500000, guid: d75f7723617b6b4419c5a3c1a8700937, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   MinimumSize: {x: 1, y: 1, z: 1}
@@ -5839,6 +5843,10 @@ MonoBehaviour:
   MinimumZClamp: 0
   MaximumZClamp: 0
   SpawnRotatedToDirection: 1
+  setGap: 30
+  setSizeMax: 15
+  spawnedCoints: 0
+  isSpawnPause: 0
 --- !u!1001 &1908009839
 PrefabInstance:
   m_ObjectHideFlags: 0
