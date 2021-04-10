@@ -753,7 +753,7 @@ MonoBehaviour:
   _laneManager: {fileID: 1664456757}
   buildingSpawner: {fileID: 912011930}
   Set1:
-  - {fileID: 1701246759}
+  - {fileID: 0}
   - {fileID: 218673121}
   - {fileID: 1309801101}
   - {fileID: 1908619852}
@@ -1628,6 +1628,7 @@ GameObject:
   - component: {fileID: 560410644}
   - component: {fileID: 560410643}
   - component: {fileID: 560410642}
+  - component: {fileID: 560410648}
   - component: {fileID: 560410647}
   m_Layer: 0
   m_Name: Spawner_Gas
@@ -1643,7 +1644,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 560410641}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9825c1a75a1139e4698dc2d0aa2eed3a, type: 3}
   m_Name: 
@@ -1756,6 +1757,32 @@ MonoBehaviour:
   moveSpeed: 5
   SmoothTurn: 0
   navigator: {fileID: 1682509548}
+--- !u!114 &560410648
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 560410641}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2558867a8a63bb14586b4f8de2378191, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MinimumSize: {x: 1, y: 1, z: 1}
+  MaximumSize: {x: 1, y: 1, z: 1}
+  PreserveRatio: 0
+  UseObjectOriginalScale: 0
+  MinimumRotation: {x: 0, y: 0, z: 0}
+  MaximumRotation: {x: 0, y: 0, z: 0}
+  UseObjectOriginalRotation: 0
+  Spawning: 1
+  OnlySpawnWhileGameInProgress: 1
+  InitialDelay: 0
+  MinSpawnTime: 5
+  MaxSpawnTime: 5
+  MinPosition: {x: 0, y: 0, z: 0}
+  MaxPosition: {x: 0, y: 0, z: 0}
 --- !u!1 &564098965
 GameObject:
   m_ObjectHideFlags: 0
@@ -1768,6 +1795,7 @@ GameObject:
   - component: {fileID: 564098966}
   - component: {fileID: 564098970}
   - component: {fileID: 564098969}
+  - component: {fileID: 564098972}
   - component: {fileID: 564098971}
   - component: {fileID: 564098967}
   m_Layer: 0
@@ -1856,7 +1884,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 564098965}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9825c1a75a1139e4698dc2d0aa2eed3a, type: 3}
   m_Name: 
@@ -1906,6 +1934,32 @@ MonoBehaviour:
   moveSpeed: 5
   SmoothTurn: 0
   navigator: {fileID: 1682509548}
+--- !u!114 &564098972
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 564098965}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2558867a8a63bb14586b4f8de2378191, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MinimumSize: {x: 1.5, y: 1.5, z: 1.5}
+  MaximumSize: {x: 1.5, y: 1.5, z: 1.5}
+  PreserveRatio: 0
+  UseObjectOriginalScale: 1
+  MinimumRotation: {x: 0, y: 0, z: 0}
+  MaximumRotation: {x: 0, y: 0, z: 0}
+  UseObjectOriginalRotation: 1
+  Spawning: 1
+  OnlySpawnWhileGameInProgress: 1
+  InitialDelay: 0
+  MinSpawnTime: 27
+  MaxSpawnTime: 33
+  MinPosition: {x: 0, y: 0, z: 0}
+  MaxPosition: {x: 0, y: 0, z: 0}
 --- !u!1001 &565273615
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5403,14 +5457,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1701246760}
-  - component: {fileID: 1701246759}
+  - component: {fileID: 1701246763}
   - component: {fileID: 1701246758}
   - component: {fileID: 1701246761}
   - component: {fileID: 1701246762}
   - component: {fileID: 1701246757}
   m_Layer: 0
   m_Name: Spawner_Coin_MovingCar
-  m_TagString: Untagged
+  m_TagString: coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5431,8 +5485,8 @@ MonoBehaviour:
   NestWaitingPool: 1
   GameObjectToPool: {fileID: 6634715899501544287, guid: c883f750fc8af1645953949267326fd3,
     type: 3}
-  PoolSize: 30
-  PoolCanExpand: 0
+  PoolSize: 20
+  PoolCanExpand: 1
 --- !u!114 &1701246758
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5448,37 +5502,6 @@ MonoBehaviour:
   stayDuration: 80
   moveSpeed: 5
   SmoothTurn: 1
---- !u!114 &1701246759
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1701246756}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6733ca52c3fdb5843abc7ba0ed3608c2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  MinimumSize: {x: 1, y: 1, z: 1}
-  MaximumSize: {x: 1, y: 1, z: 1}
-  PreserveRatio: 0
-  UseObjectOriginalScale: 0
-  MinimumRotation: {x: 0, y: 0, z: 0}
-  MaximumRotation: {x: 0, y: 0, z: 0}
-  UseObjectOriginalRotation: 0
-  Spawning: 1
-  OnlySpawnWhileGameInProgress: 1
-  InitialDelay: 0
-  fixedUpdateMode: 0
-  GapOrigin: 0
-  MinimumGap: {x: 2, y: 2, z: 2}
-  MaximumGap: {x: 2, y: 2, z: 2}
-  MinimumYClamp: 0
-  MaximumYClamp: 0
-  MinimumZClamp: 0
-  MaximumZClamp: 0
-  SpawnRotatedToDirection: 1
 --- !u!4 &1701246760
 Transform:
   m_ObjectHideFlags: 0
@@ -5522,6 +5545,41 @@ MonoBehaviour:
   moveSpeed: 5
   SmoothTurn: 0
   navigator: {fileID: 1682509548}
+--- !u!114 &1701246763
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1701246756}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d75f7723617b6b4419c5a3c1a8700937, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MinimumSize: {x: 1, y: 1, z: 1}
+  MaximumSize: {x: 1, y: 1, z: 1}
+  PreserveRatio: 0
+  UseObjectOriginalScale: 0
+  MinimumRotation: {x: 0, y: 0, z: 0}
+  MaximumRotation: {x: 0, y: 0, z: 0}
+  UseObjectOriginalRotation: 0
+  Spawning: 1
+  OnlySpawnWhileGameInProgress: 1
+  InitialDelay: 0
+  fixedUpdateMode: 0
+  GapOrigin: 0
+  MinimumGap: {x: 2, y: 2, z: 2}
+  MaximumGap: {x: 2, y: 2, z: 2}
+  MinimumYClamp: 0
+  MaximumYClamp: 0
+  MinimumZClamp: 0
+  MaximumZClamp: 0
+  SpawnRotatedToDirection: 1
+  setGap: 30
+  setSizeMax: 15
+  spawnedCoints: 0
+  isSpawnPause: 0
 --- !u!4 &1702969456 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7767132622572301064, guid: 26881105d19e76d4488f37602797e9e1,

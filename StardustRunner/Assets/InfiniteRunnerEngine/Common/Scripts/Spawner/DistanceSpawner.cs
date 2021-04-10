@@ -101,7 +101,7 @@ namespace MoreMountains.InfiniteRunnerEngine
 	        // if the last spawned object is far ahead enough, we spawn a new object
 			if (transform.InverseTransformPoint(_lastSpawnedTransform.position).x < -_nextSpawnDistance )
             {
-                Vector3 spawnPosition = transform.position;		
+                Vector3 spawnPosition = transform.position;
 				DistanceSpawn(spawnPosition);	
 			}
 		}
