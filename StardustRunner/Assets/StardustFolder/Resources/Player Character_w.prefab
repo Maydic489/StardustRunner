@@ -800,12 +800,12 @@ MonoBehaviour:
   - {fileID: 8420620165728749664}
   slideEffect: {fileID: 7591023129873305855}
   engineSFX: {fileID: 7422546518793989641}
-  engineBoostSFX: {fileID: 8300000, guid: 3947e71e3384d82489e3425df75415fc, type: 3}
+  engineBoostSFX: {fileID: 8300000, guid: 1a6133a9a07a57c4ba5113c1f98fd08d, type: 3}
   engineScreech: {fileID: 8300000, guid: f300b625f1f5aef4da52212052db71d7, type: 3}
   engineWhoosh: {fileID: 8300000, guid: 8208e8d28788f7c46bd8d567eb9e11a2, type: 3}
   engineIdle: {fileID: 8300000, guid: 6aee35fed60c10949995ce4e430c1401, type: 3}
   engineExplode: {fileID: 8300000, guid: f455fc4be489fa141bca7f2b73928faf, type: 3}
-  bumpSFX: {fileID: 8300000, guid: feb8ffa3028a029458ec18c5db1367db, type: 3}
+  bumpSFX: {fileID: 8300000, guid: 91c334beb01caca428b0f8b9b4dceeb3, type: 3}
   MoveSpeed: 5
   mainCamera: {fileID: 0}
   slideDirection: 0
@@ -822,7 +822,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 24300002, guid: 834a9c2d1d88463489f59ffe1cf8c959,
     type: 2}
-  m_audioClip: {fileID: 8300000, guid: 820295a8d885c4240b8cc7be23b8c87c, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 19cdb15ffe0107147b734faf4f30bc11, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.05
   m_Pitch: 1
