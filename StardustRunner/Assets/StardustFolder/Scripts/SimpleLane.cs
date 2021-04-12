@@ -48,7 +48,7 @@ namespace MoreMountains.InfiniteRunnerEngine
 		public char inLane;
 		public static bool isDead;
 		public static bool isInvul;
-		public static bool isBoost;
+		public static bool isBoost; //still not in use, not sure why need
 		public static bool isProtect;
 		public static bool isSuperman;
 		private bool isSlide;

@@ -23,7 +23,7 @@ namespace MoreMountains.InfiniteRunnerEngine
 
                 Instantiate(shockwaveFX, this.transform.position, shockwaveFX.transform.rotation, this.transform);
 
-                if (Camera.main.GetComponent<CameraShake>() != null)
+                if (Camera.main.GetComponent<CameraShake>() != null && !SimpleLane.isSuperman)
                 {
                     Camera.main.GetComponent<CameraShake>().isShake = true;
                     Camera.main.GetComponent<CameraShake>().shakeDuration = 0.2f;
