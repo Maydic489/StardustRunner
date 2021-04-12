@@ -243,6 +243,7 @@ namespace MoreMountains.InfiniteRunnerEngine
 			if (GUIManager.Instance != null)
 			{
 				GUIManager.Instance.InitializeHelmets();
+				LevelManager.Instance.CurrentPlayableCharacters[0].GetComponent<SimpleLane>().UpdateHelmet();
 			}
 		}
 

@@ -22,7 +22,7 @@ namespace MoreMountains.InfiniteRunnerEngine
 		private Animation pivotAnim;
 		public GameObject helmetModel;
 		public GameObject headContainer;
-		public GameObject headModel;
+		public GameObject headModel; //just for girl 'cus head too big for helmet, so have to hide it
 		public GameObject crashEffect;
 		public List<ParticleSystem> boostEffect;
 		public ParticleSystem slideEffect;
@@ -402,18 +402,26 @@ namespace MoreMountains.InfiniteRunnerEngine
 				}
 			}
 
+			UpdateHelmet();
+		}
+
+		public void UpdateHelmet()
+		{
 			switch (GameManager.Instance.CurrentHelmets)
 			{
 				case 3:
 					LevelManager.Instance.TemporarilyMultiplySpeed(2, 5f, "helmet");
 					LevelManager.Instance.ActivateInvul(6f);
+					helmetModel.GetComponent<Renderer>().material.SetTextureOffset("_MainTex", new Vector2(0.38f, 0));
 					PreSuperman();
 					break;
 				case 2:
-					headContainer.transform.localScale = Vector3.one * 1.5f;
+					//headContainer.transform.localScale = Vector3.one * 1.5f;
+					helmetModel.GetComponent<Renderer>().material.SetTextureOffset("_MainTex", new Vector2(0.64f, 0));
 					break;
 				case 1:
-					headContainer.transform.localScale = Vector3.one;
+					//headContainer.transform.localScale = Vector3.one;
+					helmetModel.GetComponent<Renderer>().material.SetTextureOffset("_MainTex", new Vector2(0, 0));
 					break;
 				default:
 					break;
