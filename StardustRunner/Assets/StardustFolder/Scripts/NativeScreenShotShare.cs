@@ -22,8 +22,17 @@ namespace MoreMountains.InfiniteRunnerEngine
 		{
 			yield return new WaitForEndOfFrame();
 
-			Texture2D ss = new Texture2D(Screen.width*3, Screen.height, TextureFormat.RGB24, false);
-			ss.ReadPixels(new Rect(0, 0, Screen.width, Screen.height), Screen.width, 0);
+			Texture2D ss = new Texture2D(Screen.width*2, Screen.height, TextureFormat.RGB24, false);
+
+			for (int y = 0; y < ss.height; y++) //set bg color before read screen pixel
+			{
+				for (int x = 0; x < ss.width*2; x++)
+				{
+					ss.SetPixel(x, y, Color.black);
+				}
+			}
+
+			ss.ReadPixels(new Rect(0, 0, Screen.width, Screen.height), (Screen.width/2), 0);
 			ss.Apply();
 
 			string filePath = Path.Combine(Application.temporaryCachePath, "shared img.png");
