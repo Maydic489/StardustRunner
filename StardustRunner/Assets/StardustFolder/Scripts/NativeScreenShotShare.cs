@@ -14,7 +14,7 @@ namespace MoreMountains.InfiniteRunnerEngine
         {
 			wholePoints = (int)GameManager.Instance.Points;
 
-			shareMessage = "https://play.google.com/store/apps/details?id=com.unity.trashdash";
+			shareMessage = "เรานี่แว้นเก่งจริงๆ เลย ได้คะแนนตั้ง "+GameManager.Instance.Points+"!";
 			StartCoroutine(TakeScreenshotAndShare());
 		}
 
