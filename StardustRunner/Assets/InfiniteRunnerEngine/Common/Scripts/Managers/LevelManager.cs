@@ -341,16 +341,17 @@ namespace MoreMountains.InfiniteRunnerEngine
 		/// </summary>
 		/// <param name="factor">The number of times you want to increase/decrease the speed by.</param>
 		/// <param name="duration">The duration of the speed change, in seconds.</param>
-		public virtual void TemporarilyMultiplySpeed(float factor, float duration, string boostType)
+		public virtual void TemporarilyMultiplySpeed(float factor, float duration, string boostType) //boostType's members = item, ramp, helmet
 		{
 			SimpleLane.isSpeed = true;
 
-			if (boostType != "item" && (oldType != "item" /*&& oldType != ""*/)) //so Ramp won't reset Item-Boost Duration when landing
+			if ((boostType != "item" && boostType != "helmet") && (oldType != "item" && oldType != "helmet")) //so Ramp won't reset Item-Boost Duration when landing
 			{
+				Debug.Log("new type "+boostType);
 				_temporarySpeedFactorRemainingTime = duration;
 				_temporarySpeedFactor = factor;
 			}
-			else if (boostType == "item")
+			else if (boostType == "item" || boostType == "helmet")
 			{
 				_temporarySpeedFactorRemainingTime = duration;
 				_temporarySpeedFactor = factor;
@@ -359,12 +360,13 @@ namespace MoreMountains.InfiniteRunnerEngine
 			if (!_temporarySpeedFactorActive)
 			{
 				_temporarySavedSpeed = Speed;
+				//oldType = "";
 			}
 
 			Speed = _temporarySavedSpeed * _temporarySpeedFactor;
 			_temporarySpeedFactorActive = true;
 
-			if(boostType != "ramp" && oldType != "item") //don't set type for double ramp case
+			if(boostType != "ramp" && (oldType != "item" && oldType != "helmet")) //don't set type for double ramp case
 				oldType = boostType;
 		}
 
@@ -380,6 +382,7 @@ namespace MoreMountains.InfiniteRunnerEngine
 					SimpleLane.isSpeed = false;
 					_temporarySpeedFactorActive = false;
 					Speed = _temporarySavedSpeed;
+					oldType = "";
 				}
 				else
 				{
