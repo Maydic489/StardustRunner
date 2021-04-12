@@ -3030,6 +3030,7 @@ MonoBehaviour:
   MusicVolume: 0.03
   SfxVolume: 0.5
   MuteSfxOnPause: 1
+  mainMixer: {fileID: 24100000, guid: 834a9c2d1d88463489f59ffe1cf8c959, type: 2}
   _loopingSounds: []
 --- !u!4 &603369261
 Transform:
@@ -10394,7 +10395,7 @@ PrefabInstance:
     - target: {fileID: 248213638411934553, guid: 96b3df0c65775554093f8fb0bc4f5e94,
         type: 3}
       propertyPath: ButtonPressedFirstTime.m_PersistentCalls.m_Calls.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 248213638411934553, guid: 96b3df0c65775554093f8fb0bc4f5e94,
         type: 3}
@@ -10409,7 +10410,7 @@ PrefabInstance:
     - target: {fileID: 248213638411934553, guid: 96b3df0c65775554093f8fb0bc4f5e94,
         type: 3}
       propertyPath: ButtonPressedFirstTime.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
-      value: 5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 248213638411934553, guid: 96b3df0c65775554093f8fb0bc4f5e94,
         type: 3}
@@ -10444,7 +10445,7 @@ PrefabInstance:
     - target: {fileID: 248213638411934553, guid: 96b3df0c65775554093f8fb0bc4f5e94,
         type: 3}
       propertyPath: ButtonPressedFirstTime.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: SetAdsAction
+      value: HideBanner
       objectReference: {fileID: 0}
     - target: {fileID: 248213638411934553, guid: 96b3df0c65775554093f8fb0bc4f5e94,
         type: 3}
@@ -10464,11 +10465,16 @@ PrefabInstance:
     - target: {fileID: 248213638411934553, guid: 96b3df0c65775554093f8fb0bc4f5e94,
         type: 3}
       propertyPath: ButtonPressedFirstTime.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_StringArgument
-      value: restart
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 248213638411934553, guid: 96b3df0c65775554093f8fb0bc4f5e94,
         type: 3}
       propertyPath: ButtonPressedNoDelay.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 248213638411934553, guid: 96b3df0c65775554093f8fb0bc4f5e94,
+        type: 3}
+      propertyPath: ButtonPressedFirstTime.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 537544232282138115, guid: 96b3df0c65775554093f8fb0bc4f5e94,
@@ -10756,6 +10762,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4192884200496355420, guid: 96b3df0c65775554093f8fb0bc4f5e94,
+        type: 3}
+      propertyPath: m_Text
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 4192884200498944048, guid: 96b3df0c65775554093f8fb0bc4f5e94,
         type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -10779,7 +10790,7 @@ PrefabInstance:
     - target: {fileID: 5116191780720853449, guid: 96b3df0c65775554093f8fb0bc4f5e94,
         type: 3}
       propertyPath: ButtonPressedFirstTime.m_PersistentCalls.m_Calls.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5116191780720853449, guid: 96b3df0c65775554093f8fb0bc4f5e94,
         type: 3}
@@ -10794,7 +10805,7 @@ PrefabInstance:
     - target: {fileID: 5116191780720853449, guid: 96b3df0c65775554093f8fb0bc4f5e94,
         type: 3}
       propertyPath: ButtonPressedFirstTime.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
-      value: 5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5116191780720853449, guid: 96b3df0c65775554093f8fb0bc4f5e94,
         type: 3}
@@ -10829,7 +10840,7 @@ PrefabInstance:
     - target: {fileID: 5116191780720853449, guid: 96b3df0c65775554093f8fb0bc4f5e94,
         type: 3}
       propertyPath: ButtonPressedFirstTime.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: SetAdsAction
+      value: HideBanner
       objectReference: {fileID: 0}
     - target: {fileID: 5116191780720853449, guid: 96b3df0c65775554093f8fb0bc4f5e94,
         type: 3}
@@ -10839,11 +10850,16 @@ PrefabInstance:
     - target: {fileID: 5116191780720853449, guid: 96b3df0c65775554093f8fb0bc4f5e94,
         type: 3}
       propertyPath: ButtonPressedFirstTime.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_StringArgument
-      value: mainmenu
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 5116191780720853449, guid: 96b3df0c65775554093f8fb0bc4f5e94,
         type: 3}
       propertyPath: ButtonPressedNoDelay.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 5116191780720853449, guid: 96b3df0c65775554093f8fb0bc4f5e94,
+        type: 3}
+      propertyPath: ButtonPressedFirstTime.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 5340262943240174248, guid: 96b3df0c65775554093f8fb0bc4f5e94,

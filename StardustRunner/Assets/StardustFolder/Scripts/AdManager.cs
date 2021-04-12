@@ -91,7 +91,7 @@ namespace MoreMountains.InfiniteRunnerEngine
             else
             {
                 Advertisement.Banner.SetPosition(BannerPosition.TOP_CENTER);
-                Advertisement.Show(bannerAd);
+                Advertisement.Banner.Show(bannerAd);
                 Advertisement.Banner.SetPosition(BannerPosition.TOP_CENTER);
             }
         }
@@ -174,6 +174,11 @@ namespace MoreMountains.InfiniteRunnerEngine
                     AdManager.Instance.GetComponent<LevelSelector>().GoToLevel();
                     break;
             }
+        }
+
+        public void HideBanner()
+        {
+            Advertisement.Banner.Hide(true);
         }
     }
 }
