@@ -176,9 +176,10 @@ namespace MoreMountains.InfiniteRunnerEngine
             }
         }
 
-        public void HideBanner()
+        public void HideBanner() //can't remember what this for, fuck
         {
             Advertisement.Banner.Hide(true);
+            showBanner = false;
         }
     }
 }

@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using MoreMountains.Feedbacks;
 using UnityEngine.Audio;
+using UnityEngine.SceneManagement;
 
 namespace MoreMountains.InfiniteRunnerEngine
 {	
@@ -70,7 +71,9 @@ namespace MoreMountains.InfiniteRunnerEngine
 
 		public AudioMixer mainMixer;
 
-		protected AudioSource _backgroundMusic;	
+		protected AudioSource _backgroundMusic;
+
+		public AudioSource bikeAudioSource;
 
 		public List<AudioSource> _loopingSounds;
 
@@ -78,6 +81,9 @@ namespace MoreMountains.InfiniteRunnerEngine
 		{
 			MusicVolume = Settings.MusicLevel;
 			SfxVolume = Settings.SfxLevel;
+
+			if (SceneManager.GetActiveScene().name != "MainMenuScene")
+				bikeAudioSource = LevelManager.Instance.CurrentPlayableCharacters[0].GetComponent<AudioSource>();
 		}
 
 		/// <summary>
@@ -193,6 +199,7 @@ namespace MoreMountains.InfiniteRunnerEngine
 					break;
 				case "SoundEffect":
 					SfxVolume = newValue;
+					bikeAudioSource.volume = newValue*0.1f;
 					break;
 			}
 			Settings.MusicLevel = MusicVolume;

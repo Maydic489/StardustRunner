@@ -11,6 +11,7 @@ namespace MoreMountains.InfiniteRunnerEngine
 		public bool isGround;
 		public bool isBreakable;
 		public bool isWeak;
+		public bool isBlowable;
 		public char whatLane; //l,m,r for one lane object, n for hurt object, k for kill object with no specific lane
 		private bool isBreak;
 		[SerializeField]
